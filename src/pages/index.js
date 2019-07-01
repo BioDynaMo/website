@@ -5,14 +5,14 @@ import PropTypes from 'prop-types'
 
 import { Icon, Box } from '../components/common'
 import { Layout } from '../components/common/layout'
-import { HomeHeader, HomeAPIBox, HomeFAQLink } from '../components/home'
+import { Carousel, HomeHeader, HomeAPIBox, HomeFAQLink } from '../components/home'
 import { Spirit } from '../styles/spirit-styles'
 import { MetaData, getMetaImageUrls } from '../components/common/meta'
 
 const HomePage = ({ data, location }) => {
     // Add meta title and description for this page here to overwrite the site meta data as set in the config
-    const title = `Ghost Docs`
-    const description = `Get familiar with Ghost - the open source professional publishing platform.  Install guides, tutorials, API docs and FAQs.`
+    const title = `BioDynaMo`
+    const description = `Get familiar with BioDynaMo - the open source biology dynamics modeller.  Install guides, tutorials, API docs and FAQs.`
     const imageUrl = getMetaImageUrls()
 
     return (
@@ -32,6 +32,9 @@ const HomePage = ({ data, location }) => {
                 header={<HomeHeader />}
             >
                 <div className="pt-vw3 home-main-box-padding-ns">
+                  <div class={`${Spirit.page.xl} carousel-div`}>
+                    <Carousel />
+                  </div>
                     <div className={`${Spirit.page.xl} grid-12 gutter-row-20 gutter-40-ns`}>
 
                         <section className="col-12 col-6-ns flex flex-column justify-between mt4 mt0-ns">
