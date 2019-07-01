@@ -19,7 +19,7 @@
     "test": "NODE_ENV=testing mocha -- $(find test -name '*.test.js') && yarn test:e2e:ci",
     "preship": "yarn test",
     "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; fi",
-    "master": "git pull -r origin master --autostash && cd content/api/v2 && git pull -r origin master --autostash && cd ../../../ && yarn"
+    "master": "git pull -r origin master --autostash && cd content/bdm && git pull -r origin master --autostash && cd ../../../ && yarn"
   },
   "devDependencies": {
     "@testing-library/cypress": "4.0.2",
