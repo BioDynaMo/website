@@ -12,21 +12,20 @@
 #
 # -----------------------------------------------------------------------------
 
-FROM ubuntu:18.04
+FROM ubuntu:16.04
 
 RUN apt update && apt install -y \
   sudo \
   git \
   build-essential \
   curl \
-  software-properties-common
+  software-properties-common \
+  apt-transport-https
 
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash
 
-# lsb-release and lsb-core required to determine operating system
-# man required by ROOT
 RUN apt update && apt install -y \
   nodejs \
   yarn
