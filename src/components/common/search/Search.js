@@ -21,7 +21,7 @@ const HitTemplate = ({ hit }) => {
     // out again if the search result is on the current site, so we can determine
     // if we use Gatsby Link or standard <a> tag.
     // TODO: remove this again, once the move to G3 is fully completed
-    const siteUrl = `^${process.env.SITE_URL || `https://docs.ghost.org`}`
+    const siteUrl = `^${process.env.SITE_URL || `https://github.com/BioDynaMo/website`}`
     const siteUrlRegex = new RegExp(siteUrl)
 
     if (hit.url.match(siteUrlRegex)) {
