@@ -71,7 +71,7 @@ requests.push(api.pages
     .catch(err => handleError('Page "about"', err))
 );
 
-// Generate page example with tags anda uthors
+// Generate page example with tags and authors
 requests.push(api.pages
     .read({ slug: 'about', include: 'tags,authors'})
     .then(res => writeFileFromResponse(res, 'pages', 'pages-with-tags-authors'))

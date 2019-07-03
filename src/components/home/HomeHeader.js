@@ -18,27 +18,27 @@ const HomeHeader = () => (
 
             <section className="grid-12 gutter-row-20 gutter-36-ns mt10 mt20-ns mt25-l miw-100 miw-auto-ns home-main-box-margin-ns z-999">
                 <HomeHeaderBox
-                    to="/concepts/introduction/"
-                    title="Core Concepts"
-                    icon="blocks"
-                    color="purple"
+                    to="/userguide/"
+                    title="User Guide"
+                    icon="typing"
+                    color="tutorial-green"
                 >
                     Understand the fundamentals of BioDynaMo.
                 </HomeHeaderBox>
 
                 <HomeHeaderBox
-                    to="/setup/"
+                    to="/biodynamo/doc/user_guide/docs/installation/"
                     title="Installation Guide"
-                    icon="rocket"
-                    color="blue"
+                    icon="blocks"
+                    color="tutorial-green"
                 >
                     Installing BioDynaMo on your own system.
                 </HomeHeaderBox>
 
                 <HomeHeaderBox
-                    to="https://docs.ghost.org/tutorials/"
+                    to="/biodynamo/doc/user_guide/docs/first_steps/"
                     title="Tutorials"
-                    icon="typing"
+                    icon="rocket"
                     color="tutorial-green"
                 >
                     Browse tutorials and learn how to use BioDynaMo for your own use case.

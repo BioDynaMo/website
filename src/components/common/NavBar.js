@@ -28,20 +28,20 @@ const NavBar = ({ theme }) => {
     return (
         <nav className={`${Spirit.page.xl} flex flex-auto flex-nowrap items-center justify-between pt2 pb2`} data-cy="header-navigation">
             <div className="flex items-center pt3 pb3 nudge-bottom--2 w-sidebar-l pr8">
-                <a href="https://ghost.org" className="nudge-top--3">
+                <a href="/" className="nudge-top--3"> 
+                {/* This is where you set the logo "ghost icon" link */} 
                     <Logo theme={theme} />
                 </a>
-                <a href="https://ghost.org/docs/" className={`${themeClasses[theme].docsTitleClass} gh-nav-logo-suffix relative ma0 ml4 pa0 pl4 f6 lh-1-5 fw4 link nudge-top--1`}>Docs</a>
+                <a href="/" className={`${themeClasses[theme].docsTitleClass} gh-nav-logo-suffix relative ma0 ml4 pa0 pl4 f6 lh-1-5 fw4 link nudge-top--1`}>Home</a>
             </div>
             {/* navbar-container wrapper element and bottom padding is needed to hide the horizontal scrollbar on smaller screensizes */}
             <div className="navbar-container">
                 <div className="dn flex-ns flex-auto items-center overflow-x-auto mr12 mr0-l ml5 ml0-l pb20">
-                    <Link to="/concepts/introduction/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l nl3`}>Concepts</Link>
-                    <Link to="/setup/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Install</Link>
-                    <a href="https://ghost.org/tutorials/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Tutorials</a>
-                    <a href="https://ghost.org/integrations/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Integrations</a>
-                    <Link to="/api/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>API Reference</Link>
-                    <a href="https://ghost.org/faq/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>FAQ</a>
+            {/* Create nav bar links and choose their names */}
+                    <Link to="/userguide/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l nl3`}>User Guide</Link>
+                    <Link to="/biodynamo/doc/user_guide/docs/installation/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Installation</Link>
+                    <Link to="/biodynamo/doc/user_guide/docs/first_steps/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Tutorials</Link>
+                    <a href="/src/pages/404/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>FAQ</a>
                 </div>
             </div>
             <div className="relative pl3">
