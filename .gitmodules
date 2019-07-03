@@ -1,4 +1,4 @@
 [submodule "content/biodynamo"]
 	path = content/biodynamo
 	url = https://github.com/BioDynaMo/biodynamo
-	branch = master
+	branch = web-updates
