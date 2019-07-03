@@ -1,13 +1,12 @@
 - groups:
-  - items: 
-    - title: Welcome
-      link: /biodynamo/doc/user_guide/docs/index/
-  - items: 
-    - title: Installation
-      link: /biodynamo/doc/user_guide/docs/installation/
-  - items: 
-    - title: First Steps
-      link: /biodynamo/doc/user_guide/docs/first_steps/
+  - group: Welcome
+    items: 
+      - title: Introduction
+        link: /biodynamo/doc/user_guide/docs/
+      - title: Installation
+        link: /biodynamo/doc/user_guide/docs/installation/ 
+      - title: First Steps
+        link: /biodynamo/doc/user_guide/docs/first_steps/
   - group: Tutorials
     items:
       - title: Hello World
@@ -36,9 +35,11 @@
     items:
       - title: OpenGL
         link: /biodynamo/doc/user_guide/docs/opengl_issues/
-  - items: 
-    - title: Changelog
-      link: /biodynamo/doc/user_guide/docs/changelog/
-  - items:
-    - title: Contact
-      link: /biodynamo/doc/user_guide/docs/contact/
+  - group: Changelog 
+    items: 
+      - title:
+        link: /biodynamo/doc/user_guide/docs/changelog/
+  - group: Contact
+    items:
+      - title:
+        link: /biodynamo/doc/user_guide/docs/contact/
