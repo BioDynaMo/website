@@ -1,0 +1,44 @@
+- groups:
+  - items: 
+    - title: Welcome
+      link: /biodynamo/doc/user_guide/docs/index/
+  - items: 
+    - title: Installation
+      link: /biodynamo/doc/user_guide/docs/installation/
+  - items: 
+    - title: First Steps
+      link: /biodynamo/doc/user_guide/docs/first_steps/
+  - group: Tutorials
+    items:
+      - title: Hello World
+        link: /biodynamo/doc/user_guide/docs/hello_world/
+      - title: Visualization
+        link: /biodynamo/doc/user_guide/docs/visualization/
+      - title: Diffusion
+        link: /biodynamo/doc/user_guide/docs/diffusion/
+      - title: Tumor Concept 
+        link: /biodynamo/doc/user_guide/docs/tumor_concept/
+  - group: Documentation
+    items:
+      - title: Parameter
+        link: /biodynamo/doc/user_guide/docs/parameter/
+      - title: Event
+        link: /biodynamo/doc/user_guide/docs/event/
+      - title: Math Array
+        link: /biodynamo/doc/user_guide/docs/math_array/
+      - title: Operation
+        link: /biodynamo/doc/user_guide/docs/operation/
+      - title: Substance Initialization
+        link: /biodynamo/doc/user_guide/docs/substance_initialization/
+      - title: GPU Acceleration
+        link: /biodynamo/doc/user_guide/docs/gpu_acceleration/
+  - group: Troubleshooting
+    items:
+      - title: OpenGL
+        link: /biodynamo/doc/user_guide/docs/opengl_issues/
+  - items: 
+    - title: Changelog
+      link: /biodynamo/doc/user_guide/docs/changelog/
+  - items:
+    - title: Contact
+      link: /biodynamo/doc/user_guide/docs/contact/

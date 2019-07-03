@@ -42,6 +42,7 @@ const NavBar = ({ theme }) => {
                     <Link to="/biodynamo/doc/user_guide/docs/installation/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Installation</Link>
                     <Link to="/biodynamo/doc/user_guide/docs/first_steps/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Tutorials</Link>
                     <a href="/src/pages/404/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>FAQ</a>
+                    <a href="/biodynamo/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Trial</a>
                 </div>
             </div>
             <div className="relative pl3">

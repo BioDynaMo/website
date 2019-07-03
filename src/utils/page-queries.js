@@ -27,7 +27,6 @@ export const markdownFields = graphql`
             }
             sidebar
             toc
-            keywords
         }
         html
         fields {
@@ -38,3 +37,5 @@ export const markdownFields = graphql`
         fileAbsolutePath
     }
 `
+
+<!--keywords was previously underneath toc-->
