@@ -82,8 +82,4 @@ yarn-error.log
 test/cypress/screenshots
 test/cypress/videos
 
-<<<<<<< HEAD
 content/apiguide
-=======
-content/apiguide
->>>>>>> 52f76847beebbb6d4de745103fca046cb809b3d2
