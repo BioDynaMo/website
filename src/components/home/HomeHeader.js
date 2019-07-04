@@ -20,7 +20,7 @@ const HomeHeader = () => (
                 <HomeHeaderBox
                     to="/biodynamo/doc/user_guide/docs/"
                     title="User Guide"
-                    icon="book1"
+                    icon="book-open-solid"
                     color="tutorial-green"
                 >
                     Understand the fundamentals of BioDynaMo.
@@ -29,16 +29,16 @@ const HomeHeader = () => (
                 <HomeHeaderBox
                     to="/biodynamo/doc/user_guide/docs/installation/"
                     title="Installation Guide"
-                    icon="arrow2-down"
+                    icon="download-solid"
                     color="tutorial-green"
                 >
-                    Installing BioDynaMo on your own system.
+                    Install BioDynaMo on your own system.
                 </HomeHeaderBox>
 
                 <HomeHeaderBox
                     to="/biodynamo/doc/user_guide/docs/hello_world/"
                     title="Tutorials"
-                    icon="typing"
+                    icon="laptop-code-solid"
                     color="tutorial-green"
                 >
                     Browse tutorials and learn how to use BioDynaMo for your own use case.

@@ -1,5 +1,5 @@
 const url = require(`url`)
-const siteUrl = process.env.SITE_URL || `https://docs.ghost.org`
+const siteUrl = process.env.SITE_URL || `/biodynamo/`
 
 const convertToAbsoluteUrl = path => url.resolve(siteUrl, path)
 

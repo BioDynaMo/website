@@ -175,9 +175,9 @@ if (SERVICE_WORKER_KILL_SWITCH) {
 
 module.exports = {
     siteMetadata: {
-        title: `Ghost Docs`,
-        siteUrl: process.env.SITE_URL || `https://docs.ghost.org`,
-        description: `Everything you need to know about working with the Ghost professional publishing platform.`,
+        title: `BioDynaMO Website`,
+        siteUrl: process.env.SITE_URL || `/biodynamo/`,
+        description: `Everything you need to know about biology simulations.`,
     },
     plugins: plugins,
 }

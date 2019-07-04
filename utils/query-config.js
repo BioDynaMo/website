@@ -1,13 +1,13 @@
 const markdownQueryConfig = [
     {
-        section: `concepts`,
-        indexName: `concept`,
-        niceName: `Concepts`,
+        section: `userguide`,
+        indexName: `userguide`,
+        niceName: `User Guide`,
     },
     {
-        section: `setup`,
-        indexName: `setup`,
-        niceName: `Setup Guide`,
+        section: `devguide`,
+        indexName: `devguide`,
+        niceName: `Dev Guide`,
     },
     {
         section: `api`,
@@ -17,7 +17,7 @@ const markdownQueryConfig = [
 ]
 
 module.exports = {
-    defaultMarkdownSection: `setup`,
+    defaultMarkdownSection: `userguide`,
     markdownQueryConfig,
     searchConfig: markdownQueryConfig
         .reduce((acc, { indexName, niceName }) => {
