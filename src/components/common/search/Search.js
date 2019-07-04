@@ -21,7 +21,7 @@ const HitTemplate = ({ hit }) => {
     // out again if the search result is on the current site, so we can determine
     // if we use Gatsby Link or standard <a> tag.
     // TODO: remove this again, once the move to G3 is fully completed
-    const siteUrl = `^${process.env.SITE_URL || `/biodynamo/`}`
+    const siteUrl = `^${process.env.SITE_URL || `/`}`
     const siteUrlRegex = new RegExp(siteUrl)
 
     if (hit.url.match(siteUrlRegex)) {
@@ -101,21 +101,14 @@ class Results extends React.Component {
 
     renderSectionTitle({ index }) {
         // TODO: handle this with query-config
-        searchConfig.marketplace = `Marketplace`
-        searchConfig.blog = `Blog`
-        searchConfig.faq = `FAQ`
-        searchConfig.tutorial = `Tutorials`
-        searchConfig.integration = `Integrations`
+        searchConfig.userguide = `User Guide`
+        searchConfig.devguide = `Dev Guide`
+        searchConfig.apidoc = `API Documentation`
 
         const labelClass = {
-            faq: `faq-color b--faq-color`,
-            concept: `concept-color b--concept-color`,
-            setup: `setup-color b--setup-color`,
-            api: `middarkgrey b--middarkgrey`,
-            tutorial: `tutorial-color b--tutorial-color`,
-            integration: `integration-color b--integration-color`,
-            blog: `concept-color b--concept-color`,
-            marketplace: `setup-color b--setup-color`,
+            devguide: `concept-color b--concept-color`,
+            apidoc: `middarkgrey b--middarkgrey`,
+            userguide: `tutorial-color b--tutorial-color`,
         }
 
         return <span className={`br-pill bg-white ba pa1 pl2 pr2 nowrap ${labelClass[index] || `midgrey b--midgrey`}`}>{searchConfig[index]}</span>
@@ -165,14 +158,9 @@ class Results extends React.Component {
                     renderSectionTitle={this.renderSectionTitle}
                     getSectionSuggestions={this.getSectionSuggestions}
                 />
-                <Index indexName="faq" />
-                <Index indexName="concept" />
-                <Index indexName="setup" />
-                <Index indexName="api" />
-                <Index indexName="tutorial" />
-                <Index indexName="integration" />
-                <Index indexName="blog" />
-                <Index indexName="marketplace" />
+                <Index indexName="apidoc" />
+                <Index indexName="userguide" />
+                <Index indexName="devguide" />
             </>
         )
     }

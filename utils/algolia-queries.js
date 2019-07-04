@@ -43,7 +43,7 @@ const mdQueries = markdownQueryConfig.map(({ section, indexName }) => {
     }
 })
 
-// Uncomment these for testing, to temporarily only do this for a small number of posts
+//Uncomment these for testing, to temporarily only do this for a small number of posts
 // let testQueryArr = [{
 //     query: `
 //     {
@@ -61,7 +61,7 @@ const mdQueries = markdownQueryConfig.map(({ section, indexName }) => {
 //         }
 //     }
 //     `,
-//     indexName: `setup`,
+//     indexName: `userguide`,
 //     transformer: ({ data }) => data
 //         .allMarkdownRemark.edges
 //         .map(mdNodeMap)
@@ -69,8 +69,8 @@ const mdQueries = markdownQueryConfig.map(({ section, indexName }) => {
 // }]
 
 // module.exports = testQueryArr
-// module.exports = [ghostQueries[1]]
-// module.exports = [mdQueries[1]]
+//module.exports = [ghostQueries[1]]
+//module.exports = [mdQueries[1]]
 
 // The REAL DEAL
 module.exports = mdQueries

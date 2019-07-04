@@ -176,7 +176,7 @@ if (SERVICE_WORKER_KILL_SWITCH) {
 module.exports = {
     siteMetadata: {
         title: `BioDynaMO Website`,
-        siteUrl: process.env.SITE_URL || `/biodynamo/`,
+        siteUrl: process.env.SITE_URL || `/`,
         description: `Everything you need to know about biology simulations.`,
     },
     plugins: plugins,

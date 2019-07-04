@@ -71,6 +71,7 @@ export const getPostHeaderConfig = ({ pathname }) => {
         postHeaderConfig.bgClass = `bg-concepts`
     }
 
+    // Dev Guide
     if (pathname.match(/^\/biodynamo\/doc\/dev_guide\//i)) {
         postHeaderConfig.title = `Dev Guide`
         postHeaderConfig.mainLink = `/devguide/`

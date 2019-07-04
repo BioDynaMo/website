@@ -4,7 +4,7 @@ const _ = require(`lodash`)
 const NUMBER_RELATED_POSTS = 5
 
 // The minimum of tags the posts have in common
-const MIN_TAGS_IN_COMMON = 2
+const MIN_TAGS_IN_COMMON = 1
 
 const sortByDateDescending = (a, b) => {
     const aPublishedAt = (new Date(a.node.published_at)).getTime()

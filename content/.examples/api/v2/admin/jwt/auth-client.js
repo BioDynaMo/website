@@ -3,7 +3,7 @@ const GhostAdminAPI = require('@tryghost/admin-api');
 
 // Configure the client
 const api = new GhostAdminAPI({
-    url: 'http://localhost:2368/',
+    url: 'http://localhost:8000/', //used to be 2368 instead of 8000
     // Admin API key goes here
     key: 'YOUR_ADMIN_API_KEY',
     version: 'v2'
