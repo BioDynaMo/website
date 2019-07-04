@@ -64,10 +64,16 @@ export const getPostHeaderConfig = ({ pathname }) => {
     //     }
     // }
 
-    // Core Concepts
-    if (pathname.match(/^\/userguide\//i)) {
+    // User Guide
+    if (pathname.match(/^\/biodynamo\/doc\/user_guide\//i)) {
         postHeaderConfig.title = `User Guide`
         postHeaderConfig.mainLink = `/userguide/`
+        postHeaderConfig.bgClass = `bg-concepts`
+    }
+
+    if (pathname.match(/^\/biodynamo\/doc\/dev_guide\//i)) {
+        postHeaderConfig.title = `Dev Guide`
+        postHeaderConfig.mainLink = `/devguide/`
         postHeaderConfig.bgClass = `bg-concepts`
     }
 

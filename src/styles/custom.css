@@ -126,15 +126,6 @@ kbd {
 @media (--breakpoint-medium) { .h0-m { height: 0; } }
 @media (--breakpoint-large) { .h0-l { height: 0; } }
 
-h3norm {
-  display: block;
-  font-size: 1.17em;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 0;
-  margin-right: 0;
-  font-weight: bold;
-}
 /* Start slick-carousel part */
 /*h3 {
   background: #00558B;
@@ -427,6 +418,7 @@ h3norm {
 
 .gh-nav-logo-suffix-light:before {
     color: #FFFFFF!important;
+    background-color: transparent;
 }
 
 .searchfield-width {
@@ -613,9 +605,10 @@ h3norm {
 /* Home */
 /* ----------------------------------------------------------------------- */
 .gh-bg-home {
-    /* background: url(../images/bg-home.svg) no-repeat, radial-gradient(ellipse at top, rgba(252,253,255,1) 0%,rgba(228,233,245,1) 100%); */
-    /* background: url(../images/bg-home.svg) no-repeat, linear-gradient(60deg, rgba(75, 55, 172, 1) 0%, rgba(99, 199, 193, 1) 100%);; */
+    /*background: url(../images/bg-home.svg) no-repeat, radial-gradient(ellipse at top, rgba(252,253,255,1) 0%,rgba(228,233,245,1) 100%);*/
+    /*background: url(../images/bg-home.svg) no-repeat, linear-gradient(60deg, rgb(19, 126, 5) 0%, rgba(28, 197, 2, 0.698) 100%); */
     background: url(../images/bg-home.svg) no-repeat, linear-gradient(60deg, rgb(19, 126, 5) 0%, rgba(28, 197, 2, 0.698) 100%);
+    /* (60deg, rgba(75, 55, 172, 1) 0%, rgba(99, 199, 193, 1) 100%) */
     background-size: cover;
 }
 
@@ -858,7 +851,9 @@ h3norm {
 /* Core Concepts */
 /* ----------------------------------------------------------------------- */
 .bg-concepts {
-    background: url(../images/bg-concepts.svg) bottom center no-repeat, linear-gradient(60deg, #6B23AE 0%, #C86DD7 100%);
+    background: url(../images/bg-concepts.svg) bottom center no-repeat, linear-gradient(60deg, rgb(19, 126, 5) 0%, rgba(28, 197, 2, 0.698) 100%);
+    /*no-repeat, linear-gradient(60deg, rgb(19, 126, 5) 0%, rgba(28, 197, 2, 0.698) 100%) */
+    /* linear-gradient(60deg, #6B23AE 0%, #C86DD7 100%)*/
 }
 
 .concept-color {
