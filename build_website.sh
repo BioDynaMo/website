@@ -6,6 +6,13 @@ SCRIPT_PATH=$(readlink -e $(dirname "${BASH_SOURCE[0]}"))
 
 git submodule update --init
 
+# download temporary API guide
+pushd $SCRIPT_PATH/content/apiguide
+wget http://cern.ch/biodynamo-lfs/tmp-api-doc.tar.gz
+tar -xzf tmp-api-doc.tar.gz
+popd
+
+
 pushd $SCRIPT_PATH/docker
 sudo docker build --network=host \
   --build-arg HOST_UID=$(id -u `whoami`) \
