@@ -37,9 +37,9 @@
         link: /biodynamo/doc/user_guide/docs/opengl_issues/
   - group: Changelog 
     items: 
-      - title:
+      - title: Log
         link: /biodynamo/doc/user_guide/docs/changelog/
   - group: Contact
     items:
-      - title:
+      - title: Info
         link: /biodynamo/doc/user_guide/docs/contact/

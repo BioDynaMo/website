@@ -40,7 +40,7 @@ const NavBar = ({ theme }) => {
             {/* Create nav bar links and choose their names */}
                     <Link to="/biodynamo/doc/user_guide/docs/installation/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Installation</Link>
                     <Link to="/biodynamo/doc/user_guide/docs/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l nl3`}>User Guide</Link>
-                    <a href="/src/pages/404/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Dev Guide</a>
+                    <a href="/biodynamo/doc/dev_guide/docs/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Dev Guide</a>
                     <Link to="/biodynamo/doc/user_guide/docs/hello_world/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Tutorials</Link>
                     <a href="/src/pages/404/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>FAQ</a>
                 </div>
