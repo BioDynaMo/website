@@ -28,7 +28,7 @@
       - title: Operation
         link: /biodynamo/doc/user_guide/docs/operation/
       - title: Substance Initialization
-        link: /biodynamo/doc/user_guide/docs/substance_initialization/
+        link: /biodynamo/doc/user_guide/docs/substance_initializers/
       - title: GPU Acceleration
         link: /biodynamo/doc/user_guide/docs/gpu_acceleration/
   - group: Troubleshooting
