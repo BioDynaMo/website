@@ -14,6 +14,7 @@ const HomeHeader = () => (
         </header>
         <div className={`${Spirit.page.xl} pb5 pt10 pt15-ns pt20-l pb10-ns pb15-l flex flex-column items-center bt bn-ns b--white-10`}>
             <h1 className="ma0 pa0 f2 f1-ns f-headline-l white header-heading-shadow">BioDynaMo</h1>
+            <h2 className="white header-heading-shadow">Get familiar with BioDynaMo - the open source biology dynamics modeller.</h2>
             <SearchModal isHome />
 
             <section className="grid-12 gutter-row-20 gutter-36-ns mt10 mt20-ns mt25-l miw-100 miw-auto-ns home-main-box-margin-ns z-999">
