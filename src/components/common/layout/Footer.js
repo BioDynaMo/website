@@ -22,7 +22,7 @@ const Footer = () => (
             <a href="/biodynamo/doc/user_guide/docs/" className="db col-12 col-6-ns pr2 pr20-ns pt18 pt7-ns pb7 pl2 pl30-ns bt b--whitegrey bn-ns relative tdn dark-h4-hover">
                 <Icon name="chat-double-bubble" className="absolute top-6 top-10-ns left-2 left-10-ns w10 w13-ns h-auto fill-purple" />
                 <h4 className={`${Spirit.h4} darkgrey`}>Looking for help or advice?</h4>
-                <p className={`${Spirit.small} midgrey mt1`}>Join the <strong>BioDynaMo community</strong>  and meet thousands of other professional users now</p>
+                <p className={`${Spirit.small} midgrey mt1`}>Join the <strong>BioDynaMo community</strong>  and meet thousands of other professional users now.</p>
             </a>
 
         </section>
@@ -32,14 +32,14 @@ const Footer = () => (
             <div className="bt b--whitegrey flex justify-between items-center pt4">
                 <ul className="flex list pa0 ma0 items-center">
                     <li className={listItemClass}><a href="/" className="dib pt2 mr6"><Logo /></a></li>
-                    <li className={`${listItemClass} dn db-l`}><a href="/" className={linkClass}>Home</a></li>
-                    <li className={`${listItemClass} dn db-l`}><a href="/" className={linkClass}>Forum</a></li>
-                    <li className={`${listItemClass} dn db-l`}><a href="/" className={linkClass}>Status</a></li>
-                    <li className={`${listItemClass} dn db-l`}><a href="/" className={linkClass}>@TryBioDynaMo</a></li>
+                    <li className={`${listItemClass} dn db-l`}><a href="/biodynamo/doc/user_guide/docs/parameter/" className={linkClass}>Documentation</a></li>
+                    <li className={`${listItemClass} dn db-l`}><a href="/biodynamo/doc/user_guide/docs/changelog/" className={linkClass}>Changelog</a></li>
+                    <li className={`${listItemClass} dn db-l`}><a href="/biodynamo/doc/dev_guide/docs/contribute/" className={linkClass}>Contribute</a></li>
+                    <li className={`${listItemClass} dn db-l`}><a href="/biodynamo/doc/user_guide/docs/contact/" className={linkClass}>Contact</a></li>
                 </ul>
 
                 <ul className="flex list pa0 ma0 items-center">
-                    <li className={listItemClass}><a href="/" className="link pa2 midgrey hover-blue dib mr0">BioDynaMo.org</a></li>
+                    <li className={listItemClass}><a href="/" className="link pa2 midgrey hover-blue dib mr0">BioDynaMo</a></li>
                 </ul>
             </div>
 

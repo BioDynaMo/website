@@ -35,7 +35,11 @@ const HomePage = ({ data, location }) => {
                   <div class={`${Spirit.page.xl} carousel-div`}>
                     <Carousel />
                   </div>
-                    <div className={`${Spirit.page.xl} grid-12 gutter-row-20 gutter-40-ns`}>
+                    
+                </div>
+            </Layout>
+        <
+/*<div className={`${Spirit.page.xl} grid-12 gutter-row-20 gutter-40-ns`}>
 
                         <section className="col-12 col-6-ns flex flex-column justify-between mt4 mt0-ns">
                             <Link to="/api/" className={`${Spirit.h3} link darkgrey hover-midgrey flex-grow-0`}>API Reference</Link>
@@ -128,9 +132,8 @@ const HomePage = ({ data, location }) => {
                             </Box>
                         </div>
                     </section>
-                </div>
-            </Layout>
-        </>
+This whole section is for API Reference box and FAQ box on home page (it goes between the two </div>) */
+        />
     )
 }
 
