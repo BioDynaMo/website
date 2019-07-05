@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
 import { MetaData, getMetaImageUrls } from '../components/common/meta'
+import { Layout } from '../components/common/layout'
 
 const ApiDocPage = ({data,location}) => {
 	const title = `API Reference`
@@ -17,8 +18,9 @@ const ApiDocPage = ({data,location}) => {
 				title={title}
 				description={description}
 			/>
-	    	<iframe src="https://biodynamo.github.io/api/index.html" width="100%" height="1000"></iframe>
-
+			<Layout>
+	    	<iframe src="https://biodynamo.github.io/api/index.html" width="100%" height="1500"></iframe>
+	    	</Layout>
 	    </>
 	)
 }
