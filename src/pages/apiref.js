@@ -19,7 +19,7 @@ const ApiDocPage = ({data,location}) => {
 				description={description}
 			/>
 			<Layout>
-	    	<iframe src="https://biodynamo.github.io/api/index.html" width="100%" height="1500"></iframe>
+	    	<iframe src="/apiguide/" width="100%" height="1500"></iframe>
 	    	</Layout>
 	    </>
 	)

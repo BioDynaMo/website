@@ -7,9 +7,9 @@ import {
 
 const SearchWrapper = ({ children }) => (
     <InstantSearch
-        appId="6RCFK5TOI5"
-        apiKey="521c444a09acd62368618fce7f15dafa"
-        indexName="User Guide"
+        appId="GKTDL3T2PT"
+        apiKey="d74e5e7d3beff8df95195da245c2d829"
+        indexName="bio"
     >
         <Configure attributesToSnippet="html" />
         {children}

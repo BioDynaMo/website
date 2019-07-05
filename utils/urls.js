@@ -11,7 +11,7 @@ module.exports.urlForMarkdown = (node, fallback, absolute) => {
 
     // Remove the version slug from the latest API version docs
     // TODO: use env config to add latest API version
-    if (slug.match(/\/api\/v2\/\S*/i)) {
+    if (slug.match(/\/biodynamo\/v2\/\S*/i)) {
         slug = slug.replace(/\/v2/, ``)
     }
 
