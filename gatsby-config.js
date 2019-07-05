@@ -62,7 +62,7 @@ const plugins = [
                 `gatsby-remark-code-titles`,
                 `gatsby-remark-prismjs`,
                 `gatsby-remark-external-links`,
-                `gatsby-remrk-responsive-iframe`,
+                `gatsby-remark-responsive-iframe`,
             ],
         },
     },
