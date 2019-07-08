@@ -82,4 +82,4 @@ yarn-error.log
 test/cypress/screenshots
 test/cypress/videos
 
-static/api
+static/bioapi

@@ -5,9 +5,9 @@ import { graphql } from 'gatsby'
 import { MetaData, getMetaImageUrls } from '../components/common/meta'
 import { Layout } from '../components/common/layout'
 
-const ApiDocPage = ({data,location}) => {
-	const title = `API Reference`
-	const description = `API documentation page.`
+const AboutPage = ({data,location}) => {
+	const title = `About BioDynaMo`
+	const description = `Short description of what BioDynaMo is.`
 
 	return (
 		<>
@@ -19,13 +19,13 @@ const ApiDocPage = ({data,location}) => {
 				description={description}
 			/>
 			<Layout>
-	    	<iframe src="/bioapi/index.html" width="100%" height="1500"></iframe>
+	    	
 	    	</Layout>
 	    </>
 	)
 }
 
-ApiDocPage.propTypes = {
+AboutPage.propTypes = {
     data: PropTypes.shape({
         site: PropTypes.shape({
             siteMetadata: PropTypes.shape({
@@ -40,7 +40,7 @@ ApiDocPage.propTypes = {
     }).isRequired,
 }
 
-export default ApiDocPage
+export default AboutPage
 
 export const pageQuery = graphql`
     query {

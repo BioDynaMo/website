@@ -63,6 +63,7 @@
     "gatsby-plugin-react-svg": "2.1.1",
     "gatsby-plugin-remove-serviceworker": "1.0.0",
     "gatsby-plugin-sharp": "2.1.6",
+    "gatsby-plugin-static-folders": "^1.0.1",
     "gatsby-remark-autolink-headers": "2.0.18",
     "gatsby-remark-code-titles": "1.1.0",
     "gatsby-remark-embed-snippet": "4.0.0",
@@ -89,3 +90,4 @@
     "yarn": "^1.16.0"
   }
 }
+

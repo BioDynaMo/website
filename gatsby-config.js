@@ -38,6 +38,13 @@ const plugins = [
             name: `images`,
         },
     },
+    {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+            path: path.join(__dirname, `static/bioapi`),
+            name: `bioapi`,
+        },
+    },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
@@ -67,7 +74,23 @@ const plugins = [
         },
     },
     `gatsby-transformer-yaml`,
-    `gatsby-plugin-catch-links`,
+    `gatsby-plugin-catch-links`, 
+    // {
+    //     resolve: 'gatsby-plugin-express',
+    //     options: {
+    //       output: 'config/gatsby-express.json',
+    //     }
+    // },
+    // {
+    //     resolve: `gatsby-plugin-static-folders`,
+    //     options: {
+    //         folders: [
+    //           `./images`,
+    //           `./downloads`,
+    //           `./bioapi`,
+    //         ]
+    //     }
+    // },
     /**
      *  Utility Plugins
      */
@@ -149,6 +172,19 @@ const plugins = [
         },
     },
 ]
+
+// var proxy = require("http-proxy-middleware")
+
+// module.exports = {
+//   developMiddleware: app => {
+//     app.use(
+//       "/bioapi",
+//       proxy({
+//         target: "http://localhost:9000/" // other server is running on port 9000
+//       })
+//     );
+//   }
+// }
 
 const runAlgoliaBuild = () => (process.env.INCOMING_HOOK_TITLE && process.env.INCOMING_HOOK_TITLE === `Algolia`) || process.env.ALGOLIA
 const hasAlgoliaKey = () => process.env.ALGOLIA_ADMIN_KEY && !process.env.ALGOLIA_ADMIN_KEY.match(/<key>/)
