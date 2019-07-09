@@ -27,7 +27,7 @@ const NavBar = ({ theme }) => {
 
     return (
         <nav className={`${Spirit.page.xl} flex flex-auto flex-nowrap items-center justify-between pt2 pb2`} data-cy="header-navigation">
-            <div className="flex items-center pt3 pb3 nudge-bottom--2 w-sidebar-l pr8">
+            <div className="flex items-start pt3 pb1 nudge-bottom--2  pr8">
                 <a href="/" className="nudge-top--3"> 
                     <Logo/>
                 </a>                
@@ -37,7 +37,6 @@ const NavBar = ({ theme }) => {
                 <div className="dn flex-ns flex-auto items-center overflow-x-auto mr12 mr0-l ml5 ml0-l pb20">
             {/* Create nav bar links and choose their names */}
                     <Link to="/biodynamo/doc/user_guide/docs/installation/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Installation</Link>
-                    <Link to="/biodynamo/doc/user_guide/docs/hello_world/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Tutorials</Link>
                     <Link to="/biodynamo/doc/user_guide/docs/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l nl3`}>User Guide</Link>
                     <a href="/biodynamo/doc/dev_guide/docs/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Dev Guide</a>
                     <a href="https://github.com/BioDynaMo/biodynamo" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Code (Github)</a>

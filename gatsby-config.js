@@ -12,11 +12,11 @@ require(`dotenv`).config({
     path: `.env.${process.env.NODE_ENV}`,
 })
 
-if (!process.env.GHOST_API_URL || !process.env.GHOST_API_KEY) {
-    throw new Error(
-        `GHOST_API_URL and GHOST_API_KEY are required to build. Check the CONTRIBUTING guide.`
-    )
-}
+// if (!process.env.GHOST_API_URL || !process.env.GHOST_API_KEY) {
+//     throw new Error(
+//         `GHOST_API_URL and GHOST_API_KEY are required to build. Check the CONTRIBUTING guide.`
+//     )
+// }
 
 const SERVICE_WORKER_KILL_SWITCH = (process.env.SERVICE_WORKER_KILL_SWITCH === `true`) || false
 
@@ -57,14 +57,14 @@ const plugins = [
                         withWebp: true,
                     },
                 },
-                {
-                    resolve: `gatsby-remark-snippets`,
-                    options: {
-                        // Example code links are relative to this dir.
-                        // eg examples/path/to/file.js
-                        directory: `${__dirname}/content/.examples/`,
-                    },
-                },
+                // {
+                //     resolve: `gatsby-remark-snippets`,
+                //     options: {
+                //         // Example code links are relative to this dir.
+                //         // eg examples/path/to/file.js
+                //         directory: `${__dirname}/content/.examples/`,
+                //     },
+                // },
                 `gatsby-remark-autolink-headers`,
                 `gatsby-remark-code-titles`,
                 `gatsby-remark-prismjs`,
@@ -75,22 +75,7 @@ const plugins = [
     },
     `gatsby-transformer-yaml`,
     `gatsby-plugin-catch-links`, 
-    // {
-    //     resolve: 'gatsby-plugin-express',
-    //     options: {
-    //       output: 'config/gatsby-express.json',
-    //     }
-    // },
-    // {
-    //     resolve: `gatsby-plugin-static-folders`,
-    //     options: {
-    //         folders: [
-    //           `./images`,
-    //           `./downloads`,
-    //           `./bioapi`,
-    //         ]
-    //     }
-    // },
+
     /**
      *  Utility Plugins
      */

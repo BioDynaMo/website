@@ -7,16 +7,18 @@ import HomeHeaderBox from './HomeHeaderBox'
 
 // Custom headings must be React components. You should include the <NavBar /> component
 // somewhere in it. You can optionally set the theme of the navbar to `dark` or `light`.
+// ptXX-l is the height of the header words
+// mtXX-ns is the height of the cutoff white background and headerbox
 const HomeHeader = () => (
     <div className="gh-bg-home bb b--whitegrey">
         <header className="top-0 left-0 right-0 z-9999">
             <NavBar theme="light" />
         </header>
-        <div className={`${Spirit.page.xl} pb5 pt10 pt15-ns pt20-l pb10-ns pb15-l flex flex-column items-center bt bn-ns b--white-10`}>
+        <div className={`${Spirit.page.xl} pb5 pt10 pt15-ns pt10-l pb10-ns pb15-l flex flex-column items-center bt bn-ns b--white-10`}>
             <h1 className="ma0 pa0 f2 f1-ns f-headline-l white header-heading-shadow">BioDynaMo</h1>
             <h2 className="white header-heading-shadow">The open source biology dynamics modeller.</h2>
 
-            <section className="grid-12 gutter-row-20 gutter-36-ns mt10 mt20-ns mt20 miw-100 miw-auto-ns home-main-box-margin-ns z-999">
+            <section className="grid-12 gutter-row-20 gutter-36-ns mt10 mt8-ns mt20 miw-100 miw-auto-ns home-main-box-margin-ns z-999">
 
                 <HomeHeaderBox
                     to="/biodynamo/doc/user_guide/docs/installation/"

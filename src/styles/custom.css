@@ -397,7 +397,7 @@ teampic {
 .navbar-container {
     flex: 1 1 auto;
     overflow: hidden;
-    height: 38px;
+    height: 25px;
 }
 
 .grid-icon-boxes {
