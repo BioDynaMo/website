@@ -8,6 +8,8 @@ import { Layout } from '../components/common/layout'
 import { Spirit } from '../styles/spirit-styles'
 import { MetaData, getMetaImageUrls } from '../components/common/meta'
 import { SetupBox } from '../components/setup'
+//import {TeamPics} from '../components/common/team/TeamPics'
+
 
 const TeamPage = ({data, location}) => {
 
@@ -33,7 +35,9 @@ const TeamPage = ({data, location}) => {
                 <div className={`${Spirit.page.xl} mt-vw3`}>
                     <section className="grid-12 gutter-row-20 gutter-20-ns gutter-36-l">
 						<SetupBox title="Test" to="/" icon="download-solid"/>
+						
 					</section>
+					<img style="teampic" src="/favicon.png" />
 				</div>
 			</Layout>
 		</>

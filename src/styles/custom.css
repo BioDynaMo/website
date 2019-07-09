@@ -255,6 +255,10 @@ kbd {
 
 /* End slick-carousel part */
 
+teampic {
+  border-radius: 50%;
+}
+
 .mw-content {
     max-width: 76rem;
 }

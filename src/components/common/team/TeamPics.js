@@ -1,26 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
+import '../styles/custom.css'
 
-const TeamPics = ({}) => {
+// const TeamPics = () => (
 
-	const elevationNum
-}
+// 	<img style={teampic} src="/favicon.png"/>
+// );
 
-TeamPics.defaultProps = {
-    elevation: `2`,
-    radius: `3`,
-    onWhite: false,
-}
-
-TeamPics.propTypes = {
-    children: PropTypes.node.isRequired,
-    to: PropTypes.string,
-    href: PropTypes.string,
-    elevation: PropTypes.string,
-    radius: PropTypes.string,
-    onWhite: PropTypes.bool,
-    className: PropTypes.string,
-}
-
-export default TeamPics
+// export default TeamPics
