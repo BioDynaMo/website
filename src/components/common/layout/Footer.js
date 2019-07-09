@@ -23,7 +23,8 @@ const Footer = () => (
                     <li className={`${listItemClass} dn db-l`}><a href="/biodynamo/doc/user_guide/docs/changelog/" className={linkClass}>Changelog</a></li>
                     <li className={`${listItemClass} dn db-l`}><a href="/biodynamo/doc/dev_guide/docs/contribute/" className={linkClass}>Contribute</a></li>
                     <li className={`${listItemClass} dn db-l`}><a href="/biodynamo/doc/user_guide/docs/contact/" className={linkClass}>Contact</a></li>
-                    <li className={`${listItemClass} dn db-l`}><a href="/about/" className={linkClass}>About Us</a></li>
+                    <li className={`${listItemClass} dn db-l`}><a href="/team/" className={linkClass}>Team</a></li>
+                    <li className={`${listItemClass} dn db-l`}><a href="/about/" className={linkClass}>About</a></li>
                 </ul>
 
                 <ul className="flex list pa0 ma0 items-center">
