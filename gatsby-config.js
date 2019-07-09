@@ -41,8 +41,8 @@ const plugins = [
     {
         resolve: `gatsby-source-filesystem`,
         options: {
-            path: path.join(__dirname, `static/bioapi`),
-            name: `bioapi`,
+            path: path.join(__dirname, `public`),
+            name: `public`,
         },
     },
     `gatsby-plugin-sharp`,

@@ -1,5 +1,5 @@
 const url = require(`url`)
-const siteUrl = process.env.SITE_URL || `/biodynamo/docs/`
+const siteUrl = process.env.SITE_URL || `/biodynamo/doc/`
 
 const convertToAbsoluteUrl = path => url.resolve(siteUrl, path)
 
@@ -11,23 +11,23 @@ module.exports.urlForMarkdown = (node, fallback, absolute) => {
 
     // Remove the version slug from the latest API version docs
     // TODO: use env config to add latest API version
-    if (slug.match(/\/biodynamo\/v2\/\S*/i)) {
-        slug = slug.replace(/\/v2/, ``)
-    }
+    // if (slug.match(/\/biodynamo\/v2\/\S*/i)) {
+    //     slug = slug.replace(/\/v2/, ``)
+    // }
 
     return absolute ? convertToAbsoluteUrl(slug) : slug
 }
 
 // Create a Gatsby-style URL for resources in Ghost. These are currently the same but they might not always be
-module.exports.urlForGhostPost = (postNode, section, absolute) => {
-    const path = `/${section}/${postNode.slug}/`
+// module.exports.urlForGhostPost = (postNode, section, absolute) => {
+//     const path = `/${section}/${postNode.slug}/`
 
-    return absolute ? convertToAbsoluteUrl(path) : path
-}
-module.exports.urlForGhostTag = (tagNode, section, absolute) => {
-    const path = `/${section}/${tagNode.slug}/`
+//     return absolute ? convertToAbsoluteUrl(path) : path
+// }
+// module.exports.urlForGhostTag = (tagNode, section, absolute) => {
+//     const path = `/${section}/${tagNode.slug}/`
 
-    return absolute ? convertToAbsoluteUrl(path) : path
-}
+//     return absolute ? convertToAbsoluteUrl(path) : path
+// }
 
-module.exports.convertToAbsoluteUrl = convertToAbsoluteUrl
+// module.exports.convertToAbsoluteUrl = convertToAbsoluteUrl

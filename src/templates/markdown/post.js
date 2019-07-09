@@ -29,6 +29,10 @@ const getGitHubLink = (absoluteFilePath) => {
             regex: /^(?:\S*\/content\/biodynamo\/doc\/user_guide\/docs\/)(\S*)/i,
             url: `https://github.com/BioDynaMo/biodynamo/tree/master/doc/user_guide/docs/`,
         },
+        {
+            regex: /^(?:\S*\/content\/biodynamo\/doc\/dev_guide\/docs\/)(\S*)/i,
+            url: `https://github.com/BioDynaMo/biodynamo/tree/master/doc/dev_guide/docs/`,
+        },
     ]
 
     // Using for...of here as we need to stop iterating as soon as we have a match

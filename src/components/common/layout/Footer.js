@@ -19,7 +19,7 @@ const Footer = () => (
                 </p>
             </a>
 
-            <a href="/biodynamo/doc/user_guide/docs/" className="db col-12 col-6-ns pr2 pr20-ns pt18 pt7-ns pb7 pl2 pl30-ns bt b--whitegrey bn-ns relative tdn dark-h4-hover">
+            <a href="/biodynamo/doc/user_guide/docs/installation/" className="db col-12 col-6-ns pr2 pr20-ns pt18 pt7-ns pb7 pl2 pl30-ns bt b--whitegrey bn-ns relative tdn dark-h4-hover">
                 <Icon name="chat-double-bubble" className="absolute top-6 top-10-ns left-2 left-10-ns w10 w13-ns h-auto fill-purple" />
                 <h4 className={`${Spirit.h4} darkgrey`}>Looking for help or advice?</h4>
                 <p className={`${Spirit.small} midgrey mt1`}>Join the <strong>BioDynaMo community</strong>  and meet thousands of other professional users now.</p>
@@ -33,10 +33,11 @@ const Footer = () => (
                 <ul className="flex list pa0 ma0 items-center">
                     <li className={listItemClass}><a href="/" className="dib pt2 mr6"><Logo /></a></li>
                     <li className={`${listItemClass} dn db-l`}><a href="/biodynamo/doc/user_guide/docs/parameter/" className={linkClass}>Documentation</a></li>
-                    <li className={`${listItemClass} dn db-l`}><a href="/apiref/" className={linkClass}>API</a></li>
+                    <li className={`${listItemClass} dn db-l`}><a href="/bioapi" className={linkClass}>API</a></li>
                     <li className={`${listItemClass} dn db-l`}><a href="/biodynamo/doc/user_guide/docs/changelog/" className={linkClass}>Changelog</a></li>
                     <li className={`${listItemClass} dn db-l`}><a href="/biodynamo/doc/dev_guide/docs/contribute/" className={linkClass}>Contribute</a></li>
                     <li className={`${listItemClass} dn db-l`}><a href="/biodynamo/doc/user_guide/docs/contact/" className={linkClass}>Contact</a></li>
+                    <li className={`${listItemClass} dn db-l`}><a href="/about/" className={linkClass}>About Us</a></li>
                 </ul>
 
                 <ul className="flex list pa0 ma0 items-center">
