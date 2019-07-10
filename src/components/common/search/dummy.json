@@ -203,3 +203,8 @@
       }
    ]
 }
+
+
+// Current query log when inspecting 
+// {"results":[{"hits":[],"page":0,"nbHits":0,"nbPages":0,"hitsPerPage":5,"exhaustiveNbHits":true,"processingTimeMS":1,"query":"hello","params":"query=hello&hitsPerPage=5&page=0&highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&attributesToSnippet=html&facets=%5B%5D&tagFilters=","index":"bio"}]}
+
