@@ -182,7 +182,7 @@ module.exports = {
                 // Attributes for custom indexing logic. See https://lunrjs.com/docs/lunr.Builder.html for details
                 fields: [
                     { name: 'title', store: true, attributes: { boost: 20 } },
-                    { name: 'content', store: true },
+                    { name: 'content' },
                     { name: 'url', store: true },
                 ],
                 // A function for filtering nodes. () => true by default

@@ -37,6 +37,7 @@ const HomePage = ({ data, location }) => {
                   </div>
                     
                 </div>
+
             </Layout>
         <
 /*<div className={`${Spirit.page.xl} grid-12 gutter-row-20 gutter-40-ns`}>
