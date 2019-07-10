@@ -255,8 +255,11 @@ kbd {
 
 /* End slick-carousel part */
 
-teampic {
+.teampic {
   border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
 }
 
 .mw-content {
@@ -1181,3 +1184,39 @@ to be custom HTML.
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: repeat(auto-fill,auto);
+  grid-row-gap: 75px;
+  grid-column-gap: 25px;
+  justify-content: space-evenly;
+  align-content: center;
+  padding: 50px;
+
+}
+
+.grid-header {
+  grid-area: header;
+  grid-column: 1 / -1;
+  justify-self: center;
+  grid-row: 1;
+}
+
+.grid-item {
+  text-align: center;
+}
+
+.grid-team-1 {
+  grid-area: team1;
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+
+.grid-team-2 {
+  grid-area: team2;
+  grid-column: 1 / -1;
+  grid-row: 4;
+}
+

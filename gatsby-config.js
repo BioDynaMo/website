@@ -79,18 +79,18 @@ const plugins = [
     /**
      *  Utility Plugins
      */
-    {
-        resolve: `gatsby-plugin-manifest`,
-        options: {
-            name: `Ghost Docs`,
-            short_name: `Ghost`,
-            start_url: `/`,
-            background_color: `#343f44`,
-            theme_color: `#343f44`,
-            display: `minimal-ui`,
-            icon: `static/favicon.png`,
-        },
-    },
+    // {
+    //     resolve: `gatsby-plugin-manifest`,
+    //     options: {
+    //         name: `Ghost Docs`,
+    //         short_name: `Ghost`,
+    //         start_url: `/`,
+    //         background_color: `#343f44`,
+    //         theme_color: `#343f44`,
+    //         display: `minimal-ui`,
+    //         icon: `static/favicon.png`,
+    //     },
+    // },
     `gatsby-plugin-react-helmet`,
     {
         resolve: `gatsby-plugin-advanced-sitemap`,
