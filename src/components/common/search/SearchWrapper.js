@@ -5,19 +5,46 @@ import {
     Configure,
 } from 'react-instantsearch-dom'
 
-const SearchWrapper = ({ children }) => (
-    <InstantSearch
-        appId="GKTDL3T2PT"
-        apiKey="d74e5e7d3beff8df95195da245c2d829"
-        indexName="bio"
-    >
-        <Configure attributesToSnippet="html" />
-        {children}
-    </InstantSearch>
+// const SearchWrapper = ({ children }) => (
+//     <InstantSearch
+//         appId="GKTDL3T2PT"
+//         apiKey="d74e5e7d3beff8df95195da245c2d829"
+//         indexName="bio"
+//     >
+//         <Configure attributesToSnippet="html" />
+//         {children}
+//     </InstantSearch>
+// )
+
+// SearchWrapper.propTypes = {
+//     children: PropTypes.node.isRequired,
+// }
+
+// export default SearchWrapper
+
+import { StaticQuery, graphql } from 'gatsby'
+import lunrsearch from './SearchInput'
+
+const LayoutLunr = ({ children }) => (
+  <StaticQuery
+    query={graphql`
+      query LayoutQuery {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => (
+      <div>
+        <Header siteTitle={data.site.siteMetadata.title} />
+        <div className='layout-header-children-divider'>
+          {children}
+        </div>
+      </div>
+    )}
+  />
 )
 
-SearchWrapper.propTypes = {
-    children: PropTypes.node.isRequired,
-}
-
-export default SearchWrapper
+export default LayoutLunr

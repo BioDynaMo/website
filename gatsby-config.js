@@ -5,7 +5,7 @@ const colorModFunction = require(`postcss-color-mod-function`)
 const cssNano = require(`cssnano`)
 const customProperties = require(`postcss-custom-properties`)
 const easyImport = require(`postcss-easy-import`)
-const algoliaQueries = require(`./utils/algolia-queries`)
+// const algoliaQueries = require(`./utils/algolia-queries`)
 const path = require(`path`)
 
 require(`dotenv`).config({
@@ -45,6 +45,7 @@ const plugins = [
             name: `public`,
         },
     },
+
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
@@ -158,33 +159,77 @@ const plugins = [
     },
 ]
 
-// var proxy = require("http-proxy-middleware")
-
-// module.exports = {
-//   developMiddleware: app => {
-//     app.use(
-//       "/bioapi",
-//       proxy({
-//         target: "http://localhost:9000/" // other server is running on port 9000
-//       })
-//     );
-//   }
-// }
-
-const runAlgoliaBuild = () => (process.env.INCOMING_HOOK_TITLE && process.env.INCOMING_HOOK_TITLE === `Algolia`) || process.env.ALGOLIA
-const hasAlgoliaKey = () => process.env.ALGOLIA_ADMIN_KEY && !process.env.ALGOLIA_ADMIN_KEY.match(/<key>/)
-
-if (runAlgoliaBuild() && hasAlgoliaKey()) {
-    plugins.push({
-        resolve: `gatsby-plugin-algolia`,
-        options: {
-            appId: `6RCFK5TOI5`,
-            apiKey: `${process.env.ALGOLIA_ADMIN_KEY}`,
-            queries: algoliaQueries,
-            chunkSize: 10000, // default: 1000
+module.exports = {
+    plugins: [
+        {
+            resolve: `gatsby-plugin-lunr`,
+            options: {
+                languages: [
+                    {
+                        // ISO 639-1 language codes. See https://lunrjs.com/guides/language_support.html for details
+                        name: 'en',
+                        // A function for filtering nodes. () => true by default
+                        filterNodes: node => node.frontmatter.lang === 'en',
+                        // Add to index custom entries, that are not actually extracted from gatsby nodes
+                        // customEntries: [{ title: 'Pictures', content: 'awesome pictures', url: '/pictures' }],
+                    },
+                    // {
+                    //     name: 'fr',
+                    //     filterNodes: node => node.frontmatter.lang === 'fr',
+                    // },
+                ],
+                // Fields to index. If store === true value will be stored in index file.
+                // Attributes for custom indexing logic. See https://lunrjs.com/docs/lunr.Builder.html for details
+                fields: [
+                    { name: 'title', store: true, attributes: { boost: 20 } },
+                    { name: 'content', store: true },
+                    { name: 'url', store: true },
+                ],
+                // A function for filtering nodes. () => true by default
+                filterNodes: (node) => !isNil(node.frontmatter),
+                // How to resolve each field's value for a supported node type
+                resolvers: {
+                    // For any node of type MarkdownRemark, list how to resolve the fields' values
+                    MarkdownRemark: {
+                        title: node => node.frontmatter.title,
+                        content: node => node.rawMarkdownBody,
+                        url: node => node.fields.url,
+                    },
+                },
+                //custom index file name, default is search_index.json
+                filename: 'search_index.json',
+                //custom options on fetch api call for search_ındex.json
+                fetchOptions: {
+                    credentials: 'same-origin'
+                },
+            },
         },
-    })
+    ],
 }
+
+const myPlugin = (lunr) => (builder) => {
+  // removing stemmer
+  builder.pipeline.remove(lunr.stemmer)
+  builder.searchPipeline.remove(lunr.stemmer)
+  // or similarity tuning
+  builder.k1(1.3)
+  builder.b(0)
+}
+
+// const runAlgoliaBuild = () => (process.env.INCOMING_HOOK_TITLE && process.env.INCOMING_HOOK_TITLE === `Algolia`) || process.env.ALGOLIA
+// const hasAlgoliaKey = () => process.env.ALGOLIA_ADMIN_KEY && !process.env.ALGOLIA_ADMIN_KEY.match(/<key>/)
+
+// if (runAlgoliaBuild() && hasAlgoliaKey()) {
+//     plugins.push({
+//         resolve: `gatsby-plugin-algolia`,
+//         options: {
+//             appId: `6RCFK5TOI5`,
+//             apiKey: `${process.env.ALGOLIA_ADMIN_KEY}`,
+//             queries: algoliaQueries,
+//             chunkSize: 10000, // default: 1000
+//         },
+//     })
+// }
 
 // Global switch to either use or remove service worker
 if (SERVICE_WORKER_KILL_SWITCH) {
