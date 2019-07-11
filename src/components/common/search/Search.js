@@ -2,11 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 // import {
-//     Highlight,
-//     Snippet,
-//     Index,
-//     Configure,
-//     connectAutoComplete,
+//     // Highlight,
+//     // Snippet
+//     // Index,
+//     // Configure,
+//     // connectAutoComplete,
 // } from 'react-instantsearch-dom'
 import Autosuggest from 'react-autosuggest'
 
@@ -114,19 +114,18 @@ class Results extends React.Component {
         console.log("renderSuggestion")
         console.log(hit)
         // // console.log(JSON.stringify(hit))
-        // console.log(new Error().stack);
+        // TODO update HitTemplate (don't use algolia components)
         // return <HitTemplate hit={hit} />
-        return (<div>{hit.title} </div>)
+        return (<p>{hit.title} </p>)
     }
 
     renderSectionTitle({ index }) {
 
-        // TODO: handle this with query-config
-        // searchConfig.marketplace = `Marketplace`
-        // searchConfig.blog = `Blog`
-        // searchConfig.faq = `FAQ`
-        // searchConfig.tutorial = `Tutorials`
-        // searchConfig.integration = `Integrations`
+        searchConfig.marketplace = `Marketplace`
+        searchConfig.blog = `Blog`
+        searchConfig.faq = `FAQ`
+        searchConfig.tutorial = `Tutorials`
+        searchConfig.integration = `Integrations`
 
         const labelClass = {
             faq: `faq-color b--faq-color`,
@@ -139,8 +138,8 @@ class Results extends React.Component {
             marketplace: `setup-color b--setup-color`,
         }
 
-        // return <span className={`br-pill bg-white ba pa1 pl2 pr2 nowrap ${labelClass[index] || `midgrey b--midgrey`}`}>{searchConfig[index]}</span>
-        return <span className={`br-pill bg-white ba pa1 pl2 pr2 nowrap ${labelClass[index] || `midgrey b--midgrey`}`}>FOOBAR1</span>
+        return <span className={`br-pill bg-white ba pa1 pl2 pr2 nowrap ${labelClass[index] || `midgrey b--midgrey`}`}>{searchConfig[index]}</span>
+        // return <span className={`br-pill bg-white ba pa1 pl2 pr2 nowrap ${labelClass[index] || `midgrey b--midgrey`}`}>FOOBAR1</span>
     }
 
     getSectionSuggestions(section) {
