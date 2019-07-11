@@ -67,6 +67,9 @@ class Results extends React.Component {
         // this.state = {
         //     value: this.props.currentRefinement,
         // }
+        this.state = {
+            value: "foobar",
+        }
 
         this.onChange = this.onChange.bind(this)
         this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this)
@@ -88,18 +91,22 @@ class Results extends React.Component {
     onSuggestionsFetchRequested({ value }) {
         console.log("L onSuggestionsFetchRequested ")
         console.log(value)
-        this.props.refine(value)
+        // this.props.refine(value)
     }
 
     onSuggestionsClearRequested() {
-        this.props.refine()
+        // this.props.refine()
+        this.setState(() => {
+            return { value: "" }
+        })
     }
 
     getSuggestionValue(hit) {
         console.log("L getSuggestionValue")
         console.log(hit)
 
-        return hit.title
+        // return hit.title
+        return "suggestions value"
     }
 
     renderSuggestion(hit) {
@@ -108,6 +115,7 @@ class Results extends React.Component {
         // // console.log(JSON.stringify(hit))
         // console.log(new Error().stack);
         // return <HitTemplate hit={hit} />
+        return (<div>foo result </div>)
     }
 
     renderSectionTitle({ index }) {
@@ -144,42 +152,41 @@ class Results extends React.Component {
         // const hits = this.props.hits.filter(hit => hit.hits && hit.hits.length !== 0)
         const hits = [{"text":"hello"}, {"text":"world"}]
 
-        // const { value } = this.state
-        // const inputProps = {
-        //     placeholder: `Search documentation...`,
-        //     onChange: this.onChange,
-        //     value,
-        //     autoFocus: true,
-        //     "data-cy": `search-input`,
-        // }
-        //
-        // const inputTheme = `input-reset form-text b--transparent search-modal-field-bg br-pill flex-auto whitney lh-normal pa2 pl8 plr3 w-100 dark-placeholder`
-        //
-        // const theme = {
-        //     input: inputTheme,
-        //     inputOpen: inputTheme,
-        //     inputFocused: inputTheme,
-        //     suggestionsContainerOpen: `pa11 pt3 pb3 mt10 bt b--whitegrey nl10 nr10 nb10 search-modal-result-container`,
-        //     suggestionsList: `list pa0 ma0 pt1 search-modal-suggestion-list flex-auto ml11`,
-        //     sectionContainer: `pb4`,
-        //     sectionTitle: `f8 lh-h4 fw5 midgrey w30 tr mt2 sticky top-2 pr2`,
-        // }
+        console.log(hits)
+        console.log(hits.length)
+
+        const { value } = this.state
+        const inputProps = {
+            placeholder: `Search documentation...`,
+            onChange: this.onChange,
+            value,
+            autoFocus: true,
+            "data-cy": `search-input`,
+        }
+
+        const inputTheme = `input-reset form-text b--transparent search-modal-field-bg br-pill flex-auto whitney lh-normal pa2 pl8 plr3 w-100 dark-placeholder`
+
+        const theme = {
+            input: inputTheme,
+            inputOpen: inputTheme,
+            inputFocused: inputTheme,
+            suggestionsContainerOpen: `pa11 pt3 pb3 mt10 bt b--whitegrey nl10 nr10 nb10 search-modal-result-container`,
+            suggestionsList: `list pa0 ma0 pt1 search-modal-suggestion-list flex-auto ml11`,
+            sectionContainer: `pb4`,
+            sectionTitle: `f8 lh-h4 fw5 midgrey w30 tr mt2 sticky top-2 pr2`,
+        }
 
         return (
-            // <>
-                // <Configure hitsPerPage="5" />
-                // <Autosuggest
-                //     suggestions={hits}
-                //     onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-                //     onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-                //     getSuggestionValue={this.getSuggestionValue}
-                //     renderSuggestion={this.renderSuggestion}
-                //     inputProps={inputProps}
-                //     multiSection={true}
-                //     theme={theme}
-                //     renderSectionTitle={this.renderSectionTitle}
-                //     getSectionSuggestions={this.getSectionSuggestions}
-                // />
+            <>
+                <Autosuggest
+                    suggestions={hits}
+                    onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+                    onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+                    getSuggestionValue={this.getSuggestionValue}
+                    renderSuggestion={this.renderSuggestion}
+                    inputProps={inputProps}
+                />
+                {
                 // <Index indexName="faq" />
                 // <Index indexName="concept" />
                 // <Index indexName="setup" />
@@ -188,8 +195,8 @@ class Results extends React.Component {
                 // <Index indexName="integration" />
                 // <Index indexName="blog" />
                 // <Index indexName="marketplace" />
-            // </>
-            <div> foobar </div>
+                }
+            </>
         )
     }
 }
