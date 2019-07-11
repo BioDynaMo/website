@@ -14,7 +14,7 @@ export const SearchInput = ({ theme, isHome, onClick }) => {
                     type="text"
                     className="input-reset form-text ba b--transparent flex-auto ml2 whitney lh-normal f4 f4-ns bg-transparent white-placeholder"
                     placeholder="Search documentation..."
-                    autoComplete="off"
+                    autoComplete="on"
                     onFocus={onClick}
                     onClick={onClick}
                 />

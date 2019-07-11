@@ -12,7 +12,7 @@ import Autosuggest from 'react-autosuggest'
 
 import { Spirit } from '../../../styles/spirit-styles'
 import { searchConfig } from '../../../../utils/query-config'
-import {hitsdummy} from './dummy.json'
+
 
 const HitTemplate = ({ hit }) => {
     let hitOnCurrentSite = false
@@ -97,7 +97,7 @@ class Results extends React.Component {
     }
 
     renderSuggestion(hit) {
-        return <HitTemplate hit={dummy} />
+        return <HitTemplate hit={hit} />
     }
 
     renderSectionTitle({ index }) {
@@ -159,9 +159,7 @@ class Results extends React.Component {
                     renderSectionTitle={this.renderSectionTitle}
                     getSectionSuggestions={this.getSectionSuggestions}
                 />
-                <Index indexName="bioapi" />
-                <Index indexName="userguide" />
-                <Index indexName="devguide" />
+                
             </>
         )
     }
@@ -180,6 +178,6 @@ const AutoComplete = connectAutoComplete(Results)
 export default AutoComplete
 
 
-<Index indexName="bioapi" />
-<Index indexName="userguide" />
-<Index indexName="devguide" />
+// <Index indexName="bioapi" />
+// <Index indexName="userguide" />
+// <Index indexName="devguide" />

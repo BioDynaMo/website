@@ -4,6 +4,7 @@ import {
     InstantSearch,
     Configure,
 } from 'react-instantsearch-dom'
+import './dummy.json'
 
 const SearchWrapper = ({ children }) => (
     <InstantSearch
