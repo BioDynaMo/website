@@ -223,7 +223,7 @@ module.exports = {
                 // Fields to index. If store === true value will be stored in index file.
                 // Attributes for custom indexing logic. See https://lunrjs.com/docs/lunr.Builder.html for details
                 fields: [
-                    { name: 'title', store: true, attributes: { boost: 20 } },
+                    { name: 'title', store: true, attributes: { boost: 50 } },
                     { name: 'content' },
                     { name: 'url', store: true },
                 ],
