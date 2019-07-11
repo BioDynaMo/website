@@ -1,7 +1,13 @@
 // const HtmlExtractor = require(`algolia-html-extractor`)
 // const Extractor = new HtmlExtractor()
 
+
 // const chunkString = (str, length) => str.match(new RegExp(`(.|[\r\n]){1,` + length + `}`, `g`))
+
+
+//
+// const chunkString = (str, length) => str.match(new RegExp(`(.|[\r\n]){1,` + length + `}`, `g`))
+//
 
 // /**
 //  * Chunk Transformer
@@ -15,8 +21,14 @@
 //         { ...node, ...{ html: htmlChunksItem }, objectID: `${node.objectID}_${idx}` },
 //     ], [])
 
+
 //     return [...chunksTotal, ...recordChunks]
 // }
+
+//
+//     return [...chunksTotal, ...recordChunks]
+// }
+//
 
 // /**
 //  * Utility function, takes the output of HTML Extractor, and reduces it back down
@@ -27,6 +39,7 @@
 //  */
 // const reduceFragmentsUnderHeadings = (accumulator, fragment) => {
 //     const existingFragment = accumulator.find(existing => existing.anchor === fragment.anchor)
+
 
 //     if (existingFragment) {
 //         // Merge our fragments together
@@ -43,6 +56,11 @@
 //         accumulator.push(fragment)
 //     }
 
+
+//     return accumulator
+// }
+
+//
 //     return accumulator
 // }
 
@@ -56,6 +74,10 @@
 //         .run(node.html, { cssSelector: `p,pre,td,li` })
 //         // Use the utility function to merge fragments so that there is one-per-heading
 //         .reduce(reduceFragmentsUnderHeadings, [])
+
+
+
+
 
 //     // convert our fragments for this node into valid objects, and merge int the
 //     const records = htmlFragments.reduce((fragmentAccumulator, fragment, index) => {
@@ -74,13 +96,26 @@
 //         // If fragments are too long, we need this to see which fragment it was
 //         console.log(`indexing`, objectID, fragment.url || node.url, fragment.html.length) // eslint-disable-line no-console
 
+
+//
+//         let objectID = `${node.objectID}_${index}`
+//
+//         // If fragments are too long, we need this to see which fragment it was
+//         console.log(`indexing`, objectID, fragment.url || node.url, fragment.html.length) // eslint-disable-line no-console
+//
+
 //         return [
 //             ...fragmentAccumulator,
 //             { ...node, ...fragment, objectID: objectID },
 //         ]
 //     }, [])
 
+
 //     return [...recordAccumulator, ...records]
 // }
 
+//
+//     return [...recordAccumulator, ...records]
+// }
+//
 // module.exports._testReduceFragmentsUnderHeadings = reduceFragmentsUnderHeadings

@@ -207,6 +207,21 @@ module.exports = {
     ],
 }
 
+// const runAlgoliaBuild = () => (process.env.INCOMING_HOOK_TITLE && process.env.INCOMING_HOOK_TITLE === `Algolia`) || process.env.ALGOLIA
+// const hasAlgoliaKey = () => process.env.ALGOLIA_ADMIN_KEY && !process.env.ALGOLIA_ADMIN_KEY.match(/<key>/)
+//
+// if (runAlgoliaBuild() && hasAlgoliaKey()) {
+//     plugins.push({
+//         resolve: `gatsby-plugin-algolia`,
+//         options: {
+//             appId: `6RCFK5TOI5`,
+//             apiKey: `${process.env.ALGOLIA_ADMIN_KEY}`,
+//             queries: algoliaQueries,
+//             chunkSize: 10000, // default: 1000
+//         },
+//     })
+// }
+
 const myPlugin = (lunr) => (builder) => {
   // removing stemmer
   builder.pipeline.remove(lunr.stemmer)
