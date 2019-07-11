@@ -2,6 +2,7 @@
 // const Extractor = new HtmlExtractor()
 
 
+
 // const chunkString = (str, length) => str.match(new RegExp(`(.|[\r\n]){1,` + length + `}`, `g`))
 
 
@@ -9,6 +10,9 @@
 // const chunkString = (str, length) => str.match(new RegExp(`(.|[\r\n]){1,` + length + `}`, `g`))
 //
 
+//
+// const chunkString = (str, length) => str.match(new RegExp(`(.|[\r\n]){1,` + length + `}`, `g`))
+//
 // /**
 //  * Chunk Transformer
 //  * breaks down large strings into chunks small enough for algolia to handle
@@ -25,6 +29,7 @@
 //     return [...chunksTotal, ...recordChunks]
 // }
 
+
 //
 //     return [...chunksTotal, ...recordChunks]
 // }
@@ -39,8 +44,6 @@
 //  */
 // const reduceFragmentsUnderHeadings = (accumulator, fragment) => {
 //     const existingFragment = accumulator.find(existing => existing.anchor === fragment.anchor)
-
-
 //     if (existingFragment) {
 //         // Merge our fragments together
 //         if (fragment.node && fragment.node.tagName === `PRE`) {
@@ -63,7 +66,10 @@
 //
 //     return accumulator
 // }
-
+//
+//     return accumulator
+// }
+//
 // /**
 //  * Fragment Transformer
 //  * breaks down large HTML strings into sensible fragments based on headings
@@ -74,11 +80,6 @@
 //         .run(node.html, { cssSelector: `p,pre,td,li` })
 //         // Use the utility function to merge fragments so that there is one-per-heading
 //         .reduce(reduceFragmentsUnderHeadings, [])
-
-
-
-
-
 //     // convert our fragments for this node into valid objects, and merge int the
 //     const records = htmlFragments.reduce((fragmentAccumulator, fragment, index) => {
 //         // Don't need a reference to the html node type
@@ -95,25 +96,19 @@
 
 //         // If fragments are too long, we need this to see which fragment it was
 //         console.log(`indexing`, objectID, fragment.url || node.url, fragment.html.length) // eslint-disable-line no-console
-
-
 //
 //         let objectID = `${node.objectID}_${index}`
 //
 //         // If fragments are too long, we need this to see which fragment it was
 //         console.log(`indexing`, objectID, fragment.url || node.url, fragment.html.length) // eslint-disable-line no-console
 //
-
 //         return [
 //             ...fragmentAccumulator,
 //             { ...node, ...fragment, objectID: objectID },
 //         ]
 //     }, [])
-
-
 //     return [...recordAccumulator, ...records]
 // }
-
 //
 //     return [...recordAccumulator, ...records]
 // }

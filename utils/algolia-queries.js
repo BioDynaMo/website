@@ -9,6 +9,7 @@
 //     fields {
 //         slug
 //         section
+
 //     }
 //     frontmatter {
 //         title
@@ -101,9 +102,12 @@
 // //     }
 // //     `,
 
+
 // //     indexName: `userguide`,
 // //     indexName: `setup`,
 
+
+// //     indexName: `setup`,
 // //     transformer: ({ data }) => data
 // //         .allMarkdownRemark.edges
 // //         .map(mdNodeMap)
@@ -111,9 +115,11 @@
 // // }]
 
 
+
 // // module.exports = testQueryArr
 // //module.exports = [ghostQueries[1]]
 // //module.exports = [mdQueries[1]]
+
 
 
 //

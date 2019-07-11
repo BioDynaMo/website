@@ -201,68 +201,7 @@ const plugins = [
         },
 ]
 
-module.exports = {
-    plugins: [
-        {
-            resolve: `gatsby-plugin-lunr`,
-            options: {
-                languages: [
-                    {
-                        // ISO 639-1 language codes. See https://lunrjs.com/guides/language_support.html for details
-                        name: 'en',
-                        // A function for filtering nodes. () => true by default
-                        filterNodes: node => node.frontmatter.lang === 'en',
-                        // Add to index custom entries, that are not actually extracted from gatsby nodes
-                        // customEntries: [{ title: 'Pictures', content: 'awesome pictures', url: '/pictures' }],
-                    },
-                    // {
-                    //     name: 'fr',
-                    //     filterNodes: node => node.frontmatter.lang === 'fr',
-                    // },
-                ],
-                // Fields to index. If store === true value will be stored in index file.
-                // Attributes for custom indexing logic. See https://lunrjs.com/docs/lunr.Builder.html for details
-                fields: [
-                    { name: 'title', store: true, attributes: { boost: 50 } },
-                    { name: 'content' },
-                    { name: 'url', store: true },
-                ],
-                // A function for filtering nodes. () => true by default
-                filterNodes: (node) => !isNil(node.frontmatter),
-                // How to resolve each field's value for a supported node type
-                resolvers: {
-                    // For any node of type MarkdownRemark, list how to resolve the fields' values
-                    MarkdownRemark: {
-                        title: node => node.frontmatter.title,
-                        content: node => node.rawMarkdownBody,
-                        url: node => node.fields.url,
-                    },
-                },
-                //custom index file name, default is search_index.json
-                filename: 'search_index.json',
-                //custom options on fetch api call for search_ındex.json
-                fetchOptions: {
-                    credentials: 'same-origin'
-                },
-            },
-        },
-    ],
-}
 
-// const runAlgoliaBuild = () => (process.env.INCOMING_HOOK_TITLE && process.env.INCOMING_HOOK_TITLE === `Algolia`) || process.env.ALGOLIA
-// const hasAlgoliaKey = () => process.env.ALGOLIA_ADMIN_KEY && !process.env.ALGOLIA_ADMIN_KEY.match(/<key>/)
-//
-// if (runAlgoliaBuild() && hasAlgoliaKey()) {
-//     plugins.push({
-//         resolve: `gatsby-plugin-algolia`,
-//         options: {
-//             appId: `6RCFK5TOI5`,
-//             apiKey: `${process.env.ALGOLIA_ADMIN_KEY}`,
-//             queries: algoliaQueries,
-//             chunkSize: 10000, // default: 1000
-//         },
-//     })
-// }
 
 const myPlugin = (lunr) => (builder) => {
   // removing stemmer

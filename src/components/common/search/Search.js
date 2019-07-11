@@ -183,6 +183,7 @@ class Results extends React.Component {
             <>
             {
 
+
               // FIXME show max five hits per category
               // FIXME the following Autosuggest property does not work
               // multiSection={true}

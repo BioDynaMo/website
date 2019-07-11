@@ -1,7 +1,5 @@
 // #!/usr/local/bin/node
 
-//
-
 // /**
 //  * This is a script that configures our indexes
 //  *
@@ -10,14 +8,11 @@
 //  * NODE_ENV=production node utils/algolia-settings.js
 //  */
 
-
-
-//
-
 // // Load config
 // require(`dotenv`).config({
 //     path: `.env.${process.env.NODE_ENV}`,
 // })
+
 
 
 // const algoliasearch = require(`algoliasearch`)
@@ -42,6 +37,7 @@
 // }
 
 
+
 // const getIndexByName = name => client.initIndex(name)
 
 // const setSettingsForIndex = (name) => {
@@ -53,16 +49,12 @@
 //
 // const setSettingsForIndex = (name) => {
 //     const index = getIndexByName(name)
-//
 
 //     index
 //         .setSettings(REQUIRED_SETTINGS)
 //         .then(() => index.getSettings())
 //         .then(settings => console.log(name, settings))
 // }
-
-
-//
 
 // client
 //     .listIndexes()
