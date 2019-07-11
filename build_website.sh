@@ -24,6 +24,6 @@ sudo docker build --network=host \
 popd
 
 cp ${SCRIPT_PATH}/.env.example ${SCRIPT_PATH}/.env.development
-sudo docker stop mybdmweb
-sudo docker rm mybdmweb
+sudo docker stop mybdmweb || true
+sudo docker rm mybdmweb || true
 sudo docker run -it --net=host --name=mybdmweb -v ${SCRIPT_PATH}:/website bdm-website
