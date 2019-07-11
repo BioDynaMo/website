@@ -92,6 +92,7 @@ class Results extends React.Component {
         console.log("L onSuggestionsFetchRequested ")
         console.log(value)
         // this.props.refine(value)
+        // TODO hits will be updated here ?!?
     }
 
     onSuggestionsClearRequested() {
@@ -182,6 +183,7 @@ class Results extends React.Component {
         return (
             <>
             {
+              // FIXME show max five hits per category
               // FIXME the following Autosuggest property does not work
               // multiSection={true}
             }
