@@ -12,11 +12,11 @@ require(`dotenv`).config({
     path: `.env.${process.env.NODE_ENV}`,
 })
 
-if (!process.env.GHOST_API_URL || !process.env.GHOST_API_KEY) {
-    throw new Error(
-        `GHOST_API_URL and GHOST_API_KEY are required to build. Check the CONTRIBUTING guide.`
-    )
-}
+// if (!process.env.GHOST_API_URL || !process.env.GHOST_API_KEY) {
+//     throw new Error(
+//         `GHOST_API_URL and GHOST_API_KEY are required to build. Check the CONTRIBUTING guide.`
+//     )
+// }
 
 const SERVICE_WORKER_KILL_SWITCH = (process.env.SERVICE_WORKER_KILL_SWITCH === `true`) || false
 
@@ -147,6 +147,48 @@ const plugins = [
             },
         },
     },
+    {
+            resolve: `gatsby-plugin-lunr`,
+            options: {
+                languages: [
+                    {
+                        // ISO 639-1 language codes. See https://lunrjs.com/guides/language_support.html for details
+                        name: 'en',
+                        // A function for filtering nodes. () => true by default
+                        filterNodes: node => node.frontmatter.lang === 'en',
+                        // Add to index custom entries, that are not actually extracted from gatsby nodes
+                        // customEntries: [{ title: 'Pictures', content: 'awesome pictures', url: '/pictures' }],
+                    },
+                    // {
+                    //     name: 'fr',
+                    //     filterNodes: node => node.frontmatter.lang === 'fr',
+                    // },
+                ],
+                // Fields to index. If store === true value will be stored in index file.
+                // Attributes for custom indexing logic. See https://lunrjs.com/docs/lunr.Builder.html for details
+                fields: [
+                    { name: 'title', store: true, attributes: { boost: 50 } },
+                    { name: 'description', store: true, attributes: { boost: 15 } },
+                    { name: 'content' },
+                    { name: 'url', store: true },
+                ],
+                // How to resolve each field's value for a supported node type
+                resolvers: {
+                    // For any node of type MarkdownRemark, list how to resolve the fields' values
+                    MarkdownRemark: {
+                        title: node => node.frontmatter.title,
+                        content: node => node.rawMarkdownBody,
+                        url: node => node.fields.url,
+                    },
+                },
+                //custom index file name, default is search_index.json
+                filename: 'search_index.json',
+                //custom options on fetch api call for search_ındex.json
+                fetchOptions: {
+                    credentials: 'same-origin'
+                },
+            },
+        },
 ]
 
 // const runAlgoliaBuild = () => (process.env.INCOMING_HOOK_TITLE && process.env.INCOMING_HOOK_TITLE === `Algolia`) || process.env.ALGOLIA

@@ -27,7 +27,6 @@ export const markdownFields = graphql`
             }
             sidebar
             toc
-            keywords
         }
         html
         fields {
