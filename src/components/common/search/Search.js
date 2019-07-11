@@ -1,17 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
-import {
-    Highlight,
-    Snippet,
-    Index,
-    Configure,
-    connectAutoComplete,
-} from 'react-instantsearch-dom'
+// import {
+//     Highlight,
+//     Snippet,
+//     Index,
+//     Configure,
+//     connectAutoComplete,
+// } from 'react-instantsearch-dom'
 import Autosuggest from 'react-autosuggest'
 
 import { Spirit } from '../../../styles/spirit-styles'
-import { searchConfig } from '../../../../utils/query-config'
+// import { searchConfig } from '../../../../utils/query-config'
 
 const HitTemplate = ({ hit }) => {
     let hitOnCurrentSite = false
@@ -64,9 +64,9 @@ class Results extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            value: this.props.currentRefinement,
-        }
+        // this.state = {
+        //     value: this.props.currentRefinement,
+        // }
 
         this.onChange = this.onChange.bind(this)
         this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this)
@@ -78,12 +78,16 @@ class Results extends React.Component {
     }
 
     onChange(event, { newValue }) {
+        console.log("L onChange")
+        console.log(newValue)
         this.setState(() => {
             return { value: newValue }
         })
     }
 
     onSuggestionsFetchRequested({ value }) {
+        console.log("L onSuggestionsFetchRequested ")
+        console.log(value)
         this.props.refine(value)
     }
 
@@ -92,20 +96,28 @@ class Results extends React.Component {
     }
 
     getSuggestionValue(hit) {
+        console.log("L getSuggestionValue")
+        console.log(hit)
+
         return hit.title
     }
 
     renderSuggestion(hit) {
-        return <HitTemplate hit={hit} />
+        console.log("renderSuggestion")
+        console.log(hit)
+        // // console.log(JSON.stringify(hit))
+        // console.log(new Error().stack);
+        // return <HitTemplate hit={hit} />
     }
 
     renderSectionTitle({ index }) {
+
         // TODO: handle this with query-config
-        searchConfig.marketplace = `Marketplace`
-        searchConfig.blog = `Blog`
-        searchConfig.faq = `FAQ`
-        searchConfig.tutorial = `Tutorials`
-        searchConfig.integration = `Integrations`
+        // searchConfig.marketplace = `Marketplace`
+        // searchConfig.blog = `Blog`
+        // searchConfig.faq = `FAQ`
+        // searchConfig.tutorial = `Tutorials`
+        // searchConfig.integration = `Integrations`
 
         const labelClass = {
             faq: `faq-color b--faq-color`,
@@ -118,7 +130,8 @@ class Results extends React.Component {
             marketplace: `setup-color b--setup-color`,
         }
 
-        return <span className={`br-pill bg-white ba pa1 pl2 pr2 nowrap ${labelClass[index] || `midgrey b--midgrey`}`}>{searchConfig[index]}</span>
+        // return <span className={`br-pill bg-white ba pa1 pl2 pr2 nowrap ${labelClass[index] || `midgrey b--midgrey`}`}>{searchConfig[index]}</span>
+        return <span className={`br-pill bg-white ba pa1 pl2 pr2 nowrap ${labelClass[index] || `midgrey b--midgrey`}`}>FOOBAR1</span>
     }
 
     getSectionSuggestions(section) {
@@ -126,66 +139,73 @@ class Results extends React.Component {
     }
 
     render() {
+        console.log("asdf")
         // Don't show sections with no results
-        const hits = this.props.hits.filter(hit => hit.hits && hit.hits.length !== 0)
+        // const hits = this.props.hits.filter(hit => hit.hits && hit.hits.length !== 0)
+        const hits = [{"text":"hello"}, {"text":"world"}]
 
-        const { value } = this.state
-        const inputProps = {
-            placeholder: `Search documentation...`,
-            onChange: this.onChange,
-            value,
-            autoFocus: true,
-            "data-cy": `search-input`,
-        }
-
-        const inputTheme = `input-reset form-text b--transparent search-modal-field-bg br-pill flex-auto whitney lh-normal pa2 pl8 plr3 w-100 dark-placeholder`
-
-        const theme = {
-            input: inputTheme,
-            inputOpen: inputTheme,
-            inputFocused: inputTheme,
-            suggestionsContainerOpen: `pa11 pt3 pb3 mt10 bt b--whitegrey nl10 nr10 nb10 search-modal-result-container`,
-            suggestionsList: `list pa0 ma0 pt1 search-modal-suggestion-list flex-auto ml11`,
-            sectionContainer: `pb4`,
-            sectionTitle: `f8 lh-h4 fw5 midgrey w30 tr mt2 sticky top-2 pr2`,
-        }
+        // const { value } = this.state
+        // const inputProps = {
+        //     placeholder: `Search documentation...`,
+        //     onChange: this.onChange,
+        //     value,
+        //     autoFocus: true,
+        //     "data-cy": `search-input`,
+        // }
+        //
+        // const inputTheme = `input-reset form-text b--transparent search-modal-field-bg br-pill flex-auto whitney lh-normal pa2 pl8 plr3 w-100 dark-placeholder`
+        //
+        // const theme = {
+        //     input: inputTheme,
+        //     inputOpen: inputTheme,
+        //     inputFocused: inputTheme,
+        //     suggestionsContainerOpen: `pa11 pt3 pb3 mt10 bt b--whitegrey nl10 nr10 nb10 search-modal-result-container`,
+        //     suggestionsList: `list pa0 ma0 pt1 search-modal-suggestion-list flex-auto ml11`,
+        //     sectionContainer: `pb4`,
+        //     sectionTitle: `f8 lh-h4 fw5 midgrey w30 tr mt2 sticky top-2 pr2`,
+        // }
 
         return (
-            <>
-                <Configure hitsPerPage="5" />
-                <Autosuggest
-                    suggestions={hits}
-                    onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-                    onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-                    getSuggestionValue={this.getSuggestionValue}
-                    renderSuggestion={this.renderSuggestion}
-                    inputProps={inputProps}
-                    multiSection={true}
-                    theme={theme}
-                    renderSectionTitle={this.renderSectionTitle}
-                    getSectionSuggestions={this.getSectionSuggestions}
-                />
-                <Index indexName="faq" />
-                <Index indexName="concept" />
-                <Index indexName="setup" />
-                <Index indexName="api" />
-                <Index indexName="tutorial" />
-                <Index indexName="integration" />
-                <Index indexName="blog" />
-                <Index indexName="marketplace" />
-            </>
+            // <>
+                // <Configure hitsPerPage="5" />
+                // <Autosuggest
+                //     suggestions={hits}
+                //     onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+                //     onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+                //     getSuggestionValue={this.getSuggestionValue}
+                //     renderSuggestion={this.renderSuggestion}
+                //     inputProps={inputProps}
+                //     multiSection={true}
+                //     theme={theme}
+                //     renderSectionTitle={this.renderSectionTitle}
+                //     getSectionSuggestions={this.getSectionSuggestions}
+                // />
+                // <Index indexName="faq" />
+                // <Index indexName="concept" />
+                // <Index indexName="setup" />
+                // <Index indexName="api" />
+                // <Index indexName="tutorial" />
+                // <Index indexName="integration" />
+                // <Index indexName="blog" />
+                // <Index indexName="marketplace" />
+            // </>
+            <div> foobar </div>
         )
     }
 }
 
 Results.propTypes = {
-    hits: PropTypes.arrayOf(
-        PropTypes.object.isRequired,
-    ).isRequired,
-    currentRefinement: PropTypes.string.isRequired,
-    refine: PropTypes.func.isRequired,
+    // hits: PropTypes.arrayOf(
+    //     PropTypes.object.isRequired,
+    // ).isRequired,
+    // currentRefinement: PropTypes.string.isRequired,
+    // refine: PropTypes.func.isRequired,
 }
 
-const AutoComplete = connectAutoComplete(Results)
+// const AutoComplete = connectAutoComplete(Results)
+//
+// export default AutoComplete
+
+const AutoComplete = Results
 
 export default AutoComplete

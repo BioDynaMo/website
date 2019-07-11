@@ -5,7 +5,7 @@ const colorModFunction = require(`postcss-color-mod-function`)
 const cssNano = require(`cssnano`)
 const customProperties = require(`postcss-custom-properties`)
 const easyImport = require(`postcss-easy-import`)
-const algoliaQueries = require(`./utils/algolia-queries`)
+// const algoliaQueries = require(`./utils/algolia-queries`)
 const path = require(`path`)
 
 require(`dotenv`).config({
@@ -149,20 +149,20 @@ const plugins = [
     },
 ]
 
-const runAlgoliaBuild = () => (process.env.INCOMING_HOOK_TITLE && process.env.INCOMING_HOOK_TITLE === `Algolia`) || process.env.ALGOLIA
-const hasAlgoliaKey = () => process.env.ALGOLIA_ADMIN_KEY && !process.env.ALGOLIA_ADMIN_KEY.match(/<key>/)
-
-if (runAlgoliaBuild() && hasAlgoliaKey()) {
-    plugins.push({
-        resolve: `gatsby-plugin-algolia`,
-        options: {
-            appId: `6RCFK5TOI5`,
-            apiKey: `${process.env.ALGOLIA_ADMIN_KEY}`,
-            queries: algoliaQueries,
-            chunkSize: 10000, // default: 1000
-        },
-    })
-}
+// const runAlgoliaBuild = () => (process.env.INCOMING_HOOK_TITLE && process.env.INCOMING_HOOK_TITLE === `Algolia`) || process.env.ALGOLIA
+// const hasAlgoliaKey = () => process.env.ALGOLIA_ADMIN_KEY && !process.env.ALGOLIA_ADMIN_KEY.match(/<key>/)
+//
+// if (runAlgoliaBuild() && hasAlgoliaKey()) {
+//     plugins.push({
+//         resolve: `gatsby-plugin-algolia`,
+//         options: {
+//             appId: `6RCFK5TOI5`,
+//             apiKey: `${process.env.ALGOLIA_ADMIN_KEY}`,
+//             queries: algoliaQueries,
+//             chunkSize: 10000, // default: 1000
+//         },
+//     })
+// }
 
 // Global switch to either use or remove service worker
 if (SERVICE_WORKER_KILL_SWITCH) {

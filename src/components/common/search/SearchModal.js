@@ -19,6 +19,7 @@ class SearchModal extends React.Component {
     }
 
     openModal() {
+        console.log("openModal")
         this.setState(() => {
             return { modalIsOpen: true }
         })

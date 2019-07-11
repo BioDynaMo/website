@@ -38,7 +38,7 @@ RUN npm install -g gatsby-cli
 ARG HOST_UID
 ARG HOST_GID
 
-RUN groupadd -g $HOST_GID testuser && \
+RUN groupadd -g $HOST_GID testuser ; \
     useradd -u $HOST_UID -g $HOST_GID -m -c "Testuser" testuser && \
     passwd --delete testuser && \
     echo "testuser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
