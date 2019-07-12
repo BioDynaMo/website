@@ -7,6 +7,11 @@ const customProperties = require(`postcss-custom-properties`)
 const easyImport = require(`postcss-easy-import`)
 // const algoliaQueries = require(`./utils/algolia-queries`)
 const path = require(`path`)
+const { isNil } = require('lodash')
+
+const mapPagesUrls = {
+  index: '/',
+}
 
 require(`dotenv`).config({
     path: `.env.${process.env.NODE_ENV}`,
@@ -165,10 +170,11 @@ const plugins = [
                         // ISO 639-1 language codes. See https://lunrjs.com/guides/language_support.html for details
                         name: 'en',
                         // A function for filtering nodes. () => true by default
-                        filterNodes: node => node.frontmatter.lang === 'en',
+                        // filterNodes: node => node.frontmatter.lang === 'en',
                         // Add to index custom entries, that are not actually extracted from gatsby nodes
                         // customEntries: [{ title: 'Pictures', content: 'awesome pictures', url: '/pictures' }],
-                    },
+                        // filterNodes: (node) => !isNil(node.frontmatter),
+                    }
                     // {
                     //     name: 'fr',
                     //     filterNodes: node => node.frontmatter.lang === 'fr',
@@ -177,8 +183,8 @@ const plugins = [
                 // Fields to index. If store === true value will be stored in index file.
                 // Attributes for custom indexing logic. See https://lunrjs.com/docs/lunr.Builder.html for details
                 fields: [
-                    { name: 'title', store: true, attributes: { boost: 50 } },
-                    { name: 'description', store: true, attributes: { boost: 15 } },
+                    { name: 'title', store: true, attributes: { boost: 20 } },
+                    { name: 'description', store: true, attributes: { boost: 5 } },
                     { name: 'content' },
                     { name: 'url', store: true },
                 ],
@@ -186,9 +192,10 @@ const plugins = [
                 resolvers: {
                     // For any node of type MarkdownRemark, list how to resolve the fields' values
                     MarkdownRemark: {
-                        title: node => node.frontmatter.title,
-                        content: node => node.rawMarkdownBody,
-                        url: node => node.fields.url,
+                        title: (node) => node.frontmatter.title,
+                        description: (node) => node.frontmatter.description,
+                        content: (node) => node.rawMarkdownBody,
+                        url: (node) => mapPagesUrls[node.frontmatter.templateKey],
                     },
                 },
                 //custom index file name, default is search_index.json
@@ -203,14 +210,15 @@ const plugins = [
 
 
 
-const myPlugin = (lunr) => (builder) => {
-  // removing stemmer
-  builder.pipeline.remove(lunr.stemmer)
-  builder.searchPipeline.remove(lunr.stemmer)
-  // or similarity tuning
-  builder.k1(1.3)
-  builder.b(0)
-}
+// const myPlugin = (lunr) => (builder) => {
+//   console.log()
+//   // removing stemmer
+//   builder.pipeline.remove(lunr.stemmer)
+//   builder.searchPipeline.remove(lunr.stemmer)
+//   // or similarity tuning
+//   builder.k1(1.3)
+//   builder.b(0)
+// }
 
 // const runAlgoliaBuild = () => (process.env.INCOMING_HOOK_TITLE && process.env.INCOMING_HOOK_TITLE === `Algolia`) || process.env.ALGOLIA
 // const hasAlgoliaKey = () => process.env.ALGOLIA_ADMIN_KEY && !process.env.ALGOLIA_ADMIN_KEY.match(/<key>/)

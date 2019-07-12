@@ -32,7 +32,7 @@ const HomePage = ({ data, location }) => {
                 header={<HomeHeader />}
             >
                 <div className="pt-vw3 home-main-box-padding-ns">
-                  <div class={`${Spirit.page.xl} carousel-div`}>
+                  <div className={`${Spirit.page.xl} carousel-div`}>
                     <Carousel />
                   </div>
                     

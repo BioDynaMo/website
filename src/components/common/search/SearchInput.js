@@ -29,8 +29,8 @@ export const SearchInput = ({ theme, isHome, onClick }) => {
                     id="globalnavsearch"
                     name="globalnavsearch"
                     type="text"
-                    // className={`${theme.searchBox} search-navbar-input-field f8 pa2 pl8 pr4 ba f8 fw4 br3 whitney form-text bn br-pill w-sidebar dn db-l lh-normal`}
-                    className={`search-navbar-input-field f8 pa2 pl8 pr4 ba f8 fw4 br3 whitney form-text bn br-pill w-sidebar dn db-l lh-normal`}
+                    className={`${theme.searchBox} search-navbar-input-field f8 pa2 pl8 pr4 ba f8 fw4 br3 whitney form-text bn br-pill w-sidebar dn db-l lh-normal`}
+                    // className={`search-navbar-input-field f8 pa2 pl8 pr4 ba f8 fw4 br3 whitney form-text bn br-pill w-sidebar dn db-l lh-normal`}
                     placeholder="Search documentation..."
                     autoComplete="off"
                     onFocus={onClick}
