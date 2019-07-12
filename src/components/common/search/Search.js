@@ -58,7 +58,7 @@ const HitTemplate = ({ hit }) => {
 
     return (
         <>
-            <br/>
+            
             <Link to={hit.path} className="tdn db pt3 pb3 blue search-result nl5 nr11 pl5 pr11 br3 br--left">
                 <h4 className={`${Spirit.h5} dib`}>
                     {hit.title}
@@ -100,18 +100,18 @@ class Results extends React.Component {
     }
 
     onChange(event, { newValue }) {
-        // console.log("L onChange")
+        console.log("L onChange")
         this.setState(() => {
             return { value: newValue }
         })
     }
 
-    onSuggestionsFetchRequested({value, searchResults}) {
-        // console.log("L onSuggestionsFetchRequested ")
+    onSuggestionsFetchRequested({ value }) {
+        console.log("L onSuggestionsFetchRequested ")
         // console.log(value)
         // console.log(window.__LUNR__)
-        searchResults = this.getSearchResults(value)
-        this.setState({ value, searchResults })
+        const results = this.getSearchResults(value)
+        this.setState({ searchResults: results })
         // this.setState(() => {
         //     return { query: value }
         // })
@@ -128,14 +128,14 @@ class Results extends React.Component {
 
     getSuggestionValue(hit) {
         console.log("L getSuggestionValue")
-        console.log(hit)
+        // console.log(hit)
 
         return hit.title
         // return "suggestions value"
     }
 
     renderSuggestion(hit) {
-        // console.log("renderSuggestion")
+        console.log("renderSuggestion")
         // // console.log(JSON.stringify(hit))
         // TODO update HitTemplate (don't use algolia components)
         // return hit = { this.state.results.map(({ ref }) => lunrIndex.store[ref])}
@@ -146,7 +146,7 @@ class Results extends React.Component {
 
     renderSectionTitle( hits ) {
 
-        // console.log(index)
+        console.log("renderSectionTitle")
         var index = ""
         if (hits.sidebar=="userguide") index = `User Guide`
         if (hits.sidebar=="devguide") index = `Dev Guide`
@@ -166,20 +166,23 @@ class Results extends React.Component {
             // blog: `concept-color b--concept-color`,
             // marketplace: `setup-color b--setup-color`,
         }
-        console.log(labelClass[hits.sidebar])
-        console.log(index)
+        // console.log(labelClass[hits.sidebar])
+        // console.log(index)
+        // console.log(hits)
+        if (!hits.sidebar) return
         return <span className={`br-pill bg-white ba pa1 pl2 pr2 nowrap ${labelClass[hits.sidebar] || `midgrey b--midgrey`}`}>{index}</span>
         // return <span className={`br-pill bg-white ba pa1 pl2 pr2 nowrap ${labelClass[index] || `midgrey b--midgrey`}`}>FOOBAR1</span>
     }
 
     getSectionSuggestions(hits) {
         console.log("getSectionSuggestions")
-        console.log(hits)
-        return hits
+        // console.log(hits)
+        
+        return [hits]
     }
 
     getSearchResults(query) {
-        // console.log("foobar")
+        console.log("getSearchResults")
         // console.log(window.__LUNR__)
         if (!query || !window.__LUNR__) return []
         const searchResults = window.__LUNR__.en.index.search(query)
@@ -209,7 +212,7 @@ class Results extends React.Component {
         // console.log(hits.length)
         // console.log("This is the value")
         // console.log(this.state)
-        console.log(hits)
+        // console.log(hits)
         const { value } = this.state
         const inputProps = {
             placeholder: `Search documentation...`,
@@ -230,7 +233,7 @@ class Results extends React.Component {
             sectionContainer: `pb4`,
             sectionTitle: `f8 lh-h4 fw5 midgrey w30 tr mt2 sticky top-2 pr2`,
         }
-        console.log(hits)
+        // console.log(hits)
         return (
             <>
             {
@@ -242,7 +245,7 @@ class Results extends React.Component {
             }
                 <Autosuggest
                     suggestions={hits}
-                    multiSection={false}
+                    multiSection={true}
                     onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
                     onSuggestionsClearRequested={this.onSuggestionsClearRequested}
                     getSuggestionValue={this.getSuggestionValue}
