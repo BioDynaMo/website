@@ -183,6 +183,8 @@ const plugins = [
                     { name: 'description', store: true, attributes: { boost: 5 } },
                     { name: 'content', store: true },
                     { name: 'path', store: true },
+                    { name: 'sidebar', store: true },
+                    { name: 'headings', store: true },
                 ],
                 // How to resolve each field's value for a supported node type
                 resolvers: {
@@ -191,6 +193,8 @@ const plugins = [
                         title: node => node.frontmatter.title,
                         content: node => node.rawMarkdownBody,
                         path: node => node.frontmatter.path,
+                        sidebar: node => node.frontmatter.sidebar,
+                        headings: node => node.headings,
                     },
                 },
                 //custom index file name, default is search_index.json

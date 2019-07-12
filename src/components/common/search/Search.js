@@ -11,52 +11,70 @@ import Link from 'gatsby-link'
 import Autosuggest from 'react-autosuggest'
 
 import { Spirit } from '../../../styles/spirit-styles'
-// import { searchConfig } from '../../../../utils/query-config'
+import { searchConfig } from '../../../../utils/query-config'
+
+// const HitTemplate = ({ hit }) => {
+//     let hitOnCurrentSite = false
+
+//     // The Algolia app now contains indexes from Docs as well as ghost.org.
+//     // We therefore send absolute URLs now to Algolia, but need to strip them
+//     // out again if the search result is on the current site, so we can determine
+//     // if we use Gatsby Link or standard <a> tag.
+//     // TODO: remove this again, once the move to G3 is fully completed
+//     const siteUrl = `^${process.env.SITE_URL || `https://docs.ghost.org`}`
+//     const siteUrlRegex = new RegExp(siteUrl)
+
+//     if (hit.url.match(siteUrlRegex)) {
+//         hit.url = hit.url.replace(siteUrlRegex, ``)
+//         hitOnCurrentSite = true
+//     }
+//     return (
+//         <>
+//             {hitOnCurrentSite ?
+//                 <Link to={hit.url} className="tdn db pt3 pb3 blue search-result nl5 nr11 pl5 pr11 br3 br--left">
+//                     <h4 className={`${Spirit.h5} dib`}>
+//                         <Highlight attribute="title" hit={hit} tagName="mark" className="search-result-page blue" />
+//                     </h4>
+//                     <p className={`${Spirit.small} midgrey nudge-bottom--2`}>
+//                         <Snippet attribute="html" hit={hit} className="search-result-snippet" />
+//                 ...
+//                     </p>
+//                 </Link> :
+//                 <a href={hit.url} className="tdn db pt3 pb3 blue search-result nl5 nr11 pl5 pr11 br3 br--left">
+//                     <h4 className={`${Spirit.h5} dib`}>
+//                         <Highlight attribute="title" hit={hit} tagName="mark" className="search-result-page blue" />
+//                     </h4>
+//                     <p className={`${Spirit.small} midgrey nudge-bottom--2`}>
+//                         <Snippet attribute="html" hit={hit} className="search-result-snippet" />
+//                         ...
+//                     </p>
+//                 </a>
+//             }
+//         </>
+//     )
+// }
 
 const HitTemplate = ({ hit }) => {
-    let hitOnCurrentSite = false
 
-    // The Algolia app now contains indexes from Docs as well as ghost.org.
-    // We therefore send absolute URLs now to Algolia, but need to strip them
-    // out again if the search result is on the current site, so we can determine
-    // if we use Gatsby Link or standard <a> tag.
-    // TODO: remove this again, once the move to G3 is fully completed
-    const siteUrl = `^${process.env.SITE_URL || `https://docs.ghost.org`}`
-    const siteUrlRegex = new RegExp(siteUrl)
-
-    if (hit.url.match(siteUrlRegex)) {
-        hit.url = hit.url.replace(siteUrlRegex, ``)
-        hitOnCurrentSite = true
-    }
     return (
         <>
-            {hitOnCurrentSite ?
-                <Link to={hit.url} className="tdn db pt3 pb3 blue search-result nl5 nr11 pl5 pr11 br3 br--left">
-                    <h4 className={`${Spirit.h5} dib`}>
-                        <Highlight attribute="title" hit={hit} tagName="mark" className="search-result-page blue" />
-                    </h4>
-                    <p className={`${Spirit.small} midgrey nudge-bottom--2`}>
-                        <Snippet attribute="html" hit={hit} className="search-result-snippet" />
-                ...
-                    </p>
-                </Link> :
-                <a href={hit.url} className="tdn db pt3 pb3 blue search-result nl5 nr11 pl5 pr11 br3 br--left">
-                    <h4 className={`${Spirit.h5} dib`}>
-                        <Highlight attribute="title" hit={hit} tagName="mark" className="search-result-page blue" />
-                    </h4>
-                    <p className={`${Spirit.small} midgrey nudge-bottom--2`}>
-                        <Snippet attribute="html" hit={hit} className="search-result-snippet" />
-                        ...
-                    </p>
-                </a>
-            }
+            <br/>
+            <Link to={hit.path} className="tdn db pt3 pb3 blue search-result nl5 nr11 pl5 pr11 br3 br--left">
+                <h4 className={`${Spirit.h5} dib`}>
+                    {hit.title}
+                </h4>
+                <p className={`${Spirit.small} midgrey nudge-bottom--2`}>
+                    {hit.sidebar}
+                </p>
+            </Link> 
+
         </>
     )
 }
 
 HitTemplate.propTypes = {
     hit: PropTypes.shape({
-        url: PropTypes.string.isRequired,
+        path: PropTypes.string.isRequired,
     }).isRequired,
 }
 
@@ -89,7 +107,7 @@ class Results extends React.Component {
     }
 
     onSuggestionsFetchRequested({value, searchResults}) {
-        console.log("L onSuggestionsFetchRequested ")
+        // console.log("L onSuggestionsFetchRequested ")
         // console.log(value)
         // console.log(window.__LUNR__)
         searchResults = this.getSearchResults(value)
@@ -112,25 +130,29 @@ class Results extends React.Component {
         console.log("L getSuggestionValue")
         console.log(hit)
 
-        // return hit.title
-        return "suggestions value"
+        return hit.title
+        // return "suggestions value"
     }
 
     renderSuggestion(hit) {
-        console.log("renderSuggestion")
+        // console.log("renderSuggestion")
         // // console.log(JSON.stringify(hit))
         // TODO update HitTemplate (don't use algolia components)
-        // return <HitTemplate hit={hit} />
         // return hit = { this.state.results.map(({ ref }) => lunrIndex.store[ref])}
         if (!hit.title) return
-        return (<div><br/> <br/><a href={hit.path}> {hit.title} </a></div>)
+        return <HitTemplate hit={hit} />
+        // return (<div><br/> <br/><a href={hit.path}> {hit.title} </a></div>)
     }
 
-    renderSectionTitle({ index }) {
+    renderSectionTitle( hits ) {
 
-        searchConfig.userguide = `User Guide`
-        searchConfig.api = `API`
-        searchConfig.devguide = `Dev Guide`
+        // console.log(index)
+        var index = ""
+        if (hits.sidebar=="userguide") index = `User Guide`
+        if (hits.sidebar=="devguide") index = `Dev Guide`
+        if (hits.sidebar=="bioapi") index = `API`
+        // searchConfig.bioapi = `API`
+        // searchConfig.devguide = `Dev Guide`
         // searchConfig.tutorial = `Tutorials`
         // searchConfig.integration = `Integrations`
 
@@ -144,14 +166,16 @@ class Results extends React.Component {
             // blog: `concept-color b--concept-color`,
             // marketplace: `setup-color b--setup-color`,
         }
-
-        return <span className={`br-pill bg-white ba pa1 pl2 pr2 nowrap ${labelClass[index] || `midgrey b--midgrey`}`}>{searchConfig[index]}</span>
+        console.log(labelClass[hits.sidebar])
+        console.log(index)
+        return <span className={`br-pill bg-white ba pa1 pl2 pr2 nowrap ${labelClass[hits.sidebar] || `midgrey b--midgrey`}`}>{index}</span>
         // return <span className={`br-pill bg-white ba pa1 pl2 pr2 nowrap ${labelClass[index] || `midgrey b--midgrey`}`}>FOOBAR1</span>
     }
 
-    getSectionSuggestions(section) {
+    getSectionSuggestions(hits) {
         console.log("getSectionSuggestions")
-        return section.hits
+        console.log(hits)
+        return hits
     }
 
     getSearchResults(query) {
@@ -159,7 +183,7 @@ class Results extends React.Component {
         // console.log(window.__LUNR__)
         if (!query || !window.__LUNR__) return []
         const searchResults = window.__LUNR__.en.index.search(query)
-        console.log(searchResults)
+        // console.log(searchResults)
         // console.log(query)
         // console.log(searchResults.map(({ ref }) => window.__LUNR__.en.store[ref]))
         return searchResults.map(({ ref }) => window.__LUNR__.en.store[ref])
@@ -173,8 +197,8 @@ class Results extends React.Component {
     // }
 
     render() {
-        console.log("asdf")
-        console.log(this.state.searchResults)
+        // console.log("asdf")
+        // console.log(this.state.searchResults)
         // Don't show sections with no results
         // const hits = this.props.hits.filter(hit => hit.hits && hit.hits.length !== 0)
         const hits = this.state.searchResults
@@ -185,6 +209,7 @@ class Results extends React.Component {
         // console.log(hits.length)
         // console.log("This is the value")
         // console.log(this.state)
+        console.log(hits)
         const { value } = this.state
         const inputProps = {
             placeholder: `Search documentation...`,
@@ -205,7 +230,7 @@ class Results extends React.Component {
             sectionContainer: `pb4`,
             sectionTitle: `f8 lh-h4 fw5 midgrey w30 tr mt2 sticky top-2 pr2`,
         }
-
+        console.log(hits)
         return (
             <>
             {
@@ -217,6 +242,7 @@ class Results extends React.Component {
             }
                 <Autosuggest
                     suggestions={hits}
+                    multiSection={false}
                     onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
                     onSuggestionsClearRequested={this.onSuggestionsClearRequested}
                     getSuggestionValue={this.getSuggestionValue}

@@ -12,7 +12,7 @@ const markdownQueryConfig = [
     {
         section: `bioapi`,
         indexName: `bioapi`,
-        niceName: `API Guide`,
+        niceName: `API`,
     },
 ]
 
