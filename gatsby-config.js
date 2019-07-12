@@ -9,10 +9,6 @@ const easyImport = require(`postcss-easy-import`)
 const path = require(`path`)
 const { isNil } = require('lodash')
 
-const mapPagesUrls = {
-  index: '/',
-}
-
 require(`dotenv`).config({
     path: `.env.${process.env.NODE_ENV}`,
 })
@@ -173,7 +169,7 @@ const plugins = [
                         // filterNodes: node => node.frontmatter.lang === 'en',
                         // Add to index custom entries, that are not actually extracted from gatsby nodes
                         // customEntries: [{ title: 'Pictures', content: 'awesome pictures', url: '/pictures' }],
-                        // filterNodes: (node) => !isNil(node.frontmatter),
+                        filterNodes: (node) => !isNil(node.frontmatter),
                     }
                     // {
                     //     name: 'fr',
@@ -185,17 +181,16 @@ const plugins = [
                 fields: [
                     { name: 'title', store: true, attributes: { boost: 20 } },
                     { name: 'description', store: true, attributes: { boost: 5 } },
-                    { name: 'content' },
-                    { name: 'url', store: true },
+                    { name: 'content', store: true },
+                    { name: 'path', store: true },
                 ],
                 // How to resolve each field's value for a supported node type
                 resolvers: {
                     // For any node of type MarkdownRemark, list how to resolve the fields' values
                     MarkdownRemark: {
-                        title: (node) => node.frontmatter.title,
-                        description: (node) => node.frontmatter.description,
-                        content: (node) => node.rawMarkdownBody,
-                        url: (node) => mapPagesUrls[node.frontmatter.templateKey],
+                        title: node => node.frontmatter.title,
+                        content: node => node.rawMarkdownBody,
+                        path: node => node.frontmatter.path,
                     },
                 },
                 //custom index file name, default is search_index.json
