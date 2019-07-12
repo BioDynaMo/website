@@ -100,14 +100,14 @@ class Results extends React.Component {
     }
 
     onChange(event, { newValue }) {
-        console.log("L onChange")
+        // console.log("L onChange")
         this.setState(() => {
             return { value: newValue }
         })
     }
 
     onSuggestionsFetchRequested({ value }) {
-        console.log("L onSuggestionsFetchRequested ")
+        // console.log("L onSuggestionsFetchRequested ")
         // console.log(value)
         // console.log(window.__LUNR__)
         const results = this.getSearchResults(value)
@@ -127,7 +127,7 @@ class Results extends React.Component {
     }
 
     getSuggestionValue(hit) {
-        console.log("L getSuggestionValue")
+        // console.log("L getSuggestionValue")
         // console.log(hit)
 
         return hit.title
@@ -135,7 +135,7 @@ class Results extends React.Component {
     }
 
     renderSuggestion(hit) {
-        console.log("renderSuggestion")
+        // console.log("renderSuggestion")
         // // console.log(JSON.stringify(hit))
         // TODO update HitTemplate (don't use algolia components)
         // return hit = { this.state.results.map(({ ref }) => lunrIndex.store[ref])}
@@ -146,7 +146,7 @@ class Results extends React.Component {
 
     renderSectionTitle( hits ) {
 
-        console.log("renderSectionTitle")
+        // console.log("renderSectionTitle")
         var index = ""
         if (hits.sidebar=="userguide") index = `User Guide`
         if (hits.sidebar=="devguide") index = `Dev Guide`
@@ -175,21 +175,51 @@ class Results extends React.Component {
     }
 
     getSectionSuggestions(hits) {
-        console.log("getSectionSuggestions")
+        // console.log("getSectionSuggestions")
         // console.log(hits)
         
-        return [hits]
+        return hits.flat_lunr_results
     }
 
     getSearchResults(query) {
-        console.log("getSearchResults")
+        // console.log("getSearchResults")
         // console.log(window.__LUNR__)
         if (!query || !window.__LUNR__) return []
         const searchResults = window.__LUNR__.en.index.search(query)
         // console.log(searchResults)
         // console.log(query)
         // console.log(searchResults.map(({ ref }) => window.__LUNR__.en.store[ref]))
-        return searchResults.map(({ ref }) => window.__LUNR__.en.store[ref])
+        const flat_lunr_results = searchResults.map(({ ref }) => window.__LUNR__.en.store[ref])
+
+        const grouped_by_sidebar = flat_lunr_results.map(section => {
+            return {
+              sidebar: section.sidebar,
+              flat_lunr_results: flat_lunr_results.filter(hit => section.sidebar == hit.sidebar)
+            };
+          }).filter(section => section.flat_lunr_results.length > 0);
+
+        // remove duplicates
+        // https://stackoverflow.com/questions/8668174/indexof-method-in-an-object-array
+        const unique = grouped_by_sidebar.reduce(function(a,b){
+          if(a.map(function(e) { return e.sidebar; }).indexOf(b.sidebar)<0) {
+            a.push(b)
+          };
+          return a;
+        },[])
+
+        // limit number of results per category
+        const max_num_results=3
+        const results = unique.map(section => {
+          return {
+            sidebar: section.sidebar,
+            flat_lunr_results: section.flat_lunr_results.slice(0, max_num_results)
+          };
+        })
+
+        // console.log(flat_lunr_results)
+        // console.log(results)
+
+        return results
     }
 
     // search = event => {
