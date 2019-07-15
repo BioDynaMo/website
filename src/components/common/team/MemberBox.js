@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Link } from 'gatsby'
 import { Spirit } from '../../../styles/spirit-styles'
 import { Box } from '../'
 
@@ -9,7 +8,7 @@ const MemberBox = ({ src, to, href, headingClass, name, children }) => (
     <Box
         to={to}
         href={href}
-        className="col-12 col-6-ns col-4-l pa8 tdn middarkgrey setup-box-min-height setup-box-max-height"
+        className="col-12 col-6-ns col-4-l pa8 tdn middarkgrey setup-box-min-height  team-box-max-width setup-box-max-height"
         radius="4"
     >
         <img src={src} className="teampic"/>

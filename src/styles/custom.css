@@ -256,8 +256,13 @@ kbd {
 /* End slick-carousel part */
 
 .teampic {
-  border-radius: 50%;
-  max-height: 20rem;
+  max-height: 30rem;
+  height: auto;
+  width: auto;
+}
+
+.team-box-max-width {
+  max-width: 40rem;
 }
 
 .galleryimg {

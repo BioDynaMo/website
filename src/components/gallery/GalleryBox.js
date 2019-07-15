@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Box, Icon } from '../common'
+import { Box} from '../common'
 import { Spirit } from '../../styles/spirit-styles'
 
 const GalleryBox = ({ src, to, href, headingClass, title, children }) => (

@@ -44,7 +44,7 @@ const AboutPage = ({data,location}) => {
 
                     <div className="mt5"/>
 
-                    <section className="grid-12 gutter-row-20 gutter-20-ns gutter-36-l">
+                    <section className="grid-16 gutter-row-28 gutter-20-ns gutter-36-l">
 
                         <MemberBox href="/" name="Test Member" src="/test.png" headingClass="mt2">
                             
@@ -70,6 +70,14 @@ const AboutPage = ({data,location}) => {
 
                         </MemberBox>
 
+                        <MemberBox href="/" name="Test Member" src="/test.png" headingClass="mt2">
+                            
+                            <p className={`${Spirit.small} mw70`}>
+                                Position
+                            </p>
+
+                        </MemberBox>
+
                     </section>
 
                     <div className="mt5"/>
@@ -80,7 +88,7 @@ const AboutPage = ({data,location}) => {
 
                     <div className="mt5"/>
 
-                    <section className="grid-12 gutter-row-20 gutter-20-ns gutter-36-l">
+                    <section className="grid-16 gutter-row-28 gutter-20-ns gutter-36-l">
 
                         <MemberBox href="/" name="Test Alumni" src="/test.png" headingClass="mt2">
                             
