@@ -1,1 +1,1 @@
-export { default as TeamPics } from './TeamPics'
+export { default as MemberBox } from './MemberBox'

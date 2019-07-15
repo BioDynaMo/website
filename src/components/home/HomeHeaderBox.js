@@ -5,8 +5,8 @@ import { Link } from 'gatsby'
 import { Icon } from '../common'
 import { Spirit } from '../../styles/spirit-styles'
 
-const HomeHeaderBox = ({ to, title, color, icon, children }) => (
-    <Link to={to} className="col-10 col-4-ns pa5 pa8-ns pa10-l pt8-l flex flex-column-ns items-start tdn content-stretch home-main-box-shadow db br4 bg-white">
+const HomeHeaderBox = ({ to, title, color, icon, children, target }) => (
+    <a href={to} target={target}className="col-10 col-4-ns pa5 pa8-ns pa10-l pt8-l flex flex-column-ns items-start tdn content-stretch home-main-box-shadow db br4 bg-white">
         <Icon name={icon} className={`w10 h-auto w12-ns stroke-w--1-5 mr3 mb2 stroke-${color} fill-${color}`} />
         <div className="flex flex-column justify-between flex-auto">
             <div>
@@ -18,7 +18,7 @@ const HomeHeaderBox = ({ to, title, color, icon, children }) => (
                 <Icon name="arrow-right" className={`w3 h3 ml2 fill-${color}`} />
             </span>
         </div>
-    </Link>
+    </a>
 )
 
 HomeHeaderBox.propTypes = {

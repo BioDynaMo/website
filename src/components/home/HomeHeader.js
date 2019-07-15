@@ -41,6 +41,7 @@ const HomeHeader = () => (
                     title="Github (Code)"
                     icon="github"
                     color="tutorial-green"
+                    target="_blank"
                 > Find the source code for BioDynaMo on our Github page.
                 </HomeHeaderBox>
 

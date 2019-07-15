@@ -33,7 +33,7 @@ const DocPage = ({ data, location }) => {
                 <div className={`${Spirit.page.xl} mt-vw3`}>
 
                     <section className="grid-12 gutter-row-20 gutter-20-ns gutter-36-l">
-                        <SetupBox href="/biodynamo/doc/user_guide/docs/" title="User Guide" icon="ghost-pro-logo" iconClass="w9 h9" headingClass="mt2">
+                        <SetupBox to="/biodynamo/doc/user_guide/docs/" title="User Guide" icon="ghost-pro-logo" iconClass="w9 h9" headingClass="mt2">
                             <p className={`${Spirit.small} mw70`}>
                                 Understand the fundamentals of BioDynaMo.
                             </p>

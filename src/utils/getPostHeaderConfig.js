@@ -78,6 +78,12 @@ export const getPostHeaderConfig = ({ pathname }) => {
         postHeaderConfig.bgClass = `bg-concepts`
     }
 
+    if (pathname.match(/^\/about\//i)) {
+        postHeaderConfig.title = `About BioDynaMo`
+        postHeaderConfig.mainLink = `/about/`
+        postHeaderConfig.bgClass = `bg-concepts`
+    }
+
     return postHeaderConfig
 }
 
