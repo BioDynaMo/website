@@ -33,7 +33,7 @@ const AboutPage = ({data,location}) => {
                     </h2>
 
                     <p className={`${Spirit.small} midgrey-l2 mt2`}>
-                    This is who we are!
+                    This is what we do!
                     </p>
 
                     <div className="mt3"/>
@@ -63,6 +63,42 @@ const AboutPage = ({data,location}) => {
                         </MemberBox>
 
                         <MemberBox href="/" name="Test Member" src="/test.png" headingClass="mt2">
+                            
+                            <p className={`${Spirit.small} mw70`}>
+                                Position
+                            </p>
+
+                        </MemberBox>
+
+                    </section>
+
+                    <div className="mt5"/>
+
+                    <h2 className={`${Spirit.h3} pt20 nt20`}>
+                    The Alumni
+                    </h2>
+
+                    <div className="mt5"/>
+
+                    <section className="grid-12 gutter-row-20 gutter-20-ns gutter-36-l">
+
+                        <MemberBox href="/" name="Test Alumni" src="/test.png" headingClass="mt2">
+                            
+                            <p className={`${Spirit.small} mw70`}>
+                                Position 
+                            </p>
+
+                        </MemberBox>
+
+                        <MemberBox href="/" name="Test Alumni" src="/test.png" headingClass="mt2">
+                            
+                            <p className={`${Spirit.small} mw70`}>
+                                Position 
+                            </p>
+
+                        </MemberBox>
+
+                        <MemberBox href="/" name="Test Alumni" src="/test.png" headingClass="mt2">
                             
                             <p className={`${Spirit.small} mw70`}>
                                 Position

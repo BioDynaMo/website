@@ -12,7 +12,7 @@ const MemberBox = ({ src, to, href, headingClass, name, children }) => (
         className="col-12 col-6-ns col-4-l pa8 tdn middarkgrey setup-box-min-height"
         radius="4"
     >
-        <img src={src} className="teampic" />
+        <img src={src} className="teampic"/>
         <h4 className={`${Spirit.h4} darkgrey ${headingClass}`}>{name}</h4>
         <div className={`${Spirit.small} mt1 midgrey`}>{children}</div>
     </Box>
