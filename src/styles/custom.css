@@ -257,9 +257,11 @@ kbd {
 
 .teampic {
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
+  max-height: 20rem;
+}
+
+.galleryimg {
+  max-height: 40rem;
 }
 
 .mw-content {
@@ -845,6 +847,18 @@ kbd {
 
 .setup-box-min-height {
     min-height: 20rem;
+}
+
+.setup-box-max-height {
+    max-height: 40rem;
+}
+
+.gallery-box-min-height {
+    min-height: 20rem;
+}
+
+.gallery-box-max-height {
+    max-height: 60rem;
 }
 
 .setup-color {

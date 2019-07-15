@@ -84,6 +84,12 @@ export const getPostHeaderConfig = ({ pathname }) => {
         postHeaderConfig.bgClass = `bg-concepts`
     }
 
+    if (pathname.match(/^\/gallery\//i)) {
+        postHeaderConfig.title = `Gallery`
+        postHeaderConfig.mainLink = `/gallery/`
+        postHeaderConfig.bgClass = `bg-concepts`
+    }
+
     return postHeaderConfig
 }
 
