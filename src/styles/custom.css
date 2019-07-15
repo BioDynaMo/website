@@ -840,7 +840,7 @@ kbd {
 /* Setup */
 /* ----------------------------------------------------------------------- */
 .bg-setup {
-    background: url(../images/bg-setup.svg) bottom center no-repeat, linear-gradient(60deg, #008BD6 0%, #3ECFE6 100%);
+    background: url(../images/bg-setup.svg) bottom center no-repeat, linear-gradient(60deg, rgb(19, 126, 5) 0%, rgba(28, 197, 2, 0.698) 100%);
 }
 
 .setup-box-min-height {
@@ -848,11 +848,11 @@ kbd {
 }
 
 .setup-color {
-    color: #008BD6;
+    color: rgb(19, 126, 5);
 }
 
 .b--setup-color {
-    border-color: #008BD6;
+    border-color: rgb(19, 126, 5);
 }
 
 /* Core Concepts */

@@ -186,6 +186,7 @@ class Results extends React.Component {
         // console.log(window.__LUNR__)
         if (!query || !window.__LUNR__) return []
         const searchResults = window.__LUNR__.en.index.search(query)
+        // const searchResults = window.__LUNR__.en.index.search("${query}~2")
         // console.log(searchResults)
         // console.log(query)
         // console.log(searchResults.map(({ ref }) => window.__LUNR__.en.store[ref]))

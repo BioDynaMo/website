@@ -36,12 +36,10 @@ const NavBar = ({ theme }) => {
             <div className="navbar-container">
                 <div className="dn flex-ns flex-auto items-center overflow-x-auto mr12 mr0-l ml5 ml0-l pb20">
             {/* Create nav bar links and choose their names */}
-                    <Link to="/biodynamo/doc/user_guide/docs/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l nl3`}>User Guide</Link>
-                    <a href="/biodynamo/doc/dev_guide/docs/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Developer Guide</a>
-                    <a href="/bioapi" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>API Guide</a>
-                    <a href="https://github.com/BioDynaMo/biodynamo" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Code (Github)</a>                      
-                    <a href="/about/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>About</a>
-                    <a href="/team/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Team</a>
+                    <Link to="/biodynamo/doc/user_guide/docs/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l nl3`}>Gallery</Link>
+                    <a href="/documentation/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Documentation</a>
+                    <a href="/bioapi" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Tutorials</a>
+                    <a href="https://github.com/BioDynaMo/biodynamo" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>About Us</a>                      
                 </div>
             </div>
             <div className="relative pl3">

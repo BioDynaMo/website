@@ -21,6 +21,14 @@ const HomeHeader = () => (
             <section className="grid-12 gutter-row-20 gutter-36-ns mt10 mt8-ns mt20 miw-100 miw-auto-ns home-main-box-margin-ns z-999">
 
                 <HomeHeaderBox
+                    to="/biodynamo/doc/user_guide/docs/hello_world/"
+                    title="Tutorials"
+                    icon="laptop-code-solid"
+                    color="tutorial-green"
+                > Browse tutorials and learn how to use BioDynaMo for your own use case.
+                </HomeHeaderBox>
+
+                <HomeHeaderBox
                     to="/biodynamo/doc/user_guide/docs/installation/"
                     title="Installation Guide"
                     icon="download-solid"
@@ -29,19 +37,11 @@ const HomeHeader = () => (
                 </HomeHeaderBox>
 
                 <HomeHeaderBox
-                    to="/biodynamo/doc/user_guide/docs/"
-                    title="User Guide"
-                    icon="book-open-solid"
+                    to="https://github.com/BioDynaMo/biodynamo"
+                    title="Github (Code)"
+                    icon="github"
                     color="tutorial-green"
-                > Understand the fundamentals of BioDynaMo.
-                </HomeHeaderBox>
-
-                <HomeHeaderBox
-                    to="/biodynamo/doc/user_guide/docs/hello_world/"
-                    title="Tutorials"
-                    icon="laptop-code-solid"
-                    color="tutorial-green"
-                > Browse tutorials and learn how to use BioDynaMo for your own use case.
+                > Find the source code for BioDynaMo on our Github page.
                 </HomeHeaderBox>
 
             </section>
