@@ -159,7 +159,7 @@ class Results extends React.Component {
         const labelClass = {
             // faq: `faq-color b--faq-color`,
             // concept: `concept-color b--concept-color`,
-            devguide: `setup-color b--setup-color`,
+            devguide: `concept-color b--concept-color-color`,
             api: `middarkgrey b--middarkgrey`,
             userguide: `tutorial-color b--tutorial-color`,
             // integration: `integration-color b--integration-color`,

@@ -5,9 +5,10 @@ import PropTypes from 'prop-types'
 
 import { Icon, Box } from '../components/common'
 import { Layout } from '../components/common/layout'
-import { Carousel, HomeHeader, HomeAPIBox, HomeFAQLink } from '../components/home'
+import { Carousel, HomeHeader, HomeAPIBox, BlogList } from '../components/home'
 import { Spirit } from '../styles/spirit-styles'
 import { MetaData, getMetaImageUrls } from '../components/common/meta'
+
 
 const HomePage = ({ data, location }) => {
     // Add meta title and description for this page here to overwrite the site meta data as set in the config
@@ -41,26 +42,26 @@ const HomePage = ({ data, location }) => {
                 <div className={`${Spirit.page.xl} grid-12 gutter-row-20 gutter-40-ns`}>
 
                     <section className="col-12 col-6-ns flex flex-column justify-between mt4 mt0-ns">
-                        <Link to="/api/" className={`${Spirit.h3} link darkgrey hover-midgrey flex-grow-0`}>API Reference</Link>
+                        <Link to="/api/" className={`${Spirit.h3} link darkgrey hover-midgrey flex-grow-0`}>Twitter Feed</Link>
 
                         <Box className="mt5 tdn flex-auto flex flex-column items-stretch" elevation="1">
                             <HomeAPIBox
-                                to="/api/#frontend-sdk"
-                                title="Frontend SDKs"
+                                href="/api/#frontend-sdk"
+                                title="Post 1"
                                 icon="sdks"
                             >
                                 Frameworks for working with the Ghost API to build a publication website
                             </HomeAPIBox>
                             <HomeAPIBox
-                                to="/api/#rest-api"
-                                title="Rest API"
+                                href="/api/#rest-api"
+                                title="Post 2"
                                 icon="rest-api"
                             >
                                 A full reference of API Endpoints
                             </HomeAPIBox>
                             <HomeAPIBox
-                                to="/api/#tools"
-                                title="Tools"
+                                href="/api/#tools"
+                                title="Post 3"
                                 icon="tools"
                             >
                                 Utilities to help build and manage Ghost
@@ -69,21 +70,14 @@ const HomePage = ({ data, location }) => {
                     </section>
 
                     <section className="col-12 col-6-ns mt0-ns bt bn-ns b--whitegrey nl5 nr5 nl0-ns nr0-ns ml0-ns mr0-ns pl5 pr5 pl0-ns pr0-ns pt5 pt0-ns ">
-                        <a href="https://docs.ghost.org/faq/" className={`${Spirit.h3} link darkgrey hover-midgrey`}>FAQ</a>
+                        <a href="/biodynamo/doc/user_guide/docs/changelog/" className={`${Spirit.h3} link darkgrey hover-midgrey`}>Newsfeed</a>
+                        
                         <div className="mt3 mt7-ns">
-                            <HomeFAQLink to="https://docs.ghost.org/faq/upgrade-to-ghost-2-0/" title="Upgrade to Ghost 2.0">
-                                Ghost 2.0 was released in September 2018 and the second major upgrade since the platform launched. Learn how to upgrade
-                            </HomeFAQLink>
+                            
+                            
 
-                            <HomeFAQLink to="https://docs.ghost.org/faq/using-custom-domains/" title="Using Custom Domains">
-                                Map any domain you own directly to your Ghost(Pro) publication and make your site more memorable!
-                            </HomeFAQLink>
-
-                            <HomeFAQLink to="https://docs.ghost.org/faq/upgrading-from-deprecated-ghost-cli/" title="Upgrading from deprecated Ghost CLI">
-                                If you are using a deprecated version and need to upgrade in order to upgrade or manage your Ghost site, some extra steps may be required.
-                            </HomeFAQLink>
-
-                            <a href="https://docs.ghost.org/faq/" className={`${Spirit.p} midgrey fw5 link hover-blue`}>More FAQ...</a>
+                            <a href="/biodynamo/doc/user_guide/docs/" className={`${Spirit.p} midgrey fw5 link hover-blue`}>More news...</a>
+                        
                         </div>
                     </section>
                 </div>
@@ -161,3 +155,23 @@ export const pageQuery = graphql`
         }
     }
 `
+
+
+// <HomeFAQLink to="/biodynamo/doc/user_guide/docs/" title="Newest blog post">
+//     Newest blog post, you should check it out it's pretty awesome
+// </HomeFAQLink>
+
+// <HomeFAQLink to="/biodynamo/doc/user_guide/docs/" title="Almost newest blog post">
+//     Almost newest blog post, you should check it out it's pretty awesome
+// </HomeFAQLink>
+
+// <HomeFAQLink to="/biodynamo/doc/user_guide/docs/" title="Old blog post">
+//     Old blog post, you should check it out it's pretty awesome
+// </HomeFAQLink>
+
+// <HomeFAQLink to="/biodynamo/doc/user_guide/docs/" title="Oldest blog post">
+//     Oldest blog post, you should check it out it's pretty awesome
+// </HomeFAQLink>
+// <br/>
+
+
