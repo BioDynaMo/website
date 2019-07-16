@@ -27,56 +27,68 @@ const GalleryPage = ({data, location}) => {
 			/>
 			<Layout mainClass="bg-whitegrey-l2 pb-vw3" bodyClass="bg-white">
 	    	
-                <PostHeader location={location}/>
+                <div className="bg-concepts">
+                    <div className={`${Spirit.page.xl} pt12 pb4 pt-vw1-ns pb-vw1-ns white pl10 pl0-ns`}>
+                        <h1 className={`${Spirit.h4} gh-integration-header-shadow`}>
+                            <Link to="/about/" className="link dim white">{title}</Link>
+                        </h1>
+                    </div>
+                </div>
 
                 <div className={`${Spirit.page.xl} mt-vw3`}>
 
-                    <section className="grid-16 gutter-row-20 gutter-20-ns gutter-36-l">
+                    <section className="grid-12 gutter-row-20 gutter-20-ns gutter-36-l">
 
-                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 1" src="/paraview7-4.png" headingClass="mt2">
-                            <p className={`${Spirit.small} mw70`}>
+                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 1" src="/paraview7-4.png">
+                            <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 2" src="/test.png" headingClass="mt2">
-                            <p className={`${Spirit.small} mw70`}>
+                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 2" src="/paraview7-4.png">
+                            <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 3" src="/test.png" headingClass="mt2">
-                            <p className={`${Spirit.small} mw70`}>
+                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 3" src="/paraview7-4.png">
+                            <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 4" src="/test.png" headingClass="mt2">
-                            <p className={`${Spirit.small} mw70`}>
+                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 4" src="/paraview7-4.png">
+                            <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 5" src="/test.png" headingClass="mt2">
-                            <p className={`${Spirit.small} mw70`}>
+                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 5" src="/paraview7-4.png">
+                            <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 6" src="/test.png" headingClass="mt2">
-                            <p className={`${Spirit.small} mw70`}>
+                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 6" src="/paraview7-4.png">
+                            <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 7" src="/test.png" headingClass="mt2">
-                            <p className={`${Spirit.small} mw70`}>
+                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 7" src="/paraview7-4.png">
+                            <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 8" src="/test.png" headingClass="mt2">
-                            <p className={`${Spirit.small} mw70`}>
+                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 8" src="/paraview7-4.png">
+                            <p className={`${Spirit.p} mw70`}>
+                                Description here!
+                            </p>
+                        </GalleryBox>
+
+                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 8" src="/paraview7-4.png">
+                            <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
                         </GalleryBox>

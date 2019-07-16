@@ -82,7 +82,7 @@ const HomePage = ({ data, location }) => {
                     </section>
                 </div>
 
-                <section className={`${Spirit.page.xl} col-12 mt8 mt-vw3-ns bt bn-ns b--whitegrey pt5 pt0-ns`}>
+                {/*<section className={`${Spirit.page.xl} col-12 mt8 mt-vw3-ns bt bn-ns b--whitegrey pt5 pt0-ns`}>
                     <a href="https://ghost.org/integrations/" className={`${Spirit.h3} link darkgrey hover-midgrey`}>Integrations</a>
                     <p className={`${Spirit.p} mt2 midgrey flex flex-column flex-row-ns justify-between items-center-ns`}>
                         All your favourite apps and tools, integrated with Ghost.
@@ -124,7 +124,7 @@ const HomePage = ({ data, location }) => {
                             See More
                         </Box>
                     </div>
-                </section>
+                </section> */}
             
             </Layout>
         </>

@@ -12,8 +12,8 @@ const GalleryBox = ({ src, to, href, headingClass, title, children }) => (
         radius="4"
     >
         <h2 className={`${Spirit.h2} darkgrey ${headingClass}`}>{title}</h2>
-        <img src={src} className="galleryimg mt1"/>
-        <div className={`${Spirit.small} mt1 midgrey`}>{children}</div>
+        <img src={src} className="gallery-img mt2"/>
+        <div className={`${Spirit.p} mt2 midgrey`}>{children}</div>
     </Box>
 )
 
@@ -22,7 +22,6 @@ GalleryBox.propTypes = {
     title: PropTypes.string.isRequired,
     to: PropTypes.string,
     href: PropTypes.string,
-    headingClass: PropTypes.string,
 }
 
 export default GalleryBox

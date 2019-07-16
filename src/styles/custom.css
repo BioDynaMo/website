@@ -259,6 +259,7 @@ kbd {
   max-height: 30rem;
   height: auto;
   width: auto;
+  overflow: hidden;
 }
 
 .img-container {
@@ -301,8 +302,9 @@ kbd {
   max-width: 40rem;
 }
 
-.galleryimg {
-  max-height: 40rem;
+.gallery-img {
+  max-height: 30rem;
+  overflow: hidden;
 }
 
 .mw-content {
@@ -895,11 +897,15 @@ kbd {
 }
 
 .gallery-box-min-height {
-    min-height: 20rem;
+    min-height: 15rem;
 }
 
 .gallery-box-max-height {
-    max-height: 60rem;
+    max-height: 45rem;
+}
+
+.gallery-box-min-width {
+  min-width: 40rem;
 }
 
 .setup-color {

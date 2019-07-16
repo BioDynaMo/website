@@ -32,17 +32,17 @@ const AboutPage = ({data,location}) => {
 
                 <div className={`${Spirit.page.xl} pb-vw4 pb-vw3-ns pt-vw4 pt-vw3-ns`}>
 
-                    <h2 className={`${Spirit.h3} pt20 nt20`}>
+                    <h2 className={`${Spirit.h2} pt20 nt20`}>
                     Our Project
                     </h2>
 
-                    <p className={`${Spirit.small} midgrey-l2 mt2`}>
+                    <p className={`${Spirit.excerpt} midgrey-l2 mt2`}>
                     This is what we do!
                     </p>
 
                     <div className="mt3"/>
 
-                    <h2 className={`${Spirit.h3} pt20 nt20`}>
+                    <h2 className={`${Spirit.h2} pt20 nt20`}>
                     Our Team
                     </h2>
 
@@ -86,7 +86,7 @@ const AboutPage = ({data,location}) => {
 
                     <div className="mt5"/>
 
-                    <h2 className={`${Spirit.h3} pt20 nt20`}>
+                    <h2 className={`${Spirit.h2} pt20 nt20`}>
                     Our Alumni
                     </h2>
 
