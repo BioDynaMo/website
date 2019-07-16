@@ -70,11 +70,11 @@ const HomePage = ({ data, location }) => {
                     </section>
 
                     <section className="col-12 col-6-ns mt0-ns bt bn-ns b--whitegrey nl5 nr5 nl0-ns nr0-ns ml0-ns mr0-ns pl5 pr5 pl0-ns pr0-ns pt5 pt0-ns ">
-                        <a href="/biodynamo/doc/user_guide/docs/changelog/" className={`${Spirit.h3} link darkgrey hover-midgrey`}>Newsfeed</a>
+                        <a href="/biodynamo/doc/user_guide/docs/changelog/" className={`${Spirit.h3} link darkgrey hover-midgrey`}>Latest News</a>
                         
                         <div className="mt3 mt7-ns">
                             
-                            
+                            <BlogList limit="4"/>
 
                             <a href="/biodynamo/doc/user_guide/docs/" className={`${Spirit.p} midgrey fw5 link hover-blue`}>More news...</a>
                         

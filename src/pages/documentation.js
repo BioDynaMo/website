@@ -33,21 +33,21 @@ const DocPage = ({ data, location }) => {
                 <div className={`${Spirit.page.xl} mt-vw3`}>
 
                     <section className="grid-12 gutter-row-20 gutter-20-ns gutter-36-l">
-                        <SetupBox to="/biodynamo/doc/user_guide/docs/" title="User Guide" icon="client-lib" iconClass="w9 h9" headingClass="mt2">
+                        <SetupBox to="/biodynamo/doc/user_guide/docs/" title="User Guide" icon="presentation-code" iconClass="w9 h9" headingClass="mt2">
                             <p className={`${Spirit.small} mw70`}>
-                                Understand the fundamentals of BioDynaMo.
+                                Learn the fundamentals of BioDynaMo and how to get started.
                             </p>
                         </SetupBox>
 
-                        <SetupBox to="/biodynamo/doc/dev_guide/docs/" title="Developer Guide" icon="laptop-code-solid" iconClass="w9 h9" headingClass="mt2">
+                        <SetupBox to="/biodynamo/doc/dev_guide/docs/" title="Developer Guide" icon="terminal" iconClass="w9 h9" headingClass="mt2">
                             <p className={`${Spirit.small} mw70`}>
-                                How to build BioDynaMo.
+                                Learn how to build and contribute to the BioDynaMo project.
                             </p>
                         </SetupBox>
 
-                        <SetupBox href="/bioapi" title="API Reference" icon="rest-api" iconClass="w9 h9" headingClass="mt2">
+                        <SetupBox href="/bioapi" title="API Reference" icon="network" iconClass="w9 h9" headingClass="mt2">
                             <p className={`${Spirit.small} mw70`}>
-                                How to use Biodynamo. 
+                                Learn the technical details to apply BioDynaMo to your own use case. 
                             </p>
                         </SetupBox>
 

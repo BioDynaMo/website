@@ -14,6 +14,10 @@ const SetupBox = ({ to, href, icon, iconClass, headingClass, title, children }) 
         <Icon name={icon} className={iconClass} />
         <h4 className={`${Spirit.h4} darkgrey ${headingClass}`}>{title}</h4>
         <div className={`${Spirit.small} mt1 midgrey`}>{children}</div>
+        <span className={`black dib mt2 link fw5 f7 f5-ns flex items-center`}>
+            Learn more
+            <Icon name="arrow-right" className={`w3 h3 ml2 fill-black`} />
+        </span>
     </Box>
 )
 

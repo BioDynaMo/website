@@ -62,10 +62,10 @@ WebsiteMeta.propTypes = {
             }).isRequired,
         }).isRequired,
     }).isRequired,
-    canonical: PropTypes.string.isRequired,
+    canonical: PropTypes.string,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
+    image: PropTypes.string,
     type: PropTypes.oneOf([`website`, `series`]).isRequired,
 }
 
