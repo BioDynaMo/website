@@ -1,10 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import { PostHeader} from '../components/common'
+import { Link, graphql } from 'gatsby'
 
 import { Spirit } from '../styles/spirit-styles'
-import { SetupBox } from '../components/setup'
 import { MemberBox } from '../components/common/team'
 import { MetaData, getMetaImageUrls } from '../components/common/meta'
 import { Layout } from '../components/common/layout'
@@ -24,12 +22,18 @@ const AboutPage = ({data,location}) => {
 			/>
 			<Layout mainClass="bg-whitegrey-l2 pb-vw3" bodyClass="bg-white">
 	    	
-                <PostHeader location={location}/>
+                <div className="bg-concepts">
+                    <div className={`${Spirit.page.xl} pt12 pb4 pt-vw1-ns pb-vw1-ns white pl10 pl0-ns`}>
+                        <h1 className={`${Spirit.h4} gh-integration-header-shadow`}>
+                            <Link to="/about/" className="link dim white">{title}</Link>
+                        </h1>
+                    </div>
+                </div>
 
-                <div className={`${Spirit.page.l} pb-vw4 pb-vw3-ns pt-vw4 pt-vw3-ns`}>
+                <div className={`${Spirit.page.xl} pb-vw4 pb-vw3-ns pt-vw4 pt-vw3-ns`}>
 
                     <h2 className={`${Spirit.h3} pt20 nt20`}>
-                    The Project
+                    Our Project
                     </h2>
 
                     <p className={`${Spirit.small} midgrey-l2 mt2`}>
@@ -39,43 +43,43 @@ const AboutPage = ({data,location}) => {
                     <div className="mt3"/>
 
                     <h2 className={`${Spirit.h3} pt20 nt20`}>
-                    The Team
+                    Our Team
                     </h2>
 
                     <div className="mt5"/>
 
-                    <section className="grid-16 gutter-row-28 gutter-20-ns gutter-36-l">
+                    <section className="grid-16 gutter-row-20 gutter-20-ns gutter-36-l">
 
-                        <MemberBox href="/" name="Test Member" src="/test.png" headingClass="mt2">
-                            
-                            <p className={`${Spirit.small} mw70`}>
-                                Position 
-                            </p>
-
+                        <MemberBox 
+                            href="/" 
+                            name="Nathaniel Randomness" 
+                            src="/bradley.png" 
+                            headingClass="mt2" 
+                            position="Lead Engineer">
                         </MemberBox>
 
-                        <MemberBox href="/" name="Test Member" src="/test.png" headingClass="mt2">
-                            
-                            <p className={`${Spirit.small} mw70`}>
-                                Position 
-                            </p>
-
+                        <MemberBox 
+                            href="/" 
+                            name="Test Member" 
+                            src="/bradley.png" 
+                            headingClass="mt2" 
+                            position="Position">
                         </MemberBox>
 
-                        <MemberBox href="/" name="Test Member" src="/test.png" headingClass="mt2">
-                            
-                            <p className={`${Spirit.small} mw70`}>
-                                Position
-                            </p>
-
+                        <MemberBox 
+                            href="/" 
+                            name="Test Member" 
+                            src="/bradley.png" 
+                            headingClass="mt2" 
+                            position="Position">
                         </MemberBox>
 
-                        <MemberBox href="/" name="Test Member" src="/test.png" headingClass="mt2">
-                            
-                            <p className={`${Spirit.small} mw70`}>
-                                Position
-                            </p>
-
+                        <MemberBox 
+                            href="/" 
+                            name="Test Member" 
+                            src="/bradley.png" 
+                            headingClass="mt2" 
+                            position="Position">
                         </MemberBox>
 
                     </section>
@@ -83,35 +87,43 @@ const AboutPage = ({data,location}) => {
                     <div className="mt5"/>
 
                     <h2 className={`${Spirit.h3} pt20 nt20`}>
-                    The Alumni
+                    Our Alumni
                     </h2>
 
                     <div className="mt5"/>
 
                     <section className="grid-16 gutter-row-28 gutter-20-ns gutter-36-l">
 
-                        <MemberBox href="/" name="Test Alumni" src="/test.png" headingClass="mt2">
-                            
-                            <p className={`${Spirit.small} mw70`}>
-                                Position 
-                            </p>
-
+                        <MemberBox 
+                            href="/" 
+                            name="Test Alumni" 
+                            src="/bradley.png" 
+                            headingClass="mt2" 
+                            position="Position">
                         </MemberBox>
 
-                        <MemberBox href="/" name="Test Alumni" src="/test.png" headingClass="mt2">
-                            
-                            <p className={`${Spirit.small} mw70`}>
-                                Position 
-                            </p>
-
+                        <MemberBox 
+                            href="/" 
+                            name="Test Alumni" 
+                            src="/bradley.png" 
+                            headingClass="mt2" 
+                            position="Position">
                         </MemberBox>
 
-                        <MemberBox href="/" name="Test Alumni" src="/test.png" headingClass="mt2">
-                            
-                            <p className={`${Spirit.small} mw70`}>
-                                Position
-                            </p>
+                        <MemberBox 
+                            href="/" 
+                            name="Test Alumni" 
+                            src="/bradley.png" 
+                            headingClass="mt2" 
+                            position="Position">
+                        </MemberBox>
 
+                        <MemberBox 
+                            href="/" 
+                            name="Test Alumni" 
+                            src="/bradley.png" 
+                            headingClass="mt2" 
+                            position="Position">
                         </MemberBox>
 
                     </section>

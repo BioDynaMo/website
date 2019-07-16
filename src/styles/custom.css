@@ -261,6 +261,42 @@ kbd {
   width: auto;
 }
 
+.img-container {
+  position: relative;
+  align-content: center;
+  justify-content: center;
+  justify-self: center;
+}
+
+.img-overlay-2 {
+  position: absolute;
+  width: auto;
+  bottom: 0;
+  padding-left: 8px;
+  padding-right: 10px;
+  font-size: 1.2rem;
+  background: rgba(1000,0,0,0.9);
+  border-radius: 50rem;
+  border: 1px solid;
+  border-color: rgba(0,0,0,1);
+  color: white;
+  line-height: 2;
+}
+
+.img-overlay-1 {
+  position: absolute;
+  width: auto;
+  bottom: 14%;
+  font-size: 1.5rem;
+  padding-left: 8px;
+  padding-right: 6px;
+  background: rgba(0,0,0,0.75);
+  border-radius: 50rem;
+  border: 1px solid;
+  border-color: rgba(0,0,0,1);
+  color: white;
+}
+
 .team-box-max-width {
   max-width: 40rem;
 }

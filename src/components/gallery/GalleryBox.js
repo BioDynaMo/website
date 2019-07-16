@@ -11,8 +11,8 @@ const GalleryBox = ({ src, to, href, headingClass, title, children }) => (
         className="col-12 col-6-ns col-4-l pa8 tdn middarkgrey gallery-box-min-height gallery-box-max-height"
         radius="4"
     >
-        <img src={src} className="galleryimg"/>
-        <h4 className={`${Spirit.h4} darkgrey ${headingClass}`}>{title}</h4>
+        <h2 className={`${Spirit.h2} darkgrey ${headingClass}`}>{title}</h2>
+        <img src={src} className="galleryimg mt1"/>
         <div className={`${Spirit.small} mt1 midgrey`}>{children}</div>
     </Box>
 )
