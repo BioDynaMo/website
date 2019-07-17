@@ -42,9 +42,10 @@ const HomePage = ({ data, location }) => {
                 <div className={`${Spirit.page.xl} grid-12 gutter-row-20 gutter-40-ns`}>
 
                     <section className="col-12 col-6-ns flex flex-column justify-between mt4 mt0-ns">
-                        <Link to="/api/" className={`${Spirit.h3} link darkgrey hover-midgrey flex-grow-0`}>Twitter Feed</Link>
+                        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Today, we&#39;re taking part in a workshop on <a href="https://twitter.com/hashtag/BigData?src=hash&amp;ref_src=twsrc%5Etfw">#BigData</a> <a href="https://twitter.com/hashtag/computing?src=hash&amp;ref_src=twsrc%5Etfw">#computing</a> <a href="https://twitter.com/hashtag/tech?src=hash&amp;ref_src=twsrc%5Etfw">#tech</a> in <a href="https://twitter.com/hashtag/medicine?src=hash&amp;ref_src=twsrc%5Etfw">#medicine</a> at <a href="https://twitter.com/CERN?ref_src=twsrc%5Etfw">@CERN</a>.<a href="https://twitter.com/UniofNewcastle?ref_src=twsrc%5Etfw">@UniofNewcastle</a>&#39;s <a href="https://twitter.com/romanbauer111?ref_src=twsrc%5Etfw">@romanbauer111</a> is currently presenting &#39;BioDynaMo&#39; — a joint <a href="https://twitter.com/CERNopenlab?ref_src=twsrc%5Etfw">@CERNopenlab</a> project also involving <a href="https://twitter.com/intel?ref_src=twsrc%5Etfw">@Intel</a>. Find out all about it on our website: <a href="https://t.co/isppWC692z">https://t.co/isppWC692z</a>. <a href="https://t.co/RHOOBpixOQ">pic.twitter.com/RHOOBpixOQ</a></p>&mdash; CERN openlab (@CERNopenlab) <a href="https://twitter.com/CERNopenlab/status/1136924750788419584?ref_src=twsrc%5Etfw">June 7, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        <a href="https://twitter.com/intent/tweet?button_hashtag=biodynamo&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">Tweet #biodynamo</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-                        <Box className="mt5 tdn flex-auto flex flex-column items-stretch" elevation="1">
+                        {/*<Box className="mt5 tdn flex-auto flex flex-column items-stretch" elevation="1">
                             <HomeAPIBox
                                 href="/api/#frontend-sdk"
                                 title="Post 1"
@@ -66,15 +67,14 @@ const HomePage = ({ data, location }) => {
                             >
                                 Utilities to help build and manage Ghost
                             </HomeAPIBox>
-                        </Box>
+                        </Box>*/}
                     </section>
 
-                    <section className="col-12 col-6-ns mt0-ns bt bn-ns b--whitegrey nl5 nr5 nl0-ns nr0-ns ml0-ns mr0-ns pl5 pr5 pl0-ns pr0-ns pt5 pt0-ns ">
-                        <a href="/biodynamo/doc/user_guide/docs/changelog/" className={`${Spirit.h3} link darkgrey hover-midgrey`}>Latest News</a>
+                    <section className="col-12 col-6-ns mt0-ns bt bn-ns b--whitegrey nl5 nr5 nl0-ns nr0-ns ml0-ns mr0-ns pl5 pr5 pl0-ns pr0-ns pt5 pt0-ns ">                        
                         
                         <div className="mt3 mt7-ns">
                             
-                            <BlogList limit="4"/>
+                            <BlogList limit="5"/>
 
                             <a href="/news/" className={`${Spirit.p} midgrey fw5 link hover-blue`}>More news...</a>
                         
