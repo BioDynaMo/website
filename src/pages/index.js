@@ -76,7 +76,7 @@ const HomePage = ({ data, location }) => {
                             
                             <BlogList limit="4"/>
 
-                            <a href="/biodynamo/doc/user_guide/docs/" className={`${Spirit.p} midgrey fw5 link hover-blue`}>More news...</a>
+                            <a href="/news/" className={`${Spirit.p} midgrey fw5 link hover-blue`}>More news...</a>
                         
                         </div>
                     </section>

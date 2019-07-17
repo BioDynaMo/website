@@ -6,4 +6,6 @@ exports.createPages = ({ graphql, actions }) => Promise.all([
     createPages.createMarkdownPages({ graphql, actions }),
 ])
 
+
+
 exports.onCreateNode = async ({ node, getNode, actions }) => await onCreateNode.createMarkdownNodeFields(({ node, getNode, actions }))
