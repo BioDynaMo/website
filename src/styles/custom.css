@@ -1281,3 +1281,45 @@ to be custom HTML.
   grid-row: 4;
 }
 
+.news-box {
+  width: 100%;
+  padding-left: 1.75rem;
+  padding-top: 0.75rem;
+}
+
+.news-grid-box-left {
+  padding-top: 1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1rem;
+  padding-bottom: 1.5rem;
+  justify-self: start;
+  text-align: center;
+  height: auto;
+}
+
+.news-grid-box-right {
+  padding-top: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
+  justify-self: end;
+  text-align: center;
+  height: auto;
+}
+
+.news-grid-box-center {
+  padding-top: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1.5rem;
+  justify-self:center;
+  align-self: center;
+  height: auto;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-column-gap: 31%;
+}
+

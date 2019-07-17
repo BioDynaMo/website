@@ -19,8 +19,9 @@ const Footer = () => (
                 <ul className="flex list pa0 ma0 items-center">
                     <li className={listItemClass}><a href="/" className="dib pt2 mr6"><Logo /></a></li>
                     <li className={`${listItemClass} dn db-l`}><a href="/documentation/" className={linkClass}>Documentation</a></li>
+                    <li className={`${listItemClass} dn db-l`}><a href="/news/" className={linkClass}>News</a></li>
                     <li className={`${listItemClass} dn db-l`}><a href="/biodynamo/doc/dev_guide/docs/contribute/" className={linkClass}>Contribute</a></li>
-                    <li className={`${listItemClass} dn db-l`}><a href="/biodynamo/doc/user_guide/docs/contact/" className={linkClass}>Contact</a></li>
+                    <li className={`${listItemClass} dn db-l`}><a href="/biodynamo/doc/user_guide/docs/contact/" className={linkClass}>Contact</a></li>                    
                     <li className={`${listItemClass} dn db-l`}><a href="/about/" className={linkClass}>About</a></li>
                 </ul>
 
