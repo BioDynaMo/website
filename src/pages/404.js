@@ -9,7 +9,7 @@ const NotFoundPage = () => (
         <div className={`${Spirit.page.m} pt-vw5 pb-vw5 flex flex-column items-center`}>
             <Icon name="four-o-four-icon" className="w15 h-auto stroke-lightgrey" />
             <h1 className={Spirit.h1}>404</h1>
-            <p className={`${Spirit.p} midgrey`}>You just hit a route that doesn&#39;t exist... the sadness.</p>
+            <p className={`${Spirit.p} midgrey`}>You just hit a route that doesn&#39;t exist...</p>
             <div className="flex mt5">
                 <a href="/" className="pa2 dib blue hover-darkgrey link br b--whitegrey">Home</a>
                 <a href="/documentation/" className="pa2 dib blue hover-darkgrey link">Documentation</a>

@@ -34,7 +34,7 @@ export default class NewsIndexPage extends React.Component {
                   <Link to={node.fields.slug} className="midgrey home-faq-question link dib pt1 pb5">
                       <h3 className={`${Spirit.h4} blue dib`}>{title} &raquo;</h3>
                       <h5 className={`${Spirit.h5} `}>{node.frontmatter.date} </h5>
-                      <p className={`${Spirit.small} mt0`}>{node.frontmatter.meta_description}</p>
+                      <p className={`${Spirit.small} mt0`}>{node.excerpt}</p>
                   </Link>
                   <br/>
                 </Box>
@@ -94,6 +94,7 @@ export const blogListQuery = graphql`
       edges {
         node {
           id
+          excerpt(pruneLength: 75)
           fields {
             slug
           }

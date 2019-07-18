@@ -181,18 +181,19 @@ const plugins = [
                 fields: [
                     { name: 'title', store: true, attributes: { boost: 20 } },
                     { name: 'description', store: true, attributes: { boost: 5 } },
-                    { name: 'content', store: true },
+                    { name: 'content' },
                     { name: 'path', store: true },
                     { name: 'sidebar', store: true },
-                    { name: 'headings', store: true },
+                    { name: 'headings' },
                 ],
                 // How to resolve each field's value for a supported node type
                 resolvers: {
                     // For any node of type MarkdownRemark, list how to resolve the fields' values
                     MarkdownRemark: {
                         title: node => node.frontmatter.title,
+                        description: node => node.frontmatter.meta_description,
                         content: node => node.rawMarkdownBody,
-                        path: node => node.frontmatter.path,
+                        path: node => node.fields.slug,
                         sidebar: node => node.frontmatter.sidebar,
                         headings: node => node.headings,
                     },

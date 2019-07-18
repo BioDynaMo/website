@@ -5,38 +5,7 @@ export const getPostHeaderConfig = ({ pathname }) => {
         bgClass: `bg-api-reference`,
     }
 
-    // TODO: make this nice and DRY
-
-    // Handlebars
-    // if (pathname.match(/^\/api\//i)) {
-    //     postHeaderConfig.title = `API Reference`
-    //     postHeaderConfig.mainLink = `/api/`
-    //     if (pathname.match(/\/handlebars-themes\//i)) {
-    //         postHeaderConfig.subtitle = `Handlebars Themes`
-    //         postHeaderConfig.subLink = `/api/handlebars-themes/`
-    //     }
-    //     if (pathname.match(/\/gatsby\//i)) {
-    //         postHeaderConfig.subtitle = `Gatsby`
-    //         postHeaderConfig.subLink = `/api/gatsby/`
-    //     }
-    //     if (pathname.match(/\/content\//i)) {
-    //         postHeaderConfig.subtitle = `Content`
-    //         postHeaderConfig.subLink = `/api/content/`
-    //     }
-    //     if (pathname.match(/\/admin\//i)) {
-    //         postHeaderConfig.subtitle = `Admin`
-    //         postHeaderConfig.subLink = `/api/admin/`
-    //     }
-    //     if (pathname.match(/\/webhooks\//i)) {
-    //         postHeaderConfig.subtitle = `Webhooks`
-    //         postHeaderConfig.subLink = `/api/webhooks/`
-    //     }
-    //     if (pathname.match(/\/ghost-cli\//i)) {
-    //         postHeaderConfig.subtitle = `Ghost CLI`
-    //         postHeaderConfig.subLink = `/api/ghost-cli/`
-    //     }
-    // }
-
+    // This is an example
     // Setup
     // if (pathname.match(/^\/setup\//i) || pathname.match(/^\/install\//i)) {
     //     postHeaderConfig.title = `Setup Guide`
@@ -67,26 +36,14 @@ export const getPostHeaderConfig = ({ pathname }) => {
     // User Guide
     if (pathname.match(/^\/biodynamo\/doc\/user_guide\//i)) {
         postHeaderConfig.title = `User Guide`
-        postHeaderConfig.mainLink = `/userguide/`
+        postHeaderConfig.mainLink = `/biodynamo/doc/user_guide/docs/`
         postHeaderConfig.bgClass = `bg-concepts`
     }
 
     // Dev Guide
     if (pathname.match(/^\/biodynamo\/doc\/dev_guide\//i)) {
         postHeaderConfig.title = `Dev Guide`
-        postHeaderConfig.mainLink = `/devguide/`
-        postHeaderConfig.bgClass = `bg-concepts`
-    }
-
-    if (pathname.match(/^\/about\//i)) {
-        postHeaderConfig.title = `About BioDynaMo`
-        postHeaderConfig.mainLink = `/about/`
-        postHeaderConfig.bgClass = `bg-concepts`
-    }
-
-    if (pathname.match(/^\/gallery\//i)) {
-        postHeaderConfig.title = `Gallery`
-        postHeaderConfig.mainLink = `/gallery/`
+        postHeaderConfig.mainLink = `/biodynamo/doc/dev_guide/docs/`
         postHeaderConfig.bgClass = `bg-concepts`
     }
 
