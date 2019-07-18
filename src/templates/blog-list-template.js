@@ -99,7 +99,7 @@ export const blogListQuery = graphql`
           }
           frontmatter {
             title
-            date
+            date(formatString: "DD-MM-YYYY")
             path
             meta_description
           }

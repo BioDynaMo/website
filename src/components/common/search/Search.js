@@ -185,10 +185,10 @@ class Results extends React.Component {
         // console.log("getSearchResults")
         // console.log(window.__LUNR__)
         if (!query || !window.__LUNR__) return []
-        const searchResults = window.__LUNR__.en.index.search(query)
+        const searchResults = window.__LUNR__.en.index.search(query + "*^10 " + query + "~1^1 " + query + "^100")
         // const searchResults = window.__LUNR__.en.index.search("${query}~2")
         // console.log(searchResults)
-        // console.log(query)
+        // console.log(query + "*^10 " + query + "~1^1 " + query + "^100")
         // console.log(searchResults.map(({ ref }) => window.__LUNR__.en.store[ref]))
         const flat_lunr_results = searchResults.map(({ ref }) => window.__LUNR__.en.store[ref])
 
