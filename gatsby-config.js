@@ -13,19 +13,9 @@ require(`dotenv`).config({
     path: `.env.${process.env.NODE_ENV}`,
 })
 
-const myPlugin = (lunr) => (builder) => {
+const myAddedPlugin = (lunr) => (builder) => {
 
-  var pipelineFunction = function (token) {
-    token.metadata['tokenLength'] = token.toString().length
-    return token
-  }
-
-  // Register the pipeline function so the index can be serialised
-  lunr.Pipeline.registerFunction(pipelineFunction, 'tokenLenghtMetadata')
-
-  // Whitelist the tokenLength metadata key
-  builder.metadataWhitelist.push('tokenLength')
-
+  builder.metadataWhitelist = ['position']
   // // removing stemmer
   builder.pipeline.remove(lunr.stemmer)
   builder.searchPipeline.remove(lunr.stemmer)
@@ -184,8 +174,8 @@ const plugins = [
                         // filterNodes: node => node.frontmatter.lang === 'en',
                         // Add to index custom entries, that are not actually extracted from gatsby nodes
                         // customEntries: [{ title: 'Pictures', content: 'awesome pictures', url: '/pictures' }],
-                        // filterNodes: (node) => !isNil(node.frontmatter),
-                        plugins: [myPlugin]
+                        filterNodes: (node) => !isNil(node.frontmatter),
+                        plugins: [myAddedPlugin]
                     }
                     // {
                     //     name: 'fr',
