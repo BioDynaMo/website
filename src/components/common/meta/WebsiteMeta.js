@@ -26,7 +26,7 @@ const WebsiteMeta = ({ data, canonical, title, description, image, type }) => (
                         "url": "${canonical}",
                         "image": {
                             "@type": "ImageObject",
-                            "url": "${image}",
+                            "url": "/bdm_logo.png",
                             "width": 1000,
                             "height": 563
                         },

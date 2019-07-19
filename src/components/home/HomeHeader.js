@@ -23,7 +23,7 @@ const HomeHeader = () => (
                 <HomeHeaderBox
                     to="/biodynamo/doc/user_guide/docs/hello_world/"
                     title="Tutorials"
-                    icon="laptop-code-solid"
+                    icon="keyboard-regular"
                     color="tutorial-green"
                 > Browse tutorials and learn how to use BioDynaMo for your own use case.
                 </HomeHeaderBox>

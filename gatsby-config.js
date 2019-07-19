@@ -13,11 +13,26 @@ require(`dotenv`).config({
     path: `.env.${process.env.NODE_ENV}`,
 })
 
-// if (!process.env.GHOST_API_URL || !process.env.GHOST_API_KEY) {
-//     throw new Error(
-//         `GHOST_API_URL and GHOST_API_KEY are required to build. Check the CONTRIBUTING guide.`
-//     )
-// }
+const myPlugin = (lunr) => (builder) => {
+
+  var pipelineFunction = function (token) {
+    token.metadata['tokenLength'] = token.toString().length
+    return token
+  }
+
+  // Register the pipeline function so the index can be serialised
+  lunr.Pipeline.registerFunction(pipelineFunction, 'tokenLenghtMetadata')
+
+  // Whitelist the tokenLength metadata key
+  builder.metadataWhitelist.push('tokenLength')
+
+  // // removing stemmer
+  builder.pipeline.remove(lunr.stemmer)
+  builder.searchPipeline.remove(lunr.stemmer)
+  // // or similarity tuning
+  // builder.k1(1.3)
+  // builder.b(0)
+}
 
 const SERVICE_WORKER_KILL_SWITCH = (process.env.SERVICE_WORKER_KILL_SWITCH === `true`) || false
 
@@ -81,18 +96,18 @@ const plugins = [
     /**
      *  Utility Plugins
      */
-    // {
-    //     resolve: `gatsby-plugin-manifest`,
-    //     options: {
-    //         name: `Ghost Docs`,
-    //         short_name: `Ghost`,
-    //         start_url: `/`,
-    //         background_color: `#343f44`,
-    //         theme_color: `#343f44`,
-    //         display: `minimal-ui`,
-    //         icon: `static/favicon.png`,
-    //     },
-    // },
+    {
+        resolve: `gatsby-plugin-manifest`,
+        options: {
+            name: `BioDynaMO`,
+            short_name: `Bdm`,
+            start_url: `/`,
+            background_color: `#343f44`,
+            theme_color: `#343f44`,
+            display: `minimal-ui`,
+            icon: `static/bdm_logo.png`,
+        },
+    },
     `gatsby-plugin-react-helmet`,
     {
         resolve: `gatsby-plugin-advanced-sitemap`,
@@ -169,7 +184,8 @@ const plugins = [
                         // filterNodes: node => node.frontmatter.lang === 'en',
                         // Add to index custom entries, that are not actually extracted from gatsby nodes
                         // customEntries: [{ title: 'Pictures', content: 'awesome pictures', url: '/pictures' }],
-                        filterNodes: (node) => !isNil(node.frontmatter),
+                        // filterNodes: (node) => !isNil(node.frontmatter),
+                        plugins: [myPlugin]
                     }
                     // {
                     //     name: 'fr',
@@ -185,6 +201,7 @@ const plugins = [
                     { name: 'path', store: true },
                     { name: 'sidebar', store: true },
                     { name: 'headings' },
+                    { name: 'excerpt', store: true },
                 ],
                 // How to resolve each field's value for a supported node type
                 resolvers: {
@@ -196,6 +213,7 @@ const plugins = [
                         path: node => node.fields.slug,
                         sidebar: node => node.frontmatter.sidebar,
                         headings: node => node.headings,
+                        excerpt: node => node.excerpt,
                     },
                 },
                 //custom index file name, default is search_index.json
@@ -208,32 +226,6 @@ const plugins = [
         },
 ]
 
-
-
-// const myPlugin = (lunr) => (builder) => {
-//   console.log()
-//   // removing stemmer
-//   builder.pipeline.remove(lunr.stemmer)
-//   builder.searchPipeline.remove(lunr.stemmer)
-//   // or similarity tuning
-//   builder.k1(1.3)
-//   builder.b(0)
-// }
-
-// const runAlgoliaBuild = () => (process.env.INCOMING_HOOK_TITLE && process.env.INCOMING_HOOK_TITLE === `Algolia`) || process.env.ALGOLIA
-// const hasAlgoliaKey = () => process.env.ALGOLIA_ADMIN_KEY && !process.env.ALGOLIA_ADMIN_KEY.match(/<key>/)
-
-// if (runAlgoliaBuild() && hasAlgoliaKey()) {
-//     plugins.push({
-//         resolve: `gatsby-plugin-algolia`,
-//         options: {
-//             appId: `6RCFK5TOI5`,
-//             apiKey: `${process.env.ALGOLIA_ADMIN_KEY}`,
-//             queries: algoliaQueries,
-//             chunkSize: 10000, // default: 1000
-//         },
-//     })
-// }
 
 // Global switch to either use or remove service worker
 if (SERVICE_WORKER_KILL_SWITCH) {

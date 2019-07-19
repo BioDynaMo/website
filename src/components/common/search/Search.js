@@ -5,7 +5,7 @@ import Autosuggest from 'react-autosuggest'
 import { Spirit } from '../../../styles/spirit-styles'
 
 const HitTemplate = ({ hit }) => {
-
+    // console.log(hit)
     return (
         <>
             
@@ -79,7 +79,7 @@ class Results extends React.Component {
 
     renderSuggestion(hit) {
         // console.log("renderSuggestion")
-        if (!hit.title) return
+        if (!hit.title || hit.sidebar=="data-schema-stub" ) return
         return <HitTemplate hit={hit} />
         // return (<div><br/> <br/><a href={hit.path}> {hit.title} </a></div>)
     }
@@ -105,7 +105,7 @@ class Results extends React.Component {
         // console.log(labelClass[hits.sidebar])
         // console.log(index)
         // console.log(hits)
-        if (!hits.sidebar) return
+        if (!hits.sidebar || hits.sidebar == "data-schema-stub") return <span></span>
         return <span className={`br-pill bg-white ba pa1 pl2 pr2 nowrap ${labelClass[hits.sidebar] || `midgrey b--midgrey`}`}>{index}</span>
         // return <span className={`br-pill bg-white ba pa1 pl2 pr2 nowrap ${labelClass[index] || `midgrey b--midgrey`}`}>FOOBAR1</span>
     }
@@ -151,7 +151,9 @@ class Results extends React.Component {
           };
         })
 
-        // console.log(searchResults)
+        console.log(searchResults)
+        console.log(flat_lunr_results)
+        // console.log(unique)
         // console.log(results)
 
         return results

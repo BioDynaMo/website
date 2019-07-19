@@ -26,7 +26,7 @@ const Footer = () => (
                 </ul>
 
                 <ul className="flex list pa0 ma0 items-center">
-                    <li className={listItemClass}><a href="/" className="link pa2 midgrey hover-blue dib mr0">BioDynaMo@CERN</a></li>
+                    <li className={listItemClass}><a href="https://openlab.cern/project/biodynamo-0" target="_blank" className="link pa2 midgrey hover-blue dib mr0">BioDynaMo@CERN</a></li>
                 </ul>
             </div>
 

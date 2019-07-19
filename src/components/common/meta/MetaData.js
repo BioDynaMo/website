@@ -48,7 +48,7 @@ const MetaData = ({
                 canonical={canonical}
                 title={title}
                 description={description}
-                image={image}
+                image="/bdm_logo.png"
                 type={type}
             />
         )

@@ -94,7 +94,7 @@ export const blogListQuery = graphql`
       edges {
         node {
           id
-          excerpt(pruneLength: 75)
+          excerpt(pruneLength: 100)
           fields {
             slug
           }
