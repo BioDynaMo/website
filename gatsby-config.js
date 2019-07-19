@@ -15,10 +15,11 @@ require(`dotenv`).config({
 
 const myAddedPlugin = (lunr) => (builder) => {
 
-  builder.metadataWhitelist = ['position']
   // // removing stemmer
   builder.pipeline.remove(lunr.stemmer)
   builder.searchPipeline.remove(lunr.stemmer)
+
+  builder.metadataWhitelist = ['position']
   // // or similarity tuning
   // builder.k1(1.3)
   // builder.b(0)
@@ -191,7 +192,6 @@ const plugins = [
                     { name: 'path', store: true },
                     { name: 'sidebar', store: true },
                     { name: 'headings' },
-                    { name: 'excerpt', store: true },
                 ],
                 // How to resolve each field's value for a supported node type
                 resolvers: {
@@ -203,7 +203,6 @@ const plugins = [
                         path: node => node.fields.slug,
                         sidebar: node => node.frontmatter.sidebar,
                         headings: node => node.headings,
-                        excerpt: node => node.excerpt,
                     },
                 },
                 //custom index file name, default is search_index.json

@@ -126,10 +126,20 @@ class Results extends React.Component {
         // console.log(searchResults.map(({ ref }) => window.__LUNR__.en.store[ref]))
         const flat_lunr_results = searchResults.map(({ ref }) => window.__LUNR__.en.store[ref])
 
-        const grouped_by_sidebar = flat_lunr_results.map(section => {
+        const added_position = flat_lunr_results.map((rez,index) => {
+            return {
+                description: rez.description,
+                path: rez.path,
+                sidebar:rez.sidebar,
+                title:rez.title,
+                pos: Object.values(searchResults[index].matchData.metadata),
+            }
+        });
+
+        const grouped_by_sidebar = added_position.map(section => {
             return {
               sidebar: section.sidebar,
-              flat_lunr_results: flat_lunr_results.filter(hit => section.sidebar == hit.sidebar)
+              flat_lunr_results: added_position.filter(hit => section.sidebar == hit.sidebar)
             };
           }).filter(section => section.flat_lunr_results.length > 0);
 
@@ -151,10 +161,11 @@ class Results extends React.Component {
           };
         })
 
-        console.log(searchResults)
-        console.log(flat_lunr_results)
-        // console.log(unique)
-        // console.log(results)
+        // console.log(searchResults)
+        // console.log((Object.values(searchResults[0].matchData.metadata)).flat())
+        // console.log(added_position)
+        // console.log(grouped_by_sidebar)
+        console.log(results)
 
         return results
     }
