@@ -5,7 +5,73 @@ import Autosuggest from 'react-autosuggest'
 import { Spirit } from '../../../styles/spirit-styles'
 
 const HitTemplate = ({ hit }) => {
+
+    var pre_dots = ""
+    var post_dots = ""
+
+    if (hit.pos[0].content) {
+        var start = hit.pos[0].content.position[0][0]
+        var str_length = hit.pos[0].content.position[0][1]
+        var snippet = hit.content.substr(start,str_length+1)
+        var minus = 30
+        var plus = 30
+        if (start-minus>0){
+            var fluff_start = start-minus
+            pre_dots = "..."
+        } else {
+            var fluff_start = 0
+        }
+        if ((start+str_length+plus) < Object.keys(hit.content).length) {
+            var fluff_end = plus
+            post_dots ="..."
+        } else {
+            var fluff_end = Object.keys(hit.content).length-start-str_length
+        }
+        var before_fluff = hit.content.substr(fluff_start,minus)
+        var after_fluff = hit.content.substr(start+str_length+2, fluff_end)
+
+    } else if (hit.pos[0].title) {
+        var start = hit.pos[0].title.position[0][0]
+        var str_length = hit.pos[0].title.position[0][1]
+        var snippet = hit.title.substr(start,str_length+1)
+        var minus = 10
+        var plus = 20
+        if (start-minus>0){
+            var fluff_start = start-minus
+            pre_dots = "..."
+        } else {
+            var fluff_start = 0
+        }
+        if ((start+str_length+plus) < Object.keys(hit.title).length) {
+            var fluff_end = plus
+            post_dots ="..."
+        } else {
+            var fluff_end = Object.keys(hit.title).length-start-str_length
+        }
+        var before_fluff = hit.title.substr(fluff_start,minus)
+        var after_fluff = hit.title.substr(start+str_length+2, fluff_end)
+
+    } else if (hit.pos[0].description) {
+        var start = hit.pos[0].description.position[0][0]
+        var str_length = hit.pos[0].description.position[0][1]
+        var snippet = hit.description.substr(start,str_length+1)
+        if (start-minus>0){
+            var fluff_start = start-minus
+            pre_dots = "..."
+        } else {
+            var fluff_start = 0
+        }
+        if ((start+str_length+plus) < Object.keys(hit.description).length) {
+            var fluff_end = plus
+            post_dots ="..."
+        } else {
+            var fluff_end = Object.keys(hit.description).length-start-str_length
+        }
+        var before_fluff = hit.description.substr(fluff_start,minus)
+        var after_fluff = hit.description.substr(start+str_length+2, fluff_end)
+    }
     // console.log(hit)
+    // console.log(hit.pos[0].content.position[0][1])
     return (
         <>
             
@@ -14,7 +80,7 @@ const HitTemplate = ({ hit }) => {
                     {hit.title}
                 </h4>
                 <p className={`${Spirit.small} midgrey nudge-bottom--2`}>
-                    {hit.description}
+                    {pre_dots}{before_fluff} <strong>{snippet}</strong> {after_fluff}{post_dots}
                 </p>
             </Link> 
 
@@ -133,6 +199,7 @@ class Results extends React.Component {
                 sidebar:rez.sidebar,
                 title:rez.title,
                 pos: Object.values(searchResults[index].matchData.metadata),
+                content: rez.content,
             }
         });
 
@@ -165,7 +232,7 @@ class Results extends React.Component {
         // console.log((Object.values(searchResults[0].matchData.metadata)).flat())
         // console.log(added_position)
         // console.log(grouped_by_sidebar)
-        console.log(results)
+        // console.log(results)
 
         return results
     }
@@ -174,7 +241,7 @@ class Results extends React.Component {
 
         const hits = this.state.searchResults
         // const hits = [{"slug":"migrating-to-digitalocean","title":"How we migrated 30,000 blogs & 400,000 users across an ocean with zero downtime","html":"<p>The first step was to create an inventory of what was currently running on our servers.</p><p>Every system administrator knows what software is running in their datacenter, but I don't know anyone who could replicate the configuration of multiple servers by heart. Including me. So we needed to gather all of the important (and maybe unimportant) information about our servers.</p><p>We introduced a configuration management system to keep track of installed software packages, firewall settings and configuration itself. Our weapon of choice here is <a href=\"http://saltstack.com/\">Saltstack</a>. The added benefit of doing this now is that we won't ever need to dig through the servers to find out what our configuration looks like in the future.</p><p>I don’t have particularly strong feelings one way or the other when it comes to configuration management tools. It needs to get the job done and blend in with our overall philosophy of not being overloaded. Saltstack does that for us and it hasn’t let us down. The infrastructure repository contains about 150 salt state files and holds all the information needed (without passwords, of course) to set up <strong>Ghost(Pro)</strong>.</p><p>Although setting up Saltstack took some time, it's already shown its power. It took about a month to set up the first complete clone of the whole network. The second iteration only took one week. When I started to do the third installation of what would become our new hosted platform it only took me 2 days to have 20 servers deployed and ready.</p><p>Formalising our setup also surfaced a lot of small parts that need improvement which I added to our list of refactoring tasks.</p><p>Another thing we found to speed up managing our infrastructure was <a href=\"http://docs.saltstack.com/en/latest/topics/cloud/\">Salt-cloud</a>. It proved to be a really important tool for starting, stopping and deploying servers within minutes. It integrates closely with <a href=\"https://developers.digitalocean.com/\">DigitalOcean's API</a> and allows us to manage the infrastructure from the command line.</p>","image":"https://images.unsplash.com/photo-1504711988183-b5f6f0b1cb8a?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ&s=2760b966a67ec69c138b60a5c450f6e7","tags":[{"name":"Inside Ghost","slug":"inside-ghost"},{"name":"#devblog","slug":"hash-dev-blog"},{"name":"#blog","slug":"hash-blog"}],"section":"blog","url":"https://ghost.org/blog/migrating-to-digitalocean/#inventory","headings":["Inventory"],"anchor":"inventory","customRanking":{"position":17,"heading":80},"objectID":"Ghost__Post__5cf5f94b3a5f1b0038cc70a1_1","_snippetResult":{"html":{"value":"started to do the third <ais-highlight-0000000000>installation</ais-highlight-0000000000> of what would become","matchLevel":"full"}},"_highlightResult":{"title":{"value":"How we migrated 30,000 blogs & 400,000 users across an ocean with zero downtime","matchLevel":"none","matchedWords":[]},"html":{"value":"<p>The first step was to create an inventory of what was currently running on our servers.</p><p>Every system administrator knows what software is running in their datacenter, but I don't know anyone who could replicate the configuration of multiple servers by heart. Including me. So we needed to gather all of the important (and maybe unimportant) information about our servers.</p><p>We introduced a configuration management system to keep track of installed software packages, firewall settings and configuration itself. Our weapon of choice here is <a href=\"http://saltstack.com/\">Saltstack</a>. The added benefit of doing this now is that we won't ever need to dig through the servers to find out what our configuration looks like in the future.</p><p>I don’t have particularly strong feelings one way or the other when it comes to configuration management tools. It needs to get the job done and blend in with our overall philosophy of not being overloaded. Saltstack does that for us and it hasn’t let us down. The infrastructure repository contains about 150 salt state files and holds all the information needed (without passwords, of course) to set up <strong>Ghost(Pro)</strong>.</p><p>Although setting up Saltstack took some time, it's already shown its power. It took about a month to set up the first complete clone of the whole network. The second iteration only took one week. When I started to do the third <ais-highlight-0000000000>installation</ais-highlight-0000000000> of what would become our new hosted platform it only took me 2 days to have 20 servers deployed and ready.</p><p>Formalising our setup also surfaced a lot of small parts that need improvement which I added to our list of refactoring tasks.</p><p>Another thing we found to speed up managing our infrastructure was <a href=\"http://docs.saltstack.com/en/latest/topics/cloud/\">Salt-cloud</a>. It proved to be a really important tool for starting, stopping and deploying servers within minutes. It integrates closely with <a href=\"https://developers.digitalocean.com/\">DigitalOcean's API</a> and allows us to manage the infrastructure from the command line.</p>","matchLevel":"full","fullyHighlighted":false,"matchedWords":["installation"]},"tags":[{"name":{"value":"Inside Ghost","matchLevel":"none","matchedWords":[]}},{"name":{"value":"#devblog","matchLevel":"none","matchedWords":[]}},{"name":{"value":"#blog","matchLevel":"none","matchedWords":[]}}],"url":{"value":"https://ghost.org/blog/migrating-to-digitalocean/#inventory","matchLevel":"none","matchedWords":[]},"headings":[{"value":"Inventory","matchLevel":"none","matchedWords":[]}]}}]
-
+        // console.log(hits)
         const { value } = this.state
         const inputProps = {
             placeholder: `Search documentation...`,
