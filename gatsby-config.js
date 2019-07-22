@@ -188,7 +188,7 @@ const plugins = [
                 fields: [
                     { name: 'title', store: true, attributes: { boost: 20 } },
                     { name: 'description', store: true, attributes: { boost: 5 } },
-                    { name: 'content' },
+                    { name: 'content', store: true },
                     { name: 'path', store: true },
                     { name: 'sidebar', store: true },
                     { name: 'headings' },
