@@ -29,12 +29,15 @@ const HitTemplate = ({ hit }) => {
         } else {
             var fluff_end = Object.keys(hit.content).length-start-str_length
         }
-        if (pre_dots == ""){
+        if (pre_dots == "" && start == 0){
             var before_fluff = ""
         } else {
-            var before_fluff = hit.content.substr(fluff_start,minus) // part of the snippet before the search result
+            var before_fluff = hit.content.substr(fluff_start,start-fluff_start) // part of the snippet before the search result
             before_fluff = before_fluff.replace(/#/g,"")
             before_fluff = before_fluff.replace(/`/g,"")
+            before_fluff = before_fluff.replace(/\[/g,"")
+            before_fluff = before_fluff.replace(/\]/g,"")
+            before_fluff = before_fluff.replace(/\//g,"")
         }
         if (post_dots == "") {
             var after_fluff = ""
@@ -42,6 +45,9 @@ const HitTemplate = ({ hit }) => {
             var after_fluff = hit.content.substr(start+str_length+2, fluff_end) //part of the snippet after the search result
             after_fluff = after_fluff.replace(/#/g,"")
             after_fluff = after_fluff.replace(/`/g,"")
+            after_fluff = after_fluff.replace(/\[/g,"")
+            after_fluff = after_fluff.replace(/\]/g,"")
+            after_fluff = after_fluff.replace(/\//g,"")
         }
         remark()
           .use(strip)
@@ -89,39 +95,39 @@ const HitTemplate = ({ hit }) => {
             after_fluff = after_fluff.replace(/#/g,"")
             after_fluff = after_fluff.replace(/`/g,"")
         }
-        
 
-    } else if (hit.pos[0].description) { // Same process as for content but for description
-        var start = hit.pos[0].description.position[0][0]
-        var str_length = hit.pos[0].description.position[0][1]
-        var snippet = hit.description.substr(start,str_length+1)
-        if (start-minus>0){
-            var fluff_start = start-minus
-            pre_dots = "..."
-        } else {
-            var fluff_start = 0
-        }
-        if ((start+str_length+plus) < Object.keys(hit.description).length) {
-            var fluff_end = plus
-            post_dots ="..."
-        } else {
-            var fluff_end = Object.keys(hit.description).length-start-str_length
-        }
-        if (pre_dots == ""){
-            var before_fluff = ""
-        } else {
-            var before_fluff = hit.description.substr(fluff_start,minus) // part of the snippet before the search result
-            before_fluff = before_fluff.replace(/#/g,"")
-            before_fluff = before_fluff.replace(/`/g,"")
-        }
-        if (post_dots == "") {
-            var after_fluff = ""
-        } else {
-            var after_fluff = hit.description.substr(start+str_length+2, fluff_end) //part of the snippet after the search result
-            after_fluff = after_fluff.replace(/#/g,"")
-            after_fluff = after_fluff.replace(/`/g,"")
-        }
-    }
+
+    } //else if (hit.pos[0].description) { // Same process as for content but for description
+    //     var start = hit.pos[0].description.position[0][0]
+    //     var str_length = hit.pos[0].description.position[0][1]
+    //     var snippet = hit.description.substr(start,str_length+1)
+    //     if (start-minus>0){
+    //         var fluff_start = start-minus
+    //         pre_dots = "..."
+    //     } else {
+    //         var fluff_start = 0
+    //     }
+    //     if ((start+str_length+plus) < Object.keys(hit.description).length) {
+    //         var fluff_end = plus
+    //         post_dots ="..."
+    //     } else {
+    //         var fluff_end = Object.keys(hit.description).length-start-str_length
+    //     }
+    //     if (pre_dots == ""){
+    //         var before_fluff = ""
+    //     } else {
+    //         var before_fluff = hit.description.substr(fluff_start,minus) // part of the snippet before the search result
+    //         before_fluff = before_fluff.replace(/#/g,"")
+    //         before_fluff = before_fluff.replace(/`/g,"")
+    //     }
+    //     if (post_dots == "") {
+    //         var after_fluff = ""
+    //     } else {
+    //         var after_fluff = hit.description.substr(start+str_length+2, fluff_end) //part of the snippet after the search result
+    //         after_fluff = after_fluff.replace(/#/g,"")
+    //         after_fluff = after_fluff.replace(/`/g,"")
+    //     }
+    // }
     // console.log(before_fluff)
     // console.log(after_fluff)
     return (
@@ -238,23 +244,36 @@ class Results extends React.Component {
     getSearchResults(query) {
 
         if (!query || !window.__LUNR__) return []
-        const searchResults = window.__LUNR__.en.index.search(query + "*^10 " + query + "~1^1 " + query + "^100")
-        // console.log(searchResults)
+        const searchResults = window.__LUNR__.en.index.search(query + "^100 " + query + "~1^5 " + query + "*^15")
+        // console.log(Object.values(searchResults[3].matchData))
         // console.log(query + "*^10 " + query + "~1^1 " + query + "^100")
-        // console.log(searchResults.map(({ ref }) => window.__LUNR__.en.store[ref]))
+        // console.log(window.__LUNR__.en.store)
         const flat_lunr_results = searchResults.map(({ ref }) => window.__LUNR__.en.store[ref])
 
         const added_position = flat_lunr_results.map((rez,index) => {
-            return {
-                description: rez.description,
-                path: rez.path,
-                sidebar:rez.sidebar,
-                title:rez.title,
-                pos: Object.values(searchResults[index].matchData.metadata),
-                content: rez.content,
+            if (Object.entries(searchResults[index].matchData.metadata)[0][0]=="div" || Object.entries(searchResults[index].matchData.metadata)[0][0] == "href" || Object.entries(searchResults[index].matchData.metadata)[0][0] == "a" || Object.entries(searchResults[index].matchData.metadata)[0][0] == "p" || Object.entries(searchResults[index].matchData.metadata)[0][0]=="br") {
+                return {
+                    description: "",
+                    path: "",
+                    sidebar:"",
+                    title:"",
+                    pos: "",
+                    content: "",
+                    // ishtml:Object.entries(searchResults[index].matchData.metadata)[0][0]
+                }
+            } else {
+                return {
+                    description: rez.description,
+                    path: rez.path,
+                    sidebar:rez.sidebar,
+                    title:rez.title,
+                    pos: Object.values(searchResults[index].matchData.metadata),
+                    content: rez.content,
+                    // ishtml:Object.entries(searchResults[index].matchData.metadata)[0][0]
+                }
             }
         });
-
+        console.log(added_position)
         const grouped_by_sidebar = added_position.map(section => {
             return {
               sidebar: section.sidebar,
@@ -280,10 +299,10 @@ class Results extends React.Component {
           };
         })
 
-        console.log(searchResults)
-        // console.log((Object.values(searchResults[0].matchData.metadata)).flat())
-        console.log(added_position)
-        console.log(grouped_by_sidebar)
+        // console.log(searchResults)
+        // console.log(Object.entries(searchResults[0].matchData.metadata)[0][0])
+        // console.log(added_position)
+        // console.log(grouped_by_sidebar)
         // console.log(results)
 
         return results

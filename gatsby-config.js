@@ -18,12 +18,13 @@ const myAddedPlugin = (lunr) => (builder) => {
   // // removing stemmer
   builder.pipeline.remove(lunr.stemmer)
   builder.searchPipeline.remove(lunr.stemmer)
+  // builder.pipeline.add(lunr.generateStopWordFilter(['div','a','href','sbox','p']))
+  // builder.pipeline.add(lunr.stopWordFilter)
 
   builder.metadataWhitelist = ['position']
-  lunr.stopWordFilter("div")
   // // or similarity tuning
-  // builder.k1(1.3)
-  // builder.b(0)
+  builder.k1(0.75)
+  builder.b(0.5)
 }
 
 const SERVICE_WORKER_KILL_SWITCH = (process.env.SERVICE_WORKER_KILL_SWITCH === `true`) || false
@@ -92,7 +93,7 @@ const plugins = [
         resolve: `gatsby-plugin-manifest`,
         options: {
             name: `BioDynaMO`,
-            short_name: `Bdm`,
+            short_name: `bdm`,
             start_url: `/`,
             background_color: `#343f44`,
             theme_color: `#343f44`,
@@ -167,6 +168,9 @@ const plugins = [
             },
         },
     },
+    /**
+     *  Search Plugin
+     */
     {
             resolve: `gatsby-plugin-lunr`,
             options: {
@@ -190,7 +194,7 @@ const plugins = [
                 // Attributes for custom indexing logic. See https://lunrjs.com/docs/lunr.Builder.html for details
                 fields: [
                     { name: 'title', store: true, attributes: { boost: 20 } },
-                    { name: 'description', store: true, attributes: { boost: 5 } },
+                    { name: 'description' },
                     { name: 'content', store: true },
                     { name: 'path', store: true },
                     { name: 'sidebar', store: true },
@@ -211,9 +215,9 @@ const plugins = [
                 //custom index file name, default is search_index.json
                 filename: 'search_index.json',
                 //custom options on fetch api call for search_ındex.json
-                fetchOptions: {
-                    credentials: 'same-origin'
-                },
+                // fetchOptions: {
+                //     credentials: 'same-origin'
+                // },
             },
         },
 ]
