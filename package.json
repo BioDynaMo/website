@@ -73,6 +73,7 @@
     "gatsby-source-filesystem": "2.0.40",
     "gatsby-source-ghost": "3.4.2",
     "gatsby-transformer-remark": "2.4.0",
+    "gatsby-transformer-remark-plaintext": "^1.0.3",
     "gatsby-transformer-sharp": "2.1.21",
     "gatsby-transformer-yaml": "2.1.12",
     "jquery": "^3.4.1",
@@ -84,6 +85,7 @@
     "react-modal": "3.8.1",
     "react-slick": "^0.24.0",
     "slick-carousel": "^1.8.1",
+    "strip-markdown": "^3.0.4",
     "tocbot": "4.7.0",
     "yarn": "^1.16.0"
   }

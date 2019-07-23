@@ -20,6 +20,7 @@ const myAddedPlugin = (lunr) => (builder) => {
   builder.searchPipeline.remove(lunr.stemmer)
 
   builder.metadataWhitelist = ['position']
+  lunr.stopWordFilter("div")
   // // or similarity tuning
   // builder.k1(1.3)
   // builder.b(0)
@@ -139,6 +140,8 @@ const plugins = [
         },
     },
     `gatsby-plugin-force-trailing-slashes`,
+    `gatsby-transformer-remark`,
+    `gatsby-transformer-remark-plaintext`,
     /**
      *  Display Plugins
      */

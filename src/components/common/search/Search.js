@@ -6,34 +6,61 @@ import { Spirit } from '../../../styles/spirit-styles'
 
 const HitTemplate = ({ hit }) => {
 
-    var pre_dots = ""
-    var post_dots = ""
+    var remark = require('remark')
+    var strip = require('strip-markdown')
+    var pre_dots = "" // Value of this variable changes if the snippet is at the beginning of the document or not 
+    var post_dots = "" // Value of this variable changes if the snippet is at the end of the document or not 
 
-    if (hit.pos[0].content) {
-        var start = hit.pos[0].content.position[0][0]
-        var str_length = hit.pos[0].content.position[0][1]
-        var snippet = hit.content.substr(start,str_length+1)
-        var minus = 30
-        var plus = 30
-        if (start-minus>0){
+    if (hit.pos[0].content) { // first we check for a hit in the content of the markdown file
+        var start = hit.pos[0].content.position[0][0] // get position metadata from array
+        var str_length = hit.pos[0].content.position[0][1] // get length metadata from array 
+        var snippet = hit.content.substr(start,str_length+1) // This is the snippet that was found and is highlighted, added plus one due to indexing
+        var minus = 30 // snippet pre length 
+        var plus = 30 // snippet post length
+        if (start-minus>0){ // Check if we go to far back or not 
             var fluff_start = start-minus
             pre_dots = "..."
-        } else {
+        } else if(start!=0) {
             var fluff_start = 0
         }
-        if ((start+str_length+plus) < Object.keys(hit.content).length) {
+        if ((start+str_length+plus) < Object.keys(hit.content).length) { // check if we go too far forward
             var fluff_end = plus
             post_dots ="..."
         } else {
             var fluff_end = Object.keys(hit.content).length-start-str_length
         }
-        var before_fluff = hit.content.substr(fluff_start,minus)
-        var after_fluff = hit.content.substr(start+str_length+2, fluff_end)
+        if (pre_dots == ""){
+            var before_fluff = ""
+        } else {
+            var before_fluff = hit.content.substr(fluff_start,minus) // part of the snippet before the search result
+            before_fluff = before_fluff.replace(/#/g,"")
+            before_fluff = before_fluff.replace(/`/g,"")
+        }
+        if (post_dots == "") {
+            var after_fluff = ""
+        } else {
+            var after_fluff = hit.content.substr(start+str_length+2, fluff_end) //part of the snippet after the search result
+            after_fluff = after_fluff.replace(/#/g,"")
+            after_fluff = after_fluff.replace(/`/g,"")
+        }
+        remark()
+          .use(strip)
+          .process(before_fluff, function(err, file) {
+            if (err) throw err
+            before_fluff = String(file)
+          })
+        remark()
+          .use(strip)
+          .process(after_fluff, function(err, file) {
+            if (err) throw err
+            after_fluff = String(file)
+          })
+          // console.log(after_fluff)
 
-    } else if (hit.pos[0].title) {
+    } else if (hit.pos[0].title) { // Same process as for content but for title
         var start = hit.pos[0].title.position[0][0]
         var str_length = hit.pos[0].title.position[0][1]
-        var snippet = hit.title.substr(start,str_length+1)
+        var snippet = hit.title.substr(start,str_length+1) 
         var minus = 10
         var plus = 20
         if (start-minus>0){
@@ -48,10 +75,23 @@ const HitTemplate = ({ hit }) => {
         } else {
             var fluff_end = Object.keys(hit.title).length-start-str_length
         }
-        var before_fluff = hit.title.substr(fluff_start,minus)
-        var after_fluff = hit.title.substr(start+str_length+2, fluff_end)
+        if (pre_dots == ""){
+            var before_fluff = ""
+        } else {
+            var before_fluff = hit.title.substr(fluff_start,minus) // part of the snippet before the search result
+            before_fluff = before_fluff.replace(/#/g,"")
+            before_fluff = before_fluff.replace(/`/g,"")
+        }
+        if (post_dots == "") {
+            var after_fluff = ""
+        } else {
+            var after_fluff = hit.title.substr(start+str_length+2, fluff_end) //part of the snippet after the search result
+            after_fluff = after_fluff.replace(/#/g,"")
+            after_fluff = after_fluff.replace(/`/g,"")
+        }
+        
 
-    } else if (hit.pos[0].description) {
+    } else if (hit.pos[0].description) { // Same process as for content but for description
         var start = hit.pos[0].description.position[0][0]
         var str_length = hit.pos[0].description.position[0][1]
         var snippet = hit.description.substr(start,str_length+1)
@@ -67,11 +107,23 @@ const HitTemplate = ({ hit }) => {
         } else {
             var fluff_end = Object.keys(hit.description).length-start-str_length
         }
-        var before_fluff = hit.description.substr(fluff_start,minus)
-        var after_fluff = hit.description.substr(start+str_length+2, fluff_end)
+        if (pre_dots == ""){
+            var before_fluff = ""
+        } else {
+            var before_fluff = hit.description.substr(fluff_start,minus) // part of the snippet before the search result
+            before_fluff = before_fluff.replace(/#/g,"")
+            before_fluff = before_fluff.replace(/`/g,"")
+        }
+        if (post_dots == "") {
+            var after_fluff = ""
+        } else {
+            var after_fluff = hit.description.substr(start+str_length+2, fluff_end) //part of the snippet after the search result
+            after_fluff = after_fluff.replace(/#/g,"")
+            after_fluff = after_fluff.replace(/`/g,"")
+        }
     }
-    // console.log(hit)
-    // console.log(hit.pos[0].content.position[0][1])
+    // console.log(before_fluff)
+    // console.log(after_fluff)
     return (
         <>
             
@@ -228,10 +280,10 @@ class Results extends React.Component {
           };
         })
 
-        // console.log(searchResults)
+        console.log(searchResults)
         // console.log((Object.values(searchResults[0].matchData.metadata)).flat())
-        // console.log(added_position)
-        // console.log(grouped_by_sidebar)
+        console.log(added_position)
+        console.log(grouped_by_sidebar)
         // console.log(results)
 
         return results
