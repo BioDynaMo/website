@@ -36,16 +36,18 @@ const HomePage = ({ data, location }) => {
                   <div className={`${Spirit.page.xl} carousel-div`}>
                     <Carousel />
                   </div>
-                    
+
                 </div>
-        
+
                 <div className={`${Spirit.page.xl} grid-12 gutter-row-20 gutter-40-ns`}>
 
                     <section className="col-12 col-6-ns flex flex-column justify-between mt4 mt0-ns">
                         <a className="twitter-timeline" href="https://twitter.com/CERNopenlab?ref_src=twsrc%5Etfw">Tweets by CERNopenlab</a> <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
                         <a href="https://twitter.com/intent/tweet?button_hashtag=biodynamo&ref_src=twsrc%5Etfw" className="twitter-hashtag-button" data-show-count="false">Tweet #biodynamo</a><script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
 
-                        {/*<Box className="mt5 tdn flex-auto flex flex-column items-stretch" elevation="1">
+                        {//This is where we want the twitter feed
+                          // These are the boxes
+                          /*<Box className="mt5 tdn flex-auto flex flex-column items-stretch" elevation="1">
                             <HomeAPIBox
                                 href="/api/#frontend-sdk"
                                 title="Post 1"
@@ -70,19 +72,20 @@ const HomePage = ({ data, location }) => {
                         </Box>*/}
                     </section>
 
-                    <section className="col-12 col-6-ns mt0-ns bt bn-ns b--whitegrey nl5 nr5 nl0-ns nr0-ns ml0-ns mr0-ns pl5 pr5 pl0-ns pr0-ns pt5 pt0-ns ">                        
-                        
+                    <section className="col-12 col-6-ns mt0-ns bt bn-ns b--whitegrey nl5 nr5 nl0-ns nr0-ns ml0-ns mr0-ns pl5 pr5 pl0-ns pr0-ns pt5 pt0-ns ">
+
                         <div className="mt3 mt7-ns">
-                            
+
                             <BlogList limit="5"/>
 
                             <a href="/news/" className={`${Spirit.p} midgrey fw5 link hover-blue`}>More news...</a>
-                        
+
                         </div>
                     </section>
                 </div>
 
-                {/*<section className={`${Spirit.page.xl} col-12 mt8 mt-vw3-ns bt bn-ns b--whitegrey pt5 pt0-ns`}>
+                {// this is the integrations section, leaving for template
+                  /*<section className={`${Spirit.page.xl} col-12 mt8 mt-vw3-ns bt bn-ns b--whitegrey pt5 pt0-ns`}>
                     <a href="https://ghost.org/integrations/" className={`${Spirit.h3} link darkgrey hover-midgrey`}>Integrations</a>
                     <p className={`${Spirit.p} mt2 midgrey flex flex-column flex-row-ns justify-between items-center-ns`}>
                         All your favourite apps and tools, integrated with Ghost.
@@ -125,7 +128,7 @@ const HomePage = ({ data, location }) => {
                         </Box>
                     </div>
                 </section> */}
-            
+
             </Layout>
         </>
     )
@@ -155,5 +158,3 @@ export const pageQuery = graphql`
         }
     }
 `
-
-

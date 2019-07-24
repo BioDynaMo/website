@@ -39,7 +39,7 @@ const GalleryPage = ({data, location}) => {
 
                     <section className="grid-12 gutter-row-20 gutter-20-ns gutter-36-l">
 
-                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 1" src="/paraview7-4.png">
+                        <GalleryBox href="/biodynamo/doc/user_guide/docs/" title="Demo 1" src="/paraview7-4.png">
                             <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>

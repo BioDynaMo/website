@@ -74,8 +74,6 @@ module.exports.createNewsIndexPages = async ({ graphql, actions }) => {
           reject(result.errors)
         }
 
-        // ...
-
         // Create blog-list pages
         const posts = result.data.allMarkdownRemark.edges
         const postsPerPage = 10
@@ -97,4 +95,3 @@ module.exports.createNewsIndexPages = async ({ graphql, actions }) => {
   }))
   return Promise.all(queryPromises)
 }
-

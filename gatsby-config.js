@@ -5,7 +5,6 @@ const colorModFunction = require(`postcss-color-mod-function`)
 const cssNano = require(`cssnano`)
 const customProperties = require(`postcss-custom-properties`)
 const easyImport = require(`postcss-easy-import`)
-// const algoliaQueries = require(`./utils/algolia-queries`)
 const path = require(`path`)
 const { isNil } = require('lodash')
 
@@ -15,14 +14,12 @@ require(`dotenv`).config({
 
 const myAddedPlugin = (lunr) => (builder) => {
 
-  // // removing stemmer
+  // removing stemmer
   builder.pipeline.remove(lunr.stemmer)
   builder.searchPipeline.remove(lunr.stemmer)
-  // builder.pipeline.add(lunr.generateStopWordFilter(['div','a','href','sbox','p']))
-  // builder.pipeline.add(lunr.stopWordFilter)
 
   builder.metadataWhitelist = ['position']
-  // // or similarity tuning
+  // similarity tuning
   builder.k1(0.75)
   builder.b(0.5)
 }
@@ -67,14 +64,6 @@ const plugins = [
                         withWebp: true,
                     },
                 },
-                // {
-                //     resolve: `gatsby-remark-snippets`,
-                //     options: {
-                //         // Example code links are relative to this dir.
-                //         // eg examples/path/to/file.js
-                //         directory: `${__dirname}/content/.examples/`,
-                //     },
-                // },
                 `gatsby-remark-autolink-headers`,
                 `gatsby-remark-code-titles`,
                 `gatsby-remark-prismjs`,
@@ -84,7 +73,7 @@ const plugins = [
         },
     },
     `gatsby-transformer-yaml`,
-    `gatsby-plugin-catch-links`, 
+    `gatsby-plugin-catch-links`,
 
     /**
      *  Utility Plugins
@@ -185,16 +174,11 @@ const plugins = [
                         filterNodes: (node) => !isNil(node.frontmatter),
                         plugins: [myAddedPlugin]
                     }
-                    // {
-                    //     name: 'fr',
-                    //     filterNodes: node => node.frontmatter.lang === 'fr',
-                    // },
                 ],
                 // Fields to index. If store === true value will be stored in index file.
                 // Attributes for custom indexing logic. See https://lunrjs.com/docs/lunr.Builder.html for details
                 fields: [
                     { name: 'title', store: true, attributes: { boost: 20 } },
-                    { name: 'description' },
                     { name: 'content', store: true },
                     { name: 'path', store: true },
                     { name: 'sidebar', store: true },

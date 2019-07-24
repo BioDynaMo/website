@@ -13,18 +13,8 @@ import { MetaData, getMetaImageUrls } from '../../components/common/meta'
 const getGitHubLink = (absoluteFilePath) => {
     let contentFilePath = ``
 
-    // testing only for `/content` doesn't work as we have a URL that contains
-    // `/content` twice. Therefore we're testing for each API version docs and
-    // the local content files.
     const gitHubRepos = [
-        // {
-        //     regex: /^(?:\S*\/content\/api\/v0\.11\/)(\S*)/i,
-        //     url: `https://github.com/TryGhost/docs-api/blob/v0.11/`,
-        // },
-        // {
-        //     regex: /^(?:\S*\/content\/api\/v2\/)(\S*)/i,
-        //     url: `https://github.com/TryGhost/docs-api/blob/master/`,
-        // },
+
         {
             regex: /^(?:\S*\/content\/biodynamo\/doc\/user_guide\/docs\/)(\S*)/i,
             url: `https://github.com/BioDynaMo/biodynamo/tree/master/doc/user_guide/docs/`,

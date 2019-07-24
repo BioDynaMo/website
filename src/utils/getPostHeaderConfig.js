@@ -5,7 +5,7 @@ export const getPostHeaderConfig = ({ pathname }) => {
         bgClass: `bg-api-reference`,
     }
 
-    // This is an example
+    // This is an example with subtitles
     // Setup
     // if (pathname.match(/^\/setup\//i) || pathname.match(/^\/install\//i)) {
     //     postHeaderConfig.title = `Setup Guide`
