@@ -21,6 +21,7 @@ const GalleryPage = ({data, location}) => {
 			<MetaData
 				data={data}
 				location={location}
+				title={title}
 				type="website"
 				description={description}
 				image={imageUrl}
@@ -75,7 +76,7 @@ const GalleryPage = ({data, location}) => {
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 7" src="/paraview7-4.png">
+                        <GalleryBox to="/docs/userguide/" title="Demo 7" src="/paraview7-4.png">
                             <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>

@@ -17,11 +17,11 @@ const getGitHubLink = (absoluteFilePath) => {
 
         {
             regex: /^(?:\S*\/content\/biodynamo\/doc\/user_guide\/docs\/)(\S*)/i,
-            url: `https://github.com/BioDynaMo/biodynamo/tree/master/doc/user_guide/docs/`,
+            url: `https://github.com/BioDynaMo/biodynamo/edit/master/doc/user_guide/docs/`,
         },
         {
             regex: /^(?:\S*\/content\/biodynamo\/doc\/dev_guide\/docs\/)(\S*)/i,
-            url: `https://github.com/BioDynaMo/biodynamo/tree/master/doc/dev_guide/docs/`,
+            url: `https://github.com/BioDynaMo/biodynamo/edit/master/doc/dev_guide/docs/`,
         },
     ]
 

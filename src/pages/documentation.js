@@ -9,7 +9,7 @@ import { MetaData, getMetaImageUrls } from '../components/common/meta'
 
 const DocPage = ({ data, location }) => {
     // Add meta title and description for this page here to overwrite the site meta data as set in the config
-    const title = `Documentation page`
+    const title = `Documentation`
     const description = `Path to all documentation.`
     const imageUrl = getMetaImageUrls()
 
