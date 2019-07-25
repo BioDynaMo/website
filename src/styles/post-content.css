@@ -15,7 +15,9 @@
 .post-content audio,
 .post-content canvas,
 .post-content iframe,
-.post-content img,
+.post-content img {
+  pointer-events: none;
+  },
 .post-content svg,
 .post-content video {
     vertical-align: middle;
@@ -370,9 +372,9 @@ Usage (In Ghost editor):
     margin-top: -80px;
 }
 
-.post-content h2 {
+/* .post-content h2 {
     pointer-events: none;
-}
+} */
 
 .post-content h2 + p,
 .post-content h3 + p,
@@ -713,6 +715,7 @@ Usage (In Ghost editor):
 
 .post-content figure img {
     margin: 0;
+    pointer-events: none;
 }
 
 .post-content figcaption {
