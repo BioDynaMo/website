@@ -34,16 +34,16 @@ export const getPostHeaderConfig = ({ pathname }) => {
     // }
 
     // User Guide
-    if (pathname.match(/^\/biodynamo\/doc\/user_guide\//i)) {
+    if (pathname.match(/^\/docs\/userguide\//i)) {
         postHeaderConfig.title = `User Guide`
-        postHeaderConfig.mainLink = `/biodynamo/doc/user_guide/docs/`
+        postHeaderConfig.mainLink = `/docs/userguide/`
         postHeaderConfig.bgClass = `bg-concepts`
     }
 
     // Dev Guide
-    if (pathname.match(/^\/biodynamo\/doc\/dev_guide\//i)) {
+    if (pathname.match(/^\/docs\/devguide\//i)) {
         postHeaderConfig.title = `Dev Guide`
-        postHeaderConfig.mainLink = `/biodynamo/doc/dev_guide/docs/`
+        postHeaderConfig.mainLink = `/docs/devguide/`
         postHeaderConfig.bgClass = `bg-concepts`
     }
 

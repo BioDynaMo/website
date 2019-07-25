@@ -74,7 +74,8 @@ toc: true
 sidebar: "XXX"
 ---
 ```
-The title of the markdown based page will be automatically created using the title in the frontmatter.
+The title of the markdown based page will be automatically created using the *title* field in the frontmatter.
+The *path* field in the frontmatter is important as it allows us to use a custom path instead of the path of the working directory.
 Furthermore, toc and sidebar are important for the layout and placement of the markdown based page in the website.
 The `toc` section dictates whether there should be a table of content on the right hand side of the page, the possible values are: true, false or null (null will considered as true).
 The `sidebar` section dictates the section that this markdown file belongs to.

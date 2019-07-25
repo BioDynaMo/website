@@ -21,7 +21,7 @@ const HomeHeader = () => (
             <section className="grid-12 gutter-row-20 gutter-36-ns mt10 mt8-ns mt20 miw-100 miw-auto-ns home-main-box-margin-ns z-999">
 
                 <HomeHeaderBox
-                    to="/biodynamo/doc/user_guide/docs/hello_world/"
+                    to="/docs/userguide/hello_world/"
                     title="Tutorials"
                     icon="keyboard-regular"
                     color="tutorial-green"
@@ -29,7 +29,7 @@ const HomeHeader = () => (
                 </HomeHeaderBox>
 
                 <HomeHeaderBox
-                    to="/biodynamo/doc/user_guide/docs/installation/"
+                    to="/docs/userguide/installation/"
                     title="Installation Guide"
                     icon="download-solid"
                     color="tutorial-green"

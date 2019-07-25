@@ -5,7 +5,7 @@ import { Spirit } from '../styles/spirit-styles'
 import { Box } from "../components/common"
 
 export default class NewsIndexPage extends React.Component {
-  
+
   render() {
     const posts = this.props.data.allMarkdownRemark.edges
     const { currentPage, numPages } = this.props.pageContext
@@ -16,7 +16,7 @@ export default class NewsIndexPage extends React.Component {
 
     return (
       <Layout mainClass="bg-whitegrey-l2 pb-vw3" bodyClass="bg-white">
-        
+
         <div className="bg-concepts">
             <div className={`${Spirit.page.l} pt12 pb4 pt-vw1-ns pb-vw1-ns white pl10 pl0-ns`}>
                 <h1 className={`${Spirit.h4} gh-integration-header-shadow`}>
@@ -45,7 +45,7 @@ export default class NewsIndexPage extends React.Component {
 
           <div className="mt5"/>
           <section className="news-grid">
-            
+
             <div>
               {!isFirst && (
                 <Box radius="4" className="news-grid-box-left">
@@ -55,7 +55,7 @@ export default class NewsIndexPage extends React.Component {
                 </Box>
                 )}
             </div>
-            
+
             <Box radius="4" className="news-grid-box-center">
               {Array.from({ length: numPages }, (_, i) => (
                 <Link className="blue home-faq-question link dib" key={`pagination-number${i + 1}`} to={`/news/${i === 0 ? "" : i + 1}`}>
@@ -86,7 +86,7 @@ export default class NewsIndexPage extends React.Component {
 export const blogListQuery = graphql`
   query blogListQuery($skip: Int!, $limit: Int!) {
     allMarkdownRemark(
-      filter: {fields: {slug: {regex: "/biodynamo/doc/"}}}
+      filter: {fields: {slug: {regex: "/docs/"}}}
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip

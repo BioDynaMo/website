@@ -130,8 +130,6 @@ const plugins = [
         },
     },
     `gatsby-plugin-force-trailing-slashes`,
-    `gatsby-transformer-remark`,
-    `gatsby-transformer-remark-plaintext`,
     /**
      *  Display Plugins
      */

@@ -28,9 +28,9 @@ const NavBar = ({ theme }) => {
     return (
         <nav className={`${Spirit.page.xl} flex flex-auto flex-nowrap items-center justify-between pt2 pb2`} data-cy="header-navigation">
             <div className="flex items-start pt3 pb1 nudge-bottom--2  pr8">
-                <a href="/" className="nudge-top--3"> 
+                <a href="/" className="nudge-top--3">
                     <Logo/>
-                </a>                
+                </a>
             </div>
             {/* navbar-container wrapper element and bottom padding is needed to hide the horizontal scrollbar on smaller screensizes */}
             <div className="navbar-container">
@@ -38,8 +38,8 @@ const NavBar = ({ theme }) => {
             {/* Create nav bar links and choose their names */}
                     <Link to="/gallery/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l nl3`}>Gallery</Link>
                     <a href="/documentation/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Documentation</a>
-                    <a href="/biodynamo/doc/user_guide/docs/hello_world/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Tutorials</a>
-                    <a href="/about/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>About Us</a>                      
+                    <a href="/docs/userguide/hello_world/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Tutorials</a>
+                    <a href="/about/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>About Us</a>
                 </div>
             </div>
             <div className="relative pl3">

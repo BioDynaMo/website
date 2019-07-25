@@ -10,7 +10,7 @@ module.exports.createRedirects = ({ actions }) => {
         fromPath: `/biodynamo`,
         isPermanent: true,
         redirectInBrowser: true,
-        toPath: `/biodynamo/doc/user_guide/docs/`,
+        toPath: `/docs/userguide/`,
     })
 }
 
@@ -55,7 +55,7 @@ module.exports.createNewsIndexPages = async ({ graphql, actions }) => {
         `
           {
             allMarkdownRemark(
-              filter: {fields: {slug: {regex: "/biodynamo/doc/"}}}
+              filter: {fields: {slug: {regex: "/docs/"}}}
               sort: { fields: [frontmatter___date], order: DESC }
               limit: 1000
             ) {

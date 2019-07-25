@@ -26,7 +26,7 @@ const GalleryPage = ({data, location}) => {
 				image={imageUrl}
 			/>
 			<Layout mainClass="bg-whitegrey-l2 pb-vw3" bodyClass="bg-white">
-	    	
+
                 <div className="bg-concepts">
                     <div className={`${Spirit.page.xl} pt12 pb4 pt-vw1-ns pb-vw1-ns white pl10 pl0-ns`}>
                         <h1 className={`${Spirit.h4} gh-integration-header-shadow`}>
@@ -39,37 +39,37 @@ const GalleryPage = ({data, location}) => {
 
                     <section className="grid-12 gutter-row-20 gutter-20-ns gutter-36-l">
 
-                        <GalleryBox href="/biodynamo/doc/user_guide/docs/" title="Demo 1" src="/paraview7-4.png">
+                        <GalleryBox href="/docs/userguide/" title="Demo 1" src="/paraview7-4.png">
                             <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 2" src="/paraview7-4.png">
+                        <GalleryBox to="/docs/userguide/" title="Demo 2" src="/paraview7-4.png">
                             <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 3" src="/paraview7-4.png">
+                        <GalleryBox to="/docs/userguide/" title="Demo 3" src="/paraview7-4.png">
                             <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 4" src="/paraview7-4.png">
+                        <GalleryBox to="/docs/userguide/" title="Demo 4" src="/paraview7-4.png">
                             <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 5" src="/paraview7-4.png">
+                        <GalleryBox to="/docs/userguide/" title="Demo 5" src="/paraview7-4.png">
                             <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 6" src="/paraview7-4.png">
+                        <GalleryBox to="/docs/userguide/" title="Demo 6" src="/paraview7-4.png">
                             <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
@@ -81,13 +81,13 @@ const GalleryPage = ({data, location}) => {
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 8" src="/paraview7-4.png">
+                        <GalleryBox to="/docs/userguide/" title="Demo 8" src="/paraview7-4.png">
                             <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/biodynamo/doc/user_guide/docs/" title="Demo 8" src="/paraview7-4.png">
+                        <GalleryBox to="/docs/userguide/" title="Demo 8" src="/paraview7-4.png">
                             <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
@@ -96,7 +96,7 @@ const GalleryPage = ({data, location}) => {
                     </section>
 
                 </div>
-            
+
 			</Layout>
 		</>
 	)
