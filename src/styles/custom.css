@@ -445,7 +445,7 @@ kbd {
 .navbar-container {
     flex: 1 1 auto;
     overflow: hidden;
-    height: 25px;
+    height: 38px;
 }
 
 .grid-icon-boxes {
@@ -1322,4 +1322,3 @@ to be custom HTML.
   grid-template-columns: auto auto auto;
   grid-column-gap: 31%;
 }
-

@@ -38,7 +38,7 @@ const HomeHeader = () => (
 
                 <HomeHeaderBox
                     to="https://github.com/BioDynaMo/biodynamo"
-                    title="Github (Code)"
+                    title="Github"
                     icon="github"
                     color="tutorial-green"
                     target="_blank"

@@ -14,7 +14,7 @@ const Header = ({ dividerStyle }) => (
             <header className={`${headerShadow[dividerStyle]} fixed bg-white top-0 left-0 right-0 z-500 mb10`}>
                 <NavBar theme="dark" />
             </header>
-            <div className="h17"></div> {/* We need to push down all the content because of the fixed header */}
+            <div className="h15"></div> {/* We need to push down all the content because of the fixed header */}
         </>
 )
 

@@ -13,7 +13,7 @@ const AboutPage = ({data,location}) => {
 
 	return (
 		<>
-			<MetaData 
+			<MetaData
 				data={data}
 				location={location}
 				type="website"
@@ -21,7 +21,7 @@ const AboutPage = ({data,location}) => {
 				description={description}
 			/>
 			<Layout mainClass="bg-whitegrey-l2 pb-vw3" bodyClass="bg-white">
-	    	
+
                 <div className="bg-concepts">
                     <div className={`${Spirit.page.xl} pt12 pb4 pt-vw1-ns pb-vw1-ns white pl10 pl0-ns`}>
                         <h1 className={`${Spirit.h4} gh-integration-header-shadow`}>
@@ -50,35 +50,35 @@ const AboutPage = ({data,location}) => {
 
                     <section className="grid-16 gutter-row-20 gutter-20-ns gutter-36-l">
 
-                        <MemberBox 
-                            href="/" 
-                            name="Nathaniel Randomness" 
-                            src="/bradley.png" 
-                            headingClass="mt2" 
+                        <MemberBox
+                            href="/"
+                            name="Nathaniel Randomness"
+                            src="/bradley.png"
+                            headingClass="mt2"
                             position="Lead Engineer">
                         </MemberBox>
 
-                        <MemberBox 
-                            href="/" 
-                            name="Test Member" 
-                            src="/bradley.png" 
-                            headingClass="mt2" 
+                        <MemberBox
+                            href="/"
+                            name="Test Member"
+                            src="/bradley.png"
+                            headingClass="mt2"
                             position="Position">
                         </MemberBox>
 
-                        <MemberBox 
-                            href="/" 
-                            name="Test Member" 
-                            src="/bradley.png" 
-                            headingClass="mt2" 
+                        <MemberBox
+                            href="/"
+                            name="Test Member"
+                            src="/bradley.png"
+                            headingClass="mt2"
                             position="Position">
                         </MemberBox>
 
-                        <MemberBox 
-                            href="/" 
-                            name="Test Member" 
-                            src="/bradley.png" 
-                            headingClass="mt2" 
+                        <MemberBox
+                            href="/"
+                            name="Test Member"
+                            src="/bradley.png"
+                            headingClass="mt2"
                             position="Position">
                         </MemberBox>
 
@@ -94,35 +94,35 @@ const AboutPage = ({data,location}) => {
 
                     <section className="grid-16 gutter-row-28 gutter-20-ns gutter-36-l">
 
-                        <MemberBox 
-                            href="/" 
-                            name="Test Alumni" 
-                            src="/bradley.png" 
-                            headingClass="mt2" 
+                        <MemberBox
+                            href="/"
+                            name="Test Alumni"
+                            src="/bradley.png"
+                            headingClass="mt2"
                             position="Position">
                         </MemberBox>
 
-                        <MemberBox 
-                            href="/" 
-                            name="Test Alumni" 
-                            src="/bradley.png" 
-                            headingClass="mt2" 
+                        <MemberBox
+                            href="/"
+                            name="Test Alumni"
+                            src="/bradley.png"
+                            headingClass="mt2"
                             position="Position">
                         </MemberBox>
 
-                        <MemberBox 
-                            href="/" 
-                            name="Test Alumni" 
-                            src="/bradley.png" 
-                            headingClass="mt2" 
+                        <MemberBox
+                            href="/"
+                            name="Test Alumni"
+                            src="/bradley.png"
+                            headingClass="mt2"
                             position="Position">
                         </MemberBox>
 
-                        <MemberBox 
-                            href="/" 
-                            name="Test Alumni" 
-                            src="/bradley.png" 
-                            headingClass="mt2" 
+                        <MemberBox
+                            href="/"
+                            name="Test Alumni"
+                            src="/bradley.png"
+                            headingClass="mt2"
                             position="Position">
                         </MemberBox>
 
@@ -159,4 +159,3 @@ export const pageQuery = graphql`
         }
     }
 `
-
