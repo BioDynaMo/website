@@ -130,6 +130,9 @@ The component of these boxes is called `HomeHeaderBox`, it needs a link, a title
 For the github link box, a `target` input was added to open the github repository on a different tab.
 
 The `src/components/home/Carousel.js` configures the image carousel seen on the home page.
+The image carousel can be modified in the `src/styles/custom.css` file, as well as in `src/components/hom/Carousel.js` file.
+In the CSS file, the styling, image size, padding, etc, can be modified, while in the javascript file, the settings, number of images and choice of images can be modified.
+Further documentation on the carousel's options can be found [here](https://kenwheeler.github.io/slick/).
 
 The `src/components/home/BlogList.js` configures the settings and query for the news feed on the home page.
 The maximum number of articles displayed can be modified on the `index.js` file itself.
