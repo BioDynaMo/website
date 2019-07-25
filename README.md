@@ -80,6 +80,7 @@ Furthermore, toc and sidebar are important for the layout and placement of the m
 The `toc` section dictates whether there should be a table of content on the right hand side of the page, the possible values are: true, false or null (null will considered as true).
 The `sidebar` section dictates the section that this markdown file belongs to.
 To add a file to a specific sidebar the `sidebar` field should contain the name of the `.yaml` it belongs to.
+Additionally, the *meta_title* field is important as it regulates the text displayed in the tab of the web browser.
 
 ### Sidebars
 
@@ -109,6 +110,8 @@ Furthermore, settings and options related to getting/creating the sidebar can be
 
 The layout for pages using markdowns can be found in `src/templates/markdown/post.js`.
 The header for these pages are configured in `src/utils/getPostHeaderConfig.js` and the component that builds the header can be found in `src/components/common/PostHeader.js`.
+Another element of the header that is important to know is the `src/components/common/layout/Header.js` file.
+This component creates the wrapper for the header and dictates how the separator is configured between the navbar and the actual header.
 Excluding the previously mentioned header, the rest of the page layout can be found in `src/components/layout`, this is the general website layout.
 
 ## Javascript Pages
