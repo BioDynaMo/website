@@ -25,6 +25,12 @@ The paths that will be used in this repository are all relative and follow the c
 
 For example, a file located within the `public` or `content` directories, only has for path: `/file_inside_of_named_directory`
 
+#### Static Folder
+
+Another important note is that when importing pre-made assets by using the static folder, these files will only appear if we serve the website instead of develop.
+For example, all the API documentation has to be put in the static folder and will only be visible if we serve the website (see below to learn how to serve and develop).
+The API documentation can then be linked normally by using the `/bioapi/any_file_that_we_want_to_show_from_api_doc` path.
+
 ### How to Build or Develop the Website
 
 To develop the gatsby website, a `.env.development` file is needed.
@@ -48,7 +54,9 @@ gatsby build
 NODE_ENV=production gatsby serve
 ```
 The `yarn` command is used to manage dependencies, plugins and packages for the website.
+This command installs the `node_modules` file.
 `*lock*` files should be deleted as they often create problems when rebuilding or redeveloping.
+The `public` is auto generated when building or developing the website, it is usually good practice to delete this file and the cache prior to rebuilding or redeveloping.
 
 ## Markdown Based Pages
 
