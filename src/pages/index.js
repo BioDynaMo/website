@@ -33,13 +33,12 @@ const HomePage = ({ data, location }) => {
                 header={<HomeHeader />}
             >
                 <div className="pt-vw3 home-main-box-padding-ns">
-                  <div className={`${Spirit.page.xl} carousel-div`}>
+                  <div className={`${Spirit.page.l} carousel-div`}>
                     <Carousel />
                   </div>
-
                 </div>
 
-                <div className={`${Spirit.page.xl} grid-12 gutter-row-20 gutter-40-ns`}>
+                {/* <div className={`${Spirit.page.xl} grid-12 gutter-row-20 gutter-40-ns`}>
 
                     <section className="col-12 col-6-ns flex flex-column justify-between mt4 mt0-ns">
                         <a className="twitter-timeline" href="https://twitter.com/CERNopenlab?ref_src=twsrc%5Etfw">Tweets by CERNopenlab</a> <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
@@ -47,7 +46,7 @@ const HomePage = ({ data, location }) => {
 
                         {//This is where we want the twitter feed
                           // These are the boxes
-                          /*<Box className="mt5 tdn flex-auto flex flex-column items-stretch" elevation="1">
+                          <Box className="mt5 tdn flex-auto flex flex-column items-stretch" elevation="1">
                             <HomeAPIBox
                                 href="/api/#frontend-sdk"
                                 title="Post 1"
@@ -69,7 +68,7 @@ const HomePage = ({ data, location }) => {
                             >
                                 Utilities to help build and manage Ghost
                             </HomeAPIBox>
-                        </Box>*/}
+                        </Box>}
                     </section>
 
                     <section className="col-12 col-6-ns mt0-ns bt bn-ns b--whitegrey nl5 nr5 nl0-ns nr0-ns ml0-ns mr0-ns pl5 pr5 pl0-ns pr0-ns pt5 pt0-ns ">
@@ -82,7 +81,7 @@ const HomePage = ({ data, location }) => {
 
                         </div>
                     </section>
-                </div>
+                </div> */}
 
                 {// this is the integrations section, leaving for template
                   /*<section className={`${Spirit.page.xl} col-12 mt8 mt-vw3-ns bt bn-ns b--whitegrey pt5 pt0-ns`}>
