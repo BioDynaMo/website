@@ -3,6 +3,7 @@
 # Parse options (from: https://stackoverflow.com/a/33826763)
 while [[ "$#" -gt 0 ]]; do case $1 in
   -a|--api) api=1;;
+  -b|--build-dir) BUILD_DIR="$2"; shift;;
   *) echo "Unknown parameter passed: $1"; exit 1;;
 esac; shift; done
 
@@ -20,18 +21,21 @@ pushd ${BDM_SRC_DIR} && git pull && popd
 # clear cache
 rm -rf .cache/ node_modules/ public/
 
-
 # Delete any existing build directory
 rm -rf ${BDM_SRC_DIR}/build ${SCRIPT_PATH}/static/bioapi
 
-if [ "$api" -eq "1" ]; then
-  # Build the Doxygen documentation files
-  pushd ${BDM_SRC_DIR}
-  mkdir build && cd build && cmake ..
-  make doc
-  popd
-  echo "Copying API docs to Gatsby directory"
-  cp -R ${BDM_SRC_DIR}/build/doc/api ${SCRIPT_PATH}/static/bioapi
+if [ ! -z "${api+x}" ]; then
+  if [ -z ${BUILD_DIR+x} ]; then
+    # Build the Doxygen documentation files
+    pushd ${BDM_SRC_DIR}
+    mkdir build && cd build && cmake ..
+    make doc
+    popd
+    echo "Copying API docs to Gatsby directory"
+    cp -R ${BDM_SRC_DIR}/build/doc/api ${SCRIPT_PATH}/static/bioapi
+  else
+    cp -R ${BUILD_DIR}/doc/api ${SCRIPT_PATH}/static/bioapi
+  fi
 fi
 
 pushd $SCRIPT_PATH/docker
