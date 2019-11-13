@@ -15,8 +15,10 @@ sudo -v
 SCRIPT_PATH=$(readlink -e $(dirname "${BASH_SOURCE[0]}"))
 BDM_SRC_DIR=${SCRIPT_PATH}/content/biodynamo
 
-git submodule update --init --recursive
-pushd ${BDM_SRC_DIR} && git pull && popd
+if [ ! -z ${BUILD_DIR+x} ]; then
+  git submodule update --init --recursive
+  pushd ${BDM_SRC_DIR} && git pull && popd
+fi
 
 # clear cache
 rm -rf .cache/ node_modules/ public/
