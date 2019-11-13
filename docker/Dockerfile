@@ -45,6 +45,6 @@ RUN groupadd -g $HOST_GID testuser ; \
 
 USER testuser
 
-ENTRYPOINT bash -c "yarn && gatsby develop"
+ENTRYPOINT bash -c "yarn && gatsby build && gatsby serve"
 
 WORKDIR website
