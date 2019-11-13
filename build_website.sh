@@ -12,15 +12,14 @@ set -e -x
 sudo -v
 
 SCRIPT_PATH=$(readlink -e $(dirname "${BASH_SOURCE[0]}"))
+BDM_SRC_DIR=${SCRIPT_PATH}/content/biodynamo
 
 git submodule update --init --recursive
-git pull --recurse-submodules
-git submodule foreach git pull 
+pushd ${BDM_SRC_DIR} && git pull && popd
 
 # clear cache
 rm -rf .cache/ node_modules/ public/
 
-BDM_SRC_DIR=${SCRIPT_PATH}/content/biodynamo
 
 # Delete any existing build directory
 rm -rf ${BDM_SRC_DIR}/build ${SCRIPT_PATH}/static/bioapi
