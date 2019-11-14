@@ -54,10 +54,8 @@ cp ${SCRIPT_PATH}/.env.example ${SCRIPT_PATH}/.env.development
 cp ${SCRIPT_PATH}/.env.example ${SCRIPT_PATH}/.env.production
 sudo docker stop mybdmweb || true
 sudo docker rm mybdmweb || true
-SERVE_CMD="bash -c 'yarn && gatsby build'"
 if [ ! -z "${SERVE+x}" ]; then
-  SERVE_CMD="bash -c 'yarn && gatsby build && gatby serve'"
+  sudo docker run -it --net=host --name=mybdmweb -v ${SCRIPT_PATH}:/website bdm-website bash -c 'yarn && gatsby build && gatsby serve'
+else
+  sudo docker run -it --net=host --name=mybdmweb -v ${SCRIPT_PATH}:/website bdm-website bash -c 'yarn && gatsby build'
 fi
-sudo docker run -itd --net=host --name=mybdmweb -v ${SCRIPT_PATH}:/website bdm-website $SERVE_CMD
-sudo docker attach mybdmweb
-

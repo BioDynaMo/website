@@ -45,6 +45,4 @@ RUN groupadd -g $HOST_GID testuser ; \
 
 USER testuser
 
-# ENTRYPOINT ["bash",  "-c"]
-
 WORKDIR website
