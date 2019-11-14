@@ -7,13 +7,16 @@ while [[ "$#" -gt 0 ]]; do case $1 in
   *) echo "Unknown parameter passed: $1"; exit 1;;
 esac; shift; done
 
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
 set -e -x
 
 # Ask first for sudo password for later docker commands
 sudo -v
 
 if [[ -z "${BDMSYS}" ]]; then
-  echo "Please source BioDynaMo before building the website"
+  echo -e "${RED}Please source BioDynaMo before building the website${NC}"
   exit 1
 fi
 
