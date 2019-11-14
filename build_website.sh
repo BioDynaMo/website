@@ -58,6 +58,5 @@ if [ ! -z "${SERVE+x}" ]; then
   SERVE_CMD="yarn && gatsby build && gatby serve"
 fi
 sudo docker run -itd --net=host --name=mybdmweb -v ${SCRIPT_PATH}:/website bdm-website $SERVE_CMD
-sudo docker exec -itd mybdmweb /website/
 sudo docker attach mybdmweb
 
