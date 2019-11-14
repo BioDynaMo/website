@@ -3,8 +3,8 @@
 # Parse options (from: https://stackoverflow.com/a/33826763)
 while [[ "$#" -gt 0 ]]; do case $1 in
   -a|--api) API=1;;
-  -s|--serve) SERVE=1;;
-  -d|--dir) BDM_DIR="$2"; shift;;
+  -d|--develop) DEVELOP=1;;
+  --dir) BDM_DIR="$2"; shift;;
   *) echo "Unknown parameter passed: $1"; exit 1;;
 esac; shift; done
 
@@ -41,12 +41,7 @@ if [ ! -z "${API+x}" ]; then
     echo "Doxygen files were not generated. Make sure they can be found in ${BDM_DIR}/build/doc/api"
     exit 1
   fi
-  echo "Copying API docs to Gatsby directory"
-  cp -R ${BDM_DIR}/build/doc/api ${SCRIPT_PATH}/static/bioapi
 fi
-
-# Copy markdown files that Gatsby expects in content/biodynamo
-cp -R ${BDM_DIR}/doc ${SCRIPT_PATH}/content/biodynamo/
 
 pushd $SCRIPT_PATH/docker
 sudo docker build --network=host \
@@ -60,8 +55,36 @@ cp ${SCRIPT_PATH}/.env.example ${SCRIPT_PATH}/.env.development
 cp ${SCRIPT_PATH}/.env.example ${SCRIPT_PATH}/.env.production
 sudo docker stop mybdmweb || true
 sudo docker rm mybdmweb || true
-if [ ! -z "${SERVE+x}" ]; then
-  sudo docker run -it --net=host --name=mybdmweb -v ${SCRIPT_PATH}:/website bdm-website bash -c 'yarn && gatsby build && gatsby serve'
+
+# If we want to develop (in live mode)
+if [ ! -z "${DEVELOP+x}" ]; then
+  # If we want to generate static file for the API guide
+  if [ ! -z "${API+x}" ]; then
+    sudo docker run \
+      -it \
+      --net=host \
+      --name=mybdmweb \
+      -v ${SCRIPT_PATH}:/website \
+      -v ${BDM_DIR}/build/doc/api:/website/static/bioapi \
+      -v ${BDM_DIR}/doc:/website/content/biodynamo/doc \
+      bdm-website bash -c 'yarn && gatsby build && gatsby develop'
+  else
+    sudo docker run \
+      -it \
+      --net=host \
+      --name=mybdmweb \
+      -v ${SCRIPT_PATH}:/website \
+      -v ${BDM_DIR}/build/doc/api:/website/static/bioapi \
+      bdm-website bash -c 'yarn && gatsby build && gatsby develop'
+  fi
 else
-  sudo docker run -it --net=host --name=mybdmweb -v ${SCRIPT_PATH}:/website bdm-website bash -c 'yarn && gatsby build'
+  # If we want to just build the static files
+  sudo docker run \
+    -it \
+    --net=host \
+    --name=mybdmweb \
+    -v ${SCRIPT_PATH}:/website \
+    -v ${BDM_DIR}/build/doc/api:/website/static/bioapi \
+    -v ${BDM_DIR}/doc:/website/content/biodynamo/doc \
+    bdm-website bash -c 'yarn && gatsby build'
 fi
