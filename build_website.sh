@@ -4,43 +4,49 @@
 while [[ "$#" -gt 0 ]]; do case $1 in
   -a|--api) API=1;;
   -s|--serve) SERVE=1;;
+  -d|--dir) BDM_DIR="$2"; shift;;
   *) echo "Unknown parameter passed: $1"; exit 1;;
 esac; shift; done
 
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-set -e -x
-
-# Ask first for sudo password for later docker commands
-sudo -v
-
 if [[ -z "${BDMSYS}" ]]; then
   echo -e "${RED}Please source BioDynaMo before building the website${NC}"
   exit 1
 fi
 
-SCRIPT_PATH=$(readlink -e $(dirname "${BASH_SOURCE[0]}"))
-BDM_SRC_DIR=${SCRIPT_PATH}/content/biodynamo
+if [[ -z "${BDM_DIR}" ]]; then
+  echo -e "${RED}Please pass the BioDynaMo project directory with --dir <path/to/biodynamo>${NC}"
+  exit 1
+fi
 
-git submodule update --init --recursive
-pushd ${BDM_SRC_DIR} && git pull && popd
+set -e -x
+
+# Ask first for sudo password for later docker commands
+sudo -v
+
+SCRIPT_PATH=$(readlink -e $(dirname "${BASH_SOURCE[0]}"))
 
 # clear cache
 rm -rf .cache/ node_modules/ public/
 
-# Delete any existing build directory
-rm -rf ${BDM_SRC_DIR}/build ${SCRIPT_PATH}/static/bioapi
+# Delete any existing generated API files
+rm -rf ${SCRIPT_PATH}/static/bioapi
 
+# Copy Doxygen files (pre-generated when `make website` is called)
 if [ ! -z "${API+x}" ]; then
-  # Build the Doxygen documentation files
-  pushd ${BDM_SRC_DIR}
-  mkdir build && cd build && cmake ..
-  make doc
-  popd
+  # Check if the API files are generated
+  if [ -z "$(ls -A ${BDM_DIR}/build/doc/api)" ]; then
+    echo "Doxygen files were not generated. Make sure they can be found in ${BDM_DIR}/build/doc/api"
+    exit 1
+  fi
   echo "Copying API docs to Gatsby directory"
-  cp -R ${BDM_SRC_DIR}/build/doc/api ${SCRIPT_PATH}/static/bioapi
+  cp -R ${BDM_DIR}/build/doc/api ${SCRIPT_PATH}/static/bioapi
 fi
+
+# Copy markdown files that Gatsby expects in content/biodynamo
+cp -R ${BDM_DIR}/doc ${SCRIPT_PATH}/content/biodynamo/
 
 pushd $SCRIPT_PATH/docker
 sudo docker build --network=host \
