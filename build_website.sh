@@ -12,6 +12,11 @@ set -e -x
 # Ask first for sudo password for later docker commands
 sudo -v
 
+if [[ -z "${BDMSYS}" ]]; then
+  echo "Please source BioDynaMo before building the website"
+  exit 1
+fi
+
 SCRIPT_PATH=$(readlink -e $(dirname "${BASH_SOURCE[0]}"))
 BDM_SRC_DIR=${SCRIPT_PATH}/content/biodynamo
 
