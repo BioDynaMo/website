@@ -87,7 +87,7 @@ const plugins = [
             background_color: `#343f44`,
             theme_color: `#343f44`,
             display: `minimal-ui`,
-            icon: `static/bdm_logo.png`,
+            icon: `static/images/bdm_logo.png`,
         },
     },
     `gatsby-plugin-react-helmet`,
