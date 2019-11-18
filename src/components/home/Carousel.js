@@ -20,10 +20,10 @@ class Carousel extends React.Component {
     return (
       <Slider {...settings}>
         <div>
-          <img src="http://biodynamo.web.cern.ch/sites/biodynamo.web.cern.ch/files/tumor_concept.png"></img>
+          <img src="/images/tumor_concept.png"></img>
         </div>
         <div>
-          <img src="http://biodynamo.web.cern.ch/sites/biodynamo.web.cern.ch/files/cells.png"></img>
+          <img src="/images/cells.png"></img>
         </div>
       </Slider>
     );

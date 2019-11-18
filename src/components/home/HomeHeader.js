@@ -15,7 +15,7 @@ const HomeHeader = () => (
             <NavBar theme="light" />
         </header>
         <div className={`${Spirit.page.xl} pb5 pt10 pt15-ns pt10-l pb10-ns pb15-l flex flex-column items-center bt bn-ns b--white-10`}>
-            <img src="bdm_logo_large.png" width="125"/>
+            <img src="images/bdm_logo_large.png" width="125"/>
             <h1 className="ma0 pa0 f2 f1-ns f-headline-l white header-heading-shadow">BioDynaMo</h1>
             <h2 className="white header-heading-shadow">The Open-Source Biology Dynamics Modeller.</h2>
 

@@ -40,55 +40,55 @@ const GalleryPage = ({data, location}) => {
 
                     <section className="grid-12 gutter-row-20 gutter-20-ns gutter-36-l">
 
-                        <GalleryBox href="/docs/userguide/" title="Demo 1" src="/paraview7-4.png">
+                        <GalleryBox href="/docs/userguide/" title="Demo 1" src="/images/paraview7-4.png">
                             <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/docs/userguide/" title="Demo 2" src="/paraview7-4.png">
+                        <GalleryBox to="/docs/userguide/" title="Demo 2" src="/images/paraview7-4.png">
                             <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/docs/userguide/" title="Demo 3" src="/paraview7-4.png">
+                        <GalleryBox to="/docs/userguide/" title="Demo 3" src="/images/paraview7-4.png">
                             <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/docs/userguide/" title="Demo 4" src="/paraview7-4.png">
+                        <GalleryBox to="/docs/userguide/" title="Demo 4" src="/images/paraview7-4.png">
                             <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/docs/userguide/" title="Demo 5" src="/paraview7-4.png">
+                        <GalleryBox to="/docs/userguide/" title="Demo 5" src="/images/paraview7-4.png">
                             <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/docs/userguide/" title="Demo 6" src="/paraview7-4.png">
+                        <GalleryBox to="/docs/userguide/" title="Demo 6" src="/images/paraview7-4.png">
                             <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/docs/userguide/" title="Demo 7" src="/paraview7-4.png">
+                        <GalleryBox to="/docs/userguide/" title="Demo 7" src="/images/paraview7-4.png">
                             <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/docs/userguide/" title="Demo 8" src="/paraview7-4.png">
+                        <GalleryBox to="/docs/userguide/" title="Demo 8" src="/images/paraview7-4.png">
                             <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/docs/userguide/" title="Demo 8" src="/paraview7-4.png">
+                        <GalleryBox to="/docs/userguide/" title="Demo 8" src="/images/paraview7-4.png">
                             <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
