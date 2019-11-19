@@ -9,36 +9,60 @@ import { Carousel, HomeHeader, HomeAPIBox, BlogList } from '../components/home'
 import { Spirit } from '../styles/spirit-styles'
 import { MetaData, getMetaImageUrls } from '../components/common/meta'
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container'
+
 
 const HomePage = ({ data, location }) => {
-    // Add meta title and description for this page here to overwrite the site meta data as set in the config
-    const title = `BioDynaMo`
-    const description = `Get familiar with BioDynaMo - the open source biology dynamics modeller.  Install guides, tutorials, API docs and FAQs.`
-    const imageUrl = getMetaImageUrls()
+  // Add meta title and description for this page here to overwrite the site meta data as set in the config
+  const title = `BioDynaMo`
+  const description = `Get familiar with BioDynaMo - the open source biology dynamics modeller.  Install guides, tutorials, API docs and FAQs.`
+  const imageUrl = getMetaImageUrls()
 
-    return (
-        <>
-            <MetaData
-                data={data}
-                location={location}
-                type="website"
-                title={title}
-                description={description}
-                image={imageUrl}
-            />
-            <Layout
-                headerDividerStyle="shadow"
-                bodyClass="bg-white"
-                mainClass="bg-whitegrey-l2 pb-vw6 pb-vw3-ns"
-                header={<HomeHeader />}
-            >
-                <div className="pt-vw3 home-main-box-padding-ns">
-                  <div className={`${Spirit.page.l} carousel-div`}>
-                    <Carousel />
-                  </div>
-                </div>
+  return (
+    <>
+      <MetaData
+        data={data}
+        location={location}
+        type="website"
+        title={title}
+        description={description}
+        image={imageUrl}
+      />
+      <Layout
+        headerDividerStyle="shadow"
+        bodyClass="bg-white"
+        mainClass="bg-whitegrey-l2 pb-vw6 pb-vw3-ns"
+        header={<HomeHeader />}
+      >
+        <div className="pt-vw3 home-main-box-padding-ns">
+          <div className={`${Spirit.page.l} carousel-div`}>
+            <Carousel />
+          </div>
+        </div>
 
-                {/* <div className={`${Spirit.page.xl} grid-12 gutter-row-20 gutter-40-ns`}>
+        <Container>
+          <Row className={`${Spirit.page.xl} pt8`}>
+            <Col className="col-sm-4">
+              <h3 className={`${Spirit.h3}`}>Collaborative</h3>
+              <p className={`${Spirit.p}`}>Join our international team of biological and computational scientists, exchange ideas and simulation code, and contribute with your expertise to the computational biology community.</p>
+            </Col>
+            <Col className="col-sm-4">
+              <h3 className={`${Spirit.h3}`}>Distributed</h3>
+              <p className={`${Spirit.p}`}>Ultimately, BioDynaMo will be able to simulate large-scale biological systems on the cloud in a user-friendly manner.</p>
+            </Col>
+            <Col className="col-sm-4">
+              <h3 className={`${Spirit.h3}`}>Optimised</h3>
+              <p className={`${Spirit.p}`}>BioDynaMo can be used on standard laptops, desktop computers as well as high-performance computers to fully exploit different hardware for computational biology research.</p>
+            </Col>
+          </Row>
+        </Container>
+
+
+
+        {/* <div className={`${Spirit.page.xl} grid-12 gutter-row-20 gutter-40-ns`}>
 
                     <section className="col-12 col-6-ns flex flex-column justify-between mt4 mt0-ns">
                         <a className="twitter-timeline" href="https://twitter.com/CERNopenlab?ref_src=twsrc%5Etfw">Tweets by CERNopenlab</a> <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
@@ -83,7 +107,7 @@ const HomePage = ({ data, location }) => {
                     </section>
                 </div> */}
 
-                {// this is the integrations section, leaving for template
+        {// this is the integrations section, leaving for template
                   /*<section className={`${Spirit.page.xl} col-12 mt8 mt-vw3-ns bt bn-ns b--whitegrey pt5 pt0-ns`}>
                     <a href="https://ghost.org/integrations/" className={`${Spirit.h3} link darkgrey hover-midgrey`}>Integrations</a>
                     <p className={`${Spirit.p} mt2 midgrey flex flex-column flex-row-ns justify-between items-center-ns`}>
@@ -128,24 +152,24 @@ const HomePage = ({ data, location }) => {
                     </div>
                 </section> */}
 
-            </Layout>
-        </>
-    )
+      </Layout>
+    </>
+  )
 }
 
 HomePage.propTypes = {
-    data: PropTypes.shape({
-        site: PropTypes.shape({
-            siteMetadata: PropTypes.shape({
-                siteUrl: PropTypes.string.isRequired,
-                title: PropTypes.string.isRequired,
-                description: PropTypes.string.isRequired,
-            }).isRequired,
-        }).isRequired,
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        siteUrl: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+      }).isRequired,
     }).isRequired,
-    location: PropTypes.shape({
-        pathname: PropTypes.string.isRequired,
-    }).isRequired,
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 }
 
 export default HomePage
