@@ -25,6 +25,9 @@ class Carousel extends React.Component {
         <div>
           <img src="/images/cells.png"></img>
         </div>
+        <div>
+          <img src="/images/pyramidal-cell-simulation.png"></img>
+        </div>
       </Slider>
     );
   }
