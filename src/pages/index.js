@@ -31,6 +31,12 @@ const HomePage = ({ data, location }) => {
         mainClass="bg-whitegrey-l2 pb-vw6 pb-vw3-ns"
         header={<HomeHeader />}
       >
+        
+        <div className={`${Spirit.page.l} pt50`} style={{marginBottom : -170}}>
+          <h3 className={`${Spirit.h4}`} style={{ textAlign : "center" }}>BioDynaMo is a software platform to easily create, run, and visualise 3D agent-based biological simulations.
+          </h3>
+        </div>
+
         <div className="pt-vw3 home-main-box-padding-ns">
           <div className={`${Spirit.page.l} carousel-div`}>
             <Carousel />

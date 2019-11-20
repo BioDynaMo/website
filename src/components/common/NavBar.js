@@ -39,6 +39,7 @@ const NavBar = ({ theme }) => {
                     {/* <Link to="/gallery/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l nl3`}>Gallery</Link> */}
                     <a href="/documentation/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Documentation</a>
                     <a href="/docs/userguide/hello_world/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Tutorials</a>
+                    <a href="/blog/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Blogs</a>
                     {/* <a href="/about/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>About Us</a> */}
                 </div>
             </div>

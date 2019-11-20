@@ -6,7 +6,7 @@ const BlogList = ({limit}) => {
   const  data  = useStaticQuery(
     graphql`
       query {
-        allMarkdownRemark(sort: {order: DESC, fields: frontmatter___date}, filter: {fields: {slug: {regex: "/docs/"}}}) {
+        allMarkdownRemark(sort: {order: DESC, fields: frontmatter___date}, filter: {fields: {slug: {regex: "/blog/"}}}) {
           nodes {
             id
             excerpt(pruneLength: 75)

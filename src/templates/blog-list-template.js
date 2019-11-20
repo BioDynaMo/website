@@ -11,8 +11,8 @@ export default class NewsIndexPage extends React.Component {
     const { currentPage, numPages } = this.props.pageContext
     const isFirst = currentPage === 1
     const isLast = currentPage === numPages
-    const prevPage = currentPage - 1 === 1 ? "/news/" : ("/news/" + (currentPage - 1)).toString()
-    const nextPage = ("/news/" + (currentPage + 1)).toString()
+    const prevPage = currentPage - 1 === 1 ? "/blog/" : ("/blog/" + (currentPage - 1)).toString()
+    const nextPage = ("/blog/" + (currentPage + 1)).toString()
 
     return (
       <Layout mainClass="bg-whitegrey-l2 pb-vw3" bodyClass="bg-white">
@@ -20,7 +20,7 @@ export default class NewsIndexPage extends React.Component {
         <div className="bg-concepts">
             <div className={`${Spirit.page.l} pt12 pb4 pt-vw1-ns pb-vw1-ns white pl10 pl0-ns`}>
                 <h1 className={`${Spirit.h4} gh-integration-header-shadow`}>
-                    <Link to="/news/" className="link dim white">News</Link>
+                    <Link to="/blog/" className="link dim white">Blogs</Link>
                 </h1>
             </div>
         </div>
@@ -58,7 +58,7 @@ export default class NewsIndexPage extends React.Component {
 
             <Box radius="4" className="news-grid-box-center">
               {Array.from({ length: numPages }, (_, i) => (
-                <Link className="blue home-faq-question link dib" key={`pagination-number${i + 1}`} to={`/news/${i === 0 ? "" : i + 1}`}>
+                <Link className="blue home-faq-question link dib" key={`pagination-number${i + 1}`} to={`/blog/${i === 0 ? "" : i + 1}`}>
                   <h4 className={`${Spirit.h5} blue dib`}>{(i + 1)}{(i+1)==numPages ? "" : "-"}</h4>
                 </Link>
               ))}
@@ -86,7 +86,7 @@ export default class NewsIndexPage extends React.Component {
 export const blogListQuery = graphql`
   query blogListQuery($skip: Int!, $limit: Int!) {
     allMarkdownRemark(
-      filter: {fields: {slug: {regex: "/docs/"}}}
+      filter: {fields: {slug: {regex: "/blog/"}}}
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip
