@@ -5,15 +5,9 @@ import PropTypes from 'prop-types'
 
 import { Icon, Box } from '../components/common'
 import { Layout } from '../components/common/layout'
-import { Carousel, HomeHeader, HomeAPIBox, BlogList } from '../components/home'
+import { Carousel, HomeHeader, InfoBoxes, HomeAPIBox, BlogList } from '../components/home'
 import { Spirit } from '../styles/spirit-styles'
 import { MetaData, getMetaImageUrls } from '../components/common/meta'
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Container from 'react-bootstrap/Container'
-
 
 const HomePage = ({ data, location }) => {
   // Add meta title and description for this page here to overwrite the site meta data as set in the config
@@ -43,24 +37,7 @@ const HomePage = ({ data, location }) => {
           </div>
         </div>
 
-        <Container>
-          <Row className={`${Spirit.page.xl} pt8`}>
-            <Col className="col-sm-4">
-              <h3 className={`${Spirit.h3}`}>Collaborative</h3>
-              <p className={`${Spirit.p}`}>Join our international team of biological and computational scientists, exchange ideas and simulation code, and contribute with your expertise to the computational biology community.</p>
-            </Col>
-            <Col className="col-sm-4">
-              <h3 className={`${Spirit.h3}`}>Distributed</h3>
-              <p className={`${Spirit.p}`}>Ultimately, BioDynaMo will be able to simulate large-scale biological systems on the cloud in a user-friendly manner.</p>
-            </Col>
-            <Col className="col-sm-4">
-              <h3 className={`${Spirit.h3}`}>Optimised</h3>
-              <p className={`${Spirit.p}`}>BioDynaMo can be used on standard laptops, desktop computers as well as high-performance computers to fully exploit different hardware for computational biology research.</p>
-            </Col>
-          </Row>
-        </Container>
-
-
+        <InfoBoxes></InfoBoxes>
 
         {/* <div className={`${Spirit.page.xl} grid-12 gutter-row-20 gutter-40-ns`}>
 
