@@ -11,11 +11,6 @@ esac; shift; done
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-if [[ -z "${BDMSYS}" ]]; then
-  echo -e "${RED}Please source BioDynaMo before building the website${NC}"
-  exit 1
-fi
-
 if [[ -z "${BDM_DIR}" ]]; then
   echo -e "${RED}Please pass the BioDynaMo project directory with --dir <path/to/biodynamo>${NC}"
   exit 1
@@ -74,7 +69,7 @@ if [ ! -z "${DEVELOP+x}" ]; then
       --net=host \
       --name=mybdmweb \
       -v ${SCRIPT_PATH}:/website \
-      -v ${BDM_DIR}/build/doc/api:/website/static/bioapi \
+      -v ${BDM_DIR}/doc:/website/content/biodynamo/doc \
       bdm-website bash -c 'yarn && gatsby build && gatsby develop'
   fi
 else
