@@ -56,7 +56,7 @@ if [ ! -z "${DEVELOP+x}" ]; then
   # If we want to generate static file for the API guide
   if [ ! -z "${API+x}" ]; then
     sudo docker run \
-      -it \
+      -i \
       --net=host \
       --name=mybdmweb \
       -v ${SCRIPT_PATH}:/website \
@@ -65,7 +65,7 @@ if [ ! -z "${DEVELOP+x}" ]; then
       bdm-website bash -c 'yarn && gatsby build && gatsby develop'
   else
     sudo docker run \
-      -it \
+      -i \
       --net=host \
       --name=mybdmweb \
       -v ${SCRIPT_PATH}:/website \
@@ -75,7 +75,7 @@ if [ ! -z "${DEVELOP+x}" ]; then
 else
   # If we want to just build the static files
   sudo docker run \
-    -it \
+    -i \
     --net=host \
     --name=mybdmweb \
     -v ${SCRIPT_PATH}:/website \
