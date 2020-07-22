@@ -40,7 +40,7 @@ const Tutorials = ({data, location}) => {
 
                     <section className="grid-12 gutter-row-20 gutter-20-ns gutter-36-l">
 
-                        <GalleryBox href="/cell_division/" title="Cell division" src="/images/paraview7-4.png">
+                        <GalleryBox href="/cell_division.html" title="Cell division" src="/images/paraview7-4.png">
                             <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
@@ -77,7 +77,7 @@ Tutorials.propTypes = {
                 title: PropTypes.string.isRequired,
                 description: PropTypes.string.isRequired,
             }).isRequired,
-        }).isRequired,x
+        }).isRequired,
     }).isRequired,
     location: PropTypes.shape({
         pathname: PropTypes.string.isRequired,
