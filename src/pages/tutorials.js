@@ -1,17 +1,15 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { graphql } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
-import { PostHeader} from '../components/common'
-
-import { Icon, Box } from '../components/common'
+import { PostHeader, Icon, Box} from '../components/common'
 import { Layout } from '../components/common/layout'
 import { Spirit } from '../styles/spirit-styles'
 import { MetaData, getMetaImageUrls } from '../components/common/meta'
-import { GalleryBox } from '../components/gallery'
+import { TutorialBox } from '../components/tutorials'
 
 const Tutorials = ({data, location}) => {
-
+    console.log(data)
 	const title = `Tutorials`
 	const description = `This is the tutorials page.`
 	const imageUrl = getMetaImageUrls()
@@ -31,7 +29,7 @@ const Tutorials = ({data, location}) => {
                 <div className="bg-concepts">
                     <div className={`${Spirit.page.xl} pt12 pb4 pt-vw1-ns pb-vw1-ns white pl10 pl0-ns`}>
                         <h1 className={`${Spirit.h4} gh-integration-header-shadow`}>
-                            <Link to="/about/" className="link dim white">{title}</Link>
+                            <Link to="/tutorials/" className="link dim white">{title}</Link>
                         </h1>
                     </div>
                 </div>
@@ -40,23 +38,17 @@ const Tutorials = ({data, location}) => {
 
                     <section className="grid-12 gutter-row-20 gutter-20-ns gutter-36-l">
 
-                        <GalleryBox href="/cell_division.html" title="Cell division" src="/images/paraview7-4.png">
+                        <TutorialBox to="/docs/userguide/" title="Demo 2" src="/images/paraview7-4.png">
                             <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
-                        </GalleryBox>
+                        </TutorialBox>
 
-                        <GalleryBox to="/docs/userguide/" title="Demo 2" src="/images/paraview7-4.png">
+                        <TutorialBox to="/docs/userguide/" title="Demo 3" src="/images/paraview7-4.png">
                             <p className={`${Spirit.p} mw70`}>
                                 Description here!
                             </p>
-                        </GalleryBox>
-
-                        <GalleryBox to="/docs/userguide/" title="Demo 3" src="/images/paraview7-4.png">
-                            <p className={`${Spirit.p} mw70`}>
-                                Description here!
-                            </p>
-                        </GalleryBox>
+                        </TutorialBox>
 
                         
 
@@ -86,10 +78,19 @@ Tutorials.propTypes = {
 
 export default Tutorials
 
-export const pageQuery = graphql`
+export const tutorialsQuery = graphql`
     query {
-        site {
+        siteMetaData: site {
             ...SiteMetaFields
         }
+        notebooks: allFile(filter: {sourceInstanceName: {eq: "notebooks"}}) {
+            edges {
+              node {
+                name
+                relativePath
+              }
+            }
+          }
     }
 `
+            
