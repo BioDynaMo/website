@@ -51,6 +51,8 @@ cp ${SCRIPT_PATH}/.env.example ${SCRIPT_PATH}/.env.production
 sudo docker stop mybdmweb || true
 sudo docker rm mybdmweb || true
 
+mkdir -p ${BDM_DIR}/build/website/static/notebooks/
+
 # Copy the generated html notebooks into the static folder
 for d in ${BDM_DIR}/build/notebooks/*/  ; do
   cp -v $d/*.html ${BDM_DIR}/build/website/static/notebooks/
