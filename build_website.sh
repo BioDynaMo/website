@@ -50,6 +50,9 @@ cp ${SCRIPT_PATH}/.env.example ${SCRIPT_PATH}/.env.development
 cp ${SCRIPT_PATH}/.env.example ${SCRIPT_PATH}/.env.production
 sudo docker stop mybdmweb || true
 sudo docker rm mybdmweb || true
+for d in ${BDM_DIR}/build/notebooks/*/  ; do
+  cp -v $d/*.html website/static/notebooks/
+done 
 
 # If we want to develop (in live mode)
 if [ ! -z "${DEVELOP+x}" ]; then
