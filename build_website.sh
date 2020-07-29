@@ -64,6 +64,7 @@ if [ ! -z "${DEVELOP+x}" ]; then
   if [ ! -z "${API+x}" ]; then
     sudo docker run \
       -i \
+      -p 8000:8000 \
       --net=host \
       --name=mybdmweb \
       -v ${SCRIPT_PATH}:/website \
@@ -73,6 +74,7 @@ if [ ! -z "${DEVELOP+x}" ]; then
   else
     sudo docker run \
       -i \
+      -p 8000:8000 \      
       --net=host \
       --name=mybdmweb \
       -v ${SCRIPT_PATH}:/website \
@@ -83,6 +85,7 @@ else
   # If we want to just build the static files
   sudo docker run \
     -i \
+    -p 8000:8000 \
     --net=host \
     --name=mybdmweb \
     -v ${SCRIPT_PATH}:/website \
