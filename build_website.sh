@@ -53,7 +53,7 @@ sudo docker rm mybdmweb || true
 
 # Copy the generated html notebooks into the static folder
 for d in ${BDM_DIR}/build/notebooks/*/  ; do
-  cp -v $d/*.html website/static/notebooks/
+  cp -v $d/*.html ${BDM_DIR}/build/website/static/notebooks/
 done 
 
 # If we want to develop (in live mode)
