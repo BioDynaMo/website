@@ -28,9 +28,10 @@ const Tutorials = ({ data, location }) => {
 
 			    <div className="bg-concepts">
 			        <div className={`${Spirit.page.xl} pt12 pb4 pt-vw1-ns pb-vw1-ns white pl10 pl0-ns`}>
-			            <h1 className={`${Spirit.h4} gh-integration-header-shadow`}>
-			                <Link to="/tutorials/" className="link dim white">{title}</Link>
-			            </h1>
+                    <h1 className={`${Spirit.sectionHeading} gh-integration-header-shadow`}> <Link to="/tutorials/" className="link dim white">{title}</Link></h1>              
+                        <p className={Spirit.sectionSubHeading}>
+                    This is a gallery of basic example <strong><Link to="/docs/userguide/notebook" className="link dim white">BioDynaMo notebooks:</Link></strong> click on the images to inspect the underlying document.
+                        </p>
 			        </div>
 			    </div>
 
