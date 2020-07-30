@@ -9,7 +9,6 @@ import { MetaData, getMetaImageUrls } from '../components/common/meta'
 import { TutorialBox } from '../components/tutorials'
 
 const Tutorials = ({ data, location }) => {
-    console.log(data)
     const title = `Tutorials`
     const description = `This is the tutorials page.`
     const imageUrl = getMetaImageUrls()
@@ -41,7 +40,7 @@ const Tutorials = ({ data, location }) => {
 
 			            {
 			                data.notebooks.edges.map(edge => (
-                                <TutorialBox to={"/notebooks/"+edge.node.relativePath}  title={edge.node.name.charAt(0).toUpperCase()+edge.node.name.slice(1).replace("_", " ")} src="/images/paraview7-4.png">
+                                <TutorialBox to={"/notebooks/"+edge.node.relativePath}  title={edge.node.name.charAt(0).toUpperCase()+edge.node.name.slice(1).replace("_", " ")} src={"/images/notebooks/"+edge.node.name+".png"}>
 			                    </TutorialBox>
 			                ))
 			            }
@@ -76,7 +75,7 @@ export const tutorialsQuery = graphql`
         site {
             ...SiteMetaFields
         }
-        notebooks: allFile(filter: {sourceInstanceName: {eq: "notebooks"}}) {
+        notebooks: allFile(filter: {sourceInstanceName: {eq: "notebooks"}, extension: {eq:"html"}}) {
             edges {
                 node {
                     name
