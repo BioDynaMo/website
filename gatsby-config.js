@@ -51,13 +51,6 @@ const plugins = [
             name: `public`,
         },
     },
-    {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-            path: path.join(__dirname, `static`, `notebooks`),
-            name: `notebooks`,
-        },
-    },
 
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
