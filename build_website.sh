@@ -21,7 +21,14 @@ set -e -x
 # Ask first for sudo password for later docker commands
 sudo -v
 
-SCRIPT_PATH=$(greadlink -e $(dirname "${BASH_SOURCE[0]}"))
+# Use greadlink on macOS
+if [[ $(uname -s) = "Darwin"* ]]; then
+  READLINK="greadlink"
+else
+  READLINK="readlink"
+fi
+
+SCRIPT_PATH=$($READLINK -e $(dirname "${BASH_SOURCE[0]}"))
 
 # clear cache
 rm -rf .cache/ node_modules/ public/
