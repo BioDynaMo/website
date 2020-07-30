@@ -1,0 +1,6 @@
+# This directory is here to add jupyter notebook html files that will be
+# added to the Tutorials Gallery
+# Ignore everything in this directory
+*
+# Except this file
+!.gitignore

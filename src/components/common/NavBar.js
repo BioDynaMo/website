@@ -37,8 +37,10 @@ const NavBar = ({ theme }) => {
                 <div className="dn flex-ns flex-auto items-center overflow-x-auto mr12 mr0-l ml5 ml0-l pb20">
             {/* Create nav bar links and choose their names */}
                     {/* <Link to="/gallery/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l nl3`}>Gallery</Link> */}
+                    <a href="/tutorials/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Tutorials</a>
                     <a href="/documentation/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Documentation</a>
-                    <a href="/docs/userguide/hello_world/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Tutorials</a>
+                    <a href="/docs/userguide/hello_world/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Getting Started</a>
+                    <a href="http://forum.biodynamo.org/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Forum</a>
                     <a href="/blog/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Blogs</a>
                     {/* <a href="/about/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>About Us</a> */}
                 </div>
