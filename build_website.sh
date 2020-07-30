@@ -21,7 +21,14 @@ set -e -x
 # Ask first for sudo password for later docker commands
 sudo -v
 
-SCRIPT_PATH=$(readlink -e $(dirname "${BASH_SOURCE[0]}"))
+# Use greadlink on macOS
+if [[ $(uname -s) = "Darwin"* ]]; then
+  READLINK="greadlink"
+else
+  READLINK="readlink"
+fi
+
+SCRIPT_PATH=$($READLINK -e $(dirname "${BASH_SOURCE[0]}"))
 
 # clear cache
 rm -rf .cache/ node_modules/ public/
@@ -51,12 +58,22 @@ cp ${SCRIPT_PATH}/.env.example ${SCRIPT_PATH}/.env.production
 sudo docker stop mybdmweb || true
 sudo docker rm mybdmweb || true
 
+mkdir -p ${BDM_DIR}/build/website/static/notebooks/
+mkdir -p ${BDM_DIR}/build/website/static/images/notebooks/
+
+# Copy the generated html notebooks into the static folder
+for d in ${BDM_DIR}/build/notebooks/*/  ; do
+  cp -v $d/*.html ${BDM_DIR}/build/website/static/notebooks/
+  cp $d/thumbnail.png ${BDM_DIR}/build/website/static/images/notebooks/$d.png
+done 
+
 # If we want to develop (in live mode)
 if [ ! -z "${DEVELOP+x}" ]; then
   # If we want to generate static file for the API guide
   if [ ! -z "${API+x}" ]; then
     sudo docker run \
       -i \
+      -p 8000:8000 \
       --net=host \
       --name=mybdmweb \
       -v ${SCRIPT_PATH}:/website \
@@ -66,6 +83,7 @@ if [ ! -z "${DEVELOP+x}" ]; then
   else
     sudo docker run \
       -i \
+      -p 8000:8000 \
       --net=host \
       --name=mybdmweb \
       -v ${SCRIPT_PATH}:/website \
@@ -76,6 +94,7 @@ else
   # If we want to just build the static files
   sudo docker run \
     -i \
+    -p 8000:8000 \
     --net=host \
     --name=mybdmweb \
     -v ${SCRIPT_PATH}:/website \

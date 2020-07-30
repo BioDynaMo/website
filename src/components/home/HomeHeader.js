@@ -41,7 +41,7 @@ const HomeHeader = () => (
                 </HomeHeaderBox>
 
                 <HomeHeaderBox
-                    to="/docs/userguide/hello_world/"
+                    to="/tutorials/"
                     title="Tutorials"
                     icon="typing"
                     // color="tutorial-green"
