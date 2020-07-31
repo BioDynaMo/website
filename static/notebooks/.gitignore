@@ -2,5 +2,6 @@
 # added to the Tutorials Gallery
 # Ignore everything in this directory
 *
-# Except this file
+# Except this file and html files (for notebooks)
 !.gitignore
+!*.html
