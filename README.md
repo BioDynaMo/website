@@ -29,7 +29,7 @@ For example, a file located within the `public` or `content` directories, only h
 
 Another important note is that when importing pre-made assets by using the static folder, these files will only appear if we serve the website instead of develop.
 For example, all the API documentation has to be put in the static folder and will only be visible if we serve the website (see below to learn how to serve and develop).
-The API documentation can then be linked normally by using the `/bioapi/any_file_that_we_want_to_show_from_api_doc` path.
+The API documentation can then be linked normally by using the `/api/any_file_that_we_want_to_show_from_api_doc` path.
 
 ### How to Build or Develop the Website
 

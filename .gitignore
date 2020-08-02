@@ -85,6 +85,6 @@ test/cypress/screenshots
 test/cypress/videos
 
 
-static/bioapi
+static/api
 content/apiguide
 

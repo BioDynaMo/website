@@ -34,7 +34,7 @@ SCRIPT_PATH=$($READLINK -e $(dirname "${BASH_SOURCE[0]}"))
 rm -rf .cache/ node_modules/ public/
 
 # Delete any existing generated API files
-rm -rf ${SCRIPT_PATH}/static/bioapi
+rm -rf ${SCRIPT_PATH}/static/api
 
 # Copy Doxygen files (pre-generated when `make website` is called)
 if [ ! -z "${API+x}" ]; then
@@ -77,7 +77,7 @@ if [ ! -z "${DEVELOP+x}" ]; then
       --net=host \
       --name=mybdmweb \
       -v ${SCRIPT_PATH}:/website \
-      -v ${BDM_DIR}/build/doc/api:/website/static/bioapi \
+      -v ${BDM_DIR}/build/doc/api:/website/static/api \
       -v ${BDM_DIR}/doc:/website/content/biodynamo/doc \
       bdm-website bash -c 'yarn && gatsby build && gatsby develop'
   else
@@ -98,7 +98,7 @@ else
     --net=host \
     --name=mybdmweb \
     -v ${SCRIPT_PATH}:/website \
-    -v ${BDM_DIR}/build/doc/api:/website/static/bioapi \
+    -v ${BDM_DIR}/build/doc/api:/website/static/api \
     -v ${BDM_DIR}/doc:/website/content/biodynamo/doc \
     bdm-website bash -c 'yarn && gatsby build'
 fi

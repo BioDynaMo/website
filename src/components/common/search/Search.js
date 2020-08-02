@@ -188,7 +188,7 @@ class Results extends React.Component {
         var index = "" // setting up section names
         if (hits.sidebar=="userguide") index = `User Guide`
         if (hits.sidebar=="devguide") index = `Dev Guide`
-        if (hits.sidebar=="bioapi") index = `API`
+        if (hits.sidebar=="api") index = `API`
 
         const labelClass = { // set color her
             // faq: `faq-color b--faq-color`,

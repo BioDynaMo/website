@@ -45,7 +45,7 @@ const DocPage = ({ data, location }) => {
                             </p>
                         </SetupBox>
 
-                        <SetupBox href="/bioapi" title="API Reference" icon="network" iconClass="w9 h9" headingClass="mt2">
+                        <SetupBox href="/api" title="API Reference" icon="network" iconClass="w9 h9" headingClass="mt2">
                             <p className={`${Spirit.small} mw70`}>
                                 Learn the technical details to apply BioDynaMo to your own use case.
                             </p>
