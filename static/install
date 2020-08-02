@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Usage: curl https://biodynamo.org/install | bash
+#
+index_main() {
+    set -e
+    curl -s -S -L curl https://raw.githubusercontent.com/BioDynaMo/biodynamo/master/util/install | bash
+}
+
+index_main
