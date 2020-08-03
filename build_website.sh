@@ -105,3 +105,7 @@ fi
 
 # Copy JSROOT into /public/static for the visualizations to work
 cp -R $BDM_DIR/build/third_party/root/js/* ${BDM_DIR}/build/website/public/static/
+
+# Copy require.js to /public/static for visualizations to work
+mkdir -p ${BDM_DIR}/build/website/public/static/components/requirejs
+cp ${BDM_DIR}/build/website/node_modules/requirejs/require.js ${BDM_DIR}/build/website/public/static/components/requirejs/
