@@ -61,9 +61,6 @@ sudo docker rm mybdmweb || true
 mkdir -p ${BDM_DIR}/build/website/static/notebooks/
 mkdir -p ${BDM_DIR}/build/website/static/images/notebooks/
 
-# Copy JSROOT into /static for the visualizations to work
-cp -R $BDM_DIR/build/third_party/root/js ${BDM_DIR}/build/website/static/
-
 # Copy the generated html notebooks into the static folder
 for d in ${BDM_DIR}/build/notebooks/*  ; do
   cp -v $d/*.html ${BDM_DIR}/build/website/static/notebooks/
@@ -105,3 +102,6 @@ else
     -v ${BDM_DIR}/doc:/website/content/biodynamo/doc \
     bdm-website bash -c 'yarn && gatsby build'
 fi
+
+# Copy JSROOT into /public/static for the visualizations to work
+cp -R $BDM_DIR/build/third_party/root/js/* ${BDM_DIR}/build/website/public/static/
