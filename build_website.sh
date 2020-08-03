@@ -109,3 +109,9 @@ cp -R $BDM_DIR/build/third_party/root/js/* ${BDM_DIR}/build/website/public/stati
 # Copy require.js to /public/static for visualizations to work
 mkdir -p ${BDM_DIR}/build/website/public/static/components/requirejs
 cp ${BDM_DIR}/build/website/node_modules/requirejs/require.js ${BDM_DIR}/build/website/public/static/components/requirejs/
+
+# Patch for ROOT 6.22/00 (https://github.com/root-project/root/commit/9ea9e129f20d3fcc3398bedbea989b7e8a14e69a)
+
+if [ $($BDM_DIR/build/third_party/root/bin/root-config --version) == "6.22/00" ]; then
+  sed -i -e 's/JSROOT.gStyle, style/JSROOT.gStyle, obj/g' ${BDM_DIR}/build/website/public/static/scripts/JSRootPainter.v6.js
+fi
