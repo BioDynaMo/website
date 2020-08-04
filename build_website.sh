@@ -63,8 +63,8 @@ mkdir -p ${BDM_DIR}/build/website/static/images/notebooks/
 
 # Copy the generated html notebooks into the static folder
 for d in ${BDM_DIR}/build/notebooks/*  ; do
-  cp -v $d/*.html ${BDM_DIR}/build/website/static/notebooks/
-  cp $d/thumbnail.png ${BDM_DIR}/build/website/static/images/notebooks/$(basename $d).png
+  cp -v $d/*.html ${BDM_DIR}/build/website/static/notebooks/ || true
+  cp $d/thumbnail.png ${BDM_DIR}/build/website/static/images/notebooks/$(basename $d).png || true
 done 
 
 # If we want to develop (in live mode)
