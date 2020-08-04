@@ -40,7 +40,7 @@ const Tutorials = ({ data, location }) => {
 
 			            {
 			                data.notebooks.edges.map(edge => (
-                                <TutorialBox to={"/notebooks/"+edge.node.relativePath}  title={edge.node.name.charAt(0).toUpperCase()+edge.node.name.slice(1).replace("_", " ")} src={"/images/notebooks/"+edge.node.name+".png"}>
+                                <TutorialBox href={"/notebooks/"+edge.node.relativePath} title={edge.node.name.charAt(0).toUpperCase()+edge.node.name.slice(1).replace("_", " ")} src={"/images/notebooks/"+edge.node.name+".png"}>
 			                    </TutorialBox>
 			                ))
 			            }

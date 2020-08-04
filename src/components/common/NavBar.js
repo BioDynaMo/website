@@ -40,7 +40,7 @@ const NavBar = ({ theme }) => {
                     <a href="/tutorials/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Tutorials</a>
                     <a href="/documentation/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Documentation</a>
                     <a href="/docs/userguide/hello_world/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Getting Started</a>
-                    <a href="http://forum.biodynamo.org/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Forum</a>
+                    <a href="http://forum.biodynamo.org/" target="_blank" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Forum</a>
                     <a href="/blog/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Blogs</a>
                     {/* <a href="/about/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>About Us</a> */}
                 </div>
