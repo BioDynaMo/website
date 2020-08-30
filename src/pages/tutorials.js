@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { StaticQuery, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
-import { PostHeader, Icon, Box } from '../components/common'
 import { Layout } from '../components/common/layout'
 import { Spirit } from '../styles/spirit-styles'
 import { MetaData, getMetaImageUrls } from '../components/common/meta'
 import { TutorialBox } from '../components/tutorials'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Tutorials = ({ data, location }) => {
     const title = `Tutorials`
@@ -40,7 +40,11 @@ const Tutorials = ({ data, location }) => {
 
 			            {
 			                data.notebooks.edges.map(edge => (
-                                <TutorialBox href={"/notebooks/"+edge.node.relativePath} title={edge.node.name.charAt(0).toUpperCase()+edge.node.name.slice(1).replace("_", " ")} src={"/images/notebooks/"+edge.node.name+".png"}>
+                                <TutorialBox 
+                                html={"/notebooks/"+edge.node.relativePath}
+                                title={edge.node.name.charAt(0).toUpperCase()+edge.node.name.slice(1).replace("_", " ")} 
+                                src={"/images/notebooks/"+edge.node.name+".png"}
+                                binder={"https://mybinder.org/v2/gh/BioDynaMo/binder-demo/dockerfile?filepath=%2F"+edge.node.name+"%2F"+edge.node.name+".ipynb"}>
 			                    </TutorialBox>
 			                ))
 			            }

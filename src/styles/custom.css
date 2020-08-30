@@ -1,9 +1,15 @@
 /* Before adding custom CSS, think about if it rather should be in Spirit */
 
 /* Usage: <mark>Highlight</mark> */
+
 mark {
     background-color: #fdffb6;
 }
+
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}   
 
 /* Usage: <kbd>Cmd</kbd> + <kbd>Shift</kbd> */
 kbd {
@@ -325,20 +331,16 @@ kbd {
 
 /* _links.css */
 .link {
-    text-decoration: none;
+    text-decoration : none !important;
     transition: color .3s ease;
 }
 
 .link:link,
-.link:visited {
-    transition: inherit; /* This needs to be completely removed from Spirit */
-}
+
 .link:hover   {
     transition: all .15s ease;
 }
-.link:active  {
-    transition: inherit; /* This needs to be completely removed from Spirit */
-}
+
 .link:focus   {
     outline: none !important;
 }
