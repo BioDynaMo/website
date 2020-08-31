@@ -311,7 +311,8 @@ kbd {
 }
 
 .gallery-img {
-  max-height: 30rem;
+  width: 900px;
+  height: 670px;
   overflow: hidden;
 }
 
