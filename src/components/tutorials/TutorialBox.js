@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Container, Row, Button, ButtonGroup } from 'react-bootstrap'
-import { Box} from '../common'
+import { Box } from '../common'
+import 'semantic-ui-css/semantic.min.css';
+import { Button, Divider } from 'semantic-ui-react'
 import { Spirit } from '../../styles/spirit-styles'
 const TutorialBox = ({ src, to, href, headingClass, title, children, binder, html }) => (
     <Box
@@ -11,13 +12,14 @@ const TutorialBox = ({ src, to, href, headingClass, title, children, binder, htm
         radius="4"
     >
         <h2 className={`${Spirit.h2} darkgrey ${headingClass}`}>{title}</h2>
+        <Divider horizontal/>
         <img src={src} className="gallery-img mt2"/>
         <div className={`${Spirit.p} mt2 midgrey`}>{children}</div>
-        <Container>
-            <br/>
-            <Button variant="secondary" size="lg" target="_blank" href={html} block><b>View now</b></Button>
-            <Button variant="success" size="lg" target="_blank" href={binder} block><b>Run now</b></Button>
-      </Container>
+            <Divider hidden/>
+            <Button size="big" color="grey" target="_blank" href={html} fluid><b>View now</b></Button>
+            <Divider fitted/>
+            <Divider fitted/>
+            <Button size="big" color="green" target="_blank" href={binder} fluid><b>Run now</b></Button>
     </Box>
 )
 
