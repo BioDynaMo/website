@@ -6,7 +6,6 @@ import { Layout } from '../components/common/layout'
 import { Spirit } from '../styles/spirit-styles'
 import { MetaData, getMetaImageUrls } from '../components/common/meta'
 import { TutorialBox } from '../components/tutorials'
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Tutorials = ({ data, location }) => {
     const title = `Tutorials`

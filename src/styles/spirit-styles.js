@@ -21,7 +21,8 @@ export const Spirit = {
     p: ` f7 f5-l lh-p ma0 pa0 `,
     small: ` f8 lh-1-65 ma0 pa0 `,
     tiny: ` f-supersmall lh-tiny ma0 pa0 `,
-    button: `button`,
+    greenbutton: `button-green`,
+    greybutton: `button-grey`,
 
     // Sections
     sectionHeading: ` mw-m center f2 f-headline-l lh-1-5 lh-h1-l fw6 pa0 ma0 measure--1-0 `,
