@@ -33,17 +33,17 @@ const AboutPage = ({data,location}) => {
                 <div className={`${Spirit.page.xl} pb-vw4 pb-vw3-ns pt-vw4 pt-vw3-ns`}>
 
                     <h2 className={`${Spirit.h2} pt20 nt20`}>
-                    Our Project
+                    Project
                     </h2>
 
                     <p className={`${Spirit.excerpt} midgrey-l2 mt2`}>
-                    This is what we do!
+                    This is what we do...
                     </p>
 
                     <div className="mt3"/>
 
                     <h2 className={`${Spirit.h2} pt20 nt20`}>
-                    Our Team
+                    Team
                     </h2>
 
                     <div className="mt5"/>
@@ -72,6 +72,60 @@ const AboutPage = ({data,location}) => {
                             name="Test Member"
                             imgsrc="/images/team/placeholder.png"
                             description="TBD">
+                        </MemberBox>
+
+                        <MemberBox
+                            name="Test Member"
+                            imgsrc="/images/team/placeholder.png"
+                            description="TBD">
+                        </MemberBox>
+
+                        <MemberBox
+                            name="Test Member"
+                            imgsrc="/images/team/placeholder.png"
+                            description="TBD">
+                        </MemberBox>
+
+                        <MemberBox
+                            name="Test Member"
+                            imgsrc="/images/team/placeholder.png"
+                            description="TBD">
+                        </MemberBox>
+
+                    </section>
+
+                    <div className="mt5"/>
+
+                    <h2 className={`${Spirit.h2} pt20 nt20`}>
+                    Leadership Team
+                    </h2>
+
+                    <div className="mt5"/>
+
+                    <section className="grid-16 gutter-row-28 gutter-20-ns gutter-36-l">
+
+                        <MemberBox
+                            name="Test Alumni"
+                            imgsrc="/images/team/placeholder.png"
+                            description="TBD">
+                        </MemberBox>
+
+                        <MemberBox
+                            name="Test Alumni"
+                            imgsrc="/images/team/placeholder.png"
+                            description="TBD">
+                        </MemberBox>
+
+                        <MemberBox
+                            name="Test Alumni"
+                            imgsrc="/images/team/placeholder.png"
+                            description="TBD">
+                        </MemberBox>
+
+                        <MemberBox
+                            name="Test Alumni"
+                            imgsrc="/images/team/placeholder.png"
+                            description="Co-Founder and Chairman of the Board of Directors at SCimPulse Foundation">
                         </MemberBox>
 
                     </section>

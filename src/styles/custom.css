@@ -300,11 +300,15 @@ kbd {
   padding-top: 0px;
   padding-left: 0px;
   padding-right: 0px;
-  padding-bottom: 10px;
+  padding-bottom: 0.5em;
 }
 
-.teambox-text-center {
+.teambox-text {
   text-align: center;
+  padding-top: 0em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-bottom: 0em;
 }
 
 .img-container {
