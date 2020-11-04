@@ -51,35 +51,27 @@ const AboutPage = ({data,location}) => {
                     <section className="grid-16 gutter-row-20 gutter-20-ns gutter-36-l">
 
                         <MemberBox
-                            href="/"
-                            name="Nathaniel Randomness"
-                            src="/bradley.png"
-                            headingClass="mt2"
-                            position="Lead Engineer">
+                            name="Lukas Breitwieser"
+                            imgsrc="/images/team/lukas-breitwieser.jpg"
+                            description="Lead Developer">
                         </MemberBox>
 
                         <MemberBox
-                            href="/"
                             name="Test Member"
-                            src="/bradley.png"
-                            headingClass="mt2"
-                            position="Position">
+                            imgsrc="/images/team/placeholder.png"
+                            description="TBD">
                         </MemberBox>
 
                         <MemberBox
-                            href="/"
                             name="Test Member"
-                            src="/bradley.png"
-                            headingClass="mt2"
-                            position="Position">
+                            imgsrc="/images/team/placeholder.png"
+                            description="TBD">
                         </MemberBox>
 
                         <MemberBox
-                            href="/"
                             name="Test Member"
-                            src="/bradley.png"
-                            headingClass="mt2"
-                            position="Position">
+                            imgsrc="/images/team/placeholder.png"
+                            description="TBD">
                         </MemberBox>
 
                     </section>
@@ -95,35 +87,27 @@ const AboutPage = ({data,location}) => {
                     <section className="grid-16 gutter-row-28 gutter-20-ns gutter-36-l">
 
                         <MemberBox
-                            href="/"
                             name="Test Alumni"
-                            src="/bradley.png"
-                            headingClass="mt2"
-                            position="Position">
+                            imgsrc="/images/team/placeholder.png"
+                            description="TBD">
                         </MemberBox>
 
                         <MemberBox
-                            href="/"
                             name="Test Alumni"
-                            src="/bradley.png"
-                            headingClass="mt2"
-                            position="Position">
+                            imgsrc="/images/team/placeholder.png"
+                            description="TBD">
                         </MemberBox>
 
                         <MemberBox
-                            href="/"
                             name="Test Alumni"
-                            src="/bradley.png"
-                            headingClass="mt2"
-                            position="Position">
+                            imgsrc="/images/team/placeholder.png"
+                            description="TBD">
                         </MemberBox>
 
                         <MemberBox
-                            href="/"
                             name="Test Alumni"
-                            src="/bradley.png"
-                            headingClass="mt2"
-                            position="Position">
+                            imgsrc="/images/team/placeholder.png"
+                            description="TBD">
                         </MemberBox>
 
                     </section>

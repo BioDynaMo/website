@@ -296,6 +296,17 @@ kbd {
    overflow: hidden;
 }
 
+.teambox-padding {
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 10px;
+}
+
+.teambox-text-center {
+  text-align: center;
+}
+
 .img-container {
   position: relative;
   align-content: center;
