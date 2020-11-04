@@ -43,7 +43,7 @@ const AboutPage = ({data,location}) => {
                     <div className="mt3"/>
 
                     <h2 className={`${Spirit.h2} pt20 nt20`}>
-                    Team
+                    Technical Team
                     </h2>
 
                     <div className="mt5"/>
@@ -51,45 +51,45 @@ const AboutPage = ({data,location}) => {
                     <section className="grid-16 gutter-row-20 gutter-20-ns gutter-36-l">
 
                         <MemberBox
+                            name="Dorukhan Arslan"
+                            imgsrc="/images/team/placeholder.png"
+                            description="TBD">
+                        </MemberBox>
+
+                        <MemberBox
                             name="Lukas Breitwieser"
                             imgsrc="/images/team/lukas-breitwieser.jpg"
-                            description="Lead Developer">
+                            description="Lead Developer (CERN, ETH Zurich)">
                         </MemberBox>
 
                         <MemberBox
-                            name="Test Member"
-                            imgsrc="/images/team/placeholder.png"
-                            description="TBD">
+                            name="Nicolò Cogno"
+                            imgsrc="/images/team/nicolo-cogno.jpg"
+                            description="TBD (TU Darmstadt)">
                         </MemberBox>
 
                         <MemberBox
-                            name="Test Member"
+                            name="Jean de Montigny"
                             imgsrc="/images/team/placeholder.png"
-                            description="TBD">
+                            description="TBD (CERN)">
                         </MemberBox>
 
                         <MemberBox
-                            name="Test Member"
-                            imgsrc="/images/team/placeholder.png"
-                            description="TBD">
+                            name="Robert Harakaly"
+                            imgsrc="/images/team/robert-harakaly.jpg"
+                            description="Trainee (CERN)">
                         </MemberBox>
 
                         <MemberBox
-                            name="Test Member"
-                            imgsrc="/images/team/placeholder.png"
-                            description="TBD">
+                            name="Ahmad Hesam"
+                            imgsrc="/images/team/ahmad-hesam.jpg"
+                            description="TBD (CERN, TU Delft)">
                         </MemberBox>
 
                         <MemberBox
-                            name="Test Member"
+                            name="Jack Jennings"
                             imgsrc="/images/team/placeholder.png"
-                            description="TBD">
-                        </MemberBox>
-
-                        <MemberBox
-                            name="Test Member"
-                            imgsrc="/images/team/placeholder.png"
-                            description="TBD">
+                            description="TBD (Newcastle University)">
                         </MemberBox>
 
                     </section>
@@ -105,27 +105,39 @@ const AboutPage = ({data,location}) => {
                     <section className="grid-16 gutter-row-28 gutter-20-ns gutter-36-l">
 
                         <MemberBox
-                            name="Test Alumni"
-                            imgsrc="/images/team/placeholder.png"
-                            description="TBD">
+                            name="Roman Bauer"
+                            imgsrc="/images/team/roman-bauer.jpg"
+                            description="BioDynaMo Collarboration Spokesperson">
                         </MemberBox>
 
                         <MemberBox
-                            name="Test Alumni"
-                            imgsrc="/images/team/placeholder.png"
-                            description="TBD">
+                            name="Alberto Di Meglio"
+                            imgsrc="/images/team/alberto-di-meglio.jpg"
+                            description="CERN openlab Head">
                         </MemberBox>
 
                         <MemberBox
-                            name="Test Alumni"
-                            imgsrc="/images/team/placeholder.png"
-                            description="TBD">
+                            name="Marcus Kaiser"
+                            imgsrc="/images/team/marcus-kaiser.jpg"
+                            description="Professor of Neuroinformatics in the School of Computing at Newcastle University">
                         </MemberBox>
 
                         <MemberBox
-                            name="Test Alumni"
-                            imgsrc="/images/team/placeholder.png"
+                            name="Marco Manca"
+                            imgsrc="/images/team/marco-manca.jpg"
                             description="Co-Founder and Chairman of the Board of Directors at SCimPulse Foundation">
+                        </MemberBox>
+
+                        <MemberBox
+                            name="Fons Rademakers"
+                            imgsrc="/images/team/fons-rademakers.jpg"
+                            description="CERN openlab Chief Research Officer">
+                        </MemberBox>
+
+                        <MemberBox
+                            name="Vasileios Vavourakis"
+                            imgsrc="/images/team/vasileios-vavourakis.jpg"
+                            description="Assistant Professor, University of Cyprus; Honorary Senior Lecturer, UCL">
                         </MemberBox>
 
                     </section>
@@ -133,7 +145,7 @@ const AboutPage = ({data,location}) => {
                     <div className="mt5"/>
 
                     <h2 className={`${Spirit.h2} pt20 nt20`}>
-                    Our Alumni
+                    Alumni
                     </h2>
 
                     <div className="mt5"/>
@@ -141,27 +153,33 @@ const AboutPage = ({data,location}) => {
                     <section className="grid-16 gutter-row-28 gutter-20-ns gutter-36-l">
 
                         <MemberBox
-                            name="Test Alumni"
+                            name="Berina Bandić"
+                            imgsrc="/images/team/berina-bandic.jpg"
+                            description="TBD">
+                        </MemberBox>
+
+                        <MemberBox
+                            name="Giovanni De Toni"
+                            imgsrc="/images/team/giovanni-de-toni.jpg"
+                            description="CERN openlab summer student 2019">
+                        </MemberBox>
+
+                        <MemberBox
+                            name="Martin Litre"
                             imgsrc="/images/team/placeholder.png"
                             description="TBD">
                         </MemberBox>
 
                         <MemberBox
-                            name="Test Alumni"
-                            imgsrc="/images/team/placeholder.png"
-                            description="TBD">
+                            name="Konstantinos Kanellis"
+                            imgsrc="/images/team/konstantinos-kanellis.jpg"
+                            description="CERN openlab summer student 2017">
                         </MemberBox>
 
                         <MemberBox
-                            name="Test Alumni"
+                            name="Nam Nguyen"
                             imgsrc="/images/team/placeholder.png"
-                            description="TBD">
-                        </MemberBox>
-
-                        <MemberBox
-                            name="Test Alumni"
-                            imgsrc="/images/team/placeholder.png"
-                            description="TBD">
+                            description="CERN openlab summer student 2018">
                         </MemberBox>
 
                     </section>
