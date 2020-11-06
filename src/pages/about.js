@@ -32,14 +32,6 @@ const AboutPage = ({data,location}) => {
 
                 <div className={`${Spirit.page.xl} pb-vw4 pb-vw3-ns pt-vw4 pt-vw3-ns`}>
 
-                    <h2 className={`${Spirit.h2} pt20 nt20`}>
-                    Project
-                    </h2>
-
-                    <p className={`${Spirit.excerpt} midgrey-l2 mt2`}>
-                    This is what we do...
-                    </p>
-
                     <div className="mt3"/>
 
                     <h2 className={`${Spirit.h2} pt20 nt20`}>
@@ -59,12 +51,12 @@ const AboutPage = ({data,location}) => {
                         <MemberBox
                             name="Ahmad Hesam"
                             imgsrc="/images/team/ahmad-hesam.jpg"
-                            description="TBD (CERN, TU Delft)">
+                            description="Core Developer (CERN, TU Delft)">
                         </MemberBox>
 
                         <MemberBox
                             name="Jean de Montigny"
-                            imgsrc="/images/team/placeholder.png"
+                            imgsrc="/images/team/jdm.png"
                             description="TBD (CERN)">
                         </MemberBox>
 
@@ -107,7 +99,13 @@ const AboutPage = ({data,location}) => {
                         <MemberBox
                             name="Roman Bauer"
                             imgsrc="/images/team/roman-bauer.jpg"
-                            description="BioDynaMo Collarboration Spokesperson">
+                            description="BioDynaMo Collarboration Spokesperson and Lecturer at University of Surrey">
+                        </MemberBox>
+
+                        <MemberBox
+                            name="Marco Durante"
+                            imgsrc="/images/team/marco-durante.jpg"
+                            description="Scientific Head of Biophysics Department at GSI">
                         </MemberBox>
 
                         <MemberBox
@@ -123,15 +121,33 @@ const AboutPage = ({data,location}) => {
                         </MemberBox>
 
                         <MemberBox
+                            name="Olivia Keiser"
+                            imgsrc="/images/team/olivia-keiser.jpg"
+                            description="Head of division of Infectious Diseases and Mathematical Modelling (University of Geneva)">
+                        </MemberBox>
+
+                        <MemberBox
                             name="Marco Manca"
                             imgsrc="/images/team/marco-manca.jpg"
                             description="Co-Founder and Chairman of the Board of Directors at SCimPulse Foundation">
                         </MemberBox>
 
                         <MemberBox
+                            name="Omri Matalon"
+                            imgsrc="/images/team/placeholder.png"
+                            description="TBD (ImmunoBrain Checkpoint)">
+                        </MemberBox>
+
+                        <MemberBox
                             name="Fons Rademakers"
                             imgsrc="/images/team/fons-rademakers.jpg"
                             description="CERN openlab Chief Research Officer">
+                        </MemberBox>
+
+                        <MemberBox
+                            name="Alessandro Raimondo"
+                            imgsrc="/images/team/alessandro-raimondo.jpg"
+                            description="CERN Knowledge Transfer Officer for Medical Applications">
                         </MemberBox>
 
                         <MemberBox
@@ -155,7 +171,7 @@ const AboutPage = ({data,location}) => {
                         <MemberBox
                             name="Berina Bandić"
                             imgsrc="/images/team/berina-bandic.jpg"
-                            description="TBD">
+                            description="CERN openlab online summer intern 2020">
                         </MemberBox>
 
                         <MemberBox
@@ -171,15 +187,15 @@ const AboutPage = ({data,location}) => {
                         </MemberBox>
 
                         <MemberBox
-                            name="Konstantinos Kanellis"
-                            imgsrc="/images/team/konstantinos-kanellis.jpg"
-                            description="CERN openlab summer student 2017">
-                        </MemberBox>
-
-                        <MemberBox
                             name="Nam Nguyen"
                             imgsrc="/images/team/placeholder.png"
                             description="CERN openlab summer student 2018">
+                        </MemberBox>
+
+                        <MemberBox
+                            name="Konstantinos Kanellis"
+                            imgsrc="/images/team/konstantinos-kanellis.jpg"
+                            description="CERN openlab summer student 2017">
                         </MemberBox>
 
                     </section>
