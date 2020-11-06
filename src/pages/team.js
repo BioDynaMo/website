@@ -8,7 +8,7 @@ import { MetaData, getMetaImageUrls } from '../components/common/meta'
 import { Layout } from '../components/common/layout'
 
 const AboutPage = ({data,location}) => {
-	const title = `About BioDynaMo`
+	const title = `BioDynaMo Team`
 	const description = `Short description of what BioDynaMo is.`
 
 	return (
@@ -25,7 +25,7 @@ const AboutPage = ({data,location}) => {
                 <div className="bg-concepts">
                     <div className={`${Spirit.page.xl} pt12 pb4 pt-vw1-ns pb-vw1-ns white pl10 pl0-ns`}>
                         <h1 className={`${Spirit.h4} gh-integration-header-shadow`}>
-                            <Link to="/about/" className="link dim white">{title}</Link>
+                            <Link to="/team/" className="link dim white">{title}</Link>
                         </h1>
                     </div>
                 </div>
