@@ -51,33 +51,9 @@ const AboutPage = ({data,location}) => {
                     <section className="grid-16 gutter-row-20 gutter-20-ns gutter-36-l">
 
                         <MemberBox
-                            name="Dorukhan Arslan"
-                            imgsrc="/images/team/placeholder.png"
-                            description="TBD">
-                        </MemberBox>
-
-                        <MemberBox
                             name="Lukas Breitwieser"
                             imgsrc="/images/team/lukas-breitwieser.jpg"
                             description="Lead Developer (CERN, ETH Zurich)">
-                        </MemberBox>
-
-                        <MemberBox
-                            name="Nicolò Cogno"
-                            imgsrc="/images/team/nicolo-cogno.jpg"
-                            description="TBD (TU Darmstadt)">
-                        </MemberBox>
-
-                        <MemberBox
-                            name="Jean de Montigny"
-                            imgsrc="/images/team/placeholder.png"
-                            description="TBD (CERN)">
-                        </MemberBox>
-
-                        <MemberBox
-                            name="Robert Harakaly"
-                            imgsrc="/images/team/robert-harakaly.jpg"
-                            description="Trainee (CERN)">
                         </MemberBox>
 
                         <MemberBox
@@ -87,9 +63,33 @@ const AboutPage = ({data,location}) => {
                         </MemberBox>
 
                         <MemberBox
+                            name="Jean de Montigny"
+                            imgsrc="/images/team/placeholder.png"
+                            description="TBD (CERN)">
+                        </MemberBox>
+
+                        <MemberBox
                             name="Jack Jennings"
                             imgsrc="/images/team/placeholder.png"
                             description="TBD (Newcastle University)">
+                        </MemberBox>
+
+                        <MemberBox
+                            name="Dorukhan Arslan"
+                            imgsrc="/images/team/placeholder.png"
+                            description="TBD">
+                        </MemberBox>
+
+                        <MemberBox
+                            name="Robert Harakaly"
+                            imgsrc="/images/team/robert-harakaly.jpg"
+                            description="Trainee (CERN)">
+                        </MemberBox>
+
+                        <MemberBox
+                            name="Nicolò Cogno"
+                            imgsrc="/images/team/nicolo-cogno.jpg"
+                            description="TBD (TU Darmstadt)">
                         </MemberBox>
 
                     </section>
