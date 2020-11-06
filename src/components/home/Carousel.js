@@ -19,14 +19,14 @@ class Carousel extends React.Component {
     };
     return (
       <Slider {...settings}>
-        <div>
-          <img src="/images/tumor_concept.png"></img>
+        <div style="text-align:center">
+          <iframe width="840" height="473" src="https://www.youtube.com/embed/MA74wZbhO7w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-        <div>
-          <img src="/images/cells.png"></img>
+        <div style="text-align:center">
+          <iframe width="840" height="473" src="https://www.youtube.com/embed/jlOk_Y3SUHo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-        <div>
-          <img src="/images/pyramidal-cell-simulation.png"></img>
+        <div style="text-align:center">
+          <iframe width="840" height="473" src="https://www.youtube.com/embed/Q9UkpLuLnkU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </Slider>
     );
