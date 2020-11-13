@@ -1,0 +1,13 @@
+- groups:
+  - group: Technical Team
+    items:
+      - title: Members
+        link: /team/tech_team/
+  - group: Alumni
+    items:
+      - title: Members
+        link: /team/alumni/
+  - group: Advisors
+    items:
+      - title: Members
+        link: /team/advisors/
