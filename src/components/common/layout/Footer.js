@@ -23,7 +23,7 @@ const Footer = () => (
                     <li className={`${listItemClass} dn db-l`}><a href="/blog/" className={linkClass}>Blogs</a></li>
                     <li className={`${listItemClass} dn db-l`}><a href="/docs/devguide/contribute/" className={linkClass}>Contribute</a></li>
                     <li className={`${listItemClass} dn db-l`}><a href="/docs/userguide/contact/" className={linkClass}>Contact</a></li>                    
-                    <li className={`${listItemClass} dn db-l`}><a href="/about/" className={linkClass}>About</a></li>
+                    <li className={`${listItemClass} dn db-l`}><a href="/team/" className={linkClass}>About Us</a></li>
                 </ul>
             </div>
 

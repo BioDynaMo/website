@@ -2,29 +2,21 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Spirit } from '../../../styles/spirit-styles'
-import { Box } from '../'
 
-const MemberBox = ({ src, to, href, headingClass, name, position }) => (
-    <Box
-        to={to}
-        href={href}
-        className="col-12 col-6-ns col-4-l pa8 tdn middarkgrey setup-box-min-height  team-box-max-width setup-box-max-height"
-        radius="4"
-    >
+const MemberBox = ({ imgsrc, name, description }) => (
+    <div className="col-10 col-4-ns pa5 pa8-ns pa10-l pt8-l flex flex-column-ns items-start tdn content-stretch home-main-box-shadow db br4 bg-white teambox-padding">
         <div className="img-container">
-            <img src={src} className="teampic"/>
-            <h5 className={`${Spirit.h5} ${headingClass} img-overlay-1`}><span>{name}</span></h5>        
-            <h5 className={`${Spirit.h5} ${headingClass} img-overlay-2`}>{position}</h5>
+            <img src={imgsrc} className="teampic"/>
+            <h2 className={`${Spirit.h4} mt0 mt2-ns darkgrey flex-shrink-1 teambox-text`}>{name}</h2>
+            <p className={`${Spirit.small} midgrey teambox-text`}>{description}</p>
         </div>
-    </Box>
+    </div>
 )
 
 MemberBox.propTypes = {
-    position: PropTypes.node,
+    imgsrc: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    to: PropTypes.string,
-    href: PropTypes.string,
-    headingClass: PropTypes.string,
+    description: PropTypes.string.isRequired
 }
 
 export default MemberBox

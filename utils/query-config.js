@@ -14,6 +14,11 @@ const markdownQueryConfig = [
         indexName: `api`,
         niceName: `API`,
     },
+    {
+        section: `team`,
+        indexName: `team`,
+        niceName: `Team Page`,
+    },
 ]
 
 module.exports = {
