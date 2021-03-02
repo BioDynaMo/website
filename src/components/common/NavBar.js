@@ -42,7 +42,7 @@ const NavBar = ({ theme }) => {
                     <a href="/docs/userguide/hello_world/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Getting Started</a>
                     <a href="http://forum.biodynamo.org/" target="_blank" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Forum</a>
                     <a href="/blog/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Blogs</a>
-                    <a href="/team/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Team</a>
+                    <a href="/team/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>About Us</a>
                 </div>
             </div>
             <div className="relative pl3">

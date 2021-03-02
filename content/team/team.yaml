@@ -1,4 +1,12 @@
 - groups:
+  - group: About Us
+    items:
+      - title: Who are we?
+        link: /team/
+  - group: Consortium
+    items:
+      - title: Members
+        link: /team/consortium/
   - group: Technical Team
     items:
       - title: Members
@@ -7,7 +15,3 @@
     items:
       - title: Members
         link: /team/alumni/
-  - group: Advisors
-    items:
-      - title: Members
-        link: /team/advisors/
