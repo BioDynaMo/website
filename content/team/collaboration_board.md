@@ -26,7 +26,7 @@ keywords:
 <div class="teamdiv">
     <img src="/images/team/placeholder.png" alt="" >
     <h3>Marcus Kaiser</h3>
-    <p>Representative of the University of Nottingham</p>
+    <p>Representative of Newcastle University</p>
 </div>
 
 <div class="teamdiv">
