@@ -51,16 +51,16 @@ keywords:
 </div>
 
 <div class="teamdiv">
-    <img src="/images/team/fons-rademakers.jpg" alt="" >
-    <h3>Fons Rademakers</h3>
-    <p>Technical Committee Chair (CERN)</p>
+    <img src="/images/team/alberto-di-meglio.jpg" alt="" >
+    <h3>Alberto di Meglio</h3>
+    <p>Representative of CERN</p>
     <p></p>
 </div>
 
 <div class="teamdiv">
-    <img src="/images/team/alessandro-raimondo.jpg" alt="" >
-    <h3>Alessandro Raimondo</h3>
-    <p>Representative of CERN</p>
+    <img src="/images/team/fons-rademakers.jpg" alt="" >
+    <h3>Fons Rademakers</h3>
+    <p>Technical Committee Chair (CERN)</p>
     <p></p>
 </div>
 
