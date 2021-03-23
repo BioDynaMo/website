@@ -7,6 +7,8 @@ import { Spirit } from '../../styles/spirit-styles'
 const GalleryBox = ({ src, to, href, headingClass, title, children }) => (
     <Box
         to={to}
+        elevation={0}
+        radius={0}
         href={href}
         className="col-12 col-6-ns col-4-l pa8 tdn middarkgrey gallery-box-min-height gallery-box-max-height"
         radius="4"

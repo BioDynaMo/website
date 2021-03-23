@@ -1405,10 +1405,16 @@ to be custom HTML.
 }
 
 .middle-section {
-  display: block; text-align: center; 
+  display: block;
+  text-align: center; 
 }
 
 .news {
   padding-top: 1rem;
   padding-bottom: 0;
+}
+
+.infobox-icon {
+    padding-top: 2rem;
+    align-self: center;
 }

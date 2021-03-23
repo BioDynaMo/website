@@ -30,27 +30,20 @@ const HomePage = ({ data, location }) => {
         mainClass="bg-whitegrey-l2 pb-vw6 pb-vw3-ns"
         header={<HomeHeader />}
       >
-        
-        <div className={`${Spirit.page.l} pt50`} style={{marginBottom : -170}}>
-          <h3 className={`${Spirit.h4}`} style={{ textAlign : "center" }}>BioDynaMo is a software platform to easily create, run, and visualise 3D agent-based biological simulations.
-          </h3>
-        </div>
 
-        <div className="pt-vw3 middle-section home-main-box-padding-ns">
-          <div className={`${Spirit.page.m} carousel-div`}>
-            <Carousel />
-          </div>
-          <div className={`${Spirit.page.s} bloglist-div`}>
-            <Box>
-              <div className="flex-auto pa7 news">
-                <h2 className={`${Spirit.h2} darkgrey mt2 mt0-l`}>{"Latest News"}</h2>
-              </div>
-              <BlogList limit="3"/>
-            </Box>
-          </div>
+      <div className="pt-vw3 middle-section home-main-box-padding-ns">
+        <div className={`${Spirit.page.m} carousel-div`}>
+          <InfoBoxes />
         </div>
-
-        <InfoBoxes></InfoBoxes>
+        <div className={`${Spirit.page.s} bloglist-div`}>
+          <Box>
+            <div className="flex-auto pa7 news">
+              <h2 className={`${Spirit.h2} darkgrey mt2 mt0-l`}>{"Latest News"}</h2>
+            </div>
+            <BlogList limit="3"/>
+          </Box>
+        </div>
+      </div>
 
         {/* { <div className={`${Spirit.page.xl} grid-12 gutter-row-20 gutter-40-ns`}>
 

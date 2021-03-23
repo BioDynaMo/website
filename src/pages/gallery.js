@@ -2,13 +2,11 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
-import { PostHeader} from '../components/common'
-
-import { Icon, Box } from '../components/common'
 import { Layout } from '../components/common/layout'
 import { Spirit } from '../styles/spirit-styles'
 import { MetaData, getMetaImageUrls } from '../components/common/meta'
 import { GalleryBox } from '../components/gallery'
+import { Carousel} from '../components/home'
 
 const GalleryPage = ({data, location}) => {
 
@@ -27,7 +25,6 @@ const GalleryPage = ({data, location}) => {
 				image={imageUrl}
 			/>
 			<Layout mainClass="bg-whitegrey-l2 pb-vw3" bodyClass="bg-white">
-
                 <div className="bg-concepts">
                     <div className={`${Spirit.page.xl} pt12 pb4 pt-vw1-ns pb-vw1-ns white pl10 pl0-ns`}>
                         <h1 className={`${Spirit.h4} gh-integration-header-shadow`}>
@@ -37,63 +34,27 @@ const GalleryPage = ({data, location}) => {
                 </div>
 
                 <div className={`${Spirit.page.xl} mt-vw3`}>
+                    <Carousel />
+                </div>
+
+                <div className={`${Spirit.page.xl} mt-vw3`}>
 
                     <section className="grid-12 gutter-row-20 gutter-20-ns gutter-36-l">
 
-                        <GalleryBox href="/docs/userguide/" title="Demo 1" src="/images/paraview7-4.png">
+                        <GalleryBox href="" title="Pyramidal cells" src="/images/cover-image.png">
                             <p className={`${Spirit.p} mw70`}>
-                                Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/docs/userguide/" title="Demo 2" src="/images/paraview7-4.png">
+                        <GalleryBox to="" title="Soma clustering" src="/images/soma-clustering-final-state.png">
                             <p className={`${Spirit.p} mw70`}>
-                                Description here!
                             </p>
                         </GalleryBox>
 
-                        <GalleryBox to="/docs/userguide/" title="Demo 3" src="/images/paraview7-4.png">
+                        <GalleryBox to="" title="Epidemiology" src="/images/measles.0001.png">
                             <p className={`${Spirit.p} mw70`}>
-                                Description here!
                             </p>
                         </GalleryBox>
-
-                        <GalleryBox to="/docs/userguide/" title="Demo 4" src="/images/paraview7-4.png">
-                            <p className={`${Spirit.p} mw70`}>
-                                Description here!
-                            </p>
-                        </GalleryBox>
-
-                        <GalleryBox to="/docs/userguide/" title="Demo 5" src="/images/paraview7-4.png">
-                            <p className={`${Spirit.p} mw70`}>
-                                Description here!
-                            </p>
-                        </GalleryBox>
-
-                        <GalleryBox to="/docs/userguide/" title="Demo 6" src="/images/paraview7-4.png">
-                            <p className={`${Spirit.p} mw70`}>
-                                Description here!
-                            </p>
-                        </GalleryBox>
-
-                        <GalleryBox to="/docs/userguide/" title="Demo 7" src="/images/paraview7-4.png">
-                            <p className={`${Spirit.p} mw70`}>
-                                Description here!
-                            </p>
-                        </GalleryBox>
-
-                        <GalleryBox to="/docs/userguide/" title="Demo 8" src="/images/paraview7-4.png">
-                            <p className={`${Spirit.p} mw70`}>
-                                Description here!
-                            </p>
-                        </GalleryBox>
-
-                        <GalleryBox to="/docs/userguide/" title="Demo 8" src="/images/paraview7-4.png">
-                            <p className={`${Spirit.p} mw70`}>
-                                Description here!
-                            </p>
-                        </GalleryBox>
-
                     </section>
 
                 </div>
