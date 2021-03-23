@@ -1,11 +1,10 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 
-import { Icon, Box } from '../components/common'
+import { Box } from '../components/common'
 import { Layout } from '../components/common/layout'
-import { Carousel, HomeHeader, InfoBoxes, HomeAPIBox, BlogList } from '../components/home'
+import { Carousel, HomeHeader, InfoBoxes, BlogList} from '../components/home'
 import { Spirit } from '../styles/spirit-styles'
 import { MetaData, getMetaImageUrls } from '../components/common/meta'
 
@@ -37,15 +36,23 @@ const HomePage = ({ data, location }) => {
           </h3>
         </div>
 
-        <div className="pt-vw3 home-main-box-padding-ns">
-          <div className={`${Spirit.page.l} carousel-div`}>
+        <div className="pt-vw3 middle-section home-main-box-padding-ns">
+          <div className={`${Spirit.page.m} carousel-div`}>
             <Carousel />
+          </div>
+          <div className={`${Spirit.page.s} bloglist-div`}>
+            <Box>
+              <div className="flex-auto pa7 news">
+                <h2 className={`${Spirit.h2} darkgrey mt2 mt0-l`}>{"Latest News"}</h2>
+              </div>
+              <BlogList limit="3"/>
+            </Box>
           </div>
         </div>
 
         <InfoBoxes></InfoBoxes>
 
-        {/* <div className={`${Spirit.page.xl} grid-12 gutter-row-20 gutter-40-ns`}>
+        {/* { <div className={`${Spirit.page.xl} grid-12 gutter-row-20 gutter-40-ns`}>
 
                     <section className="col-12 col-6-ns flex flex-column justify-between mt4 mt0-ns">
                         <a className="twitter-timeline" href="https://twitter.com/CERNopenlab?ref_src=twsrc%5Etfw">Tweets by CERNopenlab</a> <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
@@ -88,7 +95,7 @@ const HomePage = ({ data, location }) => {
 
                         </div>
                     </section>
-                </div> */}
+                </div>} */}
 
         {// this is the integrations section, leaving for template
                   /*<section className={`${Spirit.page.xl} col-12 mt8 mt-vw3-ns bt bn-ns b--whitegrey pt5 pt0-ns`}>
