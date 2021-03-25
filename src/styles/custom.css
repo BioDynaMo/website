@@ -1470,6 +1470,11 @@ to be custom HTML.
 
 .consortium-logo {
   object-fit: cover;
-  max-width:100%;
-  max-height:100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.cern-logo {
+  width : 60%;
+  height: auto;
 }
