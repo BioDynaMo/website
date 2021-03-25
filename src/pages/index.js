@@ -33,7 +33,7 @@ const HomePage = ({ data, location }) => {
 
       <div className="pt-vw3 middle-section home-main-box-padding-ns">
         <div className={`${Spirit.page.m} carousel-div`}>
-          <InfoBoxes />
+          <Carousel />
         </div>
         <div className={`${Spirit.page.s} bloglist-div`}>
           <Box>
@@ -43,6 +43,10 @@ const HomePage = ({ data, location }) => {
             <BlogList limit="3"/>
           </Box>
         </div>
+      </div>
+
+      <div className={`${Spirit.page.xl} flex-auto pa7 middle-section`}>
+        <InfoBoxes />
       </div>
 
         {/* { <div className={`${Spirit.page.xl} grid-12 gutter-row-20 gutter-40-ns`}>

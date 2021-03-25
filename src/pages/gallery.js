@@ -33,9 +33,9 @@ const GalleryPage = ({data, location}) => {
                     </div>
                 </div>
 
-                <div className={`${Spirit.page.xl} mt-vw3`}>
+                {/* <div className={`${Spirit.page.xl} mt-vw3`}>
                     <Carousel />
-                </div>
+                </div> */}
 
                 <div className={`${Spirit.page.xl} mt-vw3`}>
 

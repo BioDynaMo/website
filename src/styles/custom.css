@@ -1418,3 +1418,26 @@ to be custom HTML.
     padding-top: 2rem;
     align-self: center;
 }
+
+.infobox-wrapper {
+    width: inherit;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.infobox-1 {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.infobox-2 {
+    grid-column: 2 / 3;
+    grid-row: 1;
+}
+
+.infobox-3 {
+    grid-column: 3 / 3;
+    grid-row: 1;
+}
