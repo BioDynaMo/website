@@ -32,20 +32,22 @@ const HomePage = ({ data, location }) => {
       >
 
       <div className="pt-vw3 middle-section home-main-box-padding-ns">
-        <div className={`${Spirit.page.m} carousel-div`}>
-          <Carousel />
-        </div>
-        <div className={`${Spirit.page.s} bloglist-div`}>
-          <Box>
-            <div className="flex-auto pa7 news">
-              <h2 className={`${Spirit.h2} darkgrey mt2 mt0-l`}>{"Latest News"}</h2>
-            </div>
-            <BlogList limit="3"/>
-          </Box>
+        <div className='middle-section-wrapper'>
+          <div className={`mw-m pl5 pr5 pl10-l pr10-l carousel-div`}>
+            <Carousel />
+          </div>
+          <div className={`${Spirit.page.s} bloglist-div`}>
+            <Box>
+              <div className="flex-auto pa7 news">
+                <h2 className={`${Spirit.h2} darkgrey mt2 mt0-l`}>{"Latest News"}</h2>
+              </div>
+              <BlogList limit="3"/>
+            </Box>
+          </div>
         </div>
       </div>
 
-      <div className={`${Spirit.page.xl} flex-auto pa7 middle-section`}>
+      <div className={`${Spirit.page.xl} flex-auto pa7`}>
         <InfoBoxes />
       </div>
 

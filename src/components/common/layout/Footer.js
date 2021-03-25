@@ -10,14 +10,15 @@ const Footer = () => (
     <footer className="pt10 pt-vw3-ns pb-vw3 bt b--whitegrey">
 
             <div className='consortium-footer-wrapper'>
-                <img className='consortium-logo' src="/images/consortium_logos/cern.png"/>
-                <img className='consortium-logo' src="/images/consortium_logos/cern-openlab.png"/>
-                <img className='consortium-logo' src="/images/consortium_logos/newcastle.png"/>
-                <img className='consortium-logo' src="/images/consortium_logos/sheffield.jpg"/>
-                <img className='consortium-logo' src="/images/consortium_logos/gsi.png"/>
-                <img className='consortium-logo' src="/images/consortium_logos/ibc.png"/>
-                <img className='consortium-logo' src="/images/consortium_logos/cyprus.png"/>
-                <img className='consortium-logo' src="/images/consortium_logos/scimpulse.png"/>
+                
+                <a href="https://home.cern/" target="_blank"><img className='consortium-logo' src="/images/consortium_logos/cern.png"/></a>
+                <a href="https://openlab.cern/" target="_blank"><img className='consortium-logo' src="/images/consortium_logos/cern-openlab.png"/></a>
+                <a href="https://www.ncl.ac.uk/" target="_blank"><img className='consortium-logo' src="/images/consortium_logos/newcastle.png"/></a>
+                <a href="https://www.sheffield.ac.uk/" target="_blank"><img className='consortium-logo' src="/images/consortium_logos/sheffield.jpg"/></a>
+                <a href="https://www.gsi.de/en/start/news.htm" target="_blank"><img className='consortium-logo' src="/images/consortium_logos/gsi.png"/></a>
+                <a href="https://immunobrain.com/" target="_blank"><img className='consortium-logo' src="/images/consortium_logos/ibc.png"/></a>
+                <a href="https://www.ucy.ac.cy/en/" target="_blank"><img className='consortium-logo' src="/images/consortium_logos/cyprus.png"/></a>
+                <a href="https://www.scimpulse.org/" target="_blank"><img className='consortium-logo' src="/images/consortium_logos/scimpulse.png"/></a>
             </div>
 
         <section className={`${Spirit.page.xl} m1 mt-vw3-ns`}>

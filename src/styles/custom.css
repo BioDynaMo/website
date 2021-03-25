@@ -1390,18 +1390,34 @@ to be custom HTML.
 
 .teamdiv h3,
 .teamdiv p{
-    margin-left: 15px;
-    display: block;
-    margin: 10px 0 0 0;
+  margin-left: 15px;
+  display: block;
+  margin: 10px 0 0 0;
 }
 .carousel-div {
   display: inline-block;
+  width: 75%;
 }
 
 .bloglist-div {
   display: inline-block;
   vertical-align: top;
   text-align: left; 
+}
+
+.middle-section-wrapper {
+  display: inline-flex;
+}
+
+@media screen and (max-width: 700px) {
+  .middle-section-wrapper {
+    display : block;
+  }
+
+  .carousel-div {
+    padding-bottom: 30px;
+    width: 100%;
+  }
 }
 
 .middle-section {
@@ -1425,6 +1441,7 @@ to be custom HTML.
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     grid-auto-rows: minmax(100px, auto);
+    text-align: center; 
 }
 
 .infobox-1 {
@@ -1445,11 +1462,14 @@ to be custom HTML.
 .consortium-footer-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 90px;
+    gap: 10px;
     grid-auto-rows: minmax(100px, auto);
+    align-items: center;
+    justify-items: center;
 }
 
 .consortium-logo {
-    margin: 0 auto;
-    height : 70px;
+  object-fit: cover;
+  max-width:100%;
+  max-height:100%;
 }
