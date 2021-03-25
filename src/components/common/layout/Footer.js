@@ -9,9 +9,16 @@ const linkClass = `link pa2 midgrey hover-blue dib mr5 f8`
 const Footer = () => (
     <footer className="pt10 pt-vw3-ns pb-vw3 bt b--whitegrey">
 
-        <section className={`${Spirit.page.xl} grid-12`}>
-
-        </section>
+            <div className='consortium-footer-wrapper'>
+                <img className='consortium-logo' src="/images/consortium_logos/cern.png"/>
+                <img className='consortium-logo' src="/images/consortium_logos/cern-openlab.png"/>
+                <img className='consortium-logo' src="/images/consortium_logos/newcastle.png"/>
+                <img className='consortium-logo' src="/images/consortium_logos/sheffield.jpg"/>
+                <img className='consortium-logo' src="/images/consortium_logos/gsi.png"/>
+                <img className='consortium-logo' src="/images/consortium_logos/ibc.png"/>
+                <img className='consortium-logo' src="/images/consortium_logos/cyprus.png"/>
+                <img className='consortium-logo' src="/images/consortium_logos/scimpulse.png"/>
+            </div>
 
         <section className={`${Spirit.page.xl} m1 mt-vw3-ns`}>
 

@@ -1441,3 +1441,15 @@ to be custom HTML.
     grid-column: 3 / 3;
     grid-row: 1;
 }
+
+.consortium-footer-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 90px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.consortium-logo {
+    margin: 0 auto;
+    height : 70px;
+}
