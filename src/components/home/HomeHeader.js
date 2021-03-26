@@ -19,7 +19,8 @@ const HomeHeader = () => (
               <img src="images/bdm_logo_large.png" className="pb2 homepage-logo" width="75" style={{marginTop : -4, marginRight : 15}}/>
               <h1 className="ma0 pa0 f2 f1-ns f-headline-l white header-heading-shadow homepage-title">BioDynaMo</h1>
             </div>
-            <h2 className="white header-heading-shadow">The Open-Source Biology Dynamics Modeller.</h2>
+            {/* <h2 className="white header-heading-shadow">The Open-Source Biology Dynamics Modeller</h2> */}
+            <h2 className="white">An open-source software platform to easily create, run, and visualise 3D agent-based simulations</h2>
 
             <section className="grid-12 gutter-row-20 gutter-36-ns mt10 mt8-ns mt20 miw-100 miw-auto-ns home-main-box-margin-ns z-999">
 

@@ -1,5 +1,6 @@
 export { default as InfoBoxes } from './InfoBoxes'
 export { default as HomeHeader } from './HomeHeader'
 export { default as HomeAPIBox } from './HomeAPIBox'
+export { default as HomeBlogBox } from './HomeBlogBox'
 export { default as BlogList } from './BlogList'
 export { default as Carousel } from './Carousel'

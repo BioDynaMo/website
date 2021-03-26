@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import { Spirit } from '../../styles/spirit-styles'
+import { HomeBlogBox} from '.'
 
 const BlogList = ({limit}) => {
   const  data  = useStaticQuery(
@@ -26,13 +27,13 @@ const BlogList = ({limit}) => {
   )
 
   return data.allMarkdownRemark.nodes.map(nodes => (
-  	<span key ={nodes.id}>
-	  	<Link to={nodes.fields.slug} className="midgrey home-faq-question link dib pt1 pb5">
-	        <h4 className={`${Spirit.h5} blue dib`}>{nodes.frontmatter.title} &raquo;</h4>
-	        <h5 className={`${Spirit.h6} `}>{nodes.frontmatter.date} </h5>
-	        <p className={`${Spirit.small} mt0`}>{nodes.excerpt}</p>
-	    </Link>
-	    <br/>
+    <span key ={nodes.id}>
+        <HomeBlogBox
+          href={nodes.fields.slug}
+          title={nodes.frontmatter.title}
+          date={nodes.frontmatter.date}>
+            {nodes.excerpt}
+        </HomeBlogBox>
     </span>
   	)).slice(0,limit)
 }

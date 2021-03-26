@@ -7,8 +7,6 @@ const getSidebarFile = (sidebar) => {
         // declare as var here, so it's accessible outside of the try scope
         else if (sidebar == "team")
             var [sidebarfile] = require(`../../../../content/team/${sidebar}.yaml`)       
-        else
-	        var [sidebarfile] = require(`../../../data/sidebars/${sidebar}.yaml`)
     } catch (e) {
         // TODO: make clear error handling here
         throw e
