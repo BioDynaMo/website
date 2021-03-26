@@ -10,7 +10,7 @@ const Footer = () => (
     <footer className="pt10 pt-vw3-ns pb-vw3 bt b--whitegrey">
 
             <div className='consortium-footer-wrapper'>
-                <a className='cern-logo consortium-logo' href="https://home.cern/" target="_blank"><img src="/images/consortium_logos/cern.png"/></a>
+                <a className='consortium-logo cern-logo ' href="https://home.cern/" target="_blank"><img src="/images/consortium_logos/cern.png"/></a>
                 <a className='consortium-logo' href="https://openlab.cern/" target="_blank"><img src="/images/consortium_logos/cern-openlab.png"/></a>
                 <a className='consortium-logo' href="https://www.ncl.ac.uk/" target="_blank"><img src="/images/consortium_logos/newcastle.png"/></a>
                 <a className='consortium-logo' href="https://www.sheffield.ac.uk/" target="_blank"><img src="/images/consortium_logos/sheffield.jpg"/></a>
