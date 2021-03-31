@@ -31,6 +31,35 @@ Another important note is that when importing pre-made assets by using the stati
 For example, all the API documentation has to be put in the static folder and will only be visible if we serve the website (see below to learn how to serve and develop).
 The API documentation can then be linked normally by using the `/api/any_file_that_we_want_to_show_from_api_doc` path.
 
+### Prerequisites
+
+You will need the following packages in order to build the website locally:
+
+* nodejs
+* yarn
+
+On Ubuntu you can install them with:
+
+```bash
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash
+
+sudo apt update && apt install -y nodejs yarn
+```
+
+Currently only node v12 is supported. To install the right node version, you can run:
+
+```bash
+sudo npm install -g n
+sudo n 12.22.0
+```
+
+Then run:
+```bash
+sudo npm install -g gatsby-cli react-bootstrap bootstrap
+```
+
 ### How to Build or Develop the Website
 
 To develop the gatsby website, a `.env.development` file is needed.
@@ -56,7 +85,12 @@ NODE_ENV=production gatsby serve
 The `yarn` command is used to manage dependencies, plugins and packages for the website.
 This command installs the `node_modules` file.
 `*lock*` files should be deleted as they often create problems when rebuilding or redeveloping.
-The `public` is auto generated when building or developing the website, it is usually good practice to delete this file and the cache prior to rebuilding or redeveloping.
+The `public` is auto generated when building or developing the website, it is usually good practice to delete this folder and the cache prior to rebuilding or redeveloping:
+
+``` bash
+gatsby clean
+rm -rf node_modules
+```
 
 ## Markdown Based Pages
 
