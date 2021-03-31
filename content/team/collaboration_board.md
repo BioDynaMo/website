@@ -24,13 +24,13 @@ keywords:
 </div>
 
 <div class="teamdiv">
-    <img src="/images/team/placeholder.png" alt="" >
+    <img src="/images/team/marcus-kaiser.jpg" alt="" >
     <h3>Marcus Kaiser</h3>
     <p>Representative of Newcastle University</p>
 </div>
 
 <div class="teamdiv">
-    <img src="/images/team/placeholder.png" alt="" >
+    <img src="/images/team/olivia-keiser.jpg" alt="" >
     <h3>Olivia Keiser</h3>
     <p>Representative of the University of Geneva</p>
     <p></p>
@@ -44,7 +44,7 @@ keywords:
 </div>
 
 <div class="teamdiv">
-    <img src="/images/team/placeholder.png" alt="" >
+    <img src="/images/team/omri-matalon.jpg" alt="" >
     <h3>Omri Matalon</h3>
     <p>Representative of Immunobrain Checkpoint</p>
     <p></p>

@@ -26,7 +26,7 @@ sidebar: "team"
 </div>
 
 <div class="teamdiv">
-    <img src="/images/team/placeholder.png" alt="" >
+    <img src="/images/team/tobias-duswald.jpeg" alt="" >
     <h3>Tobias Duswald</h3>
     <p></p>
 </div>

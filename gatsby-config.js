@@ -24,10 +24,7 @@ const myAddedPlugin = (lunr) => (builder) => {
   builder.b(0.5)
 }
 
-flags: {
-    DEV_SSR: false
-}
-  
+ 
 const SERVICE_WORKER_KILL_SWITCH = (process.env.SERVICE_WORKER_KILL_SWITCH === `true`) || false
 
 const plugins = [
@@ -232,4 +229,7 @@ module.exports = {
         description: `Everything you need to know about biology simulations.`,
     },
     plugins: plugins,
+    flags: {
+      DEV_SSR: false
+    }
 }

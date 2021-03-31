@@ -13,7 +13,7 @@ const Footer = () => (
                 <a className='consortium-logo cern-logo ' href="https://home.cern/" target="_blank"><img src="/images/consortium_logos/cern.png"/></a>
                 <a className='consortium-logo' href="https://openlab.cern/" target="_blank"><img src="/images/consortium_logos/cern-openlab.png"/></a>
                 <a className='consortium-logo' href="https://www.ncl.ac.uk/" target="_blank"><img src="/images/consortium_logos/newcastle.png"/></a>
-                <a className='consortium-logo' href="https://www.sheffield.ac.uk/" target="_blank"><img src="/images/consortium_logos/sheffield.jpg"/></a>
+                <a className='consortium-logo' href="https://www.surrey.ac.uk/" target="_blank"><img src="/images/consortium_logos/surrey.jpg"/></a>
                 <a className='consortium-logo' href="https://www.gsi.de/en/start/news.htm" target="_blank"><img src="/images/consortium_logos/gsi.png"/></a>
                 <a className='consortium-logo' href="https://immunobrain.com/" target="_blank"><img src="/images/consortium_logos/ibc.png"/></a>
                 <a className='consortium-logo' href="https://www.ucy.ac.cy/en/" target="_blank"><img src="/images/consortium_logos/cyprus.png"/></a>
