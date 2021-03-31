@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import { Box } from '../components/common'
 import { Layout } from '../components/common/layout'
-import { Carousel, HomeHeader, InfoBoxes, BlogList} from '../components/home'
+import { Carousel, HomeHeader, InfoBoxes, BlogList } from '../components/home'
 import { Spirit } from '../styles/spirit-styles'
 import { MetaData, getMetaImageUrls } from '../components/common/meta'
 

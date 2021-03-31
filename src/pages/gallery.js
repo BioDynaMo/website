@@ -6,7 +6,6 @@ import { Layout } from '../components/common/layout'
 import { Spirit } from '../styles/spirit-styles'
 import { MetaData, getMetaImageUrls } from '../components/common/meta'
 import { GalleryBox } from '../components/gallery'
-import { Carousel} from '../components/home'
 
 const GalleryPage = ({data, location}) => {
 

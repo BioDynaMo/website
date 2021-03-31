@@ -1,7 +1,6 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
-import { Spirit } from '../../styles/spirit-styles'
-import { HomeBlogBox} from '.'
+import { useStaticQuery, graphql } from "gatsby"
+import { HomeBlogBox } from '.'
 
 const BlogList = ({limit}) => {
   const  data  = useStaticQuery(

@@ -12,7 +12,9 @@
 #
 # -----------------------------------------------------------------------------
 
-FROM ubuntu:16.04
+FROM ubuntu:20.04
+
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && apt install -y \
   sudo \
@@ -30,6 +32,8 @@ RUN apt update && apt install -y \
   nodejs \
   yarn
 
+RUN npm install -g n
+RUN n 12.22.0
 RUN npm install -g gatsby-cli react-bootstrap bootstrap
 
 # update user id and group id such that mapped volumes can be accessed with the
