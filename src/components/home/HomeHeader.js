@@ -37,7 +37,7 @@ const HomeHeader = () => (
                     to="/docs/userguide/installation/"
                     title="Installation Guide"
                     icon="rocket"
-                    // color="tutorial-green"
+                    color=""
                 > Install BioDynaMo on your own system.
                 </HomeHeaderBox>
 
@@ -45,7 +45,7 @@ const HomeHeader = () => (
                     to="/tutorials/"
                     title="Tutorials"
                     icon="typing"
-                    // color="tutorial-green"
+                    color=""
                 > Browse tutorials and learn how to use BioDynaMo.
                 </HomeHeaderBox>
 
