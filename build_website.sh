@@ -82,13 +82,13 @@ if [ ! -z "${DEVELOP+x}" ]; then
       bdm-website bash -c 'yarn && gatsby develop'
   else
     sudo docker run \
-      -tid \
+      -i \
       -p 8000:8000 \
       --net=host \
       --name=mybdmweb \
       -v ${SCRIPT_PATH}:/website \
       -v ${BDM_DIR}/doc:/website/content/biodynamo/doc \
-      bdm-website bash
+      bdm-website bash -c 'yarn && gatsby develop'
   fi
 else
   # If we want to just build the static files
