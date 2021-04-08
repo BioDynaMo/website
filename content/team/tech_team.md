@@ -49,3 +49,8 @@ sidebar: "team"
     <p></p>
 </div>
 
+<div class="teamdiv">
+    <img src="/images/team/fons-rademakers.jpg" alt="" >
+    <h3>Fons Rademakers</h3>
+    <p></p>
+</div>
