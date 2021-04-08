@@ -10,4 +10,4 @@ sidebar: "team"
 
 ## Who are we?
 
-We are an international, interdisciplinary group of researchers who are passionate about using modern computing approaches for promoting biomedicine and the health of society.
+We are an international, interdisciplinary group of researchers who are passionate about using modern computer simulation techniques for promoting biomedicine and the health of society.
