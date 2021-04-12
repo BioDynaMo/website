@@ -38,6 +38,8 @@ You will need the following packages in order to build the website locally:
 * nodejs
 * yarn
 
+#### On Ubuntu
+
 On Ubuntu you can install them with:
 
 ```bash
@@ -56,32 +58,70 @@ sudo n 12.22.0
 ```
 
 Then run:
+
 ```bash
 sudo npm install -g gatsby-cli react-bootstrap bootstrap
 ```
 
-### How to Build or Develop the Website
+#### On macOS
+
+On macOS you can install them with:
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+```
+
+For getting the latest version of nvm see: [the nvm github page](https://github.com/nvm-sh/nvm). Once `nvm` is installed install node js v12 with:
+
+```bash
+nvm install 12.22.0
+```
+
+Next install `yarn` and `gatsby` with:
+
+```bash
+npm install yarn
+npm install gatsby-cli
+```
+
+### How to Develop or Build the Website
 
 To develop the gatsby website, a `.env.development` file is needed.
 The template for it is:
+
 ```
 SITE_URL="http://local:8000"
 SERVICE_WORKER_KILL_SWITCH="false"
 ```
+
 To build and serve the gatsby website, a `.env.production` file is needed.
-The template for it is the same as for development.
+The template for it is the same as for development. We provide a `.env.example` template file, so just do:
+
+```bash
+cp .env.example .env.development
+```
+
+or
+
+```bash
+cp .env.example .env.production
+```
 
 Commands to develop the website locally are:
+
 ``` bash
 yarn
 gatsby develop
 ```
+
 Commands to build and serve locally are:
+
 ```bash
 yarn
 gatsby build
 NODE_ENV=production gatsby serve
 ```
+
 The `yarn` command is used to manage dependencies, plugins and packages for the website.
 This command installs the `node_modules` file.
 `*lock*` files should be deleted as they often create problems when rebuilding or redeveloping.
@@ -105,6 +145,7 @@ To create and add new markdown pages or update existing ones, the site needs to 
 All pages created with markdown files need frontmatter.
 This frontmatter helps dictate which section the particular markdown file belongs to (user guide, dev guide, etc).
 The minimum template for markdown frontmatter used is as follows:
+
 ```
 ---
 title: "Example Title"
@@ -116,6 +157,7 @@ toc: true
 sidebar: "XXX"
 ---
 ```
+
 The title of the markdown based page will be automatically created using the *title* field in the frontmatter.
 The *path* field in the frontmatter is important as it allows us to use a custom path instead of the path of the working directory.
 Furthermore, toc and sidebar are important for the layout and placement of the markdown based page in the website.
@@ -129,6 +171,7 @@ Additionally, the *meta_title* field is important as it regulates the text displ
 As mentioned previously, pages using markdown as their base, can be grouped by a sidebar.
 This sidebar file is a `.yaml` file that should be placed in `src/data/sidebars/` (only the user and dev guide sidebars can be found in `content/biodynamo/doc/sidebars/`).
 The sidebar files follow the template below:
+
 ```yml
 - groups:
   - group: First Header
@@ -146,6 +189,7 @@ The sidebar files follow the template below:
       - title: Even more pages
         link: /path/to/the/markdown/
 ```
+
 Furthermore, settings and options related to getting/creating the sidebar can be found in `src/components/common/sidebar/`.
 
 ### Layout
@@ -231,6 +275,7 @@ The configuration helps us automatically generate the searchable index that is u
 **Important, we must rebuild our website every time we make changes to it to update the search index.**
 
 The Lunr plugin is implemented with the following code snippet (added to our list of plugins):
+
 ```javascript
 {
     resolve: `gatsby-plugin-lunr`,
@@ -270,6 +315,7 @@ The Lunr plugin is implemented with the following code snippet (added to our lis
     },
 },
 ```
+
 The *languages* section is where we set which language we want our search queries to be in (Lunr can handle multi-language search queries).
 In this *languages* section, we can also add plugins for lunr by creating a field called `plugins: [list,of,plugins]`.
 
@@ -289,6 +335,7 @@ Finally, we give the search index a file name as indicated above.
 The additional plugin created was to remove the lunr stemmer and whitelist the position metadata.
 The position metadata is important as it helps us build the snippet displayed when doing a search query.
 This is done by creating the constant below:
+
 ```javascript
 const myAddedPlugin = (lunr) => (builder) => {
 
@@ -303,6 +350,7 @@ const myAddedPlugin = (lunr) => (builder) => {
   builder.b(0.5)
 }
 ```
+
 More info on [similarity tuning](https://lunrjs.com/guides/customising.html#similarity-tuning).
 
 ### Search Component
