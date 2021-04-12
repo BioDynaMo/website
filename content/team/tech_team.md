@@ -8,7 +8,7 @@ sidebar: "team"
 ---
 
 <div class="teamdiv">
-    <img src="/images/team/placeholder.png" alt="" >
+    <img src="/images/team/doruk-arslan.jpg" alt="" >
     <h3>Dorukhan Arslan</h3>
     <p></p>
 </div>
