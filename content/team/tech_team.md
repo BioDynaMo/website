@@ -38,7 +38,7 @@ sidebar: "team"
 </div>
 
 <div class="teamdiv">
-    <img src="/images/team/placeholder.png" alt="" >
+    <img src="/images/team/jack-jennings.jpeg" alt="" >
     <h3>Jack Jennings</h3>
     <p></p>
 </div>
