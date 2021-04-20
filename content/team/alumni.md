@@ -36,7 +36,7 @@ keywords:
 </div>
 
 <div class="teamdiv">
-    <img src="/images/team/placeholder.png" alt="" >
+    <img src="/images/team/nam-nguyen.png" alt="" >
     <h3>Nam Nguyen</h3>
     <p></p>
 </div>
