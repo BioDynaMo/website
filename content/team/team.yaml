@@ -15,3 +15,12 @@
     items:
       - title: Members
         link: /team/alumni/
+  - group: Publications
+    items:
+      - title: Biodynamo's core
+        link: /team/core_publications/
+      - title: Biodynamo's application
+        link: /team/application_publications/
+      - title: Biodynamo's predecssor
+        link: /team/predecessor_publications/
+  
