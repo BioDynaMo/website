@@ -21,6 +21,8 @@ While BioDyanMo has turned into a general purpose agent-based modling software s
 ## 2017
 
 * Roman Bauer and Marcus Kaiser. **Nonlinear growth: an origin of hub organization in complex networks.** In: Royal Society open science, 4(3), 2017. DOI: [10.1098/rsos.160691](https://doi.org/10.1098/rsos.160691).
+
+* Roman Bauer and Marcus Kaiser. **Organisational principles of connectomes: changes during evolution and development.** In: Brain Evolution by Design (pp. 387-401), Springer, 2017. DOI: [10.1007/978-4-431-56469-0_17](https://doi.org/10.1007/978-4-431-56469-0_17).
   
 ## 2014
 
