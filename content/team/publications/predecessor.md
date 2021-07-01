@@ -37,3 +37,8 @@ While BioDyanMo has turned into a general purpose agent-based modling software s
 * Frederic Zubler et al. **Simulating cortical development as a self constructing process: a novel multi-scale approach combining molecular and physical aspects.** In: PLoS computational biology, 9(8), 2013. DOI: [10.1371/journal.pcbi.1003173](https://doi.org/10.1371/journal.pcbi.1003173).
 
 * Roman Bauer. **Self-construction and-configuration of functional neuronal networks.** Doctoral dissertation, ETH Zurich, 2013. DOI: [10.3929/ethz-a-009988668](https://doi.org/10.3929/ethz-a-009988668).
+
+## 1997
+
+* Rene Brun and Fons Rademakers. **ROOT — An object oriented data analysis framework.** In: Nuclear Instruments and Methods in Physics Research, 389, 1997. DOI: [10.1016/S0168-9002(97)00048-X](https://doi.org/10.1016/S0168-9002(97)00048-X).
+
