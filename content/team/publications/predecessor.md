@@ -16,7 +16,7 @@ While BioDyanMo has turned into a general purpose agent-based modling software s
 
 ## 2020
 
-* Pegah Kassraian-Fard. **A generative growth model for thalamocortical axonal branching in primary visual cortex.** In: PLoS computational biology, 16(2), 2020. DOI: [10.1371/journal.pcbi.1007315](https://doi.org/10.1371/journal.pcbi.1007315).
+* Pegah Kassraian-Fard et al. **A generative growth model for thalamocortical axonal branching in primary visual cortex.** In: PLoS computational biology, 16(2), 2020. DOI: [10.1371/journal.pcbi.1007315](https://doi.org/10.1371/journal.pcbi.1007315).
 
 ## 2017
 
