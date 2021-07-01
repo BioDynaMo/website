@@ -1,5 +1,5 @@
 ---
-title: "BioDynamo's predecessor"
+title: "BioDynaMo's predecessor"
 date: "2021-06-04"
 path: "/team/predecessor_publications/"
 meta_title: "BioDynaMo predecessor's"

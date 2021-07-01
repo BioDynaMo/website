@@ -1,5 +1,5 @@
 ---
-title: "BioDynamo's application"
+title: "BioDynaMo's application"
 date: "2021-06-04"
 path: "/team/application_publications/"
 meta_title: "BioDynaMo's application"
@@ -19,4 +19,4 @@ sidebar: "team"
 
 
 <hr>
-<p><small>If you have published an application based on BioDynamo, we would be very greatful if you could contact us so that we can list your publication here.</small></p>
+<p><small>If you have published an application based on BioDynaMo, we would be very greatful if you could contact us so that we can list your publication here.</small></p>

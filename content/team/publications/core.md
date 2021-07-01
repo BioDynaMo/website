@@ -1,5 +1,5 @@
 ---
-title: "BioDynamo's core"
+title: "BioDynaMo's core"
 date: "2021-06-04"
 path: "/team/core_publications/"
 meta_title: "BioDynaMo core"
