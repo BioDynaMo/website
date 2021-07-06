@@ -188,6 +188,7 @@ class Results extends React.Component {
         var index = "" // setting up section names
         if (hits.sidebar=="userguide") index = `User Guide`
         if (hits.sidebar=="devguide") index = `Dev Guide`
+        if (hits.sidebar=="team") index = `Team`
         if (hits.sidebar=="api") index = `API`
 
         const labelClass = { // set color her
@@ -196,6 +197,7 @@ class Results extends React.Component {
             devguide: `concept-color b--concept-color-color`,
             api: `middarkgrey b--middarkgrey`,
             userguide: `tutorial-color b--tutorial-color`,
+            team: `integration-color b--integration-color`,
             // integration: `integration-color b--integration-color`,
             // blog: `concept-color b--concept-color`,
             // marketplace: `setup-color b--setup-color`,
