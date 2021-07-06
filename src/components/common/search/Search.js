@@ -57,19 +57,20 @@ const HitTemplate = ({ hit }) => {
             after_fluff = after_fluff.replace("\\","")
         }
 
-        remark() // start strip markdown
-          .use(strip)
-          .process(before_fluff, function(err, file) { // use strip markdown plugin
-            if (err) throw err
-            before_fluff = String(file) // put the stripped string into our snippet
-          })
+        // TODO: re-enable stripping of HTML tags. Currently disabled due to "process not defined error"
+        // remark() // start strip markdown
+        //   .use(strip)
+        //   .process(before_fluff, function(err, file) { // use strip markdown plugin
+        //     if (err) throw err
+        //     before_fluff = String(file) // put the stripped string into our snippet
+        //   })
 
-        remark() // start strip markdown
-          .use(strip)
-          .process(after_fluff, function(err, file) { // use strip markdown plugin
-            if (err) throw err
-            after_fluff = String(file) // put the stripped string into our snippet
-          })
+        // remark() // start strip markdown
+        //   .use(strip)
+        //   .process(after_fluff, function(err, file) { // use strip markdown plugin
+        //     if (err) throw err
+        //     after_fluff = String(file) // put the stripped string into our snippet
+        //   })
 
 
     } else if (hit.pos[0].title) { // Same process as for content but for title
