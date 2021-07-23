@@ -55,8 +55,8 @@ module.exports.createNewsIndexPages = async ({ graphql, actions }) => {
         `
           {
             allMarkdownRemark(
-            #   filter: {fields: {slug: {regex: "/blog/"}}}
-            # sort: { fields: [frontmatter___date], order: DESC }
+              filter: {fields: {slug: {regex: "/blog/"}}}
+              sort: { fields: [frontmatter___date], order: DESC }
               limit: 1000
             ) {
               edges {

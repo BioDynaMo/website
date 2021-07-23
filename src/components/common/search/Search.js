@@ -1,13 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
-import Autosuggest from 'react-autosuggest'
+import Autosuggest from 'react-autosuggest';
+import remark from 'remark';
+import strip from 'strip-markdown';
 import { Spirit } from '../../../styles/spirit-styles'
 
 const HitTemplate = ({ hit }) => {
 
-    var remark = require('remark') // needed for strip-markdown plugin
-    var strip = require('strip-markdown') // strip-markdown plugin
+    // var remark = require('remark') // needed for strip-markdown plugin
+    // var strip = require('strip-markdown') // strip-markdown plugin
     var pre_dots = "" // Value of this variable changes if the snippet is at the beginning of the document or not
     var post_dots = "" // Value of this variable changes if the snippet is at the end of the document or not
 
@@ -58,19 +60,19 @@ const HitTemplate = ({ hit }) => {
         }
 
         // TODO: re-enable stripping of HTML tags. Currently disabled due to "process not defined error"
-        // remark() // start strip markdown
-        //   .use(strip)
-        //   .process(before_fluff, function(err, file) { // use strip markdown plugin
-        //     if (err) throw err
-        //     before_fluff = String(file) // put the stripped string into our snippet
-        //   })
+        remark() // start strip markdown
+          .use(strip)
+          .process(before_fluff, function(err, file) { // use strip markdown plugin
+            if (err) throw err
+            before_fluff = String(file) // put the stripped string into our snippet
+          })
 
-        // remark() // start strip markdown
-        //   .use(strip)
-        //   .process(after_fluff, function(err, file) { // use strip markdown plugin
-        //     if (err) throw err
-        //     after_fluff = String(file) // put the stripped string into our snippet
-        //   })
+        remark() // start strip markdown
+          .use(strip)
+          .process(after_fluff, function(err, file) { // use strip markdown plugin
+            if (err) throw err
+            after_fluff = String(file) // put the stripped string into our snippet
+          })
 
 
     } else if (hit.pos[0].title) { // Same process as for content but for title
