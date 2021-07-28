@@ -58,8 +58,7 @@ const HitTemplate = ({ hit }) => {
             after_fluff = after_fluff.replace(/\//g,"")
             after_fluff = after_fluff.replace("\\","")
         }
-
-        // TODO: re-enable stripping of HTML tags. Currently disabled due to "process not defined error"
+        
         remark() // start strip markdown
           .use(strip)
           .process(before_fluff, function(err, file) { // use strip markdown plugin
