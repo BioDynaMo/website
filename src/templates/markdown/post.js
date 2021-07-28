@@ -56,12 +56,9 @@ class Post extends React.Component {
     render() {
         const { location } = this.props
         const post = this.props.data.markdownRemark
-      
         const githubLink = getGitHubLink(post.fileAbsolutePath)
-
         const imageUrl = getMetaImageUrls()
         const sideBarLayout = {}
-
         const { sidebar } = post.frontmatter || ``
         const toc = post.frontmatter.toc === false ? false : true
 
