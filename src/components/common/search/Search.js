@@ -1,113 +1,120 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
-import Autosuggest from 'react-autosuggest'
+import Autosuggest from 'react-autosuggest';
+import remark from 'remark';
+import strip from 'strip-markdown';
+import sanitizeHtml from 'sanitize-html';
 import { Spirit } from '../../../styles/spirit-styles'
 
 const HitTemplate = ({ hit }) => {
 
-    var remark = require('remark') // needed for strip-markdown plugin
-    var strip = require('strip-markdown') // strip-markdown plugin
+    // var remark = require('remark') // needed for strip-markdown plugin
+    // var strip = require('strip-markdown') // strip-markdown plugin
     var pre_dots = "" // Value of this variable changes if the snippet is at the beginning of the document or not
     var post_dots = "" // Value of this variable changes if the snippet is at the end of the document or not
-
+    console.log("hit",hit)
     if (hit.pos[0].content) { // first we check for a hit in the content of the markdown file
-
+        
         var start = hit.pos[0].content.position[0][0] // get position metadata from array
         var str_length = hit.pos[0].content.position[0][1] // get length metadata from array
-        var snippet = hit.content.substr(start,str_length+1) // This is the snippet that was found and is highlighted, added plus one due to indexing
+        var snippet = hit.content.substr(start, str_length + 1) // This is the snippet that was found and is highlighted, added plus one due to indexing
+        snippet = sanitizeHtml(snippet, {
+            allowedTags: [],
+            allowedAttributes: {}
+        })
+        
         var minus = 30 // snippet pre length
         var plus = 30 // snippet post length
 
-        if (start-minus>0){ // Check if we go to far back or not
-            var fluff_start = start-minus
+        if (start - minus > 0) { // Check if we go to far back or not
+            var fluff_start = start - minus
             pre_dots = "..." // there is text before so we add dots
-        } else if(start!=0) {
+        } else if (start != 0) {
             var fluff_start = 0
         }
 
-        if ((start+str_length+plus) < Object.keys(hit.content).length) { // check if we go too far forward
+        if ((start + str_length + plus) < Object.keys(hit.content).length) { // check if we go too far forward
             var fluff_end = plus
-            post_dots ="..." // there is text afterwards so add dots
+            post_dots = "..." // there is text afterwards so add dots
         } else {
-            var fluff_end = Object.keys(hit.content).length-start-str_length
+            var fluff_end = Object.keys(hit.content).length - start - str_length
         }
 
-        if (start == 0){ // no material before highlighted section if its the beginning of the document
+        if (start == 0) { // no material before highlighted section if its the beginning of the document
             var before_fluff = ""
         } else {
-            var before_fluff = hit.content.substr(fluff_start,start-fluff_start) // part of the snippet before the search result
-            before_fluff = before_fluff.replace(/#/g,"") // All of these replace functions help get rid of some extra unwanted syntax in the search result snippet
-            before_fluff = before_fluff.replace(/`/g,"")
-            before_fluff = before_fluff.replace(/\[/g,"")
-            before_fluff = before_fluff.replace(/\]/g,"")
-            before_fluff = before_fluff.replace(/\//g,"")
-            before_fluff = before_fluff.replace("\\","")
+            var before_fluff = hit.content.substr(fluff_start, start - fluff_start) // part of the snippet before the search result
+            before_fluff = before_fluff.replace(/#/g, "") // All of these replace functions help get rid of some extra unwanted syntax in the search result snippet
+            before_fluff = before_fluff.replace(/`/g, "")
+            before_fluff = before_fluff.replace(/\[/g, "")
+            before_fluff = before_fluff.replace(/\]/g, "")
+            before_fluff = before_fluff.replace(/\//g, "")
+            before_fluff = before_fluff.replace("\\", "")
         }
 
         if (fluff_end != plus) {
             var after_fluff = ""
         } else {
-            var after_fluff = hit.content.substr(start+str_length+1, fluff_end) //part of the snippet after the search result
-            after_fluff = after_fluff.replace(/#/g,"") // All of these replace functions help get rid of some extra unwanted syntax in the search result snippet
-            after_fluff = after_fluff.replace(/`/g,"")
-            after_fluff = after_fluff.replace(/\[/g,"")
-            after_fluff = after_fluff.replace(/\]/g,"")
-            after_fluff = after_fluff.replace(/\//g,"")
-            after_fluff = after_fluff.replace("\\","")
+            var after_fluff = hit.content.substr(start + str_length + 1, fluff_end) //part of the snippet after the search result
+            after_fluff = after_fluff.replace(/#/g, "") // All of these replace functions help get rid of some extra unwanted syntax in the search result snippet
+            after_fluff = after_fluff.replace(/`/g, "")
+            after_fluff = after_fluff.replace(/\[/g, "")
+            after_fluff = after_fluff.replace(/\]/g, "")
+            after_fluff = after_fluff.replace(/\//g, "")
+            after_fluff = after_fluff.replace("\\", "")
         }
 
-        // TODO: re-enable stripping of HTML tags. Currently disabled due to "process not defined error"
-        // remark() // start strip markdown
-        //   .use(strip)
-        //   .process(before_fluff, function(err, file) { // use strip markdown plugin
-        //     if (err) throw err
-        //     before_fluff = String(file) // put the stripped string into our snippet
-        //   })
+        remark() // start strip markdown
+            .use(strip)
+            .process(before_fluff, function (err, file) { // use strip markdown plugin
+                if (err) throw err
+                before_fluff = String(file) // put the stripped string into our snippet
+            })
 
-        // remark() // start strip markdown
-        //   .use(strip)
-        //   .process(after_fluff, function(err, file) { // use strip markdown plugin
-        //     if (err) throw err
-        //     after_fluff = String(file) // put the stripped string into our snippet
-        //   })
+        remark() // start strip markdown
+            .use(strip)
+            .process(after_fluff, function (err, file) { // use strip markdown plugin
+                if (err) throw err
+                after_fluff =String(file) // put the stripped string into our snippet
+            })
 
 
     } else if (hit.pos[0].title) { // Same process as for content but for title
         var start = hit.pos[0].title.position[0][0]
         var str_length = hit.pos[0].title.position[0][1]
-        var snippet = hit.title.substr(start,str_length+1)
+        var snippet = hit.title.substr(start, str_length + 1)
         var minus = 10
         var plus = 20
 
-        if (start-minus>0){
-            var fluff_start = start-minus
+        if (start - minus > 0) {
+            var fluff_start = start - minus
             pre_dots = "..."
         } else {
             var fluff_start = 0
         }
 
-        if ((start+str_length+plus) < Object.keys(hit.title).length) {
+        if ((start + str_length + plus) < Object.keys(hit.title).length) {
             var fluff_end = plus
-            post_dots ="..."
+            post_dots = "..."
         } else {
-            var fluff_end = Object.keys(hit.title).length-start-str_length
+            var fluff_end = Object.keys(hit.title).length - start - str_length
         }
 
-        if (start == 0){
+        if (start == 0) {
             var before_fluff = ""
         } else {
-            var before_fluff = hit.title.substr(fluff_start,minus) // part of the snippet before the search result
-            before_fluff = before_fluff.replace(/#/g,"")
-            before_fluff = before_fluff.replace(/`/g,"")
+            var before_fluff = hit.title.substr(fluff_start, minus) // part of the snippet before the search result
+            before_fluff = before_fluff.replace(/#/g, "")
+            before_fluff = before_fluff.replace(/`/g, "")
         }
 
-        if (fluff_end+start+str_length+1 == Object.keys(hit.title).length) {
+        if (fluff_end + start + str_length + 1 == Object.keys(hit.title).length) {
             var after_fluff = ""
         } else {
-            var after_fluff = hit.title.substr(start+str_length+1, fluff_end) //part of the snippet after the search result
-            after_fluff = after_fluff.replace(/#/g,"")
-            after_fluff = after_fluff.replace(/`/g,"")
+            var after_fluff = hit.title.substr(start + str_length + 1, fluff_end) //part of the snippet after the search result
+            after_fluff = after_fluff.replace(/#/g, "")
+            after_fluff = after_fluff.replace(/`/g, "")
         }
 
 
@@ -180,17 +187,17 @@ class Results extends React.Component {
 
     renderSuggestion(hit) {
 
-        if (!hit.title || hit.sidebar=="data-schema-stub" || !hit.sidebar) return // if no title or sidebar return blank
+        if (!hit.title || hit.sidebar == "data-schema-stub" || !hit.sidebar) return // if no title or sidebar return blank
         return <HitTemplate hit={hit} />
     }
 
-    renderSectionTitle( hits ) {
+    renderSectionTitle(hits) {
 
         var index = "" // setting up section names
-        if (hits.sidebar=="userguide") index = `User Guide`
-        if (hits.sidebar=="devguide") index = `Dev Guide`
-        if (hits.sidebar=="team") index = `Team`
-        if (hits.sidebar=="api") index = `API`
+        if (hits.sidebar == "userguide") index = `User Guide`
+        if (hits.sidebar == "devguide") index = `Dev Guide`
+        if (hits.sidebar == "team") index = `Team`
+        if (hits.sidebar == "api") index = `API`
 
         const labelClass = { // set color her
             // faq: `faq-color b--faq-color`,
@@ -220,20 +227,20 @@ class Results extends React.Component {
         const searchResults = window.__LUNR__.en.index.search(query + "^100 " + query + "~1^5 " + query + "*^15") // get results, exact wording or fuzzy or wildcard
         const flat_lunr_results = searchResults.map(({ ref }) => window.__LUNR__.en.store[ref]) // get correct naming
 
-        const added_position = flat_lunr_results.map((rez,index) => {
+        const added_position = flat_lunr_results.map((rez, index) => {
             // blacklisting of html tags in markdown docs
-            if (Object.entries(searchResults[index].matchData.metadata)[0][0]=="div" ||
+            if (Object.entries(searchResults[index].matchData.metadata)[0][0] == "div" ||
                 Object.entries(searchResults[index].matchData.metadata)[0][0] == "href" ||
                 Object.entries(searchResults[index].matchData.metadata)[0][0] == "a" ||
                 Object.entries(searchResults[index].matchData.metadata)[0][0] == "p" ||
-                Object.entries(searchResults[index].matchData.metadata)[0][0]=="br" ||
-                Object.entries(searchResults[index].matchData.metadata)[0][0]=="target=\"_blank" ||
-                Object.entries(searchResults[index].matchData.metadata)[0][0]=="class=\"sbox") {
+                Object.entries(searchResults[index].matchData.metadata)[0][0] == "br" ||
+                Object.entries(searchResults[index].matchData.metadata)[0][0] == "target=\"_blank" ||
+                Object.entries(searchResults[index].matchData.metadata)[0][0] == "class=\"sbox") {
 
                 return { // We return an empty string when these specific values are found
                     path: "",
-                    sidebar:"",
-                    title:"",
+                    sidebar: "",
+                    title: "",
                     pos: "",
                     content: "",
                 }
@@ -241,8 +248,8 @@ class Results extends React.Component {
                 // return the result values as expected
                 return {
                     path: rez.path,
-                    sidebar:rez.sidebar,
-                    title:rez.title,
+                    sidebar: rez.sidebar,
+                    title: rez.title,
                     pos: Object.values(searchResults[index].matchData.metadata),
                     content: rez.content,
                 }
@@ -252,27 +259,27 @@ class Results extends React.Component {
         const grouped_by_sidebar = added_position.map(section => {
             // this is the format of the array
             return {
-              sidebar: section.sidebar,
-              flat_lunr_results: added_position.filter(hit => section.sidebar == hit.sidebar)
+                sidebar: section.sidebar,
+                flat_lunr_results: added_position.filter(hit => section.sidebar == hit.sidebar)
             };
-          }).filter(section => section.flat_lunr_results.length > 0);
+        }).filter(section => section.flat_lunr_results.length > 0);
 
         // remove duplicates
         // https://stackoverflow.com/questions/8668174/indexof-method-in-an-object-array
-        const unique = grouped_by_sidebar.reduce(function(a,b){
-          if(a.map(function(e) { return e.sidebar; }).indexOf(b.sidebar)<0) {
-            a.push(b)
-          };
-          return a;
-        },[])
+        const unique = grouped_by_sidebar.reduce(function (a, b) {
+            if (a.map(function (e) { return e.sidebar; }).indexOf(b.sidebar) < 0) {
+                a.push(b)
+            };
+            return a;
+        }, [])
 
         // limit number of results per category
-        const max_num_results=3
+        const max_num_results = 3
         const results = unique.map(section => {
-          return {
-            sidebar: section.sidebar,
-            flat_lunr_results: section.flat_lunr_results.slice(0, max_num_results)
-          };
+            return {
+                sidebar: section.sidebar,
+                flat_lunr_results: section.flat_lunr_results.slice(0, max_num_results)
+            };
         })
 
         // return the final processed results
