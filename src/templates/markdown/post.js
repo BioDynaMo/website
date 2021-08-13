@@ -56,9 +56,12 @@ class Post extends React.Component {
     render() {
         const { location } = this.props
         const post = this.props.data.markdownRemark
+
         const githubLink = getGitHubLink(post.fileAbsolutePath)
+
         const imageUrl = getMetaImageUrls()
         const sideBarLayout = {}
+
         const { sidebar } = post.frontmatter || ``
         const toc = post.frontmatter.toc === false ? false : true
 
@@ -174,20 +177,11 @@ export default Post
 
 export const articleQuery = graphql`
     query($slug: String!) {
-        
+        site {
+            ...SiteMetaFields
+        }
         markdownRemark(fields: { slug: {eq: $slug}}) {
-            frontmatter {
-              sidebar
-              title
-              toc
-            }
-          }
-          site {
-            siteMetadata {
-              description
-              siteUrl
-              title
-            }
-          }
+            ...MarkdownFields
+        }
     }
 `
