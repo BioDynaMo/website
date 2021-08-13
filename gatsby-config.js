@@ -225,7 +225,7 @@ if (SERVICE_WORKER_KILL_SWITCH) {
 module.exports = {
     siteMetadata: {
         title: `BioDynaMo Website`,
-        siteUrl: process.env.SITE_URL || `http://localhost:8000/`,
+        siteUrl: process.env.SITE_URL || `/`,
         description: `Everything you need to know about agent-based simulations.`,
     },
     plugins: plugins,
