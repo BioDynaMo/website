@@ -86,6 +86,7 @@
     "react-modal": "3.12.1",
     "react-slick": "^0.28.1",
     "requirejs": "^2.3.6",
+    "sanitize-html": "^2.4.0",
     "slick-carousel": "^1.8.1",
     "strip-markdown": "^4.0.0",
     "tocbot": "4.12.2",
