@@ -59,6 +59,13 @@ const plugins = [
             name: `notebooks`,
         },
     },
+    {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+            path: path.join(__dirname, `content`,`biodynamo`, `notebook`),
+            name: `jupyter`,
+        },
+    },
 
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
