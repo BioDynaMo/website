@@ -105,6 +105,7 @@ export const tutorialsQuery = graphql`
               node {
                 name
                 relativePath
+                absolutePath
               }
             }
           }

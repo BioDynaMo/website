@@ -31,6 +31,20 @@ const plugins = [
     /**
      *  Content Plugins
      */
+     `@nteract/gatsby-transformer-ipynb`,
+     {
+        resolve: `gatsby-transformer-json`,
+        options: {
+          typeName: `ipynb`, // a fixed string
+        },
+      },
+    {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+            path: path.join(__dirname, `content`, `biodynamo`, `notebook`),
+            name: `jupyter`,
+        },
+    },
     {
         resolve: `gatsby-source-filesystem`,
         options: {
