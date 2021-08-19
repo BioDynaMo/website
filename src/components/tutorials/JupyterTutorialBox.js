@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Box } from '../common'
 import { Spirit } from '../../styles/spirit-styles'
-const JupyterTutorialBox = ({ to, href, headingClass, title, children, binder, html }) => (
+const JupyterTutorialBox = ({ src, to, href, headingClass, title, children, binder, html }) => (
     <Box
         to={to}
         href={href}
@@ -10,7 +10,7 @@ const JupyterTutorialBox = ({ to, href, headingClass, title, children, binder, h
         radius="4"
     >
         <h2 className={`${Spirit.h2} darkgrey ${headingClass}`}>{title}</h2>
-       
+       <p>{require(src)['cells'][0]['source'][0]}</p>
         <div className={`${Spirit.p} mt2 midgrey`}>{children}</div>
         <div align='center'>
             <br/>
