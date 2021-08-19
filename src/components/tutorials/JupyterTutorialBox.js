@@ -2,7 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Box } from '../common'
 import { Spirit } from '../../styles/spirit-styles'
-const JupyterTutorialBox = ({ to, href, headingClass, title, children, binder, html }) => (
+const JupyterTutorialBox = ({ src, to, href, headingClass, title, children, binder, html }) => { 
+    console.log(src, to, href, headingClass, title, children, binder, html);
+    // let notebookJson = require(src);
+    // console.log(notebookJson);
+    return (
     <Box
         to={to}
         href={href}
@@ -10,7 +14,7 @@ const JupyterTutorialBox = ({ to, href, headingClass, title, children, binder, h
         radius="4"
     >
         <h2 className={`${Spirit.h2} darkgrey ${headingClass}`}>{title}</h2>
-       
+       {/* <p>{notebookJson['cells'][0]['source'][0]}</p> */}
         <div className={`${Spirit.p} mt2 midgrey`}>{children}</div>
         <div align='center'>
             <br/>
@@ -19,7 +23,7 @@ const JupyterTutorialBox = ({ to, href, headingClass, title, children, binder, h
             <a href={binder} target="_blank" > <button className={`${Spirit.greenbutton}`}><b>Run now</b></button></a>
       </div>
     </Box>
-)
+)}
 
 JupyterTutorialBox.propTypes = {
     children: PropTypes.node.isRequired,

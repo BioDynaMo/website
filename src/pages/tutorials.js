@@ -50,9 +50,9 @@ const Tutorials = ({ data, location }) => {
                         {
 			                data.jupyter_notebooks.edges.map(edge => (
                                 <JupyterTutorialBox 
-                                html={"/notebooks/"+edge.node.relativePath}
+                                html={"/jupyter/"+edge.node.relativePath}
                                 title={edge.node.name.charAt(0).toUpperCase()+edge.node.name.slice(1).replace("-", " ")} 
-                                src={""}
+                                src={edge.node.absolutePath}
                                 binder={"https://mybinder.org/v2/gh/BioDynaMo/binder-demo/dockerfile?filepath=%2F"+edge.node.name+"%2F"+edge.node.name+".ipynb"}>
 			                    </JupyterTutorialBox>
 			                ))
@@ -93,17 +93,19 @@ export const tutorialsQuery = graphql`
                 node {
                     name
                     relativePath
+                    absolutePath
                 }
             }
 
         }
         jupyter_notebooks: allFile(
-            filter: {sourceInstanceName: {eq: "markdown-pages"}, extension: {eq:"ipynb"}}
+            filter: {sourceInstanceName: {eq: "jupyter"}, extension: {eq:"ipynb"}}
           ) {
             edges {
               node {
                 name
                 relativePath
+                absolutePath
               }
             }
           }
