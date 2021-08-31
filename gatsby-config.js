@@ -31,7 +31,15 @@ const plugins = [
     /**
      *  Content Plugins
      */
-     `@nteract/gatsby-transformer-ipynb`,
+     {
+        resolve: `@rafaelquintanilha/gatsby-transformer-ipynb`,
+        options: {
+          notebookProps: {
+            displayOrder: ["image/png", "text/html", "text/plain"],
+            showPrompt: false,
+          },
+        },
+      },
      {
         resolve: `gatsby-transformer-json`,
         options: {
@@ -81,7 +89,7 @@ const plugins = [
         },
     },
 
-
+    
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {

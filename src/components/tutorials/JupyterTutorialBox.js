@@ -2,10 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Box } from '../common'
 import { Spirit } from '../../styles/spirit-styles'
-const JupyterTutorialBox = ({ src, to, href, headingClass, title, children, binder, html }) => { 
-    console.log(src, to, href, headingClass, title, children, binder, html);
-    // let notebookJson = require(src);
-    // console.log(notebookJson);
+import { readFileSync } from 'fs'
+
+
+
+const JupyterTutorialBox = ({ src, to, href, headingClass, title, children, binder, html, json }) => { 
+    console.log(src, to, href, headingClass, title, children, binder, html, json);
+    
+    // var data=fs.readFileSync(src, 'utf8');
+    // console.log(data, 'the json obj');
     return (
     <Box
         to={to}
@@ -13,8 +18,8 @@ const JupyterTutorialBox = ({ src, to, href, headingClass, title, children, bind
         className="col-12 col-6-ns col-4-l pa8 tdn middarkgrey gallery-box-min-height gallery-box-max-height"
         radius="4"
     >
-        <h2 className={`${Spirit.h2} darkgrey ${headingClass}`}>{title}</h2>
-       {/* <p>{notebookJson['cells'][0]['source'][0]}</p> */}
+        <h2 className={`post-content ${Spirit.h2} darkgrey ${headingClass}`}>{title}</h2>
+       <p>{json['cells'][0]['source'].reduce((acc,text)=> acc+text.replace("#", ""))}</p>
         <div className={`${Spirit.p} mt2 midgrey`}>{children}</div>
         <div align='center'>
             <br/>
@@ -26,7 +31,7 @@ const JupyterTutorialBox = ({ src, to, href, headingClass, title, children, bind
 )}
 
 JupyterTutorialBox.propTypes = {
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
     title: PropTypes.string.isRequired,
     binder: PropTypes.string,
     to: PropTypes.string,

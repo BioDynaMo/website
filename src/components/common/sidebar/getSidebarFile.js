@@ -6,7 +6,9 @@ const getSidebarFile = (sidebar) => {
     		var [sidebarfile] = require(`../../../../content/biodynamo/doc/sidebars/${sidebar}.yaml`)
         // declare as var here, so it's accessible outside of the try scope
         else if (sidebar == "team")
-            var [sidebarfile] = require(`../../../../content/team/${sidebar}.yaml`)       
+            var [sidebarfile] = require(`../../../../content/team/${sidebar}.yaml`)
+        else if (sidebar == "tutorial")
+            var [sidebarfile] = require(`../../../../content/tutorial/${sidebar}.yaml`)      
     } catch (e) {
         // TODO: make clear error handling here
         throw e

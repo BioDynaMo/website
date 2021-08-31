@@ -1,0 +1,7 @@
+- groups:
+  - group: Tutorials
+    items:
+      - title: Compiled Tutorials
+        link: /tutorials/compiled
+      - title: Jupyter Tutorials
+        link: /tutorials/jupyter

@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import url from 'url'
 
-import { Layout } from '../../components/common/layout'
-import { Spirit } from '../../styles/spirit-styles'
-import { SidebarNav } from '../../components/common/sidebar'
-import { PrevNextSection } from '../../components/common/prev-next'
-import { PostHeader, Icon, TOC } from '../../components/common'
-import { MetaData, getMetaImageUrls } from '../../components/common/meta'
+import { Layout } from '../components/common/layout'
+import { Spirit } from '../styles/spirit-styles'
+import { SidebarNav } from '../components/common/sidebar'
+import { PrevNextSection } from '../components/common/prev-next'
+import { PostHeader, Icon, TOC } from '../components/common'
+import { MetaData, getMetaImageUrls } from '../components/common/meta'
 
 const getGitHubLink = (absoluteFilePath) => {
     let contentFilePath = ``
@@ -57,7 +57,6 @@ class Tutorial extends React.Component {
         const { location } = this.props
         const post = this.props.data.markdownRemark
 
-        const githubLink = getGitHubLink(post.fileAbsolutePath)
 
         const imageUrl = getMetaImageUrls()
         const sideBarLayout = {}
@@ -153,7 +152,7 @@ class Tutorial extends React.Component {
     }
 }
 
-Post.propTypes = {
+Tutorial.propTypes = {
     data: PropTypes.shape({
         site: PropTypes.shape({
             siteMetadata: PropTypes.shape({
@@ -162,26 +161,38 @@ Post.propTypes = {
                 description: PropTypes.string.isRequired,
             }).isRequired,
         }).isRequired,
-        markdownRemark: PropTypes.shape({
-            frontmatter: PropTypes.shape({
-                toc: PropTypes.bool,
-                sidebar: PropTypes.string,
-                title: PropTypes.string.isRequired,
-            }).isRequired,
-        }).isRequired,
     }).isRequired,
-    location: PropTypes.object.isRequired,
+    location: PropTypes.shape({
+        pathname: PropTypes.string.isRequired,
+    }).isRequired,
 }
 
 export default Tutorial
-
-export const articleQuery = graphql`
-    query($slug: String!) {
+export const tutorialsQuery = graphql`
+    query {
         site {
             ...SiteMetaFields
         }
-        markdownRemark(fields: { slug: {eq: $slug}}) {
-            ...MarkdownFields
+        notebooks: allFile(filter: {sourceInstanceName: {eq: "notebooks"}, extension: {eq:"html"}}) {
+            edges {
+                node {
+                    name
+                    relativePath
+                    absolutePath
+                }
+            }
+
         }
+        jupyter_notebooks: allFile(
+            filter: {sourceInstanceName: {eq: "jupyter"}, extension: {eq:"ipynb"}}
+          ) {
+            edges {
+              node {
+                name
+                relativePath
+                absolutePath
+              }
+            }
+          }
     }
 `

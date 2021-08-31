@@ -22,7 +22,7 @@ const TutorialBox = ({ src, to, href, headingClass, title, children, binder, htm
 )
 
 TutorialBox.propTypes = {
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
     title: PropTypes.string.isRequired,
     binder: PropTypes.string,
     to: PropTypes.string,
