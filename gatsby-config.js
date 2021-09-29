@@ -67,9 +67,18 @@ const plugins = [
         options: {
             plugins: [
                 {
+                    // https://www.gatsbyjs.com/plugins/gatsby-remark-images/
                     resolve: `gatsby-remark-images`,
                     options: {
                         withWebp: true,
+                    },
+                },
+                {
+                    // https://www.gatsbyjs.com/plugins/gatsby-remark-copy-linked-files/
+                    resolve: "gatsby-remark-copy-linked-files",
+                    options: {
+                      destinationDir: "static",
+                      ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`],
                     },
                 },
                 `gatsby-remark-autolink-headers`,
