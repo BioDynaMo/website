@@ -19,7 +19,7 @@ const JupyterTutorialBox = ({ src, to, href, headingClass, title, children, bind
         radius="4"
     >
         <h2 className={`post-content ${Spirit.h2} darkgrey ${headingClass}`}>{title}</h2>
-       <p>{json['cells'][0]['source'].reduce((acc,text)=> acc+text.replace("#", ""))}</p>
+       <p dangerouslySetInnerHTML={{ __html: json['cells'][0]['source'].reduce((acc,text)=> acc+text.replace("#", "")) }}></p>
         <div className={`${Spirit.p} mt2 midgrey`}>{children}</div>
         <div align='center'>
             <br/>
