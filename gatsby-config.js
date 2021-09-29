@@ -71,6 +71,7 @@ const plugins = [
                     resolve: `gatsby-remark-images`,
                     options: {
                         withWebp: true,
+                        showCaptions: ['title']
                     },
                 },
                 {
