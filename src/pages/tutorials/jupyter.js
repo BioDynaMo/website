@@ -83,7 +83,7 @@ const Tutorials = ({ data, location }) => {
                                                     html={"/jupyter/" + node.fileRelativePath}
                                                     title={name.charAt(0).toUpperCase() + name.slice(1).replace("-", " ")}
                                                     src={node.fileRelativePath}
-                                                    binder={"https://mybinder.org/v2/gh/BioDynaMo/binder-demo/master?filepath=notebook/" + name + ".ipynb"}
+                                                    binder={"https://mybinder.org/v2/gh/BioDynaMo/binder-demo/master?filepath=notebooks/notebook/" + name + ".ipynb"}
                                                     json={node.json}>
                                                 </JupyterTutorialBox>
                                             )
