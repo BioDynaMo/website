@@ -17,10 +17,10 @@
         link: /team/alumni/
   - group: Publications
     items:
-      - title: Biodynamo's core
+      - title: BioDynaMo
         link: /team/core_publications/
-      - title: Biodynamo's application
+      - title: Simulations using BioDynaMo
         link: /team/application_publications/
-      - title: Biodynamo's predecessor
+      - title: Related work
         link: /team/predecessor_publications/
   

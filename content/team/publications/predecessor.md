@@ -1,14 +1,14 @@
 ---
-title: "BioDynaMo's predecessor"
+title: "Related work"
 date: "2021-06-04"
 path: "/team/predecessor_publications/"
-meta_title: "BioDynaMo predecessor's"
+meta_title: "Related work"
 toc: true
 sidebar: "team"
 ---
 
 In the early days of BioDynaMo, the project started with the goal to modernize the [CX3D](http://www.ini.uzh.ch/~amw/seco/cx3d/) code and to accelerate its computations. 
-While BioDyanMo has turned into a general purpose agent-based modling software since then, we want to give an overview over impactful publications based on CX3D because these were the driving force in the early stages of the project.
+While BioDyanMo has turned into a general purpose agent-based modeling software since then, we want to give an overview over impactful publications based on CX3D because these were the driving force in the early stages of the project.
 
 ## 2021
 

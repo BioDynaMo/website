@@ -1,8 +1,8 @@
 ---
-title: "BioDynaMo's application"
+title: "Simulations using BioDynaMo"
 date: "2021-06-04"
 path: "/team/application_publications/"
-meta_title: "BioDynaMo's application"
+meta_title: "Simulations using BioDynaMo"
 toc: true
 sidebar: "team"
 ---
