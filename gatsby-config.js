@@ -40,6 +40,13 @@ const plugins = [
           },
         },
       },
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+            path: path.join(__dirname,`content`, `biodynamo`, `demo`),
+            name: `notebooks`,
+        },
+    },
      {
         resolve: `gatsby-transformer-json`,
         options: {
@@ -81,13 +88,7 @@ const plugins = [
             name: `public`,
         },
     },
-    {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-            path: path.join(__dirname, `static`, `notebooks`),
-            name: `notebooks`,
-        },
-    },
+    
 
     
     `gatsby-plugin-sharp`,
