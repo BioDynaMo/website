@@ -7,8 +7,11 @@ toc: true
 sidebar: "team"
 ---
 
-In the early days of BioDynaMo, the project started with the goal to modernize the [CX3D](http://www.ini.uzh.ch/~amw/seco/cx3d/) code and to accelerate its computations. 
-While BioDyanMo has turned into a general purpose agent-based modeling software since then, we want to give an overview over impactful publications based on CX3D because these were the driving force in the early stages of the project.
+BioDynaMo is a general purpose agent-based modeling software platform, and it 
+took inspiration from an older software called 
+[CX3D](http://www.ini.uzh.ch/~amw/seco/cx3d/). We want to give an overview
+over impactful publications based on CX3D because of the relevance of the 
+agent-based modelling approach.
 
 ## 2021
 
