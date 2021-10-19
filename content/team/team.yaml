@@ -3,6 +3,10 @@
     items:
       - title: Who are we?
         link: /team/
+  - group: License
+    items:
+      - title: Apache License
+        link: /team/license/
   - group: Consortium
     items:
       - title: Members
@@ -23,4 +27,7 @@
         link: /team/application_publications/
       - title: Related work
         link: /team/predecessor_publications/
-  
+  - group: Cite Us
+    items:
+      - title: Cite
+        link: /team/citation/
