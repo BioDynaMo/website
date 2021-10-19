@@ -44,4 +44,3 @@ agent-based modelling approach.
 ## 1997
 
 * Rene Brun and Fons Rademakers. **ROOT — An object oriented data analysis framework.** In: Nuclear Instruments and Methods in Physics Research, 389, 1997. DOI: [10.1016/S0168-9002(97)00048-X](https://doi.org/10.1016/S0168-9002(97)00048-X).
-
