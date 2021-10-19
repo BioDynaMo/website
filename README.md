@@ -116,6 +116,8 @@ yarn
 gatsby develop
 ```
 
+The website can now be viewed by going with the browser to `localhost:8000`.
+
 Commands to build and serve locally are:
 
 ```bash
@@ -124,7 +126,7 @@ gatsby build
 NODE_ENV=production gatsby serve
 ```
 
-The website can now be viewed by going with the browser to `localhost:8000`.
+The website can now be viewed by going with the browser to `localhost:9000`.
 
 The `yarn` command is used to manage dependencies, plugins and packages for the website.
 This command installs the `node_modules` file.
