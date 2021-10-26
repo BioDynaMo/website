@@ -55,13 +55,17 @@ class Tutorial extends React.Component {
 
     render() {
         const { location } = this.props
-        const post = this.props.data.markdownRemark
-
+        const post = this.props.data.markdownRemark || {}
+        
+        const githubLink = getGitHubLink(post.fileAbsolutePath)
 
         const imageUrl = getMetaImageUrls()
         const sideBarLayout = {}
 
         const { sidebar } = post.frontmatter || ``
+        if (post.frontmatter == undefined){
+            post.frontmatter = {}
+        }
         const toc = post.frontmatter.toc === false ? false : true
 
         if (sidebar && toc) {

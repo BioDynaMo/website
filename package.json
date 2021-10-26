@@ -44,6 +44,7 @@
     "start-server-and-test": "1.12.1"
   },
   "dependencies": {
+    "@gatsby-contrib/gatsby-transformer-ipynb": "^0.5.8",
     "@rafaelquintanilha/gatsby-transformer-ipynb": "^0.2.0",
     "@tryghost/helpers": "^1.1.6",
     "@tryghost/helpers-gatsby": "1.0.45",

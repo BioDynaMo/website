@@ -6,11 +6,15 @@ import { readFileSync } from 'fs'
 
 
 
-const JupyterTutorialBox = ({ src, to, href, headingClass, title, children, binder, html, json }) => { 
+const JupyterTutorialBox = ({ src, to, href, headingClass, title, children, binder, html, json }) => {
     console.log(src, to, href, headingClass, title, children, binder, html, json);
-    
+
     // var data=fs.readFileSync(src, 'utf8');
     // console.log(data, 'the json obj');
+    console.log("html, json ::",html, json);
+    if (json == undefined){
+        return null;
+    }    
     return (
     <Box
         to={to}

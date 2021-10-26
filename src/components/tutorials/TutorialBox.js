@@ -8,6 +8,7 @@ const TutorialBox = ({ src, to, href, headingClass, title, children, binder, htm
         href={href}
         className="col-12 col-6-ns col-4-l pa8 tdn middarkgrey gallery-box-min-height gallery-box-max-height"
         radius="4"
+        style={{ width: "fit-content", display: "inline-grid", justifyContent: "center", alignItems: "center" }}
     >
         <h2 className={`${Spirit.h2} darkgrey ${headingClass}`}>{title}</h2>
         <img src={src} className="tutorial-img mt2"/>
