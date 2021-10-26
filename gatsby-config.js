@@ -32,7 +32,7 @@ const plugins = [
      *  Content Plugins
      */
      {
-        resolve: `@rafaelquintanilha/gatsby-transformer-ipynb`,
+        resolve: `@hassan11196/gatsby-transformer-ipynb`,
         options: {
           notebookProps: {
             displayOrder: ["image/png", "text/html", "text/plain"],
