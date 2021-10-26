@@ -79,6 +79,8 @@ if [ ! -z "${DEVELOP+x}" ]; then
       -v ${SCRIPT_PATH}:/website \
       -v ${BDM_DIR}/build/doc/api:/website/static/api \
       -v ${BDM_DIR}/doc:/website/content/biodynamo/doc \
+      -v ${BDM_DIR}/notebook:/website/content/biodynamo/notebook\
+      -v ${BDM_DIR}/demo:/website/content/biodynamo/demo \
       bdm-website bash -c 'yarn && gatsby develop'
   else
     sudo docker run \
@@ -88,6 +90,8 @@ if [ ! -z "${DEVELOP+x}" ]; then
       --name=mybdmweb \
       -v ${SCRIPT_PATH}:/website \
       -v ${BDM_DIR}/doc:/website/content/biodynamo/doc \
+      -v ${BDM_DIR}/notebook:/website/content/biodynamo/notebook\
+      -v ${BDM_DIR}/demo:/website/content/biodynamo/demo \
       bdm-website bash -c 'yarn && gatsby develop'
   fi
 else
@@ -100,6 +104,8 @@ else
     -v ${SCRIPT_PATH}:/website \
     -v ${BDM_DIR}/build/doc/api:/website/static/api \
     -v ${BDM_DIR}/doc:/website/content/biodynamo/doc \
+    -v ${BDM_DIR}/notebook:/website/content/biodynamo/notebook\
+    -v ${BDM_DIR}/demo:/website/content/biodynamo/demo\
     bdm-website bash -c 'yarn && gatsby build'
 fi
 
