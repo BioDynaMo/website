@@ -47,12 +47,6 @@ const plugins = [
             name: `notebooks`,
         },
     },
-     {
-        resolve: `gatsby-transformer-json`,
-        options: {
-          typeName: `ipynb`, // a fixed string
-        },
-      },
     {
         resolve: `gatsby-source-filesystem`,
         options: {
