@@ -1,5 +1,5 @@
 const path = require(`path`)
-const { allMarkdownPosts } = require(`../utils/node-queries`)
+const { allMarkdownPosts, allJupyterNotebooks } = require(`../utils/node-queries`)
 
 module.exports.createRedirects = ({ actions }) => {
     const { createRedirect } = actions
@@ -47,28 +47,27 @@ module.exports.createMarkdownPages = async ({ graphql, actions }) => {
 }
 
 
-module.exports.createTutorialPages = async ({ graphql, actions }) => {
+module.exports.createJupyterTutorialPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const queryPromises = []
 
   queryPromises.push(new Promise((resolve, reject) => {
-      graphql(allMarkdownPosts())
+      graphql(allJupyterNotebooks())
           .then((result) => {
               if (result.errors) {
                   return reject(result.errors)
               }
-
-              return result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-                  const DocTemplate = path.resolve(`./src/templates/markdown/post.js`)
-
+  
+              return result.data.allJupyterNotebook.edges.forEach(({ node }) => {
+                  const DocTemplate = path.resolve(`./src/templates/jupyter.js`)
+           
                   createPage({
-                      path: node.fields.slug,
+                      path: "jupyter/" + node.fileRelativePath,
                       component: DocTemplate,
                       context: {
                           // Data passed to context is available
                           // in page queries as GraphQL variables.
-                          slug: node.fields.slug,
-                          section: node.fields.section,
+                          slug: node.fileRelativePath,
                       },
                   })
                   return resolve()

@@ -3,20 +3,21 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
-import { Layout } from '../../components/common/layout'
-import { Spirit } from '../../styles/spirit-styles'
-import { SidebarNav } from '../../components/common/sidebar'
-import { MetaData, getMetaImageUrls } from '../../components/common/meta'
-import { TutorialBox, JupyterTutorialBox } from '../../components/tutorials'
-import { TOC } from '../../components/common'
+import { Layout } from '../components/common/layout'
+import { Spirit } from '../styles/spirit-styles'
+import { SidebarNav } from '../components/common/sidebar'
+import { MetaData, getMetaImageUrls } from '../components/common/meta'
+import * as nb from "notebookjs";
 
-const Tutorials = ({ data, location }) => {
+import { TOC } from '../components/common'
+const NotebookRender = require(`@rafaelquintanilha/notebook-render`).default;
+const JupyterNotebookPage = ({ data, location }) => {
     const title = `Tutorials`
     const description = `This is the tutorials page.`
     const imageUrl = getMetaImageUrls()
 
 
-
+    console.log(data);
     const sideBarLayout = {}
 
     const sidebar = 'tutorial'
@@ -40,7 +41,9 @@ const Tutorials = ({ data, location }) => {
         sideBarLayout.justification = `justify-center`
     }
     console.log(sideBarLayout);
-
+    
+    let ipynb = data.allJupyterNotebook.edges[0].node.json
+    var notebook = nb.parse(ipynb);
 
     return (
         <>
@@ -75,20 +78,7 @@ const Tutorials = ({ data, location }) => {
                         <div className={`w-100 mw-content bg-white shadow-2 br4`}>
                             <article className="flex-auto pa5 pa8-m pa15-l pt10-ns pb10-ns pt10-l pb10-l relative">
                                 <section className="post-content grid-1 gutter-row-20 gutter-20-ns gutter-36-l">
-                                    {
-                                        data.allJupyterNotebook.nodes.map(node => {
-                                            let name = node.fileRelativePath;
-                                            return (
-                                                <JupyterTutorialBox
-                                                    html={"/jupyter/" + node.fileRelativePath}
-                                                    title={name.charAt(0).toUpperCase() + name.slice(1).replace("-", " ")}
-                                                    src={node.fileRelativePath}
-                                                    binder={"https://mybinder.org/v2/gh/BioDynaMo/binder-demo/master?filepath=notebooks/notebook/" + name + ".ipynb"}
-                                                    json={node.json}>
-                                                </JupyterTutorialBox>
-                                            )
-                                        })
-                                    }
+                                {notebook.render().outerHTML}
                                 </section>
                             </article>
                         </div>
@@ -106,7 +96,7 @@ const Tutorials = ({ data, location }) => {
     )
 }
 
-Tutorials.propTypes = {
+JupyterNotebookPage.propTypes = {
     data: PropTypes.shape({
         site: PropTypes.shape({
             siteMetadata: PropTypes.shape({
@@ -121,24 +111,28 @@ Tutorials.propTypes = {
     }).isRequired,
 }
 
-export default Tutorials
 
-export const tutorialsQuery = graphql`
-    query {
-        site {
-            ...SiteMetaFields
-        }
-      
-        
-          allJupyterNotebook {
-            nodes {
-              fileRelativePath
-              json {
-                cells {
-                  source
-                }
-              }
+export default JupyterNotebookPage
+
+export const JupyterNotebookPageQuery = graphql`
+query($slug: String!) {
+    site {
+        ...SiteMetaFields
+    }
+    allJupyterNotebook(filter: {fileRelativePath: {eq: $slug}}) 
+  {
+    
+    edges {
+      node {
+        fileRelativePath
+        json {
+            cells {
+              source
             }
           }
+      }
     }
+  }
+}
+
 `

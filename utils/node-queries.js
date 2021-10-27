@@ -71,6 +71,27 @@ const allMarkdownPosts = function allMarkdownposts(section, fields = defaultMark
 
     return query
 }
+const allJupyterNotebooks = function allJupyterNotebooks(notebook_name, fields = defaultMarkdownFields) {
+
+    let query = `
+        {
+            allJupyterNotebook {
+                edges {
+                    node {
+                        fileRelativePath
+                        json {
+                            cells {
+                            source
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    `
+
+    return query
+}
 const allTutorialTypes = function allTutorialTypes(section, fields = defaultMarkdownFields) {
     let regex = `/^(?!/data-schema\/).*(?<!README\/)$/` // eslint-disable-line no-useless-escape
     let sectionFilter = `section: {eq: "${section}"},`
@@ -97,4 +118,5 @@ const allTutorialTypes = function allTutorialTypes(section, fields = defaultMark
 module.exports = {
     allGhostPosts: allGhostPosts,
     allMarkdownPosts: allMarkdownPosts,
+    allJupyterNotebooks: allJupyterNotebooks
 }

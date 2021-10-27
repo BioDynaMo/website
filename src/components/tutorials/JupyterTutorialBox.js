@@ -15,6 +15,10 @@ const JupyterTutorialBox = ({ src, to, href, headingClass, title, children, bind
     if (json == undefined){
         return null;
     }    
+    const cleaned_first_cell = json['cells'][0]['source'].reduce((acc, text) => acc + text.replace("#", "")).replace("#", "").split("**");
+    let notebookTitle =  cleaned_first_cell[0];
+    let Author = cleaned_first_cell[1];
+    let text =  cleaned_first_cell[2];
     return (
     <Box
         to={to}
@@ -22,10 +26,12 @@ const JupyterTutorialBox = ({ src, to, href, headingClass, title, children, bind
         className="col-12 col-6-ns col-4-l pa8 tdn middarkgrey gallery-box-min-height gallery-box-max-height"
         radius="4"
     >
-        <h2 className={`post-content ${Spirit.h2} darkgrey ${headingClass}`}>{title}</h2>
-       <p dangerouslySetInnerHTML={{ __html: json['cells'][0]['source'].reduce((acc,text)=> acc+text.replace("#", "")) }}></p>
-        <div className={`${Spirit.p} mt2 midgrey`}>{children}</div>
-        <div align='center'>
+        <h2 className={`post-content ${Spirit.h2} darkgrey ${headingClass}`} style={{fontWeight: "bold"}}>{notebookTitle}</h2>
+        <h2 className={`post-content ${Spirit.h2} darkgrey ${headingClass}`}>{Author}</h2>
+        <h4 className={`post-content ${Spirit.h2} darkgrey ${headingClass}`}>filename: {title}</h4>
+       <p dangerouslySetInnerHTML={{ __html: text}}></p>
+        {/* <div className={`${Spirit.p} mt2 midgrey`}>{children}</div> */}
+        <div style={{display:"flex", justifyContent:"center"}}>
             <br/>
             <a href={html} target="_blank" > <button className={`${Spirit.greybutton}`}><b>View now</b></button></a>
             <br/>
