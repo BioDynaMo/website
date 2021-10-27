@@ -18,7 +18,7 @@ The file system for the repository is separated as follows:
 - **static**: contains all pre-created assets (like html files that need to be loaded into the website), as well as a gallery and team folders for images for their respective pages
 - **gatsby**: contains the files that automatically create pages from the markdown files
 - **docker**: contains dockerfile to build and use container to develop and test website
-- **content**: contains all the markdown files that make up the content (it is a submodule based off the biodynamo repo)
+- **content**: contains all the markdown files that make up the content (it is a submodule based off the biodynamo repo, e.g. `mkdir biodynamo;cd biodynamo;ln -s ~/biodynamo/doc .`)
 
 The paths that will be used in this repository are all relative and follow the configuration set by `gatsby-source-filesystem`.
 *The directories indicated in this plugin can be considered as root.*
@@ -80,8 +80,8 @@ nvm install 12.22.0
 Next install `yarn` and `gatsby` with:
 
 ```bash
-npm install yarn
-npm install gatsby-cli
+npm install -g yarn
+npm install -g gatsby-cli
 ```
 
 ### How to Develop or Build the Website
@@ -91,6 +91,8 @@ The template for it is:
 
 ```
 SITE_URL="http://local:8000"
+...
+...
 SERVICE_WORKER_KILL_SWITCH="false"
 ```
 
@@ -114,6 +116,8 @@ yarn
 gatsby develop
 ```
 
+The website can now be viewed by going with the browser to `localhost:8000`.
+
 Commands to build and serve locally are:
 
 ```bash
@@ -121,6 +125,8 @@ yarn
 gatsby build
 NODE_ENV=production gatsby serve
 ```
+
+The website can now be viewed by going with the browser to `localhost:9000`.
 
 The `yarn` command is used to manage dependencies, plugins and packages for the website.
 This command installs the `node_modules` file.
