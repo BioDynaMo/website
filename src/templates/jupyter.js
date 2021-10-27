@@ -7,7 +7,7 @@ import { Layout } from '../components/common/layout'
 import { Spirit } from '../styles/spirit-styles'
 import { SidebarNav } from '../components/common/sidebar'
 import { MetaData, getMetaImageUrls } from '../components/common/meta'
-import * as nb from "notebookjs";
+
 
 import { TOC } from '../components/common'
 const NotebookRender = require(`@rafaelquintanilha/notebook-render`).default;
@@ -43,7 +43,10 @@ const JupyterNotebookPage = ({ data, location }) => {
     console.log(sideBarLayout);
     
     let ipynb = data.allJupyterNotebook.edges[0].node.json
-    var notebook = nb.parse(ipynb);
+    let Notebook = React.createElement(NotebookRender, {
+        notebook: ipynb,
+        ...({})
+      }, null); 
 
     return (
         <>
@@ -78,7 +81,7 @@ const JupyterNotebookPage = ({ data, location }) => {
                         <div className={`w-100 mw-content bg-white shadow-2 br4`}>
                             <article className="flex-auto pa5 pa8-m pa15-l pt10-ns pb10-ns pt10-l pb10-l relative">
                                 <section className="post-content grid-1 gutter-row-20 gutter-20-ns gutter-36-l">
-                                {notebook.render().outerHTML}
+                                {/* <NotebookRender notebook={ipynb}></NotebookRender> */}
                                 </section>
                             </article>
                         </div>
