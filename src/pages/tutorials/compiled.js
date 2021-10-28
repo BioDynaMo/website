@@ -73,10 +73,10 @@ const Tutorials = ({ data, location }) => {
                     <section className="grid-12 gutter-row-20 gutter-20-ns gutter-36-l">
 
                         {
-                            data.notebooks.edges.map(edge => (
+                            data.compiled_folders.edges.map(edge => (
                                 <TutorialBox
                                     html={"/notebooks/" + edge.node.relativePath}
-                                    title={edge.node.name.charAt(0).toUpperCase() + edge.node.name.slice(1).replace("_", " ")}
+                                    title={edge.node.relativePath}
                                     src={"/images/notebooks/" + edge.node.name + ".png"}
                                     binder={"https://mybinder.org/v2/gh/BioDynaMo/binder-demo/dockerfile?filepath=%2F" + edge.node.name + "%2F" + edge.node.name + ".ipynb"}>
                                 </TutorialBox>
@@ -129,6 +129,19 @@ export const tutorialsQuery = graphql`
             }
 
         }
+        compiled_folders :allDirectory(
+            filter: { sourceInstanceName: {eq: "notebooks"},relativeDirectory: {eq: ""}}
+          ) {
+            edges {
+              node {
+                id
+                relativePath
+                dir
+                relativeDirectory
+                sourceInstanceName
+              }
+            }
+          }
         jupyter_notebooks: allFile(
             filter: {sourceInstanceName: {eq: "jupyter"}, extension: {eq:"ipynb"}}
           ) {

@@ -11,7 +11,7 @@ const TutorialBox = ({ src, to, href, headingClass, title, children, binder, htm
         style={{ width: "fit-content", display: "inline-grid", justifyContent: "center", alignItems: "center" }}
     >
         <h2 className={`${Spirit.h2} darkgrey ${headingClass}`}>{title}</h2>
-        <img src={src} className="tutorial-img mt2"/>
+
         <div className={`${Spirit.p} mt2 midgrey`}>{children}</div>
         <div align='center'>
             <br/>
