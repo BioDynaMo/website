@@ -78,14 +78,40 @@ const allJupyterNotebooks = function allJupyterNotebooks(notebook_name, fields =
             allJupyterNotebook {
                 edges {
                     node {
-                        fileRelativePath
-                        json {
-                            cells {
-                            source
+                      fileRelativePath
+                      json {
+                          nbformat_minor
+                          cells {
+                          cell_type
+                          id
+                          source
+                          }
+                          nbformat
+                        }
+                        metadata {
+                          ipub {
+                            titlepage {
+                              author
+                              email
+                              tagline
+                              subtitle
+                              title
                             }
+                          }
+                          kernelspec {
+                            display_name
+                            language
+                            name
+                          }
+                          language_info {
+                            codemirror_mode
+                            file_extension
+                            mimetype
+                            name
+                          }
                         }
                     }
-                }
+                  }
             }
         }
     `

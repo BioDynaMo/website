@@ -23,28 +23,31 @@ const JupyterNotebookPage = ({ data, location }) => {
     const sidebar = 'tutorial'
     const toc = true
 
-    if (sidebar && toc) {
-        // Layout #1: navigation left and right: sidebar and TOC
-        console.log("sidebar && toc")
-        sideBarLayout.leftSidebar = <SidebarNav location={location} sidebar={sidebar} />
-        sideBarLayout.rightSidebar = <div className="nr3 sticky top-25"><TOC className="pr4" listClasses="mt2" /></div>
-        sideBarLayout.justification = `justify-between`
-    } else if (sidebar || toc) {
-        // Layout #2: navigation left only, either TOC or sidebar
+    // if (sidebar && toc) {
+    //     // Layout #1: navigation left and right: sidebar and TOC
+    //     console.log("sidebar && toc")
+    //     sideBarLayout.leftSidebar = <SidebarNav location={location} sidebar={sidebar} />
+    //     sideBarLayout.rightSidebar = <div className="nr3 sticky top-25"><TOC className="pr4" listClasses="mt2" /></div>
+    //     sideBarLayout.justification = `justify-between`
+    // } else if (sidebar || toc) {
+    //     // Layout #2: navigation left only, either TOC or sidebar
 
-        sideBarLayout.leftSidebar = sidebar ?
-            <SidebarNav location={location} sidebar={sidebar} /> :
-            <div className="nr3 sticky top-25"><TOC listClasses="lefty" className="mt5 mb5 mt10-ns mb0-ns" showHeading={false} /></div>
-        sideBarLayout.justification = `justify-start`
-    } else {
-        // Layout #3: no sidebar navigation
-        sideBarLayout.justification = `justify-center`
-    }
+    //     sideBarLayout.leftSidebar = sidebar ?
+    //         <SidebarNav location={location} sidebar={sidebar} /> :
+    //         <div className="nr3 sticky top-25"><TOC listClasses="lefty" className="mt5 mb5 mt10-ns mb0-ns" showHeading={false} /></div>
+    //     sideBarLayout.justification = `justify-start`
+    // } else {
+    //     // Layout #3: no sidebar navigation
+    //     sideBarLayout.justification = `justify-center`
+    // }
     console.log(sideBarLayout);
     
     let ipynb = data.allJupyterNotebook.edges[0].node.json
+    ipynb.metadata = {};
+    ipynb.cells = ipynb.cells.map(cell => ({...cell, outputs:[]}))
+    console.log(ipynb);
     let Notebook = React.createElement(NotebookRender, {
-        notebook: ipynb,
+        notebook:  ipynb.nbformat <= 4 ?ipynb : null ,
         ...({})
       }, null); 
 
@@ -71,27 +74,17 @@ const JupyterNotebookPage = ({ data, location }) => {
 
                 {/* <div className={`${Spirit.page.xl} mt-vw3`}> */}
                 <div className={`${Spirit.page.xl} flex flex-column flex-row-ns ${sideBarLayout.justification} relative`}>
-                    {sideBarLayout.leftSidebar ?
-                        <div className={`${(false ? `mobile-nav-open` : ``)} w-100 w-sidebar-ns pr10 pl5 pl0-ns flex-shrink-0-l relative left-sidebar`}>
-                            {sideBarLayout.leftSidebar}
-                        </div>
-                        : null
-                    }
+                    
                     <div>
                         <div className={`w-100 mw-content bg-white shadow-2 br4`}>
                             <article className="flex-auto pa5 pa8-m pa15-l pt10-ns pb10-ns pt10-l pb10-l relative">
-                                <section className="post-content grid-1 gutter-row-20 gutter-20-ns gutter-36-l">
-                                {/* <NotebookRender notebook={ipynb}></NotebookRender> */}
-                                </section>
+                                {/* <section className="post-content grid-1 gutter-row-20 gutter-20-ns gutter-36-l"> */}
+                                <NotebookRender notebook={ipynb}></NotebookRender>
+                                {/* </section> */}
                             </article>
                         </div>
                     </div>
-                    {sideBarLayout.rightSidebar ?
-                        <div className="order-3 w-sidebar flex-shrink-0 dn db-l pt10 pl7">
-                            {sideBarLayout.rightSidebar}
-                        </div>
-                        : null
-                    }
+                    
                 </div>
 
             </Layout>
@@ -129,8 +122,34 @@ query($slug: String!) {
       node {
         fileRelativePath
         json {
+            nbformat_minor
             cells {
-              source
+            cell_type
+            id
+            source
+            }
+            nbformat
+          }
+          metadata {
+            ipub {
+              titlepage {
+                author
+                email
+                tagline
+                subtitle
+                title
+              }
+            }
+            kernelspec {
+              display_name
+              language
+              name
+            }
+            language_info {
+              codemirror_mode
+              file_extension
+              mimetype
+              name
             }
           }
       }
