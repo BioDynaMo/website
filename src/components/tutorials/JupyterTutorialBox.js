@@ -23,7 +23,7 @@ const JupyterTutorialBox = ({ src, to, href, headingClass, title, children, bind
     <Box
         to={to}
         href={href}
-        className="col-12 col-6-ns col-4-l pa8 tdn middarkgrey gallery-box-min-height"
+        className="col-12 col-6-ns col-4-l pa8 tdn middarkgrey gallery-box-min-height gallery-box-max-height"
         radius="4"
     >
         <h2 className={`post-content ${Spirit.h2} darkgrey ${headingClass}`} style={{fontWeight: "bold"}}>{notebookTitle}</h2>

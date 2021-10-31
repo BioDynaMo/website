@@ -7,7 +7,8 @@ import { Layout } from '../components/common/layout'
 import { Spirit } from '../styles/spirit-styles'
 import { SidebarNav } from '../components/common/sidebar'
 import { MetaData, getMetaImageUrls } from '../components/common/meta'
-
+import katex from 'katex';
+import "katex/dist/katex.css"
 
 const NotebookRender = require(`@rafaelquintanilha/notebook-render`).default;
 const JupyterNotebookPage = ({ data, location }) => {

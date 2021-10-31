@@ -88,13 +88,13 @@ const Tutorials = ({ data, location }) => {
                                 <section className="post-content grid-1 gutter-row-20 gutter-20-ns gutter-36-l">
                                     {
                                         data.allJupyterNotebook.nodes.map(node => {
-                                            let name = node.fileRelativePath;
+                                            let name = node.fileRelativePath.split("/")[2];
                                             return (
                                                 <JupyterTutorialBox
                                                     html={"/interpreted/" + node.fileRelativePath.split(".ipynb")[0]}
                                                     title={name.charAt(0).toUpperCase() + name.slice(1).replace("-", " ")}
                                                     src={node.fileRelativePath}
-                                                    binder={"https://mybinder.org/v2/gh/BioDynaMo/binder-demo/master?filepath=notebooks/notebook/" + name + ".ipynb"}
+                                                    binder={"https://mybinder.org/v2/gh/BioDynaMo/binder-demo/master?filepath=notebook/notebook/" + name }
                                                     json={node.json}>
                                                 </JupyterTutorialBox>
                                             )

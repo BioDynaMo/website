@@ -15,9 +15,9 @@ const TutorialBox = ({ src, to, href, headingClass, title, children, binder, htm
         <div className={`${Spirit.p} mt2 midgrey`}>{children}</div>
         <div align='center'>
             <br/>
-            <a href={html} target="_blank" > <button className={`${Spirit.greybutton}`}><b>View now</b></button></a>
+            {/* <a href={html} target="_blank" > <button className={`${Spirit.greybutton}`}><b>View now</b></button></a> */}
             <br/>
-            <a href={binder} target="_blank" > <button className={`${Spirit.greenbutton}`}><b>Run now</b></button></a>
+            <a href={binder} target="_blank" > <button className={`${Spirit.greenbutton}`}><b>View in Jupyter Lab</b></button></a>
       </div>
     </Box>
 )

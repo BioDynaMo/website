@@ -78,7 +78,7 @@ const Tutorials = ({ data, location }) => {
                                     html={"/notebooks/" + edge.node.relativePath}
                                     title={edge.node.relativePath}
                                     src={"/images/notebooks/" + edge.node.name + ".png"}
-                                    binder={"https://mybinder.org/v2/gh/BioDynaMo/binder-demo/dockerfile?filepath=%2F" + edge.node.name + "%2F" + edge.node.name + ".ipynb"}>
+                                    binder={"https://mybinder.org/v2/gh/BioDynaMo/binder-demo/master?urlpath=lab/tree/demo/" + edge.node.relativePath}>
                                 </TutorialBox>
                             ))
                         }
