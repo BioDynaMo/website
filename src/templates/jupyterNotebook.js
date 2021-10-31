@@ -10,44 +10,23 @@ import { MetaData, getMetaImageUrls } from '../components/common/meta'
 
 
 import { TOC } from '../components/common'
-const NotebookRender = require(`@rafaelquintanilha/notebook-render`).default;
+const NotebookRender = require(`@nteract/notebook-render`).default;
 const JupyterNotebookPage = ({ data, location }) => {
     const title = `Tutorials`
     const description = `This is the tutorials page.`
     const imageUrl = getMetaImageUrls()
 
 
-    console.log(data);
     const sideBarLayout = {}
 
-    const sidebar = 'tutorial'
-    const toc = true
-
-    // if (sidebar && toc) {
-    //     // Layout #1: navigation left and right: sidebar and TOC
-    //     console.log("sidebar && toc")
-    //     sideBarLayout.leftSidebar = <SidebarNav location={location} sidebar={sidebar} />
-    //     sideBarLayout.rightSidebar = <div className="nr3 sticky top-25"><TOC className="pr4" listClasses="mt2" /></div>
-    //     sideBarLayout.justification = `justify-between`
-    // } else if (sidebar || toc) {
-    //     // Layout #2: navigation left only, either TOC or sidebar
-
-    //     sideBarLayout.leftSidebar = sidebar ?
-    //         <SidebarNav location={location} sidebar={sidebar} /> :
-    //         <div className="nr3 sticky top-25"><TOC listClasses="lefty" className="mt5 mb5 mt10-ns mb0-ns" showHeading={false} /></div>
-    //     sideBarLayout.justification = `justify-start`
-    // } else {
-    //     // Layout #3: no sidebar navigation
-    //     sideBarLayout.justification = `justify-center`
-    // }
     console.log(sideBarLayout);
     
     let ipynb = data.allJupyterNotebook.edges[0].node.json
     ipynb.metadata = {};
     ipynb.cells = ipynb.cells.map(cell => ({...cell, outputs:[]}))
-    console.log(ipynb);
+    // console.log(ipynb);
     let Notebook = React.createElement(NotebookRender, {
-        notebook:  ipynb.nbformat <= 4 ?ipynb : null ,
+        notebook:  ipynb ,
         ...({})
       }, null); 
 
@@ -79,7 +58,8 @@ const JupyterNotebookPage = ({ data, location }) => {
                         <div className={`w-100 mw-content bg-white shadow-2 br4`}>
                             <article className="flex-auto pa5 pa8-m pa15-l pt10-ns pb10-ns pt10-l pb10-l relative">
                                 {/* <section className="post-content grid-1 gutter-row-20 gutter-20-ns gutter-36-l"> */}
-                                <NotebookRender notebook={ipynb}></NotebookRender>
+                                <NotebookRender notebook={ipynb}/>
+                                
                                 {/* </section> */}
                             </article>
                         </div>
@@ -110,51 +90,69 @@ JupyterNotebookPage.propTypes = {
 
 export default JupyterNotebookPage
 
+
 export const JupyterNotebookPageQuery = graphql`
 query($slug: String!) {
     site {
         ...SiteMetaFields
     }
     allJupyterNotebook(filter: {fileRelativePath: {eq: $slug}}) 
-  {
-    
-    edges {
-      node {
-        fileRelativePath
-        json {
-            nbformat_minor
-            cells {
-            cell_type
-            id
-            source
+    {
+      
+      edges {
+        node {
+          fileRelativePath
+          json {
+              nbformat_minor
+              cells {
+              cell_type
+              id
+              source
+              }
+              nbformat
             }
-            nbformat
-          }
-          metadata {
-            ipub {
-              titlepage {
-                author
-                email
-                tagline
-                subtitle
-                title
+            metadata {
+              ipub {
+                titlepage {
+                  author
+                  email
+                  tagline
+                  subtitle
+                  title
+                }
+              }
+              kernelspec {
+                display_name
+                language
+                name
+              }
+              language_info {
+                codemirror_mode
+                file_extension
+                mimetype
+                name
               }
             }
-            kernelspec {
-              display_name
-              language
-              name
-            }
-            language_info {
-              codemirror_mode
-              file_extension
-              mimetype
-              name
-            }
-          }
+        }
       }
     }
-  }
+
 }
 
 `
+// allFile(filter: {relativePath: {eq: $slug}, extension: {eq: "ipynb"}, relativeDirectory: {eq: "biodynamo/notebook"}}) 
+// {
+  
+//   edges {
+//     node {
+//       relativePath
+//       relativeDirectory
+//       name
+//       internal {
+//         content
+//       }
+
+    
+//     }
+//   }
+// }

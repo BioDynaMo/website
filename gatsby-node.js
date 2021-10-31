@@ -3,13 +3,19 @@ const onCreateNode = require(`./gatsby/onCreateNode`)
 
 exports.createPages = ({ graphql, actions }) => Promise.all([
     createPages.createRedirects({ actions }),
-    createPages.createJupyterTutorialPages({ graphql, actions }),
+    
     createPages.createMarkdownPages({ graphql, actions }),
     createPages.createNewsIndexPages({ graphql, actions }),
+    createPages.createJupyterTutorialPages({ graphql, actions }),
     
 ])
 
-exports.onCreateNode = async ({ node, getNode, actions }) => await onCreateNode.createMarkdownNodeFields(({ node, getNode, actions }))
+exports.onCreateNode = async ({ node, getNode, actions, loadNodeContent }) => {
+  await onCreateNode.createMarkdownNodeFields(({ node, getNode, actions }));
+  await onCreateNode.createJupyterNoteBookNodes(({ node, getNode, actions, loadNodeContent }));
+ 
+}
+
 
 const express = require(`express`)
 

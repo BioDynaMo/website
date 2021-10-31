@@ -75,44 +75,21 @@ const allJupyterNotebooks = function allJupyterNotebooks(notebook_name, fields =
 
     let query = `
         {
-            allJupyterNotebook {
+            allFile(
+                filter: {extension: {eq: "ipynb"}, relativeDirectory: {eq: "biodynamo/notebook"}}
+              ) {
                 edges {
-                    node {
-                      fileRelativePath
-                      json {
-                          nbformat_minor
-                          cells {
-                          cell_type
-                          id
-                          source
-                          }
-                          nbformat
-                        }
-                        metadata {
-                          ipub {
-                            titlepage {
-                              author
-                              email
-                              tagline
-                              subtitle
-                              title
-                            }
-                          }
-                          kernelspec {
-                            display_name
-                            language
-                            name
-                          }
-                          language_info {
-                            codemirror_mode
-                            file_extension
-                            mimetype
-                            name
-                          }
-                        }
-                    }
+                  node {
+                    relativePath
+                    relativeDirectory
+                    name
+                    internal {
+                        content
+                      }
                   }
-            }
+                }
+                totalCount
+              }
         }
     `
 

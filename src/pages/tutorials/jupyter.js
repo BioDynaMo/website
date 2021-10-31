@@ -16,6 +16,17 @@ const Tutorials = ({ data, location }) => {
     const imageUrl = getMetaImageUrls()
 
 
+    // console.log(data);
+    // let nodes = data.allFile.nodes.map(node=> {
+    //     try {
+    //         return { ...node,'json':  JSON.parse(node.content)}    
+    //     } catch (error) {
+    //         console.log(error);
+    //         return node
+    //     }
+
+        
+    // })
 
     const sideBarLayout = {}
 
@@ -80,7 +91,7 @@ const Tutorials = ({ data, location }) => {
                                             let name = node.fileRelativePath;
                                             return (
                                                 <JupyterTutorialBox
-                                                    html={"/jupyter/" + node.fileRelativePath}
+                                                    html={"/interpreted/" + node.fileRelativePath}
                                                     title={name.charAt(0).toUpperCase() + name.slice(1).replace("-", " ")}
                                                     src={node.fileRelativePath}
                                                     binder={"https://mybinder.org/v2/gh/BioDynaMo/binder-demo/master?filepath=notebooks/notebook/" + name + ".ipynb"}
@@ -130,15 +141,45 @@ export const tutorialsQuery = graphql`
         }
       
         
-          allJupyterNotebook {
+        allJupyterNotebook {
             nodes {
-              fileRelativePath
-              json {
-                cells {
-                  source
-                }
-              }
+                fileRelativePath
+                json {
+                    nbformat_minor
+                    cells {
+                    cell_type
+                    id
+                    source
+                    }
+                    nbformat
+                  }
+                  metadata {
+                    ipub {
+                      titlepage {
+                        author
+                        email
+                        tagline
+                        subtitle
+                        title
+                      }
+                    }
+                    kernelspec {
+                      display_name
+                      language
+                      name
+                    }
+                    language_info {
+                      codemirror_mode
+                      file_extension
+                      mimetype
+                      name
+                    }
+                  }
             }
-          }
+      
+      
+    
+  }
+       
     }
 `
