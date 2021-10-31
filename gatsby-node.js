@@ -11,8 +11,9 @@ exports.createPages = ({ graphql, actions }) => Promise.all([
 ])
 
 exports.onCreateNode = async ({ node, getNode, actions, loadNodeContent }) => {
-  await onCreateNode.createMarkdownNodeFields(({ node, getNode, actions }));
   await onCreateNode.createJupyterNoteBookNodes(({ node, getNode, actions, loadNodeContent }));
+  await onCreateNode.createMarkdownNodeFields(({ node, getNode, actions }));
+  
  
 }
 

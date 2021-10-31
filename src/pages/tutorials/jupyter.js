@@ -91,7 +91,7 @@ const Tutorials = ({ data, location }) => {
                                             let name = node.fileRelativePath;
                                             return (
                                                 <JupyterTutorialBox
-                                                    html={"/interpreted/" + node.fileRelativePath}
+                                                    html={"/interpreted/" + node.fileRelativePath.split(".ipynb")[0]}
                                                     title={name.charAt(0).toUpperCase() + name.slice(1).replace("-", " ")}
                                                     src={node.fileRelativePath}
                                                     binder={"https://mybinder.org/v2/gh/BioDynaMo/binder-demo/master?filepath=notebooks/notebook/" + name + ".ipynb"}

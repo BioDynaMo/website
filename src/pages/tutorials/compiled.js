@@ -15,7 +15,7 @@ const Tutorials = ({ data, location }) => {
     const imageUrl = getMetaImageUrls()
 
   
-    
+    console.log(data)
     const sideBarLayout = {}
 
     const sidebar  = 'tutorial'
@@ -119,18 +119,8 @@ export const tutorialsQuery = graphql`
         site {
             ...SiteMetaFields
         }
-        notebooks: allFile(filter: {sourceInstanceName: {eq: "notebooks"}, extension: {eq:"html"}}) {
-            edges {
-                node {
-                    name
-                    relativePath
-                    absolutePath
-                }
-            }
-
-        }
         compiled_folders :allDirectory(
-            filter: { sourceInstanceName: {eq: "notebooks"},relativeDirectory: {eq: ""}}
+            filter: { sourceInstanceName: {eq: "compiled_notebooks"},relativeDirectory: {eq: ""}}
           ) {
             edges {
               node {
@@ -142,16 +132,6 @@ export const tutorialsQuery = graphql`
               }
             }
           }
-        jupyter_notebooks: allFile(
-            filter: {sourceInstanceName: {eq: "jupyter"}, extension: {eq:"ipynb"}}
-          ) {
-            edges {
-              node {
-                name
-                relativePath
-                absolutePath
-              }
-            }
-          }
+        
     }
 `

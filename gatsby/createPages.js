@@ -58,17 +58,17 @@ module.exports.createJupyterTutorialPages = async ({ graphql, actions }) => {
                   return reject(result.errors)
               }
   
-              return result.data.allFile.edges.forEach(({ node }) => {
+              return result.data.allJupyterNotebook.edges.forEach(({ node }) => {
                   const DocTemplate = path.resolve(`./src/templates/jupyterNotebook.js`);
            
                   
                   createPage({
-                      path: "interpreted/" + node.relativePath,
+                      path: "interpreted/" + node.fileRelativePath.split(".ipynb")[0],
                       component: DocTemplate,
                       context: {
                           // Data passed to context is available
                           // in page queries as GraphQL variables.
-                          slug: node.relativePath,
+                          slug: node.fileRelativePath,
                       },
                   })
                   return resolve()

@@ -9,8 +9,7 @@ import { SidebarNav } from '../components/common/sidebar'
 import { MetaData, getMetaImageUrls } from '../components/common/meta'
 
 
-import { TOC } from '../components/common'
-const NotebookRender = require(`@nteract/notebook-render`).default;
+const NotebookRender = require(`@rafaelquintanilha/notebook-render`).default;
 const JupyterNotebookPage = ({ data, location }) => {
     const title = `Tutorials`
     const description = `This is the tutorials page.`

@@ -61,9 +61,7 @@ module.exports.createJupyterNoteBookNodes = async({
     }
   };
   jupyterNode.json = JSON.parse(content);
-  jupyterNode.metadata = jupyterNode.json.metadata; // render statically html with @nteract/notebook-render element
-
-
+  jupyterNode.metadata = jupyterNode.json.metadata;
   if (node.internal.type === `File`) {
     // jupyterNode.fileAbsolutePath = node.absolutePath;
     jupyterNode.fileRelativePath = node.relativePath;

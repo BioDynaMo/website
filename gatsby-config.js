@@ -31,30 +31,13 @@ const plugins = [
     /**
      *  Content Plugins
      */
-    //  {
-    //     resolve: `@hassan11196/gatsby-transformer-ipynb`,
-    //     options: {
-    //       notebookProps: {
-    //         displayOrder: ["image/png", "text/html", "text/plain"],
-    //         showPrompt: false,
-    //       },
-    //     },
-    //   },
       {
         resolve: `gatsby-source-filesystem`,
         options: {
             path: path.join(__dirname,`content`, `biodynamo`, `demo`),
-            name: `notebooks`,
+            name: `compiled_notebooks`,
         },
     },
-    // {
-    //     resolve: `gatsby-source-filesystem`,
-    //     options: {
-    //         path: path.join(__dirname, `content`, `biodynamo`, `notebook`),
-    //         name: `jupyter-notebook`,
-    //     },
-    // },
-
     {
         resolve: `gatsby-plugin-google-gtag`,
         options: {

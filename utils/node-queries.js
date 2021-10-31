@@ -72,24 +72,63 @@ const allMarkdownPosts = function allMarkdownposts(section, fields = defaultMark
     return query
 }
 const allJupyterNotebooks = function allJupyterNotebooks(notebook_name, fields = defaultMarkdownFields) {
-
+// , relativeDirectory: {eq: "biodynamo/notebook"}
+// allFile(
+//     filter: {extension: {eq: "ipynb"}}
+//   ) {
+//     edges {
+//       node {
+//         relativePath
+//         relativeDirectory
+//         name
+//         internal {
+//             content
+//           }
+//       }
+//     }
+//     totalCount
+//   }
     let query = `
         {
-            allFile(
-                filter: {extension: {eq: "ipynb"}, relativeDirectory: {eq: "biodynamo/notebook"}}
-              ) {
+            allJupyterNotebook {
                 edges {
-                  node {
-                    relativePath
-                    relativeDirectory
-                    name
-                    internal {
-                        content
-                      }
-                  }
+                    node {
+                      fileRelativePath
+                      json {
+                          nbformat_minor
+                          cells {
+                          cell_type
+                          id
+                          source
+                          }
+                          nbformat
+                        }
+                        metadata {
+                          ipub {
+                            titlepage {
+                              author
+                              email
+                              tagline
+                              subtitle
+                              title
+                            }
+                          }
+                          kernelspec {
+                            display_name
+                            language
+                            name
+                          }
+                          language_info {
+                            codemirror_mode
+                            file_extension
+                            mimetype
+                            name
+                          }
+                        }
+                    }
                 }
-                totalCount
-              }
+            }
+            
         }
     `
 
