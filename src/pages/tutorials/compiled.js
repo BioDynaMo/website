@@ -76,7 +76,7 @@ const Tutorials = ({ data, location }) => {
                             data.compiled_folders.edges.map(edge => (
                                 <TutorialBox
                                     html={"/notebooks/" + edge.node.relativePath}
-                                    title={edge.node.relativePath}
+                                    title={edge.node.relativePath.split("_").join(" ")}
                                     src={"/images/notebooks/" + edge.node.name + ".png"}
                                     binder={"https://mybinder.org/v2/gh/BioDynaMo/binder-demo/master?urlpath=lab/tree/demo/" + edge.node.relativePath}>
                                 </TutorialBox>

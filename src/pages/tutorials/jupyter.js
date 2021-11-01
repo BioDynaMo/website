@@ -14,20 +14,6 @@ const Tutorials = ({ data, location }) => {
     const title = `Tutorials`
     const description = `This is the tutorials page.`
     const imageUrl = getMetaImageUrls()
-
-
-    // console.log(data);
-    // let nodes = data.allFile.nodes.map(node=> {
-    //     try {
-    //         return { ...node,'json':  JSON.parse(node.content)}    
-    //     } catch (error) {
-    //         console.log(error);
-    //         return node
-    //     }
-
-        
-    // })
-
     const sideBarLayout = {}
 
     const sidebar = 'tutorial'
@@ -86,7 +72,7 @@ const Tutorials = ({ data, location }) => {
                         <div className={`w-100 mw-content bg-white shadow-2 br4`}>
                             <article className="flex-auto pa5 pa8-m pa15-l pt10-ns pb10-ns pt10-l pb10-l relative">
                                 <section className="post-content grid-1 gutter-row-20 gutter-20-ns gutter-36-l">
-                                    {
+                                    {/* {
                                         data.allJupyterNotebook.nodes.map(node => {
                                             let name = node.fileRelativePath.split("/")[2];
                                             return (
@@ -99,7 +85,7 @@ const Tutorials = ({ data, location }) => {
                                                 </JupyterTutorialBox>
                                             )
                                         })
-                                    }
+                                    } */}
                                 </section>
                             </article>
                         </div>
@@ -139,47 +125,6 @@ export const tutorialsQuery = graphql`
         site {
             ...SiteMetaFields
         }
-      
-        
-        allJupyterNotebook {
-            nodes {
-                fileRelativePath
-                json {
-                    nbformat_minor
-                    cells {
-                    cell_type
-                    id
-                    source
-                    }
-                    nbformat
-                  }
-                  metadata {
-                    ipub {
-                      titlepage {
-                        author
-                        email
-                        tagline
-                        subtitle
-                        title
-                      }
-                    }
-                    kernelspec {
-                      display_name
-                      language
-                      name
-                    }
-                    language_info {
-                      codemirror_mode
-                      file_extension
-                      mimetype
-                      name
-                    }
-                  }
-            }
-      
-      
-    
-  }
-       
+         
     }
 `

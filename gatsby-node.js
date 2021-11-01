@@ -6,7 +6,6 @@ exports.createPages = ({ graphql, actions }) => Promise.all([
     
     createPages.createMarkdownPages({ graphql, actions }),
     createPages.createNewsIndexPages({ graphql, actions }),
-    createPages.createJupyterTutorialPages({ graphql, actions }),
     
 ])
 

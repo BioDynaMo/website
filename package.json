@@ -44,8 +44,6 @@
     "start-server-and-test": "1.12.1"
   },
   "dependencies": {
-    "@gatsby-contrib/gatsby-transformer-ipynb": "^0.5.8",
-    "@rafaelquintanilha/notebook-render": "0.0.15",
     "@tryghost/helpers": "^1.1.6",
     "@tryghost/helpers-gatsby": "1.0.45",
     "@types/react": "^17.0.3",
@@ -89,7 +87,6 @@
     "react-autosuggest": "10.1.0",
     "react-dom": "^17.0.2",
     "react-helmet": "6.1.0",
-    "react-jupyter-notebook": "^0.3.2",
     "react-modal": "3.12.1",
     "react-slick": "^0.28.1",
     "requirejs": "^2.3.6",
