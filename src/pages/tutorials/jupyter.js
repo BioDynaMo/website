@@ -14,6 +14,20 @@ const Tutorials = ({ data, location }) => {
     const title = `Tutorials`
     const description = `This is the tutorials page.`
     const imageUrl = getMetaImageUrls()
+
+
+    // console.log(data);
+    // let nodes = data.allFile.nodes.map(node=> {
+    //     try {
+    //         return { ...node,'json':  JSON.parse(node.content)}    
+    //     } catch (error) {
+    //         console.log(error);
+    //         return node
+    //     }
+
+        
+    // })
+    console.log(data);
     const sideBarLayout = {}
 
     const sidebar = 'tutorial'
@@ -72,12 +86,12 @@ const Tutorials = ({ data, location }) => {
                         <div className={`w-100 mw-content bg-white shadow-2 br4`}>
                             <article className="flex-auto pa5 pa8-m pa15-l pt10-ns pb10-ns pt10-l pb10-l relative">
                                 <section className="post-content grid-1 gutter-row-20 gutter-20-ns gutter-36-l">
-                                    {/* {
+                                    {
                                         data.allJupyterNotebook.nodes.map(node => {
-                                            let name = node.fileRelativePath.split("/")[2];
+                                            let name = node.fileRelativePath.split("/")[1];
                                             return (
                                                 <JupyterTutorialBox
-                                                    html={"/interpreted/" + node.fileRelativePath.split(".ipynb")[0]}
+                                                    html={node.fileRelativePath.replace(".ipynb", ".html")}
                                                     title={name.charAt(0).toUpperCase() + name.slice(1).replace("-", " ")}
                                                     src={node.fileRelativePath}
                                                     binder={"https://mybinder.org/v2/gh/BioDynaMo/binder-demo/master?filepath=notebook/notebook/" + name }
@@ -85,7 +99,7 @@ const Tutorials = ({ data, location }) => {
                                                 </JupyterTutorialBox>
                                             )
                                         })
-                                    } */}
+                                    }
                                 </section>
                             </article>
                         </div>
@@ -125,6 +139,47 @@ export const tutorialsQuery = graphql`
         site {
             ...SiteMetaFields
         }
-         
+      
+        
+        allJupyterNotebook(filter: {fileRelativePath: {regex: "/notebooks/"}}) {
+            nodes {
+                fileRelativePath
+                json {
+                    nbformat_minor
+                    cells {
+                    cell_type
+                    id
+                    source
+                    }
+                    nbformat
+                  }
+                  metadata {
+                    ipub {
+                      titlepage {
+                        author
+                        email
+                        tagline
+                        subtitle
+                        title
+                      }
+                    }
+                    kernelspec {
+                      display_name
+                      language
+                      name
+                    }
+                    language_info {
+                      codemirror_mode
+                      file_extension
+                      mimetype
+                      name
+                    }
+                  }
+            }
+      
+      
+    
+  }
+       
     }
 `
