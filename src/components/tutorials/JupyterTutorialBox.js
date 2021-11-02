@@ -15,10 +15,7 @@ const JupyterTutorialBox = ({ src, to, href, headingClass, title, children, bind
     if (json == undefined){
         return null;
     }    
-    const cleaned_first_cell = json['cells'][0]['source'].reduce((acc, text) => acc + text.replace("#", "")).replace("#", "").split("**");
-    let notebookTitle =  cleaned_first_cell[0];
-    let Author = cleaned_first_cell[1];
-    let text =  cleaned_first_cell[2];
+
     return (
     <Box
         to={to}

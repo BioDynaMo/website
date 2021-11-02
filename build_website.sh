@@ -70,7 +70,7 @@ if [ ! -z "${DEVELOP+x}" ]; then
       -v ${SCRIPT_PATH}:/website \
       -v ${BDM_DIR}/build/doc/api:/website/static/api \
       -v ${BDM_DIR}/doc:/website/content/biodynamo/doc \
-      -v ${BDM_DIR}/build/notebook:/website/content/biodynamo/notebooks\
+      -v ${BDM_DIR}/build/notebook:/website/content/biodynamo/notebook\
       -v ${BDM_DIR}/demo:/website/content/biodynamo/demo \
       bdm-website bash -c '~/entry.sh && gatsby develop'
   else
@@ -81,7 +81,7 @@ if [ ! -z "${DEVELOP+x}" ]; then
       --name=mybdmweb \
       -v ${SCRIPT_PATH}:/website \
       -v ${BDM_DIR}/doc:/website/content/biodynamo/doc \
-      -v ${BDM_DIR}/build/notebook:/website/content/biodynamo/notebooks\
+      -v ${BDM_DIR}/build/notebook:/website/content/biodynamo/notebook\
       -v ${BDM_DIR}/demo:/website/content/biodynamo/demo \
       bdm-website bash -c '~/entry.sh && gatsby develop'
   fi
@@ -95,7 +95,7 @@ else
     -v ${SCRIPT_PATH}:/website \
     -v ${BDM_DIR}/build/doc/api:/website/static/api \
     -v ${BDM_DIR}/doc:/website/content/biodynamo/doc \
-    -v ${BDM_DIR}/build/notebook:/website/content/biodynamo/notebooks\
+    -v ${BDM_DIR}/build/notebook:/website/content/biodynamo/notebook\
     -v ${BDM_DIR}/demo:/website/content/biodynamo/demo\
     bdm-website bash -c '~/entry.sh && gatsby build'
 fi

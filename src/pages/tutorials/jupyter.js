@@ -7,26 +7,13 @@ import { Layout } from '../../components/common/layout'
 import { Spirit } from '../../styles/spirit-styles'
 import { SidebarNav } from '../../components/common/sidebar'
 import { MetaData, getMetaImageUrls } from '../../components/common/meta'
-import { TutorialBox, JupyterTutorialBox } from '../../components/tutorials'
+
 import { TOC } from '../../components/common'
 
 const Tutorials = ({ data, location }) => {
     const title = `Tutorials`
     const description = `This is the tutorials page.`
     const imageUrl = getMetaImageUrls()
-
-
-    // console.log(data);
-    // let nodes = data.allFile.nodes.map(node=> {
-    //     try {
-    //         return { ...node,'json':  JSON.parse(node.content)}    
-    //     } catch (error) {
-    //         console.log(error);
-    //         return node
-    //     }
-
-        
-    // })
     console.log(data);
     const sideBarLayout = {}
 
@@ -44,15 +31,14 @@ const Tutorials = ({ data, location }) => {
 
         sideBarLayout.leftSidebar = sidebar ?
             <SidebarNav location={location} sidebar={sidebar} /> :
-            <div className="nr3 sticky top-25"><TOC listClasses="lefty" className="mt5 mb5 mt10-ns mb0-ns" showHeading={false} /></div>
+            <div className="nr3 sticky top-25"><TOC listClasses="lefty" className="mt5 mb5 mt10-ns mb0-ns" showHeading={true} /></div>
         sideBarLayout.justification = `justify-start`
     } else {
         // Layout #3: no sidebar navigation
         sideBarLayout.justification = `justify-center`
     }
     console.log(sideBarLayout);
-
-
+  
     return (
         <>
             <MetaData
@@ -69,7 +55,7 @@ const Tutorials = ({ data, location }) => {
                     <div className={`${Spirit.page.xl} pt12 pb4 pt-vw1-ns pb-vw1-ns white pl10 pl0-ns`}>
                         <h1 className={`${Spirit.sectionHeading} gh-integration-header-shadow`}> <Link to="/tutorials/" className="link dim white">{title}</Link></h1>
                         <p className={Spirit.sectionSubHeading}>
-                            This is a gallery of basic example <strong><Link to="/docs/userguide/notebook" className="link dim white">BioDynaMo notebooks:</Link></strong> click on the images to inspect the underlying document.
+                            This is a gallery of basic example <strong><Link to="/docs/userguide/notebook" className="link dim white">BioDynaMo Interpreted Jupyter notebooks:</Link></strong>
                         </p>
                     </div>
                 </div>
@@ -85,18 +71,39 @@ const Tutorials = ({ data, location }) => {
                     <div>
                         <div className={`w-100 mw-content bg-white shadow-2 br4`}>
                             <article className="flex-auto pa5 pa8-m pa15-l pt10-ns pb10-ns pt10-l pb10-l relative">
-                                <section className="post-content grid-1 gutter-row-20 gutter-20-ns gutter-36-l">
+                                <section className="post-content external-scripts">
                                     {
                                         data.allJupyterNotebook.nodes.map(node => {
                                             let name = node.fileRelativePath.split("/")[1];
+                                            let json = node.json;
+                                            let title = name.charAt(0).toUpperCase() + name.slice(1).replace("-", " ")
+                                            let src = node.fileRelativePath
+                                            let html = "/" + node.fileRelativePath.replace(".ipynb", ".html")
+                                            let binder = "https://mybinder.org/v2/gh/BioDynaMo/binder-demo/master?filepath=notebook/notebook/" + name
+                                            const cleaned_first_cell = json['cells'][0]['source'].reduce((acc, text) => acc + text.replace("#", "")).replace("#", "").split("**");
+                                            let notebookTitle = cleaned_first_cell[0].trim();
+                                            let Author = cleaned_first_cell[1].trim();
+                                            let text = cleaned_first_cell[2];
+
+
                                             return (
-                                                <JupyterTutorialBox
-                                                    html={node.fileRelativePath.replace(".ipynb", ".html")}
-                                                    title={name.charAt(0).toUpperCase() + name.slice(1).replace("-", " ")}
-                                                    src={node.fileRelativePath}
-                                                    binder={"https://mybinder.org/v2/gh/BioDynaMo/binder-demo/master?filepath=notebook/notebook/" + name }
-                                                    json={node.json}>
-                                                </JupyterTutorialBox>
+                                                <>
+                                                    <h2 id={notebookTitle} className={`darkgrey`} >{notebookTitle}</h2>
+                                                    <div style={{ paddingLeft: "2rem" }}>
+                                                        <h4>{Author}</h4>
+                                                        <h4>Filename: {title}</h4>
+                                                        <p dangerouslySetInnerHTML={{ __html: text }}></p>
+                                                        <div style={{ display: "flex", justifyContent: "center", }}>
+                                                            <br />
+                                                            <a style={{ boxShadow: 'none', }} href={html} target="_blank" > <button className={`${Spirit.greybutton}`}><b>View now</b></button></a>
+                                                            <br />
+                                                            <a style={{ boxShadow: 'none', }} href={binder} target="_blank" > <button className={`${Spirit.greenbutton}`}><b>Run now</b></button></a>
+                                                        </div>
+
+                                                    </div>
+                                                    <hr style={{ borderTop: "8px solid #bbb", }} />
+
+                                                </>
                                             )
                                         })
                                     }
@@ -106,7 +113,24 @@ const Tutorials = ({ data, location }) => {
                     </div>
                     {sideBarLayout.rightSidebar ?
                         <div className="order-3 w-sidebar flex-shrink-0 dn db-l pt10 pl7">
-                            {sideBarLayout.rightSidebar}
+                            {/* {sideBarLayout.rightSidebar} */}
+                            <h3 class="f4 measure--0-2 middarkgrey ma0 mb2 pa0 fw4 nudge-bottom--2">On this page</h3>
+                            <div class="toc-list-container mt2"><ol class="toc-list ">
+                            {data.allJupyterNotebook.nodes.map(node => {
+                                let name = node.fileRelativePath.split("/")[1];
+                                let json = node.json;
+                                let title = name.charAt(0).toUpperCase() + name.slice(1).replace("-", " ");
+                                const cleaned_first_cell = json['cells'][0]['source'].reduce((acc, text) => acc + text.replace("#", "")).replace("#", "").split("**");
+                                            let notebookTitle = cleaned_first_cell[0].trim();
+                                            let Author = cleaned_first_cell[1];
+                                            let text = cleaned_first_cell[2];
+                                return(
+                                <li class="toc-list-item">
+                                    <a href={"#"+notebookTitle} class="toc-link node-name--H2 ">
+                                       {notebookTitle}
+                                    </a>
+                                </li>)})}
+                                </ol></div>
                         </div>
                         : null
                     }
@@ -141,7 +165,8 @@ export const tutorialsQuery = graphql`
         }
       
         
-        allJupyterNotebook(filter: {fileRelativePath: {regex: "/notebooks/"}}) {
+        allJupyterNotebook(filter: {fileRelativePath: {regex: "/notebook/"}}
+        sort: {order: ASC, fields: fileRelativePath}) {
             nodes {
                 fileRelativePath
                 json {
