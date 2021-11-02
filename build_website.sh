@@ -59,13 +59,7 @@ sudo docker stop mybdmweb || true
 sudo docker rm mybdmweb || true
 
 mkdir -p ${BDM_DIR}/build/website/static/notebooks/
-mkdir -p ${BDM_DIR}/build/website/static/images/notebooks/
-
-# Copy the generated html notebooks into the static folder
-for d in ${BDM_DIR}/build/notebook/*  ; do
-  cp -v $d/*.html ${BDM_DIR}/build/website/static/notebooks/ || true
-  cp $d/thumbnail.png ${BDM_DIR}/build/website/static/images/notebooks/$(basename $d).png || true
-done 
+cp ${BDM_DIR}/build/notebook/*.html "${BDM_DIR}/build/website/static/notebooks/"
 
 # If we want to develop (in live mode)
 if [ ! -z "${DEVELOP+x}" ]; then
