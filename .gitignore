@@ -86,4 +86,4 @@ test/cypress/videos
 
 static/api
 content/apiguide
-
+static/notebooks
