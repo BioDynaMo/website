@@ -30,12 +30,6 @@ fi
 
 SCRIPT_PATH=$($READLINK -e $(dirname "${BASH_SOURCE[0]}"))
 
-# clear cache
-rm -rf .cache/ node_modules/ public/
-
-# Delete any existing generated API files
-rm -rf ${SCRIPT_PATH}/static/api
-
 # Copy Doxygen files (pre-generated when `make website` is called)
 if [ ! -z "${API+x}" ]; then
   # Check if the API files are generated
