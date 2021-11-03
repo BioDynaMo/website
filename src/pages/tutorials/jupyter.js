@@ -91,9 +91,8 @@ const Tutorials = ({ data, location }) => {
                                                 <>
                                                     <h2 id={notebookTitle} className={`darkgrey`} >{notebookTitle}</h2>
                                                     <div style={{ paddingLeft: "2rem" }}>
-                                                        <h4>{Author}</h4>
-                                                        <h4>Filename: <a target="_blank" href={githubNotebookLink}> {title} </a> </h4>
-                                                        <p dangerouslySetInnerHTML={{ __html: text }}></p>
+                                                        <p>{Author}, Filename: <a target="_blank" href={githubNotebookLink}> {title} </a> </p>
+                                                        <p style={{marginTop: 0}} dangerouslySetInnerHTML={{ __html: text }}></p>
                                                         <div style={{ display: "flex", justifyContent: "center", }}>
                                                             <br />
                                                             <a style={{ boxShadow: 'none', }} href={html} target="_blank" > <button className={`${Spirit.greybutton}`}><b>View now</b></button></a>
