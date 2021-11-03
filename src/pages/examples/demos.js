@@ -10,20 +10,22 @@ import { TutorialBox, JupyterTutorialBox } from '../../components/tutorials'
 import { TOC } from '../../components/common'
 
 const Tutorials = ({ data, location }) => {
-    const title = `Tutorials`
+    const title = `Demos`
     const description = `This is the tutorials page.`
     const imageUrl = getMetaImageUrls()
 
-  
-    console.log(data)
+
+    // console.log(data)
+    const thumbnails = data.thumbnails.edges.reduce((acc, edge) => 
+        {return ({ ...acc, [edge.node.relativeDirectory]: edge.node.childImageSharp.fluid.originalImg }) }, {})
     const sideBarLayout = {}
 
-    const sidebar  = 'tutorial'
-    const toc =  true
+    const sidebar = 'tutorial'
+    const toc = true
 
     if (sidebar && toc) {
         // Layout #1: navigation left and right: sidebar and TOC
-        console.log("sidebar && toc") 
+        console.log("sidebar && toc")
         sideBarLayout.leftSidebar = <SidebarNav location={location} sidebar={sidebar} />
         sideBarLayout.rightSidebar = <div className="nr3 sticky top-25"><TOC className="pr4" listClasses="mt2" /></div>
         sideBarLayout.justification = `justify-between`
@@ -57,19 +59,19 @@ const Tutorials = ({ data, location }) => {
                     <div className={`${Spirit.page.xl} pt12 pb4 pt-vw1-ns pb-vw1-ns white pl10 pl0-ns`}>
                         <h1 className={`${Spirit.sectionHeading} gh-integration-header-shadow`}> <Link to="/tutorials/" className="link dim white">{title}</Link></h1>
                         <p className={Spirit.sectionSubHeading}>
-                            This is a gallery of basic example <strong><Link to="/docs/userguide/notebook" className="link dim white">BioDynaMo Compiled notebooks:</Link></strong>
+                            This is a gallery of basic example <strong><Link to="/docs/userguide/notebook" className="link dim white">BioDynaMo Demos:</Link></strong>
                         </p>
                     </div>
                 </div>
 
                 {/* <div className={`${Spirit.page.xl} mt-vw3`}> */}
                 <div className={`${Spirit.page.xl} flex flex-column flex-row-ns ${sideBarLayout.justification} relative`}>
-                {sideBarLayout.leftSidebar ?
-                            <div className={`${(false ? `mobile-nav-open` : ``)} w-100 w-sidebar-ns pr10 pl5 pl0-ns flex-shrink-0-l relative left-sidebar`}>
-                                {sideBarLayout.leftSidebar}
-                            </div>
-                            : null
-                        }
+                    {sideBarLayout.leftSidebar ?
+                        <div className={`${(false ? `mobile-nav-open` : ``)} w-100 w-sidebar-ns pr10 pl5 pl0-ns flex-shrink-0-l relative left-sidebar`} style={{ width: "15rem" }}>
+                            {sideBarLayout.leftSidebar}
+                        </div>
+                        : null
+                    }
                     <section className="post-content grid-12 gutter-row-20 gutter-20-ns gutter-36-l">
 
                         {
@@ -77,7 +79,7 @@ const Tutorials = ({ data, location }) => {
                                 <TutorialBox
                                     html={"/notebooks/" + edge.node.relativePath}
                                     title={edge.node.relativePath.split("_").join(" ")}
-                                    src={"/images/notebooks/" + edge.node.name + ".png"}
+                                    src={thumbnails[edge.node.relativePath] || '/images/bdm_logo_large.png'}
                                     binder={"https://mybinder.org/v2/gh/BioDynaMo/binder-demo/master?urlpath=lab/tree/demo/" + edge.node.relativePath}>
                                 </TutorialBox>
                             ))
@@ -85,25 +87,27 @@ const Tutorials = ({ data, location }) => {
 
                     </section>
                     {sideBarLayout.rightSidebar ?
-                            <div className="order-3 w-sidebar flex-shrink-0 dn db-l pt10 pl7">
-                                {/* {sideBarLayout.rightSidebar} */}
-                                <div class="f4 measure--0-2 middarkgrey ma0 mb2 pa0 fw4 nudge-bottom--2" style={{position:'sticky', top: '6vh'}}><h3>On this page</h3>
-                            <div class="toc-list-container mt2"><ol class="toc-list ">
-                            {data.compiled_folders.edges.map(edge => {
-                               
-                                let title = edge.node.relativePath.split("_").join(" ")
-                                
-                                return(
-                                <li class="toc-list-item">
-                                    <a href={"#"+title} class="toc-link node-name--H2 ">
-                                       {title}
-                                    </a>
-                                </li>)})}
-                                </ol></div>
+                        <div className="order-3 w-sidebar flex-shrink-0 dn db-l pt10 pl7">
+                            {/* {sideBarLayout.rightSidebar} */}
+                            <div className="f4 measure--0-2 middarkgrey ma0 mb2 pa0 fw4 nudge-bottom--2" style={{ position: 'sticky', top: '6vh' }}><h3>On this page</h3>
+                                <div class="toc-list-container mt2">
+                                    <ol class="toc-list ">
+                                        {data.compiled_folders.edges.map(edge => {
+
+                                            let title = edge.node.relativePath.split("_").join(" ")
+
+                                            return (
+                                                <li class="toc-list-item">
+                                                    <a style={{ textTransform: 'capitalize' }} href={"#" + title} className="toc-link node-name--H2 ">
+                                                        {title}
+                                                    </a>
+                                                </li>)
+                                        })}
+                                    </ol></div>
                             </div>
-                            </div>
-                            : null
-                        }
+                        </div>
+                        : null
+                    }
                 </div>
 
             </Layout>
@@ -133,8 +137,23 @@ export const tutorialsQuery = graphql`
         site {
             ...SiteMetaFields
         }
+        thumbnails:allFile(
+            filter: {sourceInstanceName: {eq: "compiled_notebooks"}, name: {}, ext: {}, extension: {eq: "png"}}
+          ) {
+            edges {
+              node {
+                extension
+                childImageSharp {
+                  fluid {
+                    originalImg
+                  }
+                }
+                relativeDirectory
+              }
+            }
+          }
         compiled_folders :allDirectory(
-            filter: { sourceInstanceName: {eq: "compiled_notebooks"},relativeDirectory: {eq: ""}}
+            filter: { sourceInstanceName: {eq: "compiled_notebooks"}, relativeDirectory: {eq: ""}}
           ) {
             edges {
               node {
@@ -145,7 +164,6 @@ export const tutorialsQuery = graphql`
                 sourceInstanceName
               }
             }
-          }
-        
+        }
     }
 `

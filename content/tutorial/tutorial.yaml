@@ -1,7 +1,7 @@
 - groups:
-  - group: Tutorials
+  - group: Example
     items:
-      - title: Compiled Tutorials
-        link: /tutorials/compiled
-      - title: Jupyter Tutorials
-        link: /tutorials/jupyter
+      - title: Demos
+        link: /examples/demos
+      - title: Notebooks
+        link: /examples/notebooks

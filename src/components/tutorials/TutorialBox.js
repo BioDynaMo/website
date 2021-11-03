@@ -10,13 +10,16 @@ const TutorialBox = ({ src, to, href, headingClass, title, children, binder, htm
         radius="4"
         style={{ width: "fit-content", display: "inline-grid", justifyContent: "center", alignItems: "center" }}
     >
-        <h2 id={title} style={{margin:"0 0 0 0", textTransform: "capitalize"}} className={`${Spirit.h2} darkgrey ${headingClass}`}>{title}</h2>
-
+        <div style={{minHeight: '15rem'}}>
+            <h2  id={title} style={{margin:"0 0 0 0", textTransform: "capitalize"}} className={`${Spirit.h2} darkgrey ${headingClass}`}>{title}</h2>
+        </div>
+        <div style={{height: '20rem', width:'20rem', textAlign:'center', display:'block'}}>
+            <img style={{maxHeight: '200px', maxWidth:'200px', alignContent:"center"}} src={src} className="tutorial-img mt2"/>    
+        </div>
+        
         <div className={`${Spirit.p} mt2 midgrey`}>{children}</div>
         <div style={{margin: "0 0 0 0"}} align='center'>
-            <br/>
             {/* <a href={html} target="_blank" > <button className={`${Spirit.greybutton}`}><b>View now</b></button></a> */}
-            <br/>
             <a  href={binder} target="_blank" > <button className={`${Spirit.greenbutton}`}><b>View in Jupyter Lab</b></button></a>
       </div>
     </Box>

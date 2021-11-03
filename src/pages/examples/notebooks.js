@@ -11,7 +11,7 @@ import { MetaData, getMetaImageUrls } from '../../components/common/meta'
 import { TOC } from '../../components/common'
 
 const Tutorials = ({ data, location }) => {
-    const title = `Tutorials`
+    const title = `Notebooks`
     const description = `This is the tutorials page.`
     const imageUrl = getMetaImageUrls()
     console.log(data);
@@ -55,7 +55,7 @@ const Tutorials = ({ data, location }) => {
                     <div className={`${Spirit.page.xl} pt12 pb4 pt-vw1-ns pb-vw1-ns white pl10 pl0-ns`}>
                         <h1 className={`${Spirit.sectionHeading} gh-integration-header-shadow`}> <Link to="/tutorials/" className="link dim white">{title}</Link></h1>
                         <p className={Spirit.sectionSubHeading}>
-                            This is a gallery of basic example <strong><Link to="/docs/userguide/notebook" className="link dim white">BioDynaMo Interpreted Jupyter notebooks:</Link></strong>
+                            This is a gallery of basic example <strong><Link to="/docs/userguide/notebook" className="link dim white">BioDynaMo notebooks:</Link></strong>
                         </p>
                     </div>
                 </div>
