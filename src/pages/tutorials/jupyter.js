@@ -38,7 +38,7 @@ const Tutorials = ({ data, location }) => {
         sideBarLayout.justification = `justify-center`
     }
     console.log(sideBarLayout);
-  
+
     return (
         <>
             <MetaData
@@ -85,14 +85,14 @@ const Tutorials = ({ data, location }) => {
                                             let notebookTitle = cleaned_first_cell[0].trim();
                                             let Author = cleaned_first_cell[1].trim();
                                             let text = cleaned_first_cell[2];
-
+                                            let githubNotebookLink= "https://github.com/BioDynaMo/biodynamo/blob/master/notebook/" + name;
 
                                             return (
                                                 <>
                                                     <h2 id={notebookTitle} className={`darkgrey`} >{notebookTitle}</h2>
                                                     <div style={{ paddingLeft: "2rem" }}>
                                                         <h4>{Author}</h4>
-                                                        <h4>Filename: {title}</h4>
+                                                        <h4>Filename: <a target="_blank" href={githubNotebookLink}> {title} </a> </h4>
                                                         <p dangerouslySetInnerHTML={{ __html: text }}></p>
                                                         <div style={{ display: "flex", justifyContent: "center", }}>
                                                             <br />
@@ -115,24 +115,26 @@ const Tutorials = ({ data, location }) => {
                     {sideBarLayout.rightSidebar ?
                         <div className="order-3 w-sidebar flex-shrink-0 dn db-l pt10 pl7">
                             {/* {sideBarLayout.rightSidebar} */}
-                            <div className="f4 measure--0-2 middarkgrey ma0 mb2 pa0 fw4 nudge-bottom--2" style={{position:'sticky', top: '6vh'}}><h3> On this page</h3>
-                            <div className="toc-list-container mt2 "><ol className="toc-list ">
-                            {data.allJupyterNotebook.nodes.map(node => {
-                                let name = node.fileRelativePath.split("/")[1];
-                                let json = node.json;
-                                let title = name.charAt(0).toUpperCase() + name.slice(1).replace("-", " ");
-                                const cleaned_first_cell = json['cells'][0]['source'].reduce((acc, text) => acc + text.replace("#", "")).replace("#", "").split("**");
+                            <div className="f4 measure--0-2 middarkgrey ma0 mb2 pa0 fw4 nudge-bottom--2" style={{ position: 'sticky', top: '6vh' }}><h3> On this page</h3>
+                                <div className="toc-list-container mt2 ">
+                                    <ol className="toc-list ">
+                                        {data.allJupyterNotebook.nodes.map(node => {
+                                            let name = node.fileRelativePath.split("/")[1];
+                                            let json = node.json;
+                                            let title = name.charAt(0).toUpperCase() + name.slice(1).replace("-", " ");
+                                            const cleaned_first_cell = json['cells'][0]['source'].reduce((acc, text) => acc + text.replace("#", "")).replace("#", "").split("**");
                                             let notebookTitle = cleaned_first_cell[0].trim();
                                             let Author = cleaned_first_cell[1];
                                             let text = cleaned_first_cell[2];
-                                return(
-                                <li className="toc-list-item">
-                                    <a href={"#"+notebookTitle} className="toc-link node-name--H2 ">
-                                       {notebookTitle}
-                                    </a>
-                                </li>)})}
-                                </ol></div>
-                                </div>
+                                            return (
+                                                <li className="toc-list-item">
+                                                    <a href={"#" + notebookTitle} className="toc-link node-name--H2 ">
+                                                        {notebookTitle}
+                                                    </a>
+                                                </li>)
+                                        })}
+                                    </ol></div>
+                            </div>
                         </div>
                         : null
                     }
