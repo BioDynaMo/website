@@ -87,7 +87,7 @@ const Tutorials = ({ data, location }) => {
                     {sideBarLayout.rightSidebar ?
                             <div className="order-3 w-sidebar flex-shrink-0 dn db-l pt10 pl7">
                                 {/* {sideBarLayout.rightSidebar} */}
-                                <h3 class="f4 measure--0-2 middarkgrey ma0 mb2 pa0 fw4 nudge-bottom--2">On this page</h3>
+                                <div class="f4 measure--0-2 middarkgrey ma0 mb2 pa0 fw4 nudge-bottom--2" style={{position:'sticky', top: '6vh'}}><h3>On this page</h3>
                             <div class="toc-list-container mt2"><ol class="toc-list ">
                             {data.compiled_folders.edges.map(edge => {
                                
@@ -100,6 +100,7 @@ const Tutorials = ({ data, location }) => {
                                     </a>
                                 </li>)})}
                                 </ol></div>
+                            </div>
                             </div>
                             : null
                         }

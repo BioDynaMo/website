@@ -74,11 +74,12 @@ const Tutorials = ({ data, location }) => {
                                 <section className="post-content external-scripts">
                                     {
                                         data.allJupyterNotebook.nodes.map(node => {
-                                            let name = node.fileRelativePath.split("/")[1];
+                                            console.log(node)
+                                            let staticPath = node.fileRelativePath.split("biodynamo/")[1]
+                                            let name = node.fileRelativePath.split("/")[2];
                                             let json = node.json;
                                             let title = name.charAt(0).toUpperCase() + name.slice(1).replace("-", " ")
-                                            let src = node.fileRelativePath
-                                            let html = "/" + node.fileRelativePath.replace(".ipynb", ".html")
+                                            let html = "/" + staticPath.replace(".ipynb", ".html")
                                             let binder = "https://mybinder.org/v2/gh/BioDynaMo/binder-demo/master?filepath=notebook/notebook/" + name
                                             const cleaned_first_cell = json['cells'][0]['source'].reduce((acc, text) => acc + text.replace("#", "")).replace("#", "").split("**");
                                             let notebookTitle = cleaned_first_cell[0].trim();
@@ -114,8 +115,8 @@ const Tutorials = ({ data, location }) => {
                     {sideBarLayout.rightSidebar ?
                         <div className="order-3 w-sidebar flex-shrink-0 dn db-l pt10 pl7">
                             {/* {sideBarLayout.rightSidebar} */}
-                            <h3 class="f4 measure--0-2 middarkgrey ma0 mb2 pa0 fw4 nudge-bottom--2">On this page</h3>
-                            <div class="toc-list-container mt2"><ol class="toc-list ">
+                            <div className="f4 measure--0-2 middarkgrey ma0 mb2 pa0 fw4 nudge-bottom--2" style={{position:'sticky', top: '6vh'}}><h3> On this page</h3>
+                            <div className="toc-list-container mt2 "><ol className="toc-list ">
                             {data.allJupyterNotebook.nodes.map(node => {
                                 let name = node.fileRelativePath.split("/")[1];
                                 let json = node.json;
@@ -125,12 +126,13 @@ const Tutorials = ({ data, location }) => {
                                             let Author = cleaned_first_cell[1];
                                             let text = cleaned_first_cell[2];
                                 return(
-                                <li class="toc-list-item">
-                                    <a href={"#"+notebookTitle} class="toc-link node-name--H2 ">
+                                <li className="toc-list-item">
+                                    <a href={"#"+notebookTitle} className="toc-link node-name--H2 ">
                                        {notebookTitle}
                                     </a>
                                 </li>)})}
                                 </ol></div>
+                                </div>
                         </div>
                         : null
                     }
@@ -165,7 +167,7 @@ export const tutorialsQuery = graphql`
         }
       
         
-        allJupyterNotebook(filter: {fileRelativePath: {regex: "/notebook/"}}
+        allJupyterNotebook(filter: {fileRelativePath: {regex: "/biodynamo/notebooks/"}}
         sort: {order: ASC, fields: fileRelativePath}) {
             nodes {
                 fileRelativePath
