@@ -79,7 +79,7 @@ const Tutorials = ({ data, location }) => {
                                 <TutorialBox
                                     html={"/notebooks/" + edge.node.relativePath}
                                     title={edge.node.relativePath.split("_").join(" ")}
-                                    src={thumbnails[edge.node.relativePath] || '/images/bdm_logo_large.png'}
+                                    src={thumbnails[edge.node.relativePath] || '/images/default-demo-thumbnail.png'}
                                     binder={"https://mybinder.org/v2/gh/BioDynaMo/binder-demo/master?urlpath=lab/tree/demo/" + edge.node.relativePath}>
                                 </TutorialBox>
                             ))
