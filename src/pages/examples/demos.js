@@ -10,7 +10,7 @@ import { TutorialBox, JupyterTutorialBox } from '../../components/tutorials'
 import { TOC } from '../../components/common'
 
 const Tutorials = ({ data, location }) => {
-    const title = `Demos`
+    const title = `BioDynaMo Demos`
     const description = `This is the tutorials page.`
     const imageUrl = getMetaImageUrls()
 
@@ -57,9 +57,9 @@ const Tutorials = ({ data, location }) => {
 
                 <div className="bg-concepts">
                     <div className={`${Spirit.page.xl} pt12 pb4 pt-vw1-ns pb-vw1-ns white pl10 pl0-ns`}>
-                        <h1 className={`${Spirit.sectionHeading} gh-integration-header-shadow`}> <Link to="/tutorials/" className="link dim white">{title}</Link></h1>
+                        <h1 className={`${Spirit.sectionHeading} gh-integration-header-shadow`}> {title} </h1>
                         <p className={Spirit.sectionSubHeading}>
-                            This is a gallery of basic example <strong><Link to="/docs/userguide/notebook" className="link dim white">BioDynaMo Demos:</Link></strong>
+                            This is a gallery of <strong>BioDynaMo Demos:</strong>
                         </p>
                     </div>
                 </div>
@@ -89,7 +89,7 @@ const Tutorials = ({ data, location }) => {
                     {sideBarLayout.rightSidebar ?
                         <div className="order-3 w-sidebar flex-shrink-0 dn db-l pt10 pl7">
                             {/* {sideBarLayout.rightSidebar} */}
-                            <div className="f4 measure--0-2 middarkgrey ma0 mb2 pa0 fw4 nudge-bottom--2" style={{ position: 'sticky', top: '6vh' }}><h3>On this page</h3>
+                            <div className="f4 measure--0-2 middarkgrey ma0 mb2 pa0 fw4 nudge-bottom--2" style={{ position: 'sticky', top: '6vh' }}><h3 class="f4 measure--0-2 middarkgrey ma0 mb2 pa0 fw4 nudge-bottom--2">On this page</h3>
                                 <div class="toc-list-container mt2">
                                     <ol class="toc-list ">
                                         {data.compiled_folders.edges.map(edge => {

@@ -55,7 +55,7 @@ const Tutorials = ({ data, location }) => {
                     <div className={`${Spirit.page.xl} pt12 pb4 pt-vw1-ns pb-vw1-ns white pl10 pl0-ns`}>
                         <h1 className={`${Spirit.sectionHeading} gh-integration-header-shadow`}> <Link to="/tutorials/" className="link dim white">{title}</Link></h1>
                         <p className={Spirit.sectionSubHeading}>
-                            This is a gallery of basic example <strong><Link to="/docs/userguide/notebook" className="link dim white">BioDynaMo notebooks:</Link></strong>
+                            This is a list of <strong><Link to="/docs/userguide/notebook" className="link dim white">BioDynaMo notebooks:</Link></strong>
                         </p>
                     </div>
                 </div>
@@ -114,7 +114,7 @@ const Tutorials = ({ data, location }) => {
                     {sideBarLayout.rightSidebar ?
                         <div className="order-3 w-sidebar flex-shrink-0 dn db-l pt10 pl7">
                             {/* {sideBarLayout.rightSidebar} */}
-                            <div className="f4 measure--0-2 middarkgrey ma0 mb2 pa0 fw4 nudge-bottom--2" style={{ position: 'sticky', top: '6vh' }}><h3> On this page</h3>
+                            <div className="f4 measure--0-2 middarkgrey ma0 mb2 pa0 fw4 nudge-bottom--2" style={{ position: 'sticky', top: '6vh' }}><h3 class="f4 measure--0-2 middarkgrey ma0 mb2 pa0 fw4 nudge-bottom--2"> On this page</h3>
                                 <div className="toc-list-container mt2 ">
                                     <ol className="toc-list ">
                                         {data.allJupyterNotebook.nodes.map(node => {
