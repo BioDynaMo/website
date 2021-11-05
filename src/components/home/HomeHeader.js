@@ -42,11 +42,11 @@ const HomeHeader = () => (
                 </HomeHeaderBox>
 
                 <HomeHeaderBox
-                    to="/tutorials/"
-                    title="Tutorials"
+                    to="/examples/demos"
+                    title="Examples"
                     icon="typing"
                     color=""
-                > Browse tutorials and learn how to use BioDynaMo.
+                > Explore our demos and notebooks and learn how to use BioDynaMo.
                 </HomeHeaderBox>
 
             </section>
