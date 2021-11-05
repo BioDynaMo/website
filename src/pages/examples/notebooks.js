@@ -96,7 +96,7 @@ const Tutorials = ({ data, location }) => {
                                                         <div style={{ display: "flex", justifyContent: "center", }}>
                                                             <br />
                                                             <a style={{ boxShadow: 'none', }} href={html} target="_blank" > <button className={`${Spirit.greybutton}`}><b>View now</b></button></a>
-                                                            <br />
+                                                            <div style={{"margin-right": "5px", "margin-left": "5px"}} />
                                                             <a style={{ boxShadow: 'none', }} href={binder} target="_blank" > <button className={`${Spirit.greenbutton}`}><b>Run now</b></button></a>
                                                         </div>
 
