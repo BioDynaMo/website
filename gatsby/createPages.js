@@ -46,6 +46,8 @@ module.exports.createMarkdownPages = async ({ graphql, actions }) => {
     return Promise.all(queryPromises)
 }
 
+
+
 module.exports.createNewsIndexPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const queryPromises = []

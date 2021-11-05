@@ -49,4 +49,9 @@ RUN groupadd -g $HOST_GID testuser ; \
 
 USER testuser
 
-WORKDIR website
+# Install yarn packages
+WORKDIR /home/testuser
+COPY --chown=testuser package.json entry.sh yarn.loc[k] /home/testuser/
+RUN yarn
+
+WORKDIR /website

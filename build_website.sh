@@ -30,12 +30,6 @@ fi
 
 SCRIPT_PATH=$($READLINK -e $(dirname "${BASH_SOURCE[0]}"))
 
-# clear cache
-rm -rf .cache/ node_modules/ public/
-
-# Delete any existing generated API files
-rm -rf ${SCRIPT_PATH}/static/api
-
 # Copy Doxygen files (pre-generated when `make website` is called)
 if [ ! -z "${API+x}" ]; then
   # Check if the API files are generated
@@ -45,12 +39,15 @@ if [ ! -z "${API+x}" ]; then
   fi
 fi
 
+cp package.json docker
+cp yarn.lock docker || true
 pushd $SCRIPT_PATH/docker
 sudo docker build --network=host \
   --build-arg HOST_UID=$(id -u `whoami`) \
   --build-arg HOST_GID=$(id -g `whoami`) \
   -t bdm-website \
   .
+rm package.json yarn.lock || true
 popd
 
 cp ${SCRIPT_PATH}/.env.example ${SCRIPT_PATH}/.env.development
@@ -59,13 +56,7 @@ sudo docker stop mybdmweb || true
 sudo docker rm mybdmweb || true
 
 mkdir -p ${BDM_DIR}/build/website/static/notebooks/
-mkdir -p ${BDM_DIR}/build/website/static/images/notebooks/
-
-# Copy the generated html notebooks into the static folder
-for d in ${BDM_DIR}/build/notebooks/*  ; do
-  cp -v $d/*.html ${BDM_DIR}/build/website/static/notebooks/ || true
-  cp $d/thumbnail.png ${BDM_DIR}/build/website/static/images/notebooks/$(basename $d).png || true
-done 
+cp ${BDM_DIR}/build/notebook/*.html "${BDM_DIR}/build/website/static/notebooks/"
 
 # If we want to develop (in live mode)
 if [ ! -z "${DEVELOP+x}" ]; then
@@ -79,7 +70,9 @@ if [ ! -z "${DEVELOP+x}" ]; then
       -v ${SCRIPT_PATH}:/website \
       -v ${BDM_DIR}/build/doc/api:/website/static/api \
       -v ${BDM_DIR}/doc:/website/content/biodynamo/doc \
-      bdm-website bash -c 'yarn && gatsby develop'
+      -v ${BDM_DIR}/build/notebook:/website/content/biodynamo/notebooks \
+      -v ${BDM_DIR}/demo:/website/content/biodynamo/demo \
+      bdm-website bash -c '~/entry.sh && gatsby develop'
   else
     sudo docker run \
       -i \
@@ -88,7 +81,9 @@ if [ ! -z "${DEVELOP+x}" ]; then
       --name=mybdmweb \
       -v ${SCRIPT_PATH}:/website \
       -v ${BDM_DIR}/doc:/website/content/biodynamo/doc \
-      bdm-website bash -c 'yarn && gatsby develop'
+      -v ${BDM_DIR}/build/notebook:/website/content/biodynamo/notebooks \
+      -v ${BDM_DIR}/demo:/website/content/biodynamo/demo \
+      bdm-website bash -c '~/entry.sh && gatsby develop'
   fi
 else
   # If we want to just build the static files
@@ -100,7 +95,9 @@ else
     -v ${SCRIPT_PATH}:/website \
     -v ${BDM_DIR}/build/doc/api:/website/static/api \
     -v ${BDM_DIR}/doc:/website/content/biodynamo/doc \
-    bdm-website bash -c 'yarn && gatsby build'
+    -v ${BDM_DIR}/build/notebook:/website/content/biodynamo/notebooks \
+    -v ${BDM_DIR}/demo:/website/content/biodynamo/demo\
+    bdm-website bash -c '~/entry.sh && gatsby build'
 fi
 
 # Copy JSROOT into /public/static for the visualizations to work
@@ -108,7 +105,7 @@ cp -R $BDM_DIR/build/third_party/root/js/* ${BDM_DIR}/build/website/public/stati
 
 # Copy require.js to /public/static for visualizations to work
 mkdir -p ${BDM_DIR}/build/website/public/static/components/requirejs
-cp ${BDM_DIR}/build/website/node_modules/requirejs/require.js ${BDM_DIR}/build/website/public/static/components/requirejs/
+sudo docker cp mybdmweb:/website/node_modules/requirejs/require.js ${BDM_DIR}/build/website/public/static/components/requirejs/
 
 # Patch for ROOT 6.22/00 (https://github.com/root-project/root/commit/9ea9e129f20d3fcc3398bedbea989b7e8a14e69a)
 

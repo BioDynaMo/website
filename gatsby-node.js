@@ -3,11 +3,19 @@ const onCreateNode = require(`./gatsby/onCreateNode`)
 
 exports.createPages = ({ graphql, actions }) => Promise.all([
     createPages.createRedirects({ actions }),
+    
     createPages.createMarkdownPages({ graphql, actions }),
-    createPages.createNewsIndexPages({ graphql, actions })
+    createPages.createNewsIndexPages({ graphql, actions }),
+    
 ])
 
-exports.onCreateNode = async ({ node, getNode, actions }) => await onCreateNode.createMarkdownNodeFields(({ node, getNode, actions }))
+exports.onCreateNode = async ({ node, getNode, actions, loadNodeContent }) => {
+  await onCreateNode.createJupyterNoteBookNodes(({ node, getNode, actions, loadNodeContent }));
+  await onCreateNode.createMarkdownNodeFields(({ node, getNode, actions }));
+  
+ 
+}
+
 
 const express = require(`express`)
 
@@ -16,7 +24,7 @@ exports.onCreateDevServer = ({ app }) => {
   app.use(express.static(`public`))
 }
 
-exports.onCreateWebpackConfig = ({ actions }) => {
+exports.onCreateWebpackConfig = ({ actions, stage, plugins }) => {
   actions.setWebpackConfig({
     resolve: {
        alias: {
@@ -27,5 +35,12 @@ exports.onCreateWebpackConfig = ({ actions }) => {
        }
     }
   })
+  if (stage === 'build-javascript' || stage === 'develop') {
+    actions.setWebpackConfig({
+      plugins: [
+        plugins.provide({ process: 'process/browser' })
+      ]
+    })
+  }
 }
 

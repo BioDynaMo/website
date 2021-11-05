@@ -14,23 +14,30 @@ require(`dotenv`).config({
 
 const myAddedPlugin = (lunr) => (builder) => {
 
-  // removing stemmer
-  builder.pipeline.remove(lunr.stemmer)
-  builder.searchPipeline.remove(lunr.stemmer)
+    // removing stemmer
+    builder.pipeline.remove(lunr.stemmer)
+    builder.searchPipeline.remove(lunr.stemmer)
 
-  builder.metadataWhitelist = ['position']
-  // similarity tuning
-  builder.k1(0.75)
-  builder.b(0.5)
+    builder.metadataWhitelist = ['position']
+    // similarity tuning
+    builder.k1(0.75)
+    builder.b(0.5)
 }
 
- 
+
 const SERVICE_WORKER_KILL_SWITCH = (process.env.SERVICE_WORKER_KILL_SWITCH === `true`) || false
 
 const plugins = [
     /**
      *  Content Plugins
      */
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+            path: path.join(__dirname,`content`, `biodynamo`, `demo`),
+            name: `compiled_notebooks`,
+        },
+    },
     {
         resolve: `gatsby-plugin-google-gtag`,
         options: {
@@ -70,14 +77,6 @@ const plugins = [
             name: `public`,
         },
     },
-    {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-            path: path.join(__dirname, `static`, `notebooks`),
-            name: `notebooks`,
-        },
-    },
-
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
@@ -195,49 +194,49 @@ const plugins = [
      *  Search Plugin
      */
     {
-            resolve: `gatsby-plugin-lunr`,
-            options: {
-                languages: [
-                    {
-                        // ISO 639-1 language codes. See https://lunrjs.com/guides/language_support.html for details
-                        name: 'en',
-                        // A function for filtering nodes. () => true by default
-                        // filterNodes: node => node.frontmatter.lang === 'en',
-                        // Add to index custom entries, that are not actually extracted from gatsby nodes
-                        // customEntries: [{ title: 'Pictures', content: 'awesome pictures', url: '/pictures' }],
-                        filterNodes: (node) => !isNil(node.frontmatter),
-                        plugins: [myAddedPlugin]
-                    }
-                ],
-                // Fields to index. If store === true value will be stored in index file.
-                // Attributes for custom indexing logic. See https://lunrjs.com/docs/lunr.Builder.html for details
-                fields: [
-                    { name: 'title', store: true, attributes: { boost: 20 } },
-                    { name: 'content', store: true },
-                    { name: 'path', store: true },
-                    { name: 'sidebar', store: true },
-                    { name: 'headings' },
-                ],
-                // How to resolve each field's value for a supported node type
-                resolvers: {
-                    // For any node of type MarkdownRemark, list how to resolve the fields' values
-                    MarkdownRemark: {
-                        title: node => node.frontmatter.title,
-                        description: node => node.frontmatter.meta_description,
-                        content: node => node.rawMarkdownBody,
-                        path: node => node.fields.slug,
-                        sidebar: node => node.frontmatter.sidebar,
-                        headings: node => node.headings,
-                    },
+        resolve: `gatsby-plugin-lunr`,
+        options: {
+            languages: [
+                {
+                    // ISO 639-1 language codes. See https://lunrjs.com/guides/language_support.html for details
+                    name: 'en',
+                    // A function for filtering nodes. () => true by default
+                    // filterNodes: node => node.frontmatter.lang === 'en',
+                    // Add to index custom entries, that are not actually extracted from gatsby nodes
+                    // customEntries: [{ title: 'Pictures', content: 'awesome pictures', url: '/pictures' }],
+                    filterNodes: (node) => !isNil(node.frontmatter),
+                    plugins: [myAddedPlugin]
+                }
+            ],
+            // Fields to index. If store === true value will be stored in index file.
+            // Attributes for custom indexing logic. See https://lunrjs.com/docs/lunr.Builder.html for details
+            fields: [
+                { name: 'title', store: true, attributes: { boost: 20 } },
+                { name: 'content', store: true },
+                { name: 'path', store: true },
+                { name: 'sidebar', store: true },
+                { name: 'headings' },
+            ],
+            // How to resolve each field's value for a supported node type
+            resolvers: {
+                // For any node of type MarkdownRemark, list how to resolve the fields' values
+                MarkdownRemark: {
+                    title: node => node.frontmatter.title,
+                    description: node => node.frontmatter.meta_description,
+                    content: node => node.rawMarkdownBody,
+                    path: node => node.fields.slug,
+                    sidebar: node => node.frontmatter.sidebar,
+                    headings: node => node.headings,
                 },
-                //custom index file name, default is search_index.json
-                filename: 'search_index.json',
-                //custom options on fetch api call for search_ındex.json
-                // fetchOptions: {
-                //     credentials: 'same-origin'
-                // },
             },
+            //custom index file name, default is search_index.json
+            filename: 'search_index.json',
+            //custom options on fetch api call for search_ındex.json
+            // fetchOptions: {
+            //     credentials: 'same-origin'
+            // },
         },
+    },
 ]
 
 
@@ -253,11 +252,11 @@ if (SERVICE_WORKER_KILL_SWITCH) {
 module.exports = {
     siteMetadata: {
         title: `BioDynaMo Website`,
-        siteUrl: process.env.SITE_URL || `/`,
+        siteUrl: process.env.SITE_URL || `http://localhost:8000/`,
         description: `Everything you need to know about agent-based simulations.`,
     },
     plugins: plugins,
     flags: {
-      DEV_SSR: false
+        DEV_SSR: false
     }
 }

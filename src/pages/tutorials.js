@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { Layout } from '../components/common/layout'
 import { Spirit } from '../styles/spirit-styles'
 import { MetaData, getMetaImageUrls } from '../components/common/meta'
-import { TutorialBox } from '../components/tutorials'
+import { TutorialBox, JupyterTutorialBox } from '../components/tutorials'
 
 const Tutorials = ({ data, location }) => {
     const title = `Tutorials`
@@ -26,9 +26,9 @@ const Tutorials = ({ data, location }) => {
 
 			    <div className="bg-concepts">
 			        <div className={`${Spirit.page.xl} pt12 pb4 pt-vw1-ns pb-vw1-ns white pl10 pl0-ns`}>
-                    <h1 className={`${Spirit.sectionHeading} gh-integration-header-shadow`}> <Link to="/tutorials/" className="link dim white">{title}</Link></h1>              
+                    <h1 className={`${Spirit.sectionHeading} gh-integration-header-shadow`}> {title} </h1>              
                         <p className={Spirit.sectionSubHeading}>
-                    This is a gallery of basic example <strong><Link to="/docs/userguide/notebook" className="link dim white">BioDynaMo notebooks:</Link></strong> click on the images to inspect the underlying document.
+                    This is a gallery of example <strong><Link to="/docs/userguide/notebook" className="link dim white">BioDynaMo notebooks:</Link></strong> click on the images to inspect the underlying document.
                         </p>
 			        </div>
 			    </div>
@@ -45,6 +45,16 @@ const Tutorials = ({ data, location }) => {
                                 src={"/images/notebooks/"+edge.node.name+".png"}
                                 binder={"https://mybinder.org/v2/gh/BioDynaMo/binder-demo/dockerfile?filepath=%2F"+edge.node.name+"%2F"+edge.node.name+".ipynb"}>
 			                    </TutorialBox>
+			                ))
+			            }
+                        {
+			                data.jupyter_notebooks.edges.map(edge => (
+                                <JupyterTutorialBox 
+                                html={"/jupyter/"+edge.node.relativePath}
+                                title={edge.node.name.charAt(0).toUpperCase()+edge.node.name.slice(1).replace("-", " ")} 
+                                src={edge.node.absolutePath}
+                                binder={"https://mybinder.org/v2/gh/BioDynaMo/binder-demo/dockerfile?filepath=%2F"+edge.node.name+"%2F"+edge.node.name+".ipynb"}>
+			                    </JupyterTutorialBox>
 			                ))
 			            }
 			        </section>
@@ -83,8 +93,21 @@ export const tutorialsQuery = graphql`
                 node {
                     name
                     relativePath
+                    absolutePath
                 }
             }
+
         }
+        jupyter_notebooks: allFile(
+            filter: {sourceInstanceName: {eq: "jupyter"}, extension: {eq:"ipynb"}}
+          ) {
+            edges {
+              node {
+                name
+                relativePath
+                absolutePath
+              }
+            }
+          }
     }
 `

@@ -1,0 +1,7 @@
+- groups:
+  - group: Examples
+    items:
+      - title: Demos
+        link: /examples/demos
+      - title: Notebooks
+        link: /examples/notebooks
