@@ -101,7 +101,7 @@ const Tutorials = ({ data, location }) => {
                                                         </div>
 
                                                     </div>
-                                                    <hr style={{ borderTop: "8px solid #bbb", }} />
+                                                    <hr style={{ "margin-top": "3.2rem", }} />
 
                                                 </>
                                             )
