@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Use greadlink on macOS
+if [[ $(uname -s) = "Darwin"* ]]; then
+  READLINK="greadlink"
+else
+  READLINK="readlink"
+fi
+
 SCRIPT_PATH=$($READLINK -e $(dirname "${BASH_SOURCE[0]}"))
 
 cd "$SCRIPT_PATH"
