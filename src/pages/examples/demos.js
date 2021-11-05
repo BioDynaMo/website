@@ -16,6 +16,7 @@ const Tutorials = ({ data, location }) => {
 
 
     // console.log(data)
+    location.pathname = location.pathname.replace(/\/$/, "")
     const thumbnails = data.thumbnails.edges.reduce((acc, edge) => 
         {return ({ ...acc, [edge.node.relativeDirectory]: edge.node.childImageSharp.fluid.originalImg }) }, {})
     const sideBarLayout = {}

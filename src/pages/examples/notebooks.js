@@ -14,8 +14,8 @@ const Tutorials = ({ data, location }) => {
     const title = `Notebooks`
     const description = `This is the tutorials page.`
     const imageUrl = getMetaImageUrls()
-    console.log(data);
     const sideBarLayout = {}
+    location.pathname = location.pathname.replace(/\/$/, "")
 
     const sidebar = 'tutorial'
     const toc = true
