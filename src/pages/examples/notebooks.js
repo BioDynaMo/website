@@ -197,7 +197,6 @@ export const tutorialsQuery = graphql`
                       name
                     }
                     language_info {
-                      codemirror_mode
                       file_extension
                       mimetype
                       name
