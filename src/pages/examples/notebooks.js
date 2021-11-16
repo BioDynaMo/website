@@ -80,7 +80,7 @@ const Tutorials = ({ data, location }) => {
                                             let json = node.json;
                                             let title = name.charAt(0).toUpperCase() + name.slice(1).replace("-", " ")
                                             let html = "/" + staticPath.replace(".ipynb", ".html")
-                                            let binder = "https://mybinder.org/v2/gh/BioDynaMo/binder-demo/master?filepath=notebook/notebook/" + name
+                                            let gitpod_link = "https://gitpod.io/#BDM_TRY_NOTEBOOK="+name+"/https://github.com/LukasBreitwieser/gitpod-vnc"
                                             const cleaned_first_cell = json['cells'][0]['source'].reduce((acc, text) => acc + text.replace("#", "")).replace("#", "").split("**");
                                             let notebookTitle = cleaned_first_cell[0].trim();
                                             let Author = cleaned_first_cell[1].trim();
@@ -95,9 +95,9 @@ const Tutorials = ({ data, location }) => {
                                                         <p style={{marginTop: 0}} dangerouslySetInnerHTML={{ __html: text }}></p>
                                                         <div style={{ display: "flex", justifyContent: "center", }}>
                                                             <br />
-                                                            <a style={{ boxShadow: 'none', }} href={html} target="_blank" > <button className={`${Spirit.greybutton}`}><b>View now</b></button></a>
+                                                            <a style={{ boxShadow: 'none', }} href={html} target="_blank" > <button className={`${Spirit.greybutton}`}><b>View</b></button></a>
                                                             <div style={{"margin-right": "5px", "margin-left": "5px"}} />
-                                                            <a style={{ boxShadow: 'none', }} href={binder} target="_blank" > <button className={`${Spirit.greenbutton}`}><b>Run now</b></button></a>
+                                                            <a style={{ boxShadow: 'none', }} href={gitpod_link} target="_blank" > <button className={`${Spirit.greenbutton}`}><b>Try</b></button></a>
                                                         </div>
 
                                                     </div>

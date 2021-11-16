@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Box } from '../common'
 import { Spirit } from '../../styles/spirit-styles'
-const TutorialBox = ({ src, to, href, headingClass, title, children, binder, html }) => (
+const TutorialBox = ({ src, to, href, headingClass, title, children, link, html }) => (
     <Box
         to={to}
         href={href}
@@ -20,7 +20,7 @@ const TutorialBox = ({ src, to, href, headingClass, title, children, binder, htm
         <div className={`${Spirit.p} mt2 midgrey`}>{children}</div>
         <div style={{margin: "0 0 0 0"}} align='center'>
             {/* <a href={html} target="_blank" > <button className={`${Spirit.greybutton}`}><b>View now</b></button></a> */}
-            <a  href={binder} target="_blank" > <button className={`${Spirit.greenbutton}`}><b>View in Jupyter Lab</b></button></a>
+            <a  href={link} target="_blank" > <button className={`${Spirit.greenbutton}`}><b>Try</b></button></a>
       </div>
     </Box>
 )
@@ -28,7 +28,7 @@ const TutorialBox = ({ src, to, href, headingClass, title, children, binder, htm
 TutorialBox.propTypes = {
     children: PropTypes.node,
     title: PropTypes.string.isRequired,
-    binder: PropTypes.string,
+    link: PropTypes.string,
     to: PropTypes.string,
     href: PropTypes.string,
 }
