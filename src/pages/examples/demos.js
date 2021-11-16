@@ -81,7 +81,7 @@ const Tutorials = ({ data, location }) => {
                                     html={"/notebooks/" + edge.node.relativePath}
                                     title={edge.node.relativePath.split("_").join(" ")}
                                     src={thumbnails[edge.node.relativePath] || '/images/default-demo-thumbnail.png'}
-                                    binder={"https://mybinder.org/v2/gh/BioDynaMo/binder-demo/master?urlpath=lab/tree/demo/" + edge.node.relativePath}>
+                                    link={"https://gitpod.io/#BDM_TRY_DEMO=" + edge.node.relativePath + "/https://github.com/LukasBreitwieser/gitpod-vnc"}>
                                 </TutorialBox>
                             ))
                         }
