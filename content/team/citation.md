@@ -14,7 +14,7 @@ Lukas Breitwieser et al. **BioDynaMo: a modular platform for high-performance ag
 We recommend specifying the exact BioDynaMo version used in the methods section. 
 For example: 
 
-We use BioDynaMo v1.01.86-6e7b5441 (Breitwieser el al., 2021) for all simulations in this article. 
+We use BioDynaMo v1.01.115-e1088d4a (Breitwieser el al., 2021) for all simulations in this article.
 
 The version can be obtained by executing `biodynamo --version` and can be interpreted as follows: `vMAJOR.MINOR.PATCH-SHA` 
 `SHA` is the git commit hash that can be used to check out the exact BioDynaMo version in our [git repository](https://github.com/BioDynaMo/biodynamo) with `git checkout SHA`.
