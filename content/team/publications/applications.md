@@ -11,7 +11,7 @@ sidebar: "team"
 
 ## 2021
 
-* Jean de Montigny. **An in silico hybrid continuum-/agent-based procedure to modelling cancer development: Interrogating the interplay amongst glioma invasion, vascularity and necrosis.** In: Methods 185, 2021. DOI: [10.1016/j.ymeth.2020.01.006](https://doi.org/10.1016/j.ymeth.2020.01.006).
+* Jean de Montigny et al. **An in silico hybrid continuum-/agent-based procedure to modelling cancer development: Interrogating the interplay amongst glioma invasion, vascularity and necrosis.** In: Methods 185, 2021. DOI: [10.1016/j.ymeth.2020.01.006](https://doi.org/10.1016/j.ymeth.2020.01.006).
 
 ## 2017
 
