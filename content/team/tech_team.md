@@ -8,20 +8,8 @@ sidebar: "team"
 ---
 
 <div class="teamdiv">
-    <img src="/images/team/doruk-arslan.jpg" alt="" >
-    <h3>Dorukhan Arslan</h3>
-    <p></p>
-</div>
-
-<div class="teamdiv">
     <img src="/images/team/lukas-breitwieser.jpg" alt="" >
     <h3>Lukas Breitwieser</h3>
-    <p></p>
-</div>
-
-<div class="teamdiv">
-    <img src="/images/team/nicolo-cogno.jpg" alt="" >
-    <h3>Nicolo Cogno</h3>
     <p></p>
 </div>
 
@@ -40,12 +28,6 @@ sidebar: "team"
 <div class="teamdiv">
     <img src="/images/team/jack-jennings.jpeg" alt="" >
     <h3>Jack Jennings</h3>
-    <p></p>
-</div>
-
-<div class="teamdiv">
-    <img src="/images/team/jdm.png" alt="" >
-    <h3>Jean de Montigny</h3>
     <p></p>
 </div>
 

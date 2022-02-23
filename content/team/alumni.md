@@ -12,8 +12,20 @@ keywords:
 ---
 
 <div class="teamdiv">
+    <img src="/images/team/doruk-arslan.jpg" alt="" >
+    <h3>Dorukhan Arslan</h3>
+    <p></p>
+</div>
+
+<div class="teamdiv">
     <img src="/images/team/berina-bandic.jpg" alt="" >
     <h3>Berina Bandic</h3>
+    <p></p>
+</div>
+
+<div class="teamdiv">
+    <img src="/images/team/nicolo-cogno.jpg" alt="" >
+    <h3>Nicolo Cogno</h3>
     <p></p>
 </div>
 
@@ -32,6 +44,12 @@ keywords:
 <div class="teamdiv">
     <img src="/images/team/placeholder.png" alt="" >
     <h3>Martin Litre</h3>
+    <p></p>
+</div>
+
+<div class="teamdiv">
+    <img src="/images/team/jdm.png" alt="" >
+    <h3>Jean de Montigny</h3>
     <p></p>
 </div>
 

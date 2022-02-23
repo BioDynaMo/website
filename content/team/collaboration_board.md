@@ -15,18 +15,21 @@ keywords:
     <img src="/images/team/roman-bauer.jpg" alt="" >
     <h3>Roman Bauer</h3>
     <p>Spokesperson and representative of the University of Surrey</p>
+    <p></p>
+</div>
+
+<div class="teamdiv">
+    <img src="/images/team/kuti-baruch.jpg" alt="" >
+    <h3>Kuti Baruch</h3>
+    <p>Representative of Immunobrain Checkpoint</p>
+    <p></p>
 </div>
 
 <div class="teamdiv">
     <img src="/images/team/marco-durante.jpg" alt="" >
     <h3>Marco Durante</h3>
     <p>Representative of the GSI Helmholtz Center</p>
-</div>
-
-<div class="teamdiv">
-    <img src="/images/team/marcus-kaiser.jpg" alt="" >
-    <h3>Marcus Kaiser</h3>
-    <p>Representative of Newcastle University</p>
+    <p></p>
 </div>
 
 <div class="teamdiv">
@@ -40,13 +43,6 @@ keywords:
     <img src="/images/team/marco-manca.jpg" alt="" >
     <h3>Marco Manca</h3>
     <p>Representative of the SCImPULSE Foundation</p>
-    <p></p>
-</div>
-
-<div class="teamdiv">
-    <img src="/images/team/omri-matalon.jpg" alt="" >
-    <h3>Omri Matalon</h3>
-    <p>Representative of Immunobrain Checkpoint</p>
     <p></p>
 </div>
 
