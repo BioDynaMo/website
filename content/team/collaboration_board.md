@@ -47,8 +47,8 @@ keywords:
 </div>
 
 <div class="teamdiv">
-    <img src="/images/team/alberto-di-meglio.jpg" alt="" >
-    <h3>Alberto di Meglio</h3>
+    <img src="/images/team/alessandro-raimondo.jpg" alt="" >
+    <h3>Alessandro Raimondo</h3>
     <p>Representative of CERN</p>
     <p></p>
 </div>
