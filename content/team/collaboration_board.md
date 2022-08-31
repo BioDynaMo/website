@@ -66,3 +66,10 @@ keywords:
     <p>Representative of the University of Cyprus</p>
     <p></p>
 </div>
+
+<div class="teamdiv">
+    <img src="/images/team/paolo-zuliani.jpg" alt="" >
+    <h3>Paolo Zuliani</h3>
+    <p>Representative of the University of Newcastle</p>
+    <p></p>
+</div>

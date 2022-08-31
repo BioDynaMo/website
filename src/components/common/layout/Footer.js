@@ -12,6 +12,7 @@ const Footer = () => (
             <div className='consortium-footer-wrapper'>
                 <a className='consortium-logo cern-logo ' href="https://home.cern/" target="_blank"><img src="/images/consortium_logos/cern.png"/></a>
                 <a className='consortium-logo' href="https://openlab.cern/" target="_blank"><img src="/images/consortium_logos/cern-openlab.png"/></a>
+                <a className='consortium-logo' href="https://www.ncl.ac.uk/" target="_blank"><img src="/images/consortium_logos/newcastle.png"/></a>
                 <a className='consortium-logo' href="https://www.surrey.ac.uk/" target="_blank"><img src="/images/consortium_logos/surrey.jpg"/></a>
                 <a className='consortium-logo' href="https://www.unige.ch/medecine/isg/en/" target="_blank"><img src="/images/consortium_logos/unige-igh.jpg"/></a>
                 <a className='consortium-logo' href="https://www.cbs.nl/en-gb" target="_blank"><img src="/images/consortium_logos/cbs.jpg"/></a>
