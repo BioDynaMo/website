@@ -33,8 +33,8 @@ RUN apt update && apt install -y \
   yarn
 
 RUN npm install -g n
-# RUN n 14.15.0
-RUN npm install -g gatsby-cli react-bootstrap bootstrap
+RUN n 14.15.0
+RUN npm install -g gatsby-cli@4.24.0 react-bootstrap bootstrap
 
 # update user id and group id such that mapped volumes can be accessed with the
 # same rights as on the host. Files created by the container can also be
