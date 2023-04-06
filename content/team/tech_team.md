@@ -8,6 +8,18 @@ sidebar: "team"
 ---
 
 <div class="teamdiv">
+    <img src="/images/team/vasileios-vavourakis.jpg" alt="" >
+    <h3>Vasileios Vavourakis</h3>
+    <p></p>
+</div>
+
+<div class="teamdiv">
+    <img src="/images/team/nicolo-cogno.jpg" alt="" >
+    <h3>Nicolò Cogno</h3>
+    <p></p>
+</div>
+
+<div class="teamdiv">
     <img src="/images/team/lukas-breitwieser.jpg" alt="" >
     <h3>Lukas Breitwieser</h3>
     <p></p>
@@ -34,5 +46,16 @@ sidebar: "team"
 <div class="teamdiv">
     <img src="/images/team/fons-rademakers.jpg" alt="" >
     <h3>Fons Rademakers</h3>
+    <p></p>
+</div>
+
+<div class="teamdiv">
+    <img src="/images/team/Umar-Abubacar.jpg" alt="" >
+    <h3>Umar Abubacar</h3>
+    <p></p>
+</div>
+
+<div class="teamdiv">
+    <h3>Ryan Bournes</h3>
     <p></p>
 </div>
