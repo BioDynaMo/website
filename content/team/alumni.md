@@ -24,12 +24,6 @@ keywords:
 </div>
 
 <div class="teamdiv">
-    <img src="/images/team/nicolo-cogno.jpg" alt="" >
-    <h3>Nicolo Cogno</h3>
-    <p></p>
-</div>
-
-<div class="teamdiv">
     <img src="/images/team/robert-harakaly.jpg" alt="" >
     <h3>Robert Harakaly</h3>
     <p></p>
