@@ -20,13 +20,13 @@ class Carousel extends React.Component {
     return (
       <Slider {...settings}>
         <div style="text-align:center">
-          <iframe width="100%" height="473" src="https://www.youtube.com/embed/MA74wZbhO7w" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          <iframe width="100%" height="473" src="https://www.youtube.com/embed/Uygv5J1Sr5U" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </div>
         <div style="text-align:center">
-          <iframe width="100%" height="473" src="https://www.youtube.com/embed/jlOk_Y3SUHo" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          <iframe width="100%" height="473" src="https://www.youtube.com/embed/CvpJZ5Ge5z4" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </div>
         <div style="text-align:center">
-          <iframe width="100%" height="473" src="https://www.youtube.com/embed/Q9UkpLuLnkU" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          <iframe width="100%" height="473" src="https://www.youtube.com/embed/KN0k11zoBUU" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </div>
       </Slider>
     );
