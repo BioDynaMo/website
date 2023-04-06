@@ -2,7 +2,7 @@
 title: "Consortium"
 date: "2019-11-11"
 path: "/team/consortium/"
-meta_title: "BioDynaMo Consortium"
+meta_title: "BioDynaMo Collaboration Board"
 toc: true
 sidebar: "team"
 keywords:
@@ -15,13 +15,6 @@ keywords:
     <img src="/images/team/roman-bauer.jpg" alt="" >
     <h3>Roman Bauer</h3>
     <p>Spokesperson and representative of the University of Surrey</p>
-    <p></p>
-</div>
-
-<div class="teamdiv">
-    <img src="/images/team/kuti-baruch.jpg" alt="" >
-    <h3>Kuti Baruch</h3>
-    <p>Representative of Immunobrain Checkpoint</p>
     <p></p>
 </div>
 
@@ -42,7 +35,7 @@ keywords:
 <div class="teamdiv">
     <img src="/images/team/marco-manca.jpg" alt="" >
     <h3>Marco Manca</h3>
-    <p>Representative of the SCImPULSE Foundation</p>
+    <p>Representative of SCImPULSE Foundation</p>
     <p></p>
 </div>
 
@@ -54,16 +47,9 @@ keywords:
 </div>
 
 <div class="teamdiv">
-    <img src="/images/team/fons-rademakers.jpg" alt="" >
-    <h3>Fons Rademakers</h3>
-    <p>Technical Committee Chair (CERN)</p>
-    <p></p>
-</div>
-
-<div class="teamdiv">
     <img src="/images/team/vasileios-vavourakis.jpg" alt="" >
     <h3>Vasileios Vavourakis</h3>
-    <p>Representative of the University of Cyprus</p>
+    <p>Technical Committee Chair and representative of the University of Cyprus</p>
     <p></p>
 </div>
 
