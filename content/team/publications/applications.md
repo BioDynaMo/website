@@ -7,6 +7,10 @@ toc: true
 sidebar: "team"
 ---
 
+## 2023
+
+* de Montigny J et al. **Retinal self-organization: a model of retinal ganglion cells and starburst amacrine cells mosaic formation.** In: Open Biol. 2023 Apr;13(4):220217. DOI: [10.1098/rsob.220217] (https://doi.org/10.1098/rsob.220217).
+
 
 ## 2022
 
