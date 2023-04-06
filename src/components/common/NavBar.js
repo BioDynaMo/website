@@ -38,11 +38,9 @@ const NavBar = ({ theme }) => {
             {/* Create nav bar links and choose their names */}
                     <a href="/examples/demos" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Examples</a>
                     <a href="/documentation/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Documentation</a>
-                    <Link to="/gallery/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l nl3`}>Gallery</Link>
                     <a href="/docs/userguide/hello_world/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Getting Started</a>
-                    <a href="http://forum.biodynamo.org/" target="_blank" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Forum</a>
-                    <a href="/blog/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Blogs</a>
-                    <a href="/team/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>About Us</a>
+                    <a href="https://blog.biodynamo.org/" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>Blogs</a>
+                    <a href="https://www.biodynamo.org/about-us" className={`${themeClasses[theme].menuItem} nowrap f8 pa3 mr1 mr3-l`}>About Us</a>
                 </div>
             </div>
             <div className="relative pl3">
