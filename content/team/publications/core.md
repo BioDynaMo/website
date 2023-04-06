@@ -7,6 +7,10 @@ toc: true
 sidebar: "team"
 ---
 
+## 2023
+
+* Breitwieser L et al. **High-Performance and Scalable Agent-Based Simulation with BioDynaMo.** In: Proceedings of the 28th ACM SIGPLAN Annual Symposium on Principles and Practice of Parallel Programming (PPoPP '23). Association for Computing Machinery, New York, NY, USA, 174–188. DOI [10.1145/3572848.3577480] (https://doi.org/10.1145/3572848.3577480).
+
 ## 2021
 
 * Lukas Breitwieser et al. **BioDynaMo: a modular platform for high-performance agent-based simulation.** In: Bioinformatics, 2021. DOI: [10.1093/bioinformatics/btab649](https://doi.org/10.1093/bioinformatics/btab649).
