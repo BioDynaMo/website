@@ -80,7 +80,7 @@ const Tutorials = ({ data, location }) => {
                                             let json = node.json;
                                             let title = name.charAt(0).toUpperCase() + name.slice(1).replace("-", " ")
                                             let html = "/" + staticPath.replace(".ipynb", ".html")
-                                            let gitpod_link = "https://gitpod.io/#BDM_TRY_NOTEBOOK="+name+"/https://github.com/LukasBreitwieser/gitpod-vnc"
+                                            let gitpod_link = "https://codespaces.new/BioDynaMo/biodynamoOnline"
                                             const cleaned_first_cell = json['cells'][0]['source'].reduce((acc, text) => acc + text.replace("#", "")).replace("#", "").split("**");
                                             let notebookTitle = cleaned_first_cell[0].trim();
                                             let Author = cleaned_first_cell[1].trim();
