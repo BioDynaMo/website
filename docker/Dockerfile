@@ -12,29 +12,30 @@
 #
 # -----------------------------------------------------------------------------
 
-FROM ubuntu:20.04
+# Keep the application's existing Node version without the obsolete NodeSource
+# apt repository. This stage supplies binaries only; no Debian packages run.
+FROM node:14.15.0-buster AS node-runtime
+
+FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt update && apt install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
   sudo \
   git \
   build-essential \
   curl \
-  software-properties-common \
-  apt-transport-https
+  ca-certificates \
+  python3 \
+  libx11-6 \
+  libxext6 \
+  libxi6 \
+  libgl1 \
+  && rm -rf /var/lib/apt/lists/*
 
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash
-
-RUN apt update && apt install -y \
-  nodejs \
-  yarn
-
-RUN npm install -g n
-RUN n 14.15.0
-RUN npm install -g gatsby-cli@4.24.0 react-bootstrap bootstrap
+# The official image includes npm in /usr/local and Yarn Classic in /opt.
+COPY --from=node-runtime /usr/local/ /usr/local/
+COPY --from=node-runtime /opt/ /opt/
 
 # update user id and group id such that mapped volumes can be accessed with the
 # same rights as on the host. Files created by the container can also be
@@ -52,6 +53,9 @@ USER testuser
 # Install yarn packages
 WORKDIR /home/testuser
 COPY --chown=testuser package.json entry.sh yarn.loc[k] /home/testuser/
-RUN yarn
+RUN yarn install --frozen-lockfile
+
+# build_website.sh invokes `gatsby` directly; use the project's own CLI version.
+ENV PATH="/home/testuser/node_modules/.bin:${PATH}"
 
 WORKDIR /website
